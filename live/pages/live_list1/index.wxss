@@ -1,0 +1,307 @@
+@import "../../../Wxss/0.wxss";
+
+.page {
+    display: block;
+    padding-bottom: 58px;
+    box-sizing: border-box;
+}
+
+.page--iPhone-X {
+    padding-bottom: 92px;
+}
+
+.search {
+    padding: 30rpx;
+    background: #fe4564;
+    position: sticky;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.search-box {
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    height: 70rpx;
+    border-radius: 30rpx;
+    color: #999999;
+}
+
+.search-box>.iconfontJiajia {
+    font-size: 50rpx;
+    padding: 0 4rpx 0 10rpx;
+}
+
+.search-box>input {
+    width: 85%;
+    font-size: 26rpx;
+    color: #333;
+}
+
+.lives-empty {
+    text-align: center;
+    margin-top: 100rpx;
+    color: #7d7e80;
+    margin: 0 auto;
+}
+
+.lives-loadend {
+    color: #7d7e80;
+    text-align: center;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    display: block;
+    width: 100%;
+}
+
+.empty {
+    margin: auto;
+}
+
+.empty-image {
+    width: 400rpx;
+    height: 400rpx;
+    display: block;
+    margin: 260rpx auto 60rpx;
+}
+
+.empty-message {
+    color: #000;
+    text-align: center;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.goods-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 700rpx;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.preview {
+    position: relative;
+    color: #fff;
+    font-size: 13px;
+    overflow: hidden;
+    width: 48.5%;
+    height: 310px;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+.endLine {
+    width: 100%;
+    padding: 13px;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+
+.single-live {
+    margin-top: 12px;
+}
+
+.index-bg {
+    width: 100%;
+    height: 400rpx;
+    position: relative;
+    padding-top: 12px;
+}
+
+.index-bg swiper {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.index-bg swiper swiper-item {
+    text-align: center;
+}
+
+.index-bg .slide-navigator {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.index-bg .slide-navigator .slide-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.index-bg .wx-swiper-dot {
+    width: 20rpx;
+    height: 5rpx;
+}
+
+.index-bg .wx-swiper-dots.wx-swiper-dots-horizontal {
+    margin-bottom: 5rpx;
+}
+
+.notification {
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+    margin: 0px 0px 6px 5px;
+    border-left: 1px solid #efefef;
+    padding-left: 10rpx;
+    color: #fd5454;
+}
+
+.entry-list {
+    position: relative;
+    box-sizing: border-box;
+    padding: 24rpx 0 20rpx 0;
+    overflow: hidden;
+}
+
+.entry-list .special {
+    display: flex;
+    height: 290rpx;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.entry-list .list .item {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    color: #666;
+    font-size: 22rpx;
+    overflow: hidden;
+    text-align: center;
+}
+
+.entry-list .list image {
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.entry-list .list .label {
+    margin-top: 12rpx;
+    font-size: 22rpx;
+    color: #1b1b1b;
+    width: 140rpx;
+    overflow: hidden;
+}
+
+#live-tab{
+    display: flex;
+    justify-content: space-around;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1rpx solid #E5E5E5;
+    background: #ffffff;
+}
+#live-tab>view{
+    min-width:120rpx ;
+    text-align: center;
+}
+#live-tab>view.active{
+    color: #FF4365;
+    position: relative;
+}
+
+#live-tab>view.active:after{
+    content: '';
+    position: absolute;
+    width:100rpx;
+    height:6rpx;
+    background:rgba(255,67,101,1);
+    border-radius:3rpx;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dealer-live{
+    padding: 20rpx;
+    background: #ffffff;
+    height: 100%;
+}
+
+.dealer-live .dealer-live-item{
+    width:699rpx;
+    height:170rpx;
+    border:1rpx solid rgba(153,153,153,1);
+    border-radius:18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    margin-bottom: 40rpx;
+}
+
+.dealer-live .dealer-live-item.active{
+    background:rgba(255,229,234,1);
+    border:1px solid rgba(255,67,101,1);
+}
+
+.dealer-live .dealer-live-item .dealer-live-icon{
+    width: 79rpx;
+    height: 78rpx;
+}
+
+.dealer-live .dealer-live-item .dealer-live-item-made{
+    padding-left: 30rpx;
+
+}
+.dealer-live .dealer-live-item .dealer-live-item-made .dealer-live-item-made-title{
+    font-size:30rpx;
+    font-family:PingFang SC;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    line-height:50rpx;
+    width: 400rpx;
+}
+
+.dealer-live .dealer-live-item .dealer-live-item-made .dealer-live-item-made-introduce{
+    font-size:24rpx;
+    font-family:PingFang SC;
+    font-weight:500;
+    color:rgba(153,153,153,1);
+    line-height:50rpx;
+}
+.dealer-live .dealer-live-item  .dealer-live-item-right{
+    text-align: right;
+}
+
+.dealer-live .dealer-live-item  .dealer-live-item-right .dealer-live-item-price{
+    font-size:48rpx;
+    font-family:PingFang SC;
+    font-weight:bold;
+    color:rgba(255,67,101,1);
+    line-height:50rpx;
+}
+.dealer-live .dealer-live-item  .dealer-live-item-right .dealer-live-item-preference{
+    font-size:22rpx;
+    font-family:PingFang SC;
+    font-weight:500;
+    color:rgba(255,67,101,1);
+    line-height:50rpx;
+}
+
+.dealer-live .dealer-btn{
+    width:698rpx;
+    height:100rpx;
+    background:rgba(255,67,101,1);
+    border-radius:50rpx;
+    font-size:30rpx;
+    font-family:PingFang SC;
+    font-weight:500;
+    color:rgba(255,255,255,1);
+    line-height:100rpx;
+    text-align: center;
+}

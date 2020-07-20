@@ -1,0 +1,55 @@
+<navbar parameter="{{parameter}}"></navbar>
+<van-dialog id="van-dialog"></van-dialog>
+<view class="deliver">
+    <view class="address block">
+        <van-icon color="#ff4466" name="location-o" size="20px"></van-icon>
+        <view class="detail">
+            <view class="user-info">
+                {{order.real_name}} {{order.user_phone}}
+            </view>
+            <view class="address-detail">
+                {{order.user_address}}
+            </view>
+        </view>
+    </view>
+    <view class="select-deliver block">
+        <view class="item">
+            <view class="label">
+                物流公司
+            </view>
+            <view class="right-box">
+                <view>
+                    <picker bindchange="bindExpressChange" mode="selector" range="{{express}}" rangeKey="name" value="{{express_index}}">
+                        <view class="tip" wx:if="{{!express[express_index]}}">请选择物流公司</view>
+                        <view class="picker" wx:else>
+                            {{express[express_index].name}}
+                        </view>
+                    </picker>
+                </view>
+                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+            </view>
+        </view>
+        <view class="item">
+            <view class="label">
+                物流单号
+            </view>
+            <view class="right-box">
+                <input bindinput="bindSetDeliveryId" class="input" placeholder="请输入物流单号" type="text" value="{{delivery_id}}"></input>
+            </view>
+        </view>
+    </view>
+    <view bindtap="scanDeliver" class="scan-box block">
+        <van-icon color="#ff4466" name="scan" size="16px"></van-icon>
+        <view class="text">
+            点击扫码发货
+        </view>
+    </view>
+    <view class="scan-tip">
+        如扫描结果不准确请手动选择快递公司
+    </view>
+</view>
+<view style="height: 200rpx"></view>
+<view class="footer-btn">
+    <button bindtap="submit" class="submit-btn">确定</button>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

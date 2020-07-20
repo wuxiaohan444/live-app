@@ -1,0 +1,38 @@
+<bottom-tabbar></bottom-tabbar>
+<navbar parameter="{{parameter}}"></navbar>
+<van-dialog id="van-dialog"></van-dialog>
+<view class="search" style="top:{{navH}}rpx">
+    <view class="search-box">
+        <view class="iconfontJiajia iconsearch"></view>
+        <input bindconfirm="searchRoom" confirmType="search" placeholder="请搜索主播"></input>
+    </view>
+</view>
+<view class="page page--{{deviceType}} goods-list">
+    <view class="index-bg" wx:if="{{banners.length>0}}">
+        <swiper autoplay="{{autoplay}}" circular="{{circular}}" duration="100" indicatorActiveColor="#fe6c9c" indicatorColor="rgba(255, 255, 255, 0.5)" indicatorDots="true" interval="{{interval}}" style="">
+            <swiper-item>
+                <navigator class="slide-navigator acea-row row-between-wrapper" hoverClass="none" url="{{item.wxappurl}}" wx:for="{{banners}}">
+                    <image class="slide-image" mode="aspectFill" src="{{item.pic}}"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <collect-tip></collect-tip>
+    <view class="single-live" wx:for="{{lives}}" wx:key="live_index">
+        <live-preview examineKeywords="{{examineKeywords}}" live="{{item}}" wx:if="{{index===0}}"></live-preview>
+        <single-live examineKeywords="{{examineKeywords}}" live="{{item}}" wx:else></single-live>
+    </view>
+    <!--<view class="lives-empty" wx:if="{{!loading&&lives.length==0}}">-->
+    <!--拉到底了哦-->
+  <!--</view>-->
+    <view class="lives-loadend" hidden="{{loadHidden}}">
+    {{loadTitle}}
+  </view>
+    <view class="loading" hidden="{{!loading}}">
+        <van-loading size="22px" type="spinner">加载中...</van-loading>
+    </view>
+</view>
+<!--<view id="examine-content" wx:else>-->
+    <!--<template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>-->
+<!--</view>-->
+<import src="/lib/wxParse/wxParse.wxml"></import>

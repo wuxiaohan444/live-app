@@ -1,0 +1,68 @@
+<navbar parameter="{{parameter}}"></navbar>
+<van-dialog id="van-dialog"></van-dialog>
+<view class="content my-order">
+    <view class="list">
+        <view class="item" wx:for="{{orderList}}">
+            <navigator class="store-info" hoverClass="none" url="/merch/pages/user/center/index?id={{group.store.id}}" wx:if="{{item.store}}">
+                <van-icon color="#969799" name="shop-o" size="22px"></van-icon>
+                {{item.store.name}}
+            </navigator>
+            <view bindtap="goOrderDetails" data-order_id="{{item.order_id}}">
+                <view class="title acea-row row-between-wrapper">
+                    <text class="sign cart-color acea-row row-between-wrapper" wx:if="{{item.bargain_id!=0}}">
+                        砍价
+                    </text>
+                    <text class="sign cart-color acea-row row-between-wrapper" wx:elif="{{item.combination_id!=0}}">拼团
+                    </text>
+                    <text class="sign cart-color acea-row row-between-wrapper" wx:elif="{{item.seckill_id!=0}}">秒杀
+                    </text>
+                    <view class="acea-row row-middle">{{item._add_time}}</view>
+                    <view class="font-color">{{item._status._title}}</view>
+                </view>
+                <view class="item-info acea-row row-top" wx:for="{{item.cartInfo}}">
+                    <view class="pictrue">
+                        <image src="{{item.productInfo.image}}"></image>
+                    </view>
+                    <view class="text acea-row name-box">
+                        <view class="name line2">{{item.productInfo.store_name}}</view>
+                        <view class="attr-info" wx:if="{{item.productInfo.attrInfo}}">
+                            规格: {{item.productInfo.attrInfo.suk}}
+                        </view>
+                    </view>
+                    <view class="text acea-row money-box">
+                        <view class="money">
+                            <view wx:if="{{item.productInfo.attrInfo}}">￥{{item.productInfo.attrInfo.price}}
+                            </view>
+                            <view wx:else>￥{{item.productInfo.price}}</view>
+                            <view>x{{item.cart_num}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="totalPrice">共{{item.cartInfo.length||0}}件商品，合计 <text class="money font-color">￥{{item.pay_price}}</text>
+                    <text class="postage" wx:if="{{item.pay_postage>0}}"> (含运费：￥{{item.pay_postage}})</text>
+                    <text class="postage" wx:else> (包邮)</text>
+                </view>
+            </view>
+            <view class="bottom acea-row row-right row-middle" wx:if="{{item._status._type==0}}">
+                <view bindtap="cancelOrderPop" class="bnt cancelBnt" data-index="{{index}}" data-order_id="{{item.order_id}}">取消订单
+                    </view>
+                <navigator class="bnt bg-color" hoverClass="none" url="/merch/pages/order/change_price/index?order_id={{item.order_id}}">修改价格
+                    </navigator>
+            </view>
+            <view class="bottom acea-row row-right row-middle" wx:if="{{item._status._type==1}}">
+                <navigator class="bnt bg-color" hoverClass="none" url="/merch/pages/order/deliver/index?order_id={{item.order_id}}">发货
+                    </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="order-empty" wx:if="{{!loading&&orderList.length==0}}">
+        暂无订单
+    </view>
+    <view class="order-loadend" wx:if="{{!loading&&orderList.length>=limit}}">
+        {{loadTitle}}
+    </view>
+    <view class="loading" hidden="{{!loading}}">
+        <van-loading size="22px" type="spinner">加载中...</van-loading>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun" iShidden="{{iShidden}}" isAuto="{{isAuto}}" isGoIndex="{{isGoIndex}}"></authorize>

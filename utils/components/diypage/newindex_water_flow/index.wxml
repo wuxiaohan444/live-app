@@ -1,0 +1,7 @@
+<view class="content">
+    <view class="main">
+        <navigator class="item" hoverClass="none" url="{{item.link}}" wx:for="{{page.items}}" wx:key="index">
+            <image class="item-img" mode="widthFix" src="{{item.image}}"></image>
+        </navigator>
+    </view>
+</view>

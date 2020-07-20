@@ -1,0 +1,2284 @@
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-column-sb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column-c {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex-row-center {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.flex-content-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.flex-column-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.flex-column-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flex-sb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-sa {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.flex-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-sb-start {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-center-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.flex-end-center {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.flex-end-sb {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.flex-end-start {
+    display: flex;
+    align-items: flex-end;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fit-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.float-right {
+    float: right;
+}
+
+.iphone-x {
+    padding-bottom: 100rpx;
+}
+
+.share-bg {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    z-index: 500;
+}
+
+.share-lists {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    height: 230rpx;
+    border-top-left-radius: 24rpx;
+    border-top-right-radius: 24rpx;
+}
+
+.share-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 200rpx;
+}
+
+.share-list:last-child {
+    margin-right: 0;
+}
+
+.share-list button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.share-list text {
+    margin-top: 13rpx;
+    line-height: 28rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+
+.share-logo image {
+    display: block;
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.share-line {
+    margin: 20rpx;
+    width: 280rpx;
+    height: 2rpx;
+    background: #eee;
+}
+
+.share-box {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: -1rpx;
+    z-index: 9999;
+}
+
+.share-box .close-btn {
+    height: 100rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn text {
+    font-size: 34rpx;
+    color: #000;
+}
+
+.img-bg {
+    left: 0;
+    top: 80rpx;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 220rpx;
+    position: fixed;
+    z-index: 9999;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.share-img {
+    height: 840rpx;
+    width: 460rpx;
+}
+
+.image {
+    position: relative;
+}
+
+.share-close {
+    margin-top: 30rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.share-save {
+    width: 106rpx;
+    height: 106rpx;
+}
+
+.share-text {
+    font-size: 22rpx;
+    color: #fff;
+}
+
+.save-btn {
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-manager {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 240;
+    position: fixed;
+}
+
+.popup-manager .mask {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(0,0,0,.8);
+}
+
+.popup-manager .popUp-img {
+    width: 494rpx;
+    height: 773rpx;
+    transform: scale(0);
+}
+
+.popup-manager .popUp-examine {
+    width: 560rpx;
+    height: 800rpx;
+    transform: scale(0);
+}
+
+.popup-manager .oldBoss {
+    width: 500rpx;
+    height: 660rpx;
+}
+
+.popup-manager .come-back-sign {
+    width: 548rpx;
+    height: 773rpx;
+    transform: scale(0);
+    background: url(https://cdn.webuy.ai/assets/file/09/21/n_1537511157343_4472.png) no-repeat center;
+    background-size: 100%;
+    position: relative;
+}
+
+.popup-manager .come-back-text {
+    font-size: 40rpx;
+    color: #e2c7ac;
+    letter-spacing: 0;
+    text-align: center;
+    position: absolute;
+    bottom: 151rpx;
+    left: 174rpx;
+}
+
+.popup-manager .close-popUpImg {
+    transform: scale(0);
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 70rpx;
+}
+
+.popup-manager .popUp-animation {
+    transition: all .5s ease!important;
+    transform: scale(1)!important;
+}
+
+.popup-manager .coupon-bg {
+    background: url(https://cdn.webuy.ai/assets/file/10/04/n_1538632544963_5850.png) no-repeat center;
+    background-size: cover;
+    height: 576rpx;
+    width: 494rpx;
+    transform: scale(0);
+    position: relative;
+}
+
+.popup-manager .coupon-bg.share {
+    background: url(https://cdn.webuy.ai/assets/file/10/04/n_1538632773605_4616.png) no-repeat center;
+    background-size: cover;
+}
+
+.popup-manager .c-user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 24rpx;
+}
+
+.popup-manager .giver-head {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+.popup-manager .giver-content {
+    margin-top: 4rpx;
+    font-weight: bolder;
+    font-size: 30rpx;
+    letter-spacing: 1.74rpx;
+}
+
+.popup-manager .giver-name {
+    font-weight: bolder;
+    display: block;
+    max-width: 130rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-left: 18rpx;
+    color: #e3c7ad;
+}
+
+.popup-manager .surprise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 241rpx;
+    height: 96rpx;
+    position: absolute;
+    bottom: 250rpx;
+    left: 192rpx;
+}
+
+.popup-manager .normal-title {
+    text-align: center;
+    margin-top: 580rpx;
+}
+
+.popup-manager .normal {
+    font-size: 42rpx;
+    color: #fff;
+    letter-spacing: 3.04rpx;
+}
+
+.popup-manager .newuse {
+    background: url(https://cdn.webuy.ai/assets/file/10/09/n_1539069347419_2365.png) no-repeat center;
+    background-size: cover;
+    width: 488rpx;
+    height: 595rpx;
+    position: relative;
+}
+
+.popup-manager .newuse.one {
+    background: url(https://cdn.webuy.ai/assets/file/10/09/n_1539069324646_1082.png) no-repeat center;
+    background-size: cover;
+    width: 488rpx;
+    height: 475rpx;
+}
+
+.popup-manager .usetitle {
+    font-size: 62rpx;
+    color: #daa884;
+    z-index: 2;
+    margin-top: 45rpx;
+    text-align: center;
+    margin-bottom: 8rpx;
+}
+
+.popup-manager .getmoney {
+    font-size: 36rpx;
+    color: #daa884;
+    text-align: center;
+}
+
+.popup-manager .coupon-popup-contain {
+    margin-top: 100rpx;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 461rpx;
+}
+
+.popup-manager .coupon-popup-contain .margin {
+    padding-bottom: 80rpx;
+}
+
+.popup-manager .use-btn {
+    width: 502rpx;
+    height: 186rpx;
+    position: absolute;
+    bottom: 0;
+    left: -8rpx;
+}
+
+.popup-manager .one .coupon-popup-contain {
+    margin-top: 138rpx;
+}
+
+.popup-manager .coupon--coupon-bg {
+    margin-top: 20rpx;
+}
+
+.popup-manager .coupon {
+    width: 338rpx;
+    height: 120rpx;
+    background: #d5a27d;
+    display: inline-flex;
+    flex-direction: row;
+    border-radius: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.popup-manager .left {
+    color: #fff;
+    font-size: 70rpx;
+    width: 50%;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-manager .right {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.popup-manager .right .quan {
+    color: #fff;
+    font-size: 28rpx;
+}
+
+.popup-manager .right .couponnum {
+    font-size: 24rpx;
+    color: #fff;
+}
+
+.popup-manager .newuse-group .user-info {
+    position: absolute;
+    top: 42rpx;
+    left: 56rpx;
+    display: flex;
+}
+
+.popup-manager .newuse-group .user-info .info-pic {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.popup-manager .newuse-group .user-info .info-pic .header-img {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.popup-manager .newuse-group .user-info .info-detail {
+    margin-left: 12rpx;
+}
+
+.popup-manager .newuse-group .user-info .info-detail .detail-nickname {
+    font-size: 24rpx;
+    color: #999;
+    line-height: 24rpx;
+    margin-bottom: 10rpx;
+}
+
+.popup-manager .newuse-group .user-info .info-detail .detail-tips {
+    line-height: 28rpx;
+    color: #333;
+    font-size: 28rpx;
+}
+
+.popup-manager .newuse-group .coupon-group-popup-contain {
+    position: absolute;
+    top: 131rpx;
+    left: 56rpx;
+    width: 380rpx;
+    height: 470rpx;
+}
+
+.popup-manager .newuse-group .coupon-group-popup-contain .coupon-item {
+    width: 380rpx;
+    height: 150rpx;
+}
+
+.popup-manager .newuse-group .use-btn {
+    position: absolute;
+    left: 150rpx;
+    bottom: 40rpx;
+    width: 194rpx;
+    height: 48rpx;
+    z-index: 100;
+}
+
+.popup-manager .newuse-group .check-btn {
+    position: absolute;
+    bottom: 0;
+    width: 495rpx;
+    height: 183rpx;
+    z-index: 99;
+}
+
+.popup-manager .newuse-group.one {
+    background: url(https://cdn.webuy.ai/static/sh-assets/share/coupon/single.png) no-repeat center;
+    background-size: cover;
+    width: 495rpx;
+    height: 549rpx;
+    position: relative;
+}
+
+.popup-manager .newuse-group.all {
+    background: url(https://cdn.webuy.ai/static/sh-assets/share/coupon/all.png) no-repeat center;
+    background-size: cover;
+    width: 495rpx;
+    height: 720rpx;
+    position: relative;
+}
+
+.popup-manager .newer-coupon-container {
+    width: 500rpx;
+    position: relative;
+}
+
+.popup-manager .newer-coupon-container .exit-newer-coupon-wrapper-pic {
+    position: absolute;
+    width: 50rpx;
+    height: 84rpx;
+    right: 0;
+    top: -84rpx;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-header {
+    width: 100%;
+    height: 102rpx;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 7rpx solid #e3c7ad;
+    border-radius: 25rpx;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-header image {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    margin-left: 30rpx;
+    margin-right: 10rpx;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-header .affilation-user-nickname {
+    display: block;
+    width: 120rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 17rpx;
+}
+
+.popup-manager .newer-coupon-container .margin {
+    margin: 0 20rpx;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-content {
+    position: relative;
+    width: 100%;
+    height: 580rpx;
+    margin-top: 18rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    background: url(https://cdn.webuy.ai/assets/file/11/28/n_1543388084256_8594.png) no-repeat;
+    background-size: 100%;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-content.back {
+    background: url(https://cdn.webuy.ai/assets/file/09/19/n_1537339325302_3154.png) no-repeat;
+    background-size: 100%;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-content .newer-coupon-text {
+    margin-top: 386rpx;
+    font-family: PingFangSC;
+    font-size: 40rpx;
+    color: #e2c7ac;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-content .newer-coupon-price {
+    font-family: DIN;
+    font-size: 90rpx;
+    font-weight: 600;
+    color: #e2c7ac;
+    line-height: 80rpx;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-content .newer-info {
+    margin-top: 312rpx;
+    text-align: center;
+    color: #e2c7ac;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-content .newer-info .newer-coupon-price {
+    font-size: 160rpx;
+    line-height: 170rpx;
+}
+
+.popup-manager .newer-coupon-container .newer-coupon-content .newer-info .newer-coupon-text {
+    margin-top: 0;
+    font-size: 40rpx;
+}
+
+.popup-manager .newer-coupon-container .circle {
+    position: absolute;
+    top: 0;
+    left: 0rpx;
+    right: 0;
+    bottom: 0;
+    width: 500rpx;
+    height: 600rpx;
+}
+
+.popup-manager .user-coupon-container {
+    width: 520rpx;
+    position: relative;
+}
+
+.popup-manager .user-coupon-container .close {
+    position: absolute;
+    top: -133rpx;
+    right: -28rpx;
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.popup-manager .user-coupon-container .close .img-common {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.popup-manager .user-coupon-container .user-coupon-content {
+    position: relative;
+    width: 100%;
+    height: 650rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/userGrowth/newerRedPackage.png?x-oss-process=image/resize,w_520,x-oss-process=image/format,png) no-repeat;
+    background-size: 100% 100%;
+    color: rgba(255,226,195,1);
+    overflow: hidden;
+}
+
+.popup-manager .user-coupon-container .user-coupon-content .img-gold {
+    position: absolute;
+    left: -71rpx;
+    bottom: 8rpx;
+    width: 152rpx;
+    height: 133rpx;
+}
+
+.popup-manager .user-coupon-container .user-coupon-content .img-blur {
+    position: absolute;
+    right: -85rpx;
+    top: 0rpx;
+    width: 175rpx;
+    height: 148rpx;
+}
+
+.popup-manager .user-coupon-container .user-coupon-content .img-open {
+    position: absolute;
+    left: 189rpx;
+    top: 125rpx;
+    width: 154rpx;
+    height: 154rpx;
+    -webkit-animation: scaleDraw 1.5s ease-in-out infinite;
+}
+
+.popup-manager .user-coupon-container .user-coupon-content .first-row {
+    height: 32rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC;
+    line-height: 32rpx;
+    margin-top: 333rpx;
+}
+
+.popup-manager .user-coupon-container .user-coupon-content .second-row {
+    height: 50rpx;
+    font-size: 50rpx;
+    font-family: DIN;
+    font-weight: 700;
+    line-height: 50rpx;
+    margin-top: 35rpx;
+}
+
+.popup-manager .user-money-container {
+    width: 633rpx;
+    position: relative;
+}
+
+.popup-manager .user-money-container .user-money-content {
+    position: relative;
+    width: 100%;
+    height: 709rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+    background: #ff0136;
+}
+
+.popup-manager .user-money-container .user-money-content .content-title {
+    font-size: 48rpx;
+    font-weight: 700;
+    color: #fff;
+    line-height: 67rpx;
+}
+
+.popup-manager .user-money-container .user-money-content .content-money {
+    height: 60rpx;
+    font-size: 60rpx;
+    font-weight: bolder;
+    color: #8b572a;
+    line-height: 60rpx;
+    margin: 281rpx auto 13rpx;
+}
+
+.popup-manager .user-money-container .user-money-content .content-desc {
+    height: 28rpx;
+    font-size: 32rpx;
+    color: #8b572a;
+    line-height: 32rpx;
+    margin-bottom: 191rpx;
+}
+
+.popup-manager .user-money-container .user-money-content .content-btn {
+    width: 420rpx;
+    height: 72rpx;
+    background: linear-gradient(138deg,rgba(255,241,215,1) 0,rgba(255,231,189,1) 100%);
+    box-shadow: 0 2rpx 6rpx 0 rgba(216,21,52,1),0 -4rpx 6rpx 0 rgba(250,135,4,.5);
+    border-radius: 40rpx;
+    font-size: 28rpx;
+    font-weight: 700;
+    color: #ff0136;
+    line-height: 72rpx;
+    text-align: center;
+    -webkit-animation: scaleDraw 2s ease-in-out infinite;
+}
+
+.popup-manager .user-retention-container {
+    width: 632rpx;
+    height: 759rpx;
+    position: relative;
+    background: #ff0136;
+    border-radius: 18rpx;
+}
+
+.popup-manager .user-retention-container .close {
+    position: absolute;
+    top: -133rpx;
+    right: -28rpx;
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.popup-manager .user-retention-container .close .img-common {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.popup-manager .user-retention-container .user-retention-content {
+    width: 100%;
+    margin-top: 13rpx;
+    height: 650rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255,226,195,1);
+}
+
+.popup-manager .user-retention-container .user-retention-content .img-title {
+    position: absolute;
+    top: -78rpx;
+    left: 24rpx;
+    width: 584rpx;
+    height: 125rpx;
+}
+
+.popup-manager .user-retention-container .user-retention-content .red-num {
+    position: absolute;
+    top: -69rpx;
+    left: 292rpx;
+    font-size: 38rpx;
+    font-weight: 700;
+    color: rgba(118,3,3,1);
+}
+
+.popup-manager .user-retention-container .user-retention-content .img-gold {
+    position: absolute;
+    left: -60rpx;
+    bottom: 24rpx;
+    width: 141rpx;
+    height: 146rpx;
+}
+
+.popup-manager .user-retention-container .user-retention-content .img-blur {
+    position: absolute;
+    right: -70rpx;
+    top: 78rpx;
+    width: 156rpx;
+    height: 148rpx;
+    z-index: 22;
+}
+
+.popup-manager .user-retention-container .user-retention-content .goods-item {
+    padding: 38rpx 24rpx 30rpx 24rpx;
+    min-height: 584rpx;
+}
+
+@-webkit-keyframes scaleDraw {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes scaleDraw {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+.popup-manager .user-retention-container .user-retention-content .item-btn {
+    width: 488rpx;
+    height: 72rpx;
+    background: rgba(255,255,255,1);
+    border-radius: 40rpx;
+    font-size: 28rpx;
+    font-weight: 700;
+    color: rgba(255,1,54,1);
+    line-height: 72rpx;
+    text-align: center;
+    margin-bottom: 33rpx;
+    -webkit-animation: scaleDraw 2s ease-in-out infinite;
+}
+
+.popup-manager .red-envelope-poup {
+    width: 100%;
+    height: 100%;
+}
+
+.popup-manager .popUp-exemption {
+    width: 683rpx;
+    height: 562rpx;
+    padding-top: 118rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/icons/bg_tanc.png?1);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-manager .popUp-exemption view {
+    text-align: center;
+}
+
+.popup-manager .popUp-exemption image {
+    position: absolute;
+    width: 260rpx;
+    height: 242rpx;
+    left: 206rpx;
+    top: 245rpx;
+    border-radius: 18rpx;
+}
+
+.popup-manager .popUp-exemption-title {
+    font-size: 40rpx;
+    color: #ffce83;
+}
+
+.popup-manager .popUp-exemption-btn {
+    position: absolute;
+    left: 152rpx;
+    top: 564rpx;
+    width: 395rpx;
+    height: 106rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/icons/world_free_flow_btn.png);
+    background-size: contain;
+    font-size: 30rpx;
+    line-height: 90rpx;
+    color: #ff2738;
+}
+
+.popup-manager .popUp-exemption-cor {
+    position: absolute;
+    left: 320rpx;
+    top: 366rpx;
+    width: 174rpx;
+    height: 173rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/icons/world_free_flow_cor.png);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #eb1318;
+    font-size: 32rpx;
+    font-weight: 700;
+}
+
+.popup-manager .popUp-exemption-cor view {
+    line-height: 120%;
+}
+
+.popup-manager .original-price {
+    font-size: 28rpx;
+}
+
+.popup-manager .zero-price {
+    font-size: 40rpx;
+}
+
+.popup-manager .line {
+    position: absolute;
+    top: 36rpx;
+    height: 4rpx;
+    width: 100rpx;
+    background-color: #eb1318;
+    transform: rotate(-10deg);
+    right: 36rpx;
+}
+
+.popup-manager .popUp-dividends {
+    width: 430rpx;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    transform: scale(0);
+    position: relative;
+    min-height: 430rpx;
+}
+
+.popup-manager .popUp-dividends .sprite-bronze {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 33.3% 0;
+}
+
+.popup-manager .popUp-dividends .sprite-bronzeEx {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 66.7% 50%;
+}
+
+.popup-manager .popUp-dividends .sprite-diamond {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 0 50%;
+}
+
+.popup-manager .popUp-dividends .sprite-diamondEx {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 33.3% 50%;
+}
+
+.popup-manager .popUp-dividends .sprite-ex {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 66.7% 0;
+}
+
+.popup-manager .popUp-dividends .sprite-gold {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 0 0;
+}
+
+.popup-manager .popUp-dividends .sprite-goldEx {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 0 100%;
+}
+
+.popup-manager .popUp-dividends .sprite-loginPrize {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 33.3% 100%;
+}
+
+.popup-manager .popUp-dividends .sprite-nomalPrize {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 66.7% 100%;
+}
+
+.popup-manager .popUp-dividends .sprite-sliver {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 100% 0;
+}
+
+.popup-manager .popUp-dividends .sprite-sliverEx {
+    background: url(https://cdn.webuy.ai/static/sh-assets/sprites/pages/trainCamp_new/popUpIcons/sprite1560915349839.png) no-repeat;
+    background-size: 270rpx 200rpx;
+    width: 64rpx;
+    height: 64rpx;
+    background-position: 100% 50%;
+}
+
+.popup-manager .popUp-dividends .icon {
+    margin: 0 16rpx 0 46rpx;
+}
+
+.popup-manager .popUp-dividends .margin {
+    margin-bottom: 30rpx;
+}
+
+.popup-manager .popUp-dividends .popUp-dividends-title {
+    font-size: 28rpx;
+    text-align: center;
+    background-image: linear-gradient(45deg,#fff7ea 30%,#ceb59c 100%);
+    background-clip: text;
+    text-shadow: rgba(0,0,0,.1) 2rpx 2rpx 10rpx;
+    margin: 36rpx 0 38rpx;
+    color: transparent;
+    font-weight: 600;
+}
+
+.popup-manager .popUp-dividends .popUp-dividends-info {
+    font-weight: 600;
+    font-family: DIN;
+    color: #fff;
+    padding-bottom: 40rpx;
+    justify-content: center;
+    min-height: 190rpx;
+    font-size: 28rpx;
+}
+
+.popup-manager .popUp-dividends .popUp-dividends-info .name {
+    color: #ceb59c;
+}
+
+.popup-manager .update-bronze-bg {
+    width: 502rpx;
+    height: 678rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/trainCamp_new/bronzeUpdate.png) no-repeat center;
+    background-size: 100% 100%;
+    transform: scale(0);
+    position: relative;
+}
+
+.popup-manager .update-bronze-bg .avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: 489rpx;
+    left: 34rpx;
+}
+
+.popup-manager .popUp-random-exhi {
+    transform: scale(0);
+    max-width: 683rpx;
+    max-height: 743rpx;
+    overflow: hidden;
+}
+
+.popup-manager .popUp-random-exhi image {
+    display: block;
+}
+
+.popup-manager .popSuperKeeper .baby-popup {
+    width: 420rpx;
+    height: 520rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/superKeeper/stage-popup.png) no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+.popup-manager .popSuperKeeper .baby-number {
+    font-family: DIN;
+    font-size: 36rpx;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    background: linear-gradient(121deg,rgba(247,238,204,1) 0,rgba(233,190,108,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.popup-manager .popSuperKeeper .super-popup {
+    width: 420rpx;
+    height: 520rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/superKeeper/stage-popup.png) no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+.popup-manager .popSuperKeeper .super-popup .text-size {
+    font-size: 26rpx!important;
+}
+
+.popup-manager .popSuperKeeper .super-popup .first-stage-padding {
+    padding-top: 150rpx!important;
+}
+
+.popup-manager .popSuperKeeper .super-top-popup {
+    width: 420rpx;
+    height: 520rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/superKeeper/top-popup.png) no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+.popup-manager .popSuperKeeper .super-top-popup .text-size {
+    font-size: 26rpx!important;
+}
+
+.popup-manager .popSuperKeeper .super-popup-finish {
+    width: 496rpx;
+    height: 660rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/superKeeper/success-popup.png?t=1547198441308) no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+.popup-manager .popSuperKeeper .super-popup-finish .text-desc {
+    width: auto;
+    height: auto;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+    line-height: 45rpx;
+    padding-top: 328rpx;
+}
+
+.popup-manager .popSuperKeeper .super-popup-finish .finish-number {
+    font-size: 48rpx;
+    font-family: DIN;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    background: linear-gradient(121deg,rgba(247,238,204,1) 0,rgba(233,190,108,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.popup-manager .popSuperKeeper .super-popup-finish .font-size-line-height {
+    line-height: 50rpx;
+}
+
+.popup-manager .popSuperKeeper .super-last-popup {
+    width: 420rpx;
+    height: 520rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/superKeeper/last-tage-popup.png) no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+.popup-manager .popSuperKeeper .super-stage-number {
+    font-size: 26rpx;
+    font-family: PingFangSC-Semibold;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    line-height: 37rpx;
+    background: linear-gradient(121deg,rgba(247,238,204,1) 0,rgba(233,190,108,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.popup-manager .popSuperKeeper .stage-number-1 {
+    font-family: DIN;
+    font-size: 42rpx;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    background: linear-gradient(121deg,rgba(247,238,204,1) 0,rgba(233,190,108,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.popup-manager .popSuperKeeper .text-desc {
+    width: 420rpx;
+    height: auto;
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+    line-height: 40rpx;
+    margin: 0 auto;
+    padding-top: 173rpx;
+}
+
+.popup-manager .popSuperKeeper .show-me-off {
+    width: 220rpx;
+    height: 56rpx;
+    background: linear-gradient(133deg,rgba(255,230,201,1) 0,rgba(255,230,164,1) 34%,rgba(222,173,82,1) 100%);
+    box-shadow: 0 2rpx 18rpx 0rpx rgba(55,55,55,.7);
+    border: 2rpx solid;
+    border-color: rgba(170,129,32,1);
+    border-radius: 28rpx;
+    margin: 0 auto;
+}
+
+.popup-manager .popSuperKeeper .show-me-off .btn-text {
+    font-size: 32rpx;
+    font-family: PingFangSC-Semibold;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    line-height: 45rpx;
+    background: linear-gradient(299deg,rgba(163,77,18,1) 0,rgba(198,154,42,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.popup-manager .popSuperKeeper .finish-popup {
+    width: 420rpx;
+    height: 520rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/superKeeper/last-tage-popup.png) no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+.popup-manager .black-user-popup {
+    position: relative;
+    width: 550rpx;
+    height: 530rpx;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    color: #333;
+    font-size: 28rpx;
+    border-radius: 20rpx;
+    z-index: 10;
+}
+
+.popup-manager .black-user-popup .title {
+    font-size: 40rpx;
+    margin-top: 64rpx;
+}
+
+.popup-manager .black-user-popup .content {
+    margin-top: 44rpx;
+    width: 478rpx;
+}
+
+.popup-manager .black-user-popup .tip {
+    margin-top: 14rpx;
+    color: #ff2b2b;
+}
+
+.popup-manager .black-user-popup .close-btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+    border-top: 1rpx #cecece solid;
+}
+
+.popup-manager .talenr-popup {
+    width: 582rpx;
+    height: 750rpx;
+    border-radius: 18rpx;
+    background-color: #fff;
+    transform: scale(0);
+    z-index: 10;
+}
+
+.popup-manager .talenr-popup .header {
+    width: 100%;
+    height: 467rpx;
+    padding-top: 80rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 18rpx 18rpx 0 0;
+    box-sizing: border-box;
+    background-image: url(https://cdn.webuy.ai/assets/file/2019/03/22/n_1553254018436_1462.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.popup-manager .talenr-popup .header .user-info {
+    width: 160rpx;
+    height: 160rpx;
+    position: relative;
+}
+
+.popup-manager .talenr-popup .header .user-info .avatar {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 50%;
+}
+
+.popup-manager .talenr-popup .header .user-info .tag-level {
+    position: absolute;
+    top: -48rpx;
+    right: -32rpx;
+    width: 112rpx;
+    height: 105rpx;
+}
+
+.popup-manager .talenr-popup .header .desc {
+    margin-top: 24rpx;
+    color: #fff;
+    font-size: 42rpx;
+    font-weight: bolder;
+}
+
+.popup-manager .talenr-popup .header .tag {
+    margin-top: 6rpx;
+    width: 228rpx;
+    height: 60rpx;
+}
+
+.popup-manager .talenr-popup .header .tip {
+    margin-top: 6rpx;
+    font-size: 26rpx;
+    color: #fff;
+}
+
+.popup-manager .talenr-popup .words {
+    margin: 36rpx 42rpx 0 42rpx;
+    color: #999;
+    font-size: 24rpx;
+    text-indent: 40rpx;
+}
+
+.popup-manager .talenr-popup .share-btn {
+    margin: 36rpx 34rpx 0 34rpx;
+    width: 522rpx;
+    height: 80rpx;
+    color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 80rpx;
+    font-weight: 700;
+    background: #d6a874;
+    border-radius: 40rpx;
+    border: 1rpx solid #d6a874;
+}
+
+.popup-manager .ubuy-white-user {
+    width: 520rpx;
+    height: 610rpx;
+}
+
+.popup-manager .outer-img {
+    position: fixed;
+    margin: auto;
+    width: 450rpx;
+    height: 506rpx;
+    top: 330rpx;
+    left: 0;
+    right: 0;
+    z-index: 100001;
+}
+
+.popup-manager .pop-tips {
+    position: fixed;
+    margin: auto;
+    width: 236rpx;
+    top: 580rpx;
+    left: 0;
+    right: 0;
+    z-index: 100001;
+}
+
+.popup-manager .pop-tips .know-btn {
+    margin-top: 135rpx;
+    width: 236rpx;
+    height: 56rpx;
+    background: linear-gradient(180deg,rgba(255,123,107,1) 0,rgba(255,81,81,1) 100%);
+    border-radius: 32rpx;
+    border: 3rpx solid rgba(255,81,81,1);
+    font-weight: 500;
+    font-size: 30rpx;
+    color: rgba(255,255,255,1);
+    line-height: 52rpx;
+}
+
+.popup-manager .move-pop {
+    position: fixed;
+    margin: auto;
+    top: 432rpx;
+    left: 0;
+    right: 0;
+    width: 540rpx;
+    height: 280rpx;
+    z-index: 100001;
+    text-align: center;
+    background: #fff;
+    border-radius: 18rpx;
+}
+
+.popup-manager .move-pop .move-tips {
+    position: relative;
+    padding: 42rpx 0;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(102,102,102,1);
+    line-height: 45rpx;
+    border-bottom: 2rpx solid rgba(237,237,237,1);
+}
+
+.popup-manager .move-pop .move-tips text {
+    display: inline-block;
+}
+
+.popup-manager .move-pop .move-btn {
+    width: 100%;
+    height: 104rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255,61,54,1);
+    line-height: 100rpx;
+    background: #fff;
+    border-bottom-left-radius: 18rpx;
+    border-bottom-right-radius: 18rpx;
+}
+
+.popup-manager .authorize-pop {
+    width: 582rpx;
+    height: 750rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/allGroupOwner/popup-bg.png?x-oss-process=image/resize,w_582,x-oss-process=image/format,png) no-repeat center;
+    background-size: cover;
+    z-index: 10;
+    text-align: center;
+}
+
+.popup-manager .authorize-pop .inviter-img {
+    width: 180rpx;
+    height: 180rpx;
+    border: 2rpx solid rgba(255,255,255,1);
+    border-radius: 50%;
+    margin: 48rpx 0 24rpx;
+}
+
+.popup-manager .authorize-pop .inviter {
+    font-size: 40rpx;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    letter-spacing: 2rpx;
+    max-width: 200rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.popup-manager .authorize-pop .inviter-info {
+    margin: 18rpx 0 270rpx;
+    font-size: 30rpx;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+}
+
+.popup-manager .authorize-pop .authorize-btn {
+    width: 342rpx;
+    height: 80rpx;
+    background: rgba(255,255,255,1);
+    border-radius: 40rpx;
+    font-size: 32rpx;
+    font-weight: 400;
+    color: rgba(171,80,0,1);
+    line-height: 80rpx;
+    letter-spacing: 2rpx;
+    text-align: center;
+}
+
+.popup-manager .authorize-send-pop {
+    width: 635rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/allGroupOwner/ex-bg.png?x-oss-process=image/resize,w_582,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100% 100%;
+    z-index: 10;
+    color: rgba(255,165,86,1);
+}
+
+.popup-manager .authorize-send-pop .inviter-img {
+    width: 180rpx;
+    height: 180rpx;
+    border: 2rpx solid rgba(255,255,255,1);
+    border-radius: 50%;
+    margin: 80rpx 0 32rpx;
+}
+
+.popup-manager .authorize-send-pop .sub-info {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    line-height: 42rpx;
+}
+
+.popup-manager .authorize-send-pop .inviter-container {
+    margin: 120rpx 0 20rpx;
+    align-items: flex-end;
+}
+
+.popup-manager .authorize-send-pop .inviter {
+    font-size: 40rpx;
+    font-weight: 600;
+    letter-spacing: 2rpx;
+    line-height: 40rpx;
+    max-width: 200rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.popup-manager .authorize-send-pop .main-info {
+    font-weight: 400;
+    font-size: 30rpx;
+}
+
+.popup-manager .authorize-send-pop .main-info .text {
+    font-size: 60rpx;
+    font-family: DIN;
+    font-weight: 700;
+    margin: 0 10rpx;
+}
+
+.popup-manager .authorize-send-pop .award-info {
+    font-size: 22rpx;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 30rpx;
+    margin: 10rpx 0;
+}
+
+.popup-manager .authorize-send-pop .authorize-btn {
+    margin-bottom: 40rpx;
+    width: 342rpx;
+    height: 80rpx;
+    background: rgba(235,52,52,1);
+    box-shadow: 0rpx 4rpx 24rpx 0rpx rgba(235,52,52,.5);
+    border-radius: 40rpx;
+    font-size: 32rpx;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+    line-height: 80rpx;
+    letter-spacing: 2rpx;
+    text-align: center;
+}
+
+.pop-img {
+    position: fixed;
+    margin: auto;
+    width: 400rpx;
+    height: 506rpx;
+    top: 330rpx;
+    left: 0;
+    right: 0;
+    z-index: 100001;
+}
+
+.pop-tips {
+    position: fixed;
+    margin: auto;
+    width: 236rpx;
+    top: 580rpx;
+    left: 0;
+    right: 0;
+    z-index: 100001;
+}
+
+.pop-tips .content {
+    margin: 0 11rpx;
+    text-align: center;
+    font-size: 30rpx;
+    font-family: PingFanfgSC-Medium;
+    font-weight: 500;
+    color: rgba(59,59,59,1);
+    line-height: 42rpx;
+}
+
+.pop-tips .share-btn {
+    margin-top: 35rpx;
+    width: 100%;
+    height: 56rpx;
+    background: linear-gradient(180deg,rgba(255,123,107,1) 0,rgba(255,81,81,1) 100%);
+    border-radius: 32rpx;
+    border: 3rpx solid rgba(227,177,86,1);
+    font-size: 30rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    line-height: 53rpx;
+}
+
+.pop-tips .share-new {
+    margin-top: 150rpx;
+    width: 236rpx;
+    height: 56rpx;
+    background: linear-gradient(167deg,rgba(255,84,102,1) 0,rgba(255,61,54,1) 100%);
+    border-radius: 32rpx;
+    border: 3rpx solid rgba(254,221,139,1);
+    font-size: 30rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    line-height: 53rpx;
+}
+
+.down-grade {
+    position: fixed;
+    top: 280rpx;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 600rpx;
+    height: 744rpx;
+    z-index: 100001;
+    background: rgba(255,255,255,1);
+    border-radius: 40rpx;
+}
+
+.down-grade .head-img {
+    width: 600rpx;
+    height: 208rpx;
+}
+
+.down-grade .head-wraper {
+    position: absolute;
+    top: 30rpx;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.down-grade .head-wraper .down-title {
+    margin-bottom: 12rpx;
+    font-size: 42rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    line-height: 59rpx;
+}
+
+.down-grade .head-wraper .tips-order {
+    margin-bottom: 6rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: rgba(255,204,206,1);
+    line-height: 33rpx;
+}
+
+.down-grade .head-wraper .price {
+    font-size: 32rpx;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+    line-height: 33rpx;
+}
+
+.down-grade .list-wraper {
+    margin: 30rpx 30rpx 0rpx;
+    height: 418rpx;
+}
+
+.down-grade .more-hard {
+    margin: 0 auto;
+    width: 276rpx;
+    height: 56rpx;
+    background: linear-gradient(167deg,rgba(255,84,102,1) 0,rgba(255,61,54,1) 100%);
+    border-radius: 32rpx;
+    border: 3rpx solid rgba(254,221,139,1);
+    font-size: 30rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(255,232,176,1);
+    line-height: 53rpx;
+}
+
+.receive-coupon {
+    width: 528rpx;
+    height: 771rpx;
+    position: relative;
+}
+
+.receive-coupon .coupon-top {
+    position: relative;
+    width: 528rpx;
+    height: 721rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/popup-top.png?x-oss-process=image/resize,w_528,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+}
+
+.receive-coupon .coupon-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 188rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/popup-bottom.png?x-oss-process=image/resize,w_528,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.receive-coupon .top-title {
+    position: absolute;
+    top: 215rpx;
+    left: 88rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #333;
+    line-height: 32rpx;
+}
+
+.receive-coupon .coupon-group-popup-contain {
+    width: 468rpx;
+    height: 330rpx;
+    overflow: hidden;
+    position: absolute;
+    top: 268rpx;
+    left: 30rpx;
+}
+
+.receive-coupon .bottom-title {
+    position: absolute;
+    top: 30rpx;
+    left: 112rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #666;
+    line-height: 24rpx;
+}
+
+.receive-coupon .bottom-btn {
+    position: absolute;
+    top: 78rpx;
+    left: 93rpx;
+    width: 342rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background: linear-gradient(202deg,rgba(255,2,102,1) 0,rgba(255,1,54,1) 100%);
+    border-radius: 45rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    color: #fff;
+}
+
+.receive-group-coupon {
+    width: 528rpx;
+    height: 771rpx;
+    position: relative;
+}
+
+.receive-group-coupon .coupon-top {
+    position: relative;
+    width: 528rpx;
+    height: 721rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/group-bg.png?x-oss-process=image/resize,w_528,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+}
+
+.receive-group-coupon .coupon-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 188rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/popup-bottom.png?x-oss-process=image/resize,w_528,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.receive-group-coupon .share-pic {
+    position: absolute;
+    top: 52rpx;
+    left: 204rpx;
+}
+
+.receive-group-coupon .share-nick {
+    position: absolute;
+    top: 197rpx;
+    width: 100%;
+    text-align: center;
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #999;
+    line-height: 22rpx;
+}
+
+.receive-group-coupon .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.receive-group-coupon .top-title {
+    position: absolute;
+    top: 230rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #333;
+    line-height: 32rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.receive-group-coupon .coupon-group-popup-contain {
+    width: 468rpx;
+    height: 330rpx;
+    overflow: hidden;
+    position: absolute;
+    top: 268rpx;
+    left: 30rpx;
+}
+
+.receive-group-coupon .bottom-title {
+    position: absolute;
+    top: 30rpx;
+    left: 112rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #666;
+    line-height: 24rpx;
+}
+
+.receive-group-coupon .bottom-btn {
+    position: absolute;
+    top: 78rpx;
+    left: 93rpx;
+    width: 342rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background: linear-gradient(202deg,rgba(255,2,102,1) 0,rgba(255,1,54,1) 100%);
+    border-radius: 45rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    color: #fff;
+}
+
+.become-boss-pop {
+    position: fixed;
+    top: 302rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 560rpx;
+    height: 733rpx;
+    z-index: 100001;
+    border-radius: 16rpx;
+}
+
+.become-boss-pop .become-boss-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.become-boss-pop .become-boss-avatar {
+    width: 107rpx;
+    height: 107rpx;
+    border-radius: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 182rpx;
+    left: 226rpx;
+}
+
+.become-boss-pop .become-boss-avatar image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.become-boss-pop .become-boss-nick {
+    white-space: nowrap;
+    position: absolute;
+    top: 296rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 33rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 33rpx;
+}
+
+.to-b-pop {
+    width: 614rpx;
+    height: 891rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/userGrowth/to-b.png?t=2019) no-repeat center;
+    background-size: cover;
+    z-index: 241;
+    position: relative;
+}
+
+.to-b-pop .tb-avatar {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 100rpx;
+    border: 4rpx solid rgba(236,190,139,1);
+    box-sizing: border-box;
+    margin-top: 92rpx;
+}
+
+.to-b-pop .tb-btn {
+    width: 420rpx;
+    height: 72rpx;
+    background: #fff;
+    border-radius: 40rpx;
+    text-align: center;
+    line-height: 72rpx;
+    font-size: 28rpx;
+    font-weight: 700;
+    color: #ff0136;
+    margin-top: 401rpx;
+}
+
+.to-b-pop .tb-congraution {
+    width: 584rpx;
+    height: 128rpx;
+    position: relative;
+    top: -28rpx;
+}
+
+.to-b-pop .penceil-left {
+    width: 176rpx;
+    height: 155rpx;
+    position: absolute;
+    bottom: 18rpx;
+    left: -72rpx;
+}
+
+.to-b-pop .penceil-right {
+    width: 204rpx;
+    height: 178rpx;
+    position: absolute;
+    right: -62rpx;
+    bottom: 405rpx;
+}
+
+.commission-double {
+    position: fixed;
+    z-index: 999;
+    width: 550rpx;
+    height: 700rpx;
+}
+
+.commission-double .img {
+    width: 550rpx;
+    height: 700rpx;
+}
+
+.boss-coupon {
+    width: 673rpx;
+    height: 894rpx;
+    z-index: 10;
+    position: relative;
+}
+
+.boss-coupon .boss-coupon-num {
+    margin-top: 456rpx;
+    font-size: 30rpx;
+    font-family: PingFangSC;
+    font-weight: 400;
+    color: rgba(255,1,54,1);
+    line-height: 190rpx;
+}
+
+.boss-coupon .boss-coupon-name {
+    max-width: 200rpx;
+}
+
+.boss-coupon .boss-num {
+    font-size: 120rpx;
+    font-family: DIN;
+    font-weight: 500;
+    line-height: 120rpx;
+}
+
+.close-bossPopUpImg {
+    position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+    right: 28rpx;
+}
+
+.boss-coupon-center {
+    width: 520rpx;
+    margin-left: 74rpx;
+}
+
+.new-boss-coupon {
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/shopKeeper/new_boss_coupon.png?x-oss-process=image/resize,w_528,x-oss-process=image/format,png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.newed-boss-coupon {
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/shopKeeper/new_boss_couponed.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.boss-coupon-btn {
+    margin-top: 91rpx;
+    width: 270rpx;
+    height: 72rpx;
+    background: rgba(255,255,255,1);
+    border-radius: 40rpx;
+    font-size: 30rpx;
+    font-family: PingFangSC;
+    font-weight: 500;
+    color: rgba(255,1,54,1);
+    line-height: 28rpx;
+}
+
+.boss-coupon-time {
+    margin-top: 18rpx;
+}
+
+@keyframes scaleDraw {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+.super-koc {
+    width: 560rpx;
+    height: 634rpx;
+    position: relative;
+    z-index: 100;
+}
+
+.super-koc .img-common {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.super-koc .help-koc-pop {
+    width: 560rpx;
+    height: 634rpx;
+    background: rgba(255,255,255,1);
+    border-radius: 18rpx;
+    align-items: center;
+}
+
+.super-koc .help-koc-pop .title {
+    font-size: 36rpx;
+    font-family: PingFangSC-Semibold,PingFangSC;
+    font-weight: 600;
+    color: rgba(51,51,51,1);
+    line-height: 32rpx;
+    margin-top: 60rpx;
+}
+
+.super-koc .help-koc-pop .tips {
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular,PingFangSC;
+    font-weight: 400;
+    color: rgba(102,102,102,1);
+    line-height: 40rpx;
+    margin-top: 15rpx;
+}
+
+.super-koc .help-koc-pop .icon {
+    width: 310rpx;
+    height: 260rpx;
+    margin: 37rpx auto 40rpx;
+}
+
+.super-koc .help-koc-pop .btn {
+    width: 480rpx;
+    height: 80rpx;
+    background: linear-gradient(192deg,rgba(237,211,172,1) 0,rgba(214,168,116,1) 100%);
+    border-radius: 40rpx;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular,PingFangSC;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+}
+
+.super-koc .help-koc-pop-boss .title {
+    margin: 50rpx auto 20rpx;
+}
+
+.super-koc .help-koc-pop-boss .tips {
+    margin-top: 0;
+}
+
+.super-koc .help-koc-pop-boss .sub-tips {
+    margin-top: 3rpx;
+}
+
+.super-koc .help-koc-pop-boss .icon {
+    margin: 22rpx auto 22rpx;
+}
+
+.upgrade {
+    position: relative;
+    width: 535rpx;
+    height: 582rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/userRight/vip-upgrade.png?x-oss-process=image/resize,w_517,x-oss-process=image/format,png) no-repeat;
+    background-size: 100% 100%;
+    box-shadow: 0rpx 2rpx 10rpx 0rpx rgba(51,51,51,.07),0rpx 1rpx 1rpx 0rpx rgba(117,117,117,.5);
+    border-radius: 18rpx;
+}
+
+.upgrade .get-vip {
+    position: absolute;
+    bottom: 47rpx;
+    left: 60rpx;
+    width: 414rpx;
+    height: 70rpx;
+    background: linear-gradient(139deg,rgba(250,238,226,1) 0,rgba(244,217,193,1) 100%);
+    border-radius: 40rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #4f4041;
+    line-height: 70rpx;
+    text-align: center;
+}
+
+.upgrade .success-img {
+    position: absolute;
+    top: -83rpx;
+    left: 225rpx;
+    width: 104rpx;
+    height: 104rpx;
+    border: 2rpx solid rgba(214,168,116,1);
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.upgrade .crown {
+    position: absolute;
+    width: 49rpx;
+    height: 47rpx;
+    left: 220rpx;
+    top: -110rpx;
+}
+
+.upgrade-success {
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/userRight/vip-success.png?x-oss-process=image/resize,w_517,x-oss-process=image/format,png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.btn-animate {
+    animation: scaleDraw 5s infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}

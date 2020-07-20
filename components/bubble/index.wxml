@@ -1,0 +1,1 @@
+<canvas canvasId="bubble" class="canvas canvas--{{playScreen}}" wx:if="{{show}}"></canvas>

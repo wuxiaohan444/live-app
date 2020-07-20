@@ -1,0 +1,205 @@
+page {
+    background-color: #f2f2f2;
+    font-size: 24rpx!important;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.id-card {
+    width: 100%;
+    height: 820rpx;
+    background-color: #fff;
+}
+
+.title {
+    padding-top: 30rpx;
+    margin-left: 30rpx;
+    color: #333;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.title text {
+    color: #B87900;
+}
+
+.divide-line-one {
+    width: 690rpx;
+    height: 4rpx;
+    background-color: #565656;
+    margin-top: 34rpx;
+    margin-left: 30rpx;
+}
+
+.divide-line-two {
+    width: 690rpx;
+    height: 2rpx;
+    background-color: #b0b0b0;
+    margin-top: 4rpx;
+    margin-left: 30rpx;
+}
+
+.remind {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 20rpx;
+    padding: 0 30rpx;
+}
+
+.subtitle {
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    color: #333;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.id-card-position-wrapper {
+    margin-left: 14rpx;
+    margin-top: 24rpx;
+}
+
+.id-card-wrapper {
+    display: inline-block;
+}
+
+.id-card-wrapper text {
+    margin-top: 10rpx;
+    margin-left: 44rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.id-card-upload {
+    position: relative;
+    margin-left: 16rpx;
+    margin-bottom: 10rpx;
+    width: 340rpx;
+    height: 242rpx;
+}
+
+.id-card-upload image {
+    width: 100%;
+    height: 100%;
+}
+
+.detail {
+    margin-top: 26rpx;
+    color: #999;
+    font-size: 24rpx;
+    padding: 0 30rpx;
+}
+
+.verify-info {
+    width: 100%;
+    height: 386rpx;
+    background-color: #fff;
+    margin-top: 20rpx;
+}
+
+.info-detail-wrapper {
+    margin-left: 30rpx;
+}
+
+.info-detail {
+    width: 690rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 2rpx solid #f0f0f0;
+    text-indent: 10rpx;
+}
+
+.info-detail>input {
+    margin-left: 8rpx;
+    width: 75%;
+}
+
+.info-detail text {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.wx-switch-input {
+    width: 82rpx!important;
+    height: 40rpx!important;
+    margin-left: 100rpx;
+}
+
+.wx-switch-input::before {
+    width: 80rpx!important;
+    height: 36rpx!important;
+}
+
+.wx-switch-input::after {
+    width: 38rpx!important;
+    height: 36rpx!important;
+}
+
+.save-btn {
+    width: 690rpx;
+    height: 88rpx;
+    border-radius: 44rpx;
+    margin: 20rpx 30rpx 20rpx 0;
+    background-color: #ff4466;
+    color: #fff;
+    font-size: 34rpx;
+    text-align: center;
+    line-height: 88rpx;
+}
+
+.btn-wrapper {
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    width: 690rpx;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.save-btn-half {
+    width: 330rpx;
+    height: 88rpx;
+    border-radius: 44rpx;
+    background-color: #000000;
+    color: #F7CC9C;
+    font-size: 34rpx;
+    font-weight: bold;
+    text-align: center;
+    line-height: 88rpx;
+    display: inline-block;
+}
+
+.delete-btn {
+    width: 330rpx;
+    height: 88rpx;
+    border-radius: 44rpx;
+    background-color: #000000;
+    color: #F7CC9C;
+    font-size: 34rpx;
+    font-weight: bold;
+    text-align: center;
+    line-height: 88rpx;
+    display: inline-block;
+}
+
+.cancel {
+    position: absolute;
+    top: 10rpx;
+    right: 10rpx;
+    width: 44rpx;
+    height: 44rpx;
+    color: #333;
+    font-size: 44rpx;
+    font-weight: bold;
+    line-height: 44rpx;
+    text-align: center;
+    z-index: 10;
+}

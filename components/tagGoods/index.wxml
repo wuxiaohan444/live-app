@@ -1,0 +1,64 @@
+<block wx:for="{{tags}}" wx:for-item="tag" wx:key="index">
+    <view class="wrapper bgcolor mt15" wx:if="{{tag.style==2}}">
+        <view class="title acea-row row-between-wrapper">
+            <view class="text">
+                <view class="name line1">{{tag.name}}</view>
+                <view class="info line1">{{tag.title}}</view>
+                <navigator class="more" hoverClass="none" url="/goods/pages/tag-goods/index?tag={{tag.id}}">更多>
+                </navigator>
+            </view>
+        </view>
+        <view class="goodList">
+            <navigator class="item acea-row row-between-wrapper" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{tag.list}}">
+                <view class="pictrue">
+                    <image src="{{item.thumb}}"></image>
+                    <image class="numPic" src="/images/one.png" wx:if="{{index==0&&status==1}}"></image>
+                    <image class="numPic" src="/images/two.png" wx:if="{{index==1&&status==1}}"></image>
+                    <image class="numPic" src="/images/three.png" wx:if="{{index==2&&status==1}}"></image>
+                </view>
+                <view class="underline">
+                    <view class="text">
+                        <view class="line1">{{item.title}}</view>
+                        <view class="money font-color">￥
+                                <text class="num">{{item.marketprice}}</text>
+                        </view>
+                        <view class="vip-money acea-row row-middle" wx:if="{{item.costprice&&item.costprice>0}}">
+                                ￥{{item.costprice||0}}
+                                <image src="/images/vip.png"></image>
+                            <text class="num">已售{{item.sale_num}}{{item.unit}}</text>
+                        </view>
+                        <view class="vip-money acea-row row-middle" wx:else>
+                            <text class="num">已售{{item.sale_num}}{{item.unit}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="iconfont icon-gouwuche cart-color acea-row row-center-wrapper"></view>
+            </navigator>
+        </view>
+    </view>
+    <view class="wrapper bgcolor mt15" wx:elif="{{tag.style==1}}">
+        <view class="title acea-row row-between-wrapper">
+            <view class="text">
+                <view class="name line1">{{tag.name}}
+                </view>
+                <view class="info line1">{{tag.title}}</view>
+                <navigator class="more" hoverClass="none" url="/goods/pages/tag-goods/index?tag={{tag.id}}">更多>
+                </navigator>
+            </view>
+        </view>
+        <view class="newProducts">
+            <scroll-view scrollX class="scroll-view_x" style="width:auto;overflow:hidden;">
+                <navigator class="item" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{tag.list}}">
+                    <view class="img-box">
+                        <image src="{{item.thumb}}"></image>
+                    </view>
+                    <view class="pro-info line1">{{item.title}}</view>
+                    <view class="money font-color">￥{{item.marketprice}}</view>
+                </navigator>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="wrapper bgcolor mt15" wx:elif="{{tag.style==3}}">
+        <mainexhibition tag="{{tag}}"></mainexhibition>
+    </view>
+</block>

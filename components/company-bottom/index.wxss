@@ -1,0 +1,12 @@
+.company-bottom image {
+    width: 168rpx;
+    height: 66rpx;
+    margin: auto;
+}
+
+.company-bottom .text {
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+    margin-top: 4rpx;
+}

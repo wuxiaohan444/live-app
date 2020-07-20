@@ -1,0 +1,64 @@
+.magazine>.list {
+    margin-bottom: 50rpx;
+}
+
+.magazine>.list>.img-box {
+    position: relative;
+}
+
+.magazine>.list>.img-box>.img {
+    width: 100%;
+    height: 400rpx;
+}
+
+.magazine>.list>.img-box>.img-text {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(0%,-50%);
+}
+
+.magazine>.list>.img-box>.img-text>.title {
+    font-size: 34rpx;
+    font-weight: 700;
+}
+
+.magazine>.list>.img-box>.img-text>.tip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rpx;
+}
+
+.magazine>.list>.img-box>.img-text>.tip>.line {
+    width: 30rpx;
+    height: 2rpx;
+    background: #999;
+}
+
+.magazine>.list>.img-box>.img-text>.tip>.text {
+    font-size: 26rpx;
+    padding: 0 10rpx;
+    font-weight: 700;
+}
+
+.magazine>.list>.time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    margin-top: 20rpx;
+}
+
+.magazine>.list>.time>.line {
+    width: 30rpx;
+    height: 2rpx;
+    background: #999;
+}
+
+.magazine>.list>.time>.text {
+    font-size: 24rpx;
+    padding: 0 10rpx;
+}

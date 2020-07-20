@@ -1,0 +1,46 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="openVip" style="top:{{navH}}rpx;height:calc(100% - {{navH}}rpx);">
+    <view class="swiper">
+        <swiper bindchange="pagechange" circular="{{true}}" current="{{currentIndex}}" nextMargin="90rpx" previousMargin="90rpx">
+            <swiper-item wx:for="{{applyInfo.pay_config}}" wx:key="*this">
+                <view class="swiper-item">
+                    <view class="img {{currentIndex===index?'active':''}}">
+                        <image src="{{item.card_pic}}"></image>
+                        <view class="box {{index==0?'chu':''}} {{index==1?'zhong':''}} {{index==2?'gao':''}}">
+                            <view class="money">{{item.price}}<text>元</text>
+                            </view>
+                            <view class="money-y">原价：<text>{{item.cost_price}}元</text>
+                            </view>
+                        </view>
+                        <view class="tip {{index==0?'chu':''}} {{index==1?'zhong':''}} {{index==2?'gao':''}}">{{item.intro}}</view>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="content">
+        <view class="main-chu">
+            <view class="libao" wx:if="{{currentIndex===index}}" wx:for="{{applyInfo.pay_config}}" wx:key="*this">
+                <view class="main-content">
+                    <image src="{{item.intro_pic}}" style="height:calc(100vh - {{navH}}rpx);"></image>
+                </view>
+                <view class="main">
+                    <view bindtap="submit" class="btn" data-btn="{{item.btn_enable}}" data-payid="{{item.id}}">{{item.status_text}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<import src="/lib/wxParse/wxParse.wxml"></import>
+<van-dialog showCancelButton bind:cancel="goHome" bind:confirm="goPushLive" cancelButtonText="随便逛逛" confirmButtonText="回到个人中心" lang="zh_CN" message="恭喜你购买合伙人套餐" show="{{isPaySuccess}}" title="购买合伙人套餐成功"></van-dialog>
+<payment-partner-apply bind:doPaySuccess="doPaySuccess" orderData="{{orderData}}" pay_close="{{pay_close}}" totalPrice="{{applyInfo['amount']}}" userInfo="{{userInfo}}"></payment-partner-apply>
+<van-popup closeOnClickOverlay overlay round bind:close="onClose" position="bottom" show="{{show_form}}">
+    <form bindsubmit="formSubmit" reportSubmit="true">
+        <scroll-view scrollY class="addAddress">
+            <diy-form bind:getDiyFormData="getDiyFormData" fields="{{applyInfo['form_menu']}}" submit_close="{{show_form}}" userInfo="{{userInfo}}" wx:if="{{show_form}}"></diy-form>
+            <view class="keep-box"></view>
+            <button bindtap="formSubmit" class="keepBnt bg-color">立即保存</button>
+        </scroll-view>
+    </form>
+</van-popup>

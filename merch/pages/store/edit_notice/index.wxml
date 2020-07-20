@@ -1,0 +1,10 @@
+<navbar parameter="{{parameter}}"></navbar>
+<form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="input-box">
+        <input autoFocus="{{true}}" class="notice_input" maxlength="20" name="notice" placeholder="请输入公告内容"></input>
+    </view>
+    <view class="footer-btn">
+        <button class="submit-btn" formType="submit" type="primary">保存</button>
+    </view>
+</form>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

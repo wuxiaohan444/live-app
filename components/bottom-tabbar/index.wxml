@@ -1,0 +1,7 @@
+<van-tabbar active="{{activename}}" activeColor="{{tabbar.config.select_color}}" bind:change="onChange" border="true" customClass="tabbar" deviceType="{{deviceType}}" inactiveColor="{{tabbar.config.color}}" wx:if="{{isshow&&tabbar}}">
+    <van-tabbar-item name="{{item.id}}" wx:for="{{tabbar.list}}" wx:key="index">
+        <image mode="aspectFit" slot="icon" src="{{item.icon}}" style="width: 30px; height: 18px;"></image>
+        <image mode="aspectFit" slot="icon-active" src="{{item.select_icon}}" style="width: 30px; height: 18px;"></image>
+        {{item.name}}
+    </van-tabbar-item>
+</van-tabbar>

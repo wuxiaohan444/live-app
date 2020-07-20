@@ -1,0 +1,60 @@
+<bottom-tabbar></bottom-tabbar>
+<navbar parameter="{{parameter}}"></navbar>
+<van-dialog id="van-dialog"></van-dialog>
+<!--<view class="search" style="top:{{navH}}rpx">-->
+    <!--<view class="search-box">-->
+        <!--<view class="iconfontJiajia iconsearch"></view>-->
+        <!--<input bindinput="searchRoom" confirmType="search" placeholder="请搜索主播"></input>-->
+    <!--</view>-->
+<!--</view>-->
+<view id="live-tab" >
+    <view wx:for="{{liveTab}}" wx:key="index" class="{{liveTabIndex===index?'active':''}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="changeLiveType">{{item.name}}</view>
+</view>
+<view  hidden="{{liveShow}}">
+    <view class="page page--{{deviceType}} goods-list" wx:if="{{examineKeywords.switch==0}}">
+        <view class="index-bg" wx:if="{{banners.length>0}}">
+            <swiper autoplay="{{autoplay}}" circular="{{circular}}" duration="100" indicatorActiveColor="#fe6c9c" indicatorColor="rgba(255, 255, 255, 0.5)" indicatorDots="true" interval="{{interval}}" style="">
+                <swiper-item>
+                    <navigator class="slide-navigator acea-row row-between-wrapper" hoverClass="none" url="{{item.wxappurl}}" wx:for="{{banners}}">
+                        <image class="slide-image" mode="aspectFill" src="{{item.pic}}"></image>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+        </view>
+        <collect-tip></collect-tip>
+        <view class="single-live" wx:for="{{lives}}" wx:key="live_index">
+            <live-preview examineKeywords = "{{examineKeywords}}" live="{{item}}" wx:if="{{index===0}}"></live-preview>
+            <single-live examineKeywords="{{examineKeywords}}" live="{{item}}" wx:else></single-live>
+        </view>
+        <view class="lives-empty" wx:if="{{!loading&&lives.length==0}}">
+            拉到底了哦
+        </view>
+        <view class="lives-loadend" wx:if="{{!loading&&lives.length>=limit}}">
+            {{loadTitle}}
+        </view>
+        <view class="loading" hidden="{{!loading}}">
+            <van-loading size="22px" type="spinner">加载中...</van-loading>
+        </view>
+    </view>
+    <view id="examine-content" wx:else>
+        <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+    </view>
+    <import src="/lib/wxParse/wxParse.wxml"></import>
+</view>
+
+<view class="dealer-live" hidden="{{dealerShow}}">
+        <view style="font-size: 28rpx;text-align: center;line-height: 80rpx">请开通店铺后查看</view>
+<!--    <view class="{{dealerLiveIndex===index?'active dealer-live-item':'dealer-live-item'}}" wx:for="{{dealerLive}}" wx:key="index" bindtap="changePrice" data-money="{{item.price}}" data-index="{{index}}" data-type="{{item.type}}">-->
+<!--        <image src="{{dealerLiveIndex===index?item.icon2:item.icon1}}" class="dealer-live-icon"></image>-->
+<!--        <view class="dealer-live-item-made">-->
+<!--            <view class="dealer-live-item-made-title">{{item.desc}}</view>-->
+<!--            <text class="dealer-live-item-made-introduce">{{item.text}}</text>-->
+<!--        </view>-->
+<!--        <view class="dealer-live-item-right">-->
+<!--            <view class="dealer-live-item-price">¥{{item.price}}</view>-->
+<!--            <text class="dealer-live-item-preference">特惠价</text>-->
+<!--        </view>-->
+<!--    </view>-->
+<!--    <view class="dealer-btn" bindtap="submitSub">立即开通</view>-->
+</view>
+<authorize bind:onLoadFun='onLoadFun' iShidden="{{iShidden}}" isAuto="{{isAuto}}" isGoIndex="{{isGoIndex}}"></authorize>

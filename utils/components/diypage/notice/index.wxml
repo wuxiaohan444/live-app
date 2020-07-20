@@ -1,0 +1,20 @@
+<view id="notice">
+    <view class="news row-between-wrapper bgcolor mt15 day-news" style="background:{{page.background}};color:{{page.color}}" wx:if="{{page.text.length}}">
+        <view class="pictrue">
+            <image src="{{page.icon}}"></image>
+        </view>
+        <view class="swiperTxt">
+            <swiper autoplay="{{true}}" circular="true" duration="500" indicatorDots="{{false}}" interval="2500" vertical="true">
+                <swiper-item catchtouchmove="catchTouchMove" wx:for="{{page.text}}" wx:key="index">
+                    <navigator class="acea-row row-between-wrapper" hoverClass="none" openType="switchTab" url="{{item.link}}">
+                        <view class="text acea-row row-between-wrapper">
+                            <view class="label border2" wx:if="{{item.tip}}">{{item.tip}}</view>
+                            <view class="newsTitle line1">{{item.content}}</view>
+                        </view>
+                        <view class="iconfont icon-xiangyou"></view>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+</view>

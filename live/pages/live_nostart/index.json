@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "authorize": "/components/authorize/authorize",
+        "van-icon": "/vant/icon/index",
+        "van-count-down": "/vant/count-down/index",
+        "van-button": "/vant/button/index"
+    },
+    "navigationBarTextStyle": "white"
+}

@@ -1,0 +1,38 @@
+page {
+    background: #f4f4f4;
+    font-size: 24rpx!important;
+    padding: 30rpx;
+}
+.center-item{
+    width: 600rpx;
+    height: 150rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    border-bottom: 1rpx solid #ffffff;
+}
+
+.center-item image{
+    width: 105rpx;
+    height: 105rpx;
+    border-radius: 50%;
+}
+
+.center-item text{
+    font-size: 28rpx;
+    color: #333333;
+    padding-left: 40rpx;
+}
+
+.none{
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 50rpx;
+}
+
+.button{
+    margin-left: 50rpx;
+    font-size: 28rpx;
+    padding: 5rpx 10rpx;
+}

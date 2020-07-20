@@ -1,0 +1,43 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="promoter-text">
+    <text style="color:rgb(140, 140, 140)">我的上级</text>
+</view>
+<view class="commission-header">
+    <view class="commission-header-image">
+        <image src="{{parent.avatar}}" style="width: 100rpx;height: 100rpx;"></image>
+    </view>
+    <view class="commission-header-content">
+        <view class="commission-parent-nickname">昵称：{{parent.nickname}}</view>
+        <view class="commission-parent-uid">会员ID：{{parent.uid}}</view>
+    </view>
+</view>
+<view class="role">
+    <text style="color:rgb(140, 140, 140)">我的角色：{{commissionInfo.role}}</text>
+    <text style="color:rgb(140, 140, 140)">我推荐的人数：{{commissionInfo.child_total_num}}</text>
+</view>
+<view class="promoter-list">
+    <van-tabs animated bind:click="changeLevel">
+        <van-tab info="{{commissionInfo[index+1].child_nums}}" title="{{config.name[index+1]}}" wx:for="{{config.level-0}}">
+            <van-collapse accordion bind:change="onChange" value="{{activeName}}">
+                <van-collapse-item name="{{index}}" wx:for="{{childLists}}">
+                    <view class="children-info-detail" slot="title">
+                        <view class="children-info-image">
+                            <image src="{{item.avatar}}" style="width: 100rpx;height: 100rpx;"></image>
+                        </view>
+                        <view class="children-info-content">
+                            <view class="children-info-nickname">昵称：{{item.nickname}}[id:{{item.uid}}]</view>
+                            <view class="children-info-uid">订单金额：{{item.total_price}}</view>
+                        </view>
+                        <van-icon name="question-o"></van-icon>
+                    </view>
+                    <view class="children-info-more">
+                        <text>粉丝数量：{{item.child_nums}}</text>
+                        <text>粉丝订单金额：{{item.child_total_price}}</text>
+                        <text>推广角色：{{item.role}}</text>
+                    </view>
+                </van-collapse-item>
+            </van-collapse>
+        </van-tab>
+    </van-tabs>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

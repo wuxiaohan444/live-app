@@ -1,0 +1,135 @@
+@import "../../../../Wxss/0.wxss";
+
+.youbei-top>.title {
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    padding: 0 30rpx;
+}
+
+.youbei-top>.title>.name {
+    font-size: 36rpx;
+    color: #333;
+    font-weight: 700;
+}
+
+.youbei-top>.title>.name>text {
+    font-size: 20rpx;
+    color: #999;
+    font-weight: 500;
+}
+
+.youbei-top>.title>.text {
+    font-size: 28rpx;
+    font-weight: 700;
+}
+
+.youbei-top>.title>.more {
+    margin-left: auto;
+    font-size: 26rpx;
+    color: #999;
+    display: flex;
+}
+
+.youbei-top>.title>.img {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.scroll {
+    margin-bottom: 30rpx;
+}
+
+.scroll-view {
+    white-space: nowrap;
+    display: flex;
+}
+
+.scroll-view .item {
+    display: inline-block;
+    margin-left: 30rpx;
+    position: relative;
+}
+
+.scroll-view .item:last-child {
+    margin-right: 30rpx;
+}
+
+.scroll-view .item .img {
+    width: 260rpx;
+    height: 260rpx;
+    border-radius: 12rpx;
+}
+
+.scroll-view .item .msg {
+    font-size: 20rpx;
+    color: #fff;
+    padding: 0 26rpx 0 10rpx;
+    height: 40rpx;
+    background: rgba(51,51,51,0.4);
+    line-height: 40rpx;
+    text-align: center;
+    border-radius: 6rpx 0 30rpx 0;
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+    z-index: 9;
+}
+
+.scroll-view .item .shop {
+    font-size: 20rpx;
+    color: #fff;
+    padding: 0 10rpx 0 26rpx;
+    height: 40rpx;
+    background: #fe4564;
+    line-height: 40rpx;
+    text-align: center;
+    border-radius: 0 6rpx 0 30rpx;
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    z-index: 9;
+}
+
+.scroll-view .item .name {
+    font-size: 26rpx;
+    color: #333;
+    font-weight: 600;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 260rpx;
+    line-height: 1.2;
+    margin: 20rpx 0 8rpx 0;
+    text-align: center;
+}
+
+.scroll-view .item .money {
+    font-size: 28rpx;
+    color: #e53530;
+    font-weight: 700;
+}
+
+.scroll-view .item .money>text {
+    font-size: 24rpx;
+    color: #999;
+    margin-left: 10rpx;
+}
+
+.all-line {
+    width: 100%;
+    background: #f4f4f4;
+    height: 20rpx;
+}
+
+.icondian {
+    font-size: 24rpx;
+    color: #ffcd91;
+    vertical-align: middle;
+    display: inline-block;
+}

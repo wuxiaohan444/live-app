@@ -1,0 +1,11 @@
+<view class="nav_list" style="padding:{{page.padding_left_right}}px {{page.padding_top_buttom}}px">
+    <view class="nav_list-box" style="background:{{page.background}};border-radius: {{page.corner}}px">
+        <navigator class="list-box" hoverClass="none" url="{{item.link}}" wx:for="{{page.items}}" wx:key="index">
+            <view class="list">
+                <image src="{{item.image}}"></image>
+                <view class="text">{{item.text}}</view>
+                <view class="iconfont icon-xiangyou"></view>
+            </view>
+        </navigator>
+    </view>
+</view>

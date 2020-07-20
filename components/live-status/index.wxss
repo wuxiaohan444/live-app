@@ -1,0 +1,46 @@
+.status {
+    position: relative;
+    color: #fff;
+    height: 18px;
+    font-size: 10px;
+    line-height: 18px;
+    border-radius: 2px;
+    background-color: rgba(0,0,0,.2);
+    display: flex;
+    align-content: center;
+}
+
+.status .type {
+    display: inline-block;
+    padding: 0 7px 0 16px;
+    border-radius: 2px;
+}
+
+.status .type:before {
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 5px;
+    width: 6px;
+    height: 6px;
+    margin-top: -4px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.status .vice {
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.status--playing {
+    background-color: #f44;
+}
+
+.status--unstarted {
+    background-color: #00c392;
+}
+
+.status--finished {
+    padding-left: 6px;
+}

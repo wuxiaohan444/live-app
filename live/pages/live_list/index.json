@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "van-loading": "/vant/loading/index",
+        "bottom-tabbar": "/components/bottom-tabbar/index",
+        "tabBar": "/components/tabBar/index"
+    },
+    "navigationBarTextStyle": "white"
+}

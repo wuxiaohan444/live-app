@@ -1,0 +1,79 @@
+.deliver {
+    padding: 20rpx;
+    font-size: 26rpx;
+}
+
+.block {
+    margin-top: 20rpx;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+}
+
+.address .detail {
+    margin-left: 20rpx;
+}
+
+.address .detail .address-detail {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.deliver .select-deliver {
+    display: flex;
+    flex-direction: column;
+}
+
+.deliver .select-deliver .item {
+    display: flex;
+    flex-direction: row;
+    padding: 20rpx 0;
+    justify-content: space-between;
+}
+
+.deliver .select-deliver .item:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.deliver .select-deliver .item .right-box {
+    text-align: right;
+    display: flex;
+    align-items: center;
+}
+
+.deliver .select-deliver .item .right-box .tip {
+    color: #999;
+}
+
+.deliver .scan-box {
+    color: #ff4466;
+    justify-content: center;
+}
+
+.deliver .scan-box .text {
+    margin-left: 20rpx;
+}
+
+.deliver .scan-tip {
+    margin-top: 20rpx;
+    text-align: center;
+    color: #999;
+}
+
+.footer-btn {
+    position: fixed;
+    bottom: 10rpx;
+    width: 100%;
+}
+
+.footer-btn .submit-btn {
+    font-size: 26rpx;
+    color: #fff;
+    background: #ff4466;
+    border-radius: 50rpx;
+    width: 90%;
+    padding: 15rpx;
+    margin: 0 auto;
+}

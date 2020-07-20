@@ -1,0 +1,56 @@
+<bottom-tabbar></bottom-tabbar>
+<navbar parameter="{{parameter}}"></navbar>
+<view wx:if="{{examineKeywords.switch==0}}">
+    <view class="live-list-img" wx:if="{{banners.length>0}}">
+        <image src="{{item.pic}}" wx:for="{{banners}}"></image>
+    </view>
+    <view class="swiper-tab {{isScorll?'swiper-tab-scroll':''}}" style="top:{{navH}}rpx;">
+        <view bindtap="clickTab" class="swiper-tab-item {{currentTab==cate.id?'active':''}}" data-current="{{cate.id}}" wx:for="{{categories}}" wx:for-item="cate" wx:key="cate_key">
+                {{cate.name}}
+            </view>
+    </view>
+    <view class="show" wx:if="{{lives.length>0}}">
+        <view class="room-list-wrap">
+            <button bindtap="goRoom" class="room-item-live-wrap" data-liveid="{{live.live.id}}" data-livestatus="{{live.live.live_status}}" wx:for="{{lives}}" wx:for-item="live" wx:key="live_key">
+                <view class="live-item">
+                    <view class="live-item-cover-container">
+                        <view class="live-item-cover" style="background-image:url({{live.live.cover}})"></view>
+                    </view>
+                    <view class="live-item-right-container">
+                        <view class="live-item-text-container">
+                            <view class="live-item-title-container">
+                                <text class="live-item-title live-item-title-without-mark">{{live.live.title}}</text>
+                            </view>
+                            <text class="live-item-actor-name">{{live.live.subtitle}}</text>
+                        </view>
+                        <view class="live-item-goods-list-container">
+                            <view class="live-item-goods-list-wrap">
+                                <image class="live-item-goods-item" mode="aspectFill" role="img" src="{{goods}}" wx:for="{{live.goods}}" wx:for-item="goods" wx:key="goods_key"></image>
+                                <view class="live-item-goods-count">
+                                    <text class="live-item-goods-count-title" style="#ff5777">{{live.goods_num}}件</text>
+                                    <text class="live-item-goods-count-subtitle" style="#ff5777">
+                                        {{examineKeywords.keywords_live}}购
+                                    </text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </button>
+        </view>
+    </view>
+    <view class="list-empty" wx:if="{{!loading&&lives.length==0}}">
+        暂无{{examineKeywords.keywords_live_room}}
+    </view>
+    <view class="loadend" wx:if="{{!loading&&lives.length>=limit}}">
+        {{loadTitle}}
+    </view>
+    <view class="loading" hidden="{{!loading}}">
+        <van-loading size="22px" type="spinner">加载中...</van-loading>
+    </view>
+    <view style="height:50px"></view>
+</view>
+<view id="examine-content" wx:else>
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>

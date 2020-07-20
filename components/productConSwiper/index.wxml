@@ -1,0 +1,22 @@
+<view class="product-bg" wx:if="{{!videoPlaying}}">
+    <image bind:tap="videoPlay" class="video-play" src="{{staticUrl}}live/video_play.png" wx:if="{{videoUrl&&showVideoIcon}}"></image>
+    <view></view>
+    <swiper autoplay="{{autoplay}}" bindchange="change" circular="{{circular}}" duration="{{duration}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}">
+        <swiper-item wx:if="{{videoUrl}}">
+            <image bind:tap="videoPreview" class="slide-image" src="{{imageUrl}}"></image>
+        </swiper-item>
+        <swiper-item wx:for="{{imgUrls}}">
+            <image bind:tap="preview" class="slide-image" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="pages" style="opacity:0.3">{{currents}}/{{videoUrl?imgUrls.length+1:imgUrls.length||1}}</view>
+</view>
+<view style="height: 750rpx;width: 100%;position:relative" wx:else>
+    <video controls autoplay="{{true}}" bindended="bindended" binderror="binderror" id="myVideo" loop="{{false}}" muted="{{!videoSound}}" objectFit="fillCrop" src="{{videoUrl}}" style="height: 750rpx;width: 100%;">
+        <cover-image bindtap="changevoice" class="voice" src="{{staticUrl}}live/{{videoSound?'voice':'mute'}}.png"></cover-image>
+        <cover-view class="mc">
+            <cover-view class="video_btn active">视频</cover-view>
+            <cover-view bindtap="showpic" class="pic_btn">图片</cover-view>
+        </cover-view>
+    </video>
+</view>

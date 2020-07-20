@@ -1,0 +1,59 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="score-container">
+    <view class="panel">
+        <view class="raw available">
+            <view class="col">
+                <view class="em-label">可提现佣金(元)</view>
+                <view class="value">{{commission.can_cash}}</view>
+                <text class="nav-btn--disabled" wx:if="{{commission.can_cash<=0}}">
+                    去提现
+                    <text class="van-icon van-icon-arrow"></text>
+                </text>
+                <text bindtap="goPages" data-url="/membercenter/user_cash/index" wx:else>
+                    去提现
+                </text>
+            </view>
+        </view>
+        <view class="raw">
+            <view class="col">
+                <view class="strong-value">{{commission.total}}</view>
+                <view class="em-label">累计收益(元)</view>
+                <view class="wait-acc">含待结算 {{commission.wait_commission}} 元</view>
+            </view>
+            <view class="col">
+                <view class="strong-value">{{commission.order_count}}</view>
+                <view class="em-label">累计订单数</view>
+            </view>
+            <view class="col">
+                <view class="strong-value">{{commission.user_count}}</view>
+                <view class="em-label">下线数量</view>
+            </view>
+        </view>
+    </view>
+    <view class="panel" data-v-71c26ae8="">
+        <view class="col" data-v-71c26ae8="">
+            <view class="strong-value" data-v-71c26ae8="">{{commission.today_commission}}</view>
+            <view class="em-label" data-v-71c26ae8="">今日收益(元)</view>
+        </view>
+        <view class="col" data-v-71c26ae8="">
+            <view class="strong-value" data-v-71c26ae8="">{{commission.today_order_count}}</view>
+            <view class="em-label" data-v-71c26ae8="">今日订单</view>
+        </view>
+        <view class="col" data-v-71c26ae8="">
+            <view class="strong-value" data-v-71c26ae8="">{{commission.today_user_count}}</view>
+            <view class="em-label" data-v-71c26ae8="">今日新增下线</view>
+        </view>
+    </view>
+    <view class="list-container van-list" data-v-3cfe56b4="" role="feed">
+        <van-grid clickable columnNum="2" gutter="{{10}}">
+            <van-grid-item icon="qr" linkType="navigateTo" text="推广名片" url="/membercenter/user_spread_code/index"></van-grid-item>
+            <van-grid-item icon="friends-o" linkType="navigateTo" text="推广人统计" url="/membercenter/promoter-list/index"></van-grid-item>
+            <van-grid-item icon="balance-o" linkType="navigateTo" text="佣金明细" url="/membercenter/user_spread_money/index?type=2"></van-grid-item>
+            <van-grid-item icon="orders-o" linkType="navigateTo" text="推广人订单" url="/membercenter/promoter-order/index"></van-grid-item>
+            <van-grid-item icon="bill-o" linkType="navigateTo" text="提现明细" url="/membercenter/user_spread_money/index?type=1"></van-grid-item>
+            <van-grid-item icon="bill-o" linkType="navigateTo" text="我的带货订单" url="/membercenter/promoter-live-order/index"></van-grid-item>
+            <van-grid-item icon="orders-o" linkType="navigateTo" text="我的发货订单" url="/membercenter/ship-order/index" wx:if="{{commission.can_deliver}}"></van-grid-item>
+        </van-grid>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

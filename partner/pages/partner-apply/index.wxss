@@ -1,0 +1,434 @@
+@import "../../../Wxss/0.wxss";
+
+page {
+    background: #f4f4f4;
+}
+
+.swiper {
+    padding: 30rpx 0 0 0;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    height: 280rpx;
+}
+
+.swiper>swiper {
+    height: 280rpx;
+}
+
+.swiper-item>.img {
+    position: relative;
+}
+
+.swiper-item>.img>image {
+    width: 100%;
+    height: 280rpx;
+    border-radius: 12rpx;
+    transform: scale(0.9);
+    transition: 0.5s linear;
+}
+
+.swiper-item>.active>image {
+    transform: scale(1);
+    transition: 0.5s linear;
+}
+
+.swiper-item>.img>.box {
+    position: absolute;
+    right: 50rpx;
+    top: 30rpx;
+    transition: 0.5s linear;
+}
+
+.swiper-item>.img>.chu {
+    color: #8a7468;
+}
+
+.swiper-item>.img>.zhong {
+    color: #6d6d6d;
+}
+
+.swiper-item>.img>.gao {
+    color: #9e7638;
+}
+
+.swiper-item>.img>.box>.money {
+    line-height: 1;
+    font-size: 42rpx;
+    font-weight: 700;
+}
+
+.swiper-item>.img>.box>.money>text {
+    font-size: 24rpx;
+    margin-left: 10rpx;
+    font-weight: 600;
+}
+
+.swiper-item>.img>.box>.money-y {
+    font-size: 22rpx;
+    font-weight: 600;
+}
+
+.swiper-item>.img>.box>.money-y>text {
+    text-decoration: line-through;
+}
+
+.swiper-item>.active>.box {
+    right: 30rpx;
+    top: 20rpx;
+    transition: 0.5s linear;
+}
+
+.swiper-item>.img>.tip {
+    font-size: 24 rpx;
+    position: absolute;
+    bottom: 30 rpx;
+    left: 20 rpx;
+    transform: scale(0.9);
+    transition: 0.5s linear;
+}
+
+.fui-content {
+    margin-bottom: 100rpx;
+}
+
+.swiper-item>.active>.tip {
+    transform: scale(1);
+    transition: 0.5s linear;
+}
+
+.content>.main-chu>.title {
+    display: flex;
+    align-items: center;
+    padding: 30rpx;
+    background: #fff;
+}
+
+.content>.main-chu>.title>.item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.content>.main-chu>.title>.item>.img {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 100%;
+}
+
+.content>.main-chu>.title>.item>.text {
+    flex: 1;
+    padding-left: 10rpx;
+}
+
+.content>.main-chu>.title>.item>.text>.title {
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+.content>.main-chu>.title>.item>.text>.msg {
+    font-size: 20rpx;
+    color: #999;
+}
+
+.content>.main-chu>.main {
+    background: #fff;
+    margin-top: 30rpx;
+    padding-bottom: 100rpx;
+}
+
+.content>.main-chu>.main>.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26rpx;
+    font-weight: 600;
+    color: #666;
+    height: 90rpx;
+}
+
+.content>.main-chu>.main>.title>.text {
+    padding: 0 30rpx;
+}
+
+.content>.main-chu>.main>.title>.line {
+    background: #999;
+    width: 120rpx;
+    height: 4rpx;
+}
+
+.content>.main-chu>.main>.list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.content>.main-chu>.main>.list>.item {
+    flex: 0 0 25%;
+    text-align: center;
+    font-size: 26rpx;
+}
+
+.content>.main-chu>.main>.list>.item>.img {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 100%;
+    margin: auto auto 10rpx auto;
+}
+
+checkbox .wx-checkbox-input {
+    width: 26rpx;
+    height: 26rpx;
+    vertical-align: middle;
+    margin-top: -6rpx;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    background: #fe4564;
+    border-color: #fe4564;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    width: 20rpx;
+    height: 20rpx;
+    line-height: 20rpx;
+    text-align: center;
+    font-size: 22rpx;
+    color: #fff;
+    background: transparent;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.content>.main-chu>.main>.xieyi>.checkbox {
+    line-height: 1;
+    font-size: 24rpx;
+    color: #666;
+    text-align: center;
+    padding: 50rpx 30rpx;
+    vertical-align: middle;
+}
+
+.content>.main-chu>.main>.btn {
+    margin: 0 30rpx;
+    font-size: 28rpx;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    line-height: 80rpx;
+    background: #fe4564;
+    border-radius: 60rpx;
+}
+
+.content>.main-chu>.main>.libao>.item {
+    display: flex;
+    align-items: center;
+    background: #f4f4f4;
+    margin: 0 30rpx 30rpx 30rpx;
+    padding: 20rpx 30rpx;
+    border-radius: 6rpx;
+}
+
+.content>.main-chu>.main>.libao>.item>.dom {
+    width: 10rpx;
+    height: 10rpx;
+    background: #9e7638;
+    border-radius: 100%;
+}
+
+.content>.main-chu>.main>.libao>.item>.img {
+    width: 102rpx;
+    height: 24rpx;
+    padding: 0 20rpx;
+}
+
+.content>.main-chu>.main>.libao>.item>.text {
+    font-size: 24rpx;
+    color: #666;
+    flex: 1;
+}
+
+.content>.main-chu>.libao {
+    background: #fff;
+}
+
+.content>.main-chu>.libao image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.content>.main-chu>.libao>.title {
+    font-size: 30rpx;
+    font-weight: 600;
+    text-align: center;
+    padding: 30rpx;
+}
+
+.content>.main-chu>.libao>.table {
+    display: flex;
+    align-items: center;
+    margin: 0 30rpx;
+    border: solid 1rpx #9e7638;
+    border-right: none;
+}
+
+.content>.main-chu>.libao>.table>.tr {
+    flex: 1;
+}
+
+.content>.main-chu>.libao>.table>.tr>.tb {
+    background: #f6ebda;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+    border-right: solid 1rpx #9e7638;
+    border-bottom: solid 1rpx #9e7638;
+}
+
+.content>.main-chu>.libao>.table>.tr>.tb:last-child {
+    border-right: none;
+}
+
+.content>.main-chu>.libao>.table>.tr>.text {
+    line-height: 60rpx;
+    text-align: center;
+    border-right: solid 1rpx #9e7638;
+    border-bottom: solid 1rpx #9e7638;
+}
+
+.content>.main-chu>.libao>.table>.tr>.text:last-child {
+    border-bottom: none;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.btn {
+    font-size: 30rpx;
+    background: #fe4564;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 100rpx;
+    align-items: center;
+    color: #fff;
+}
+
+.addAddress {
+    margin-top: 65rpx;
+    max-height: 800rpx;
+    position: relative;
+}
+
+.addAddress .list .item {
+    padding: 0 30rpx;
+    border-top: 1rpx solid #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.addAddress .list .item .name {
+    width: 195rpx;
+    font-size: 30rpx;
+    color: #333;
+    min-height: 90rpx;
+    display: flex;
+    align-items: center;
+}
+
+.addAddress .list .item checkbox,.addAddress .list .item .checktext {
+    line-height: 90rpx;
+}
+
+.addAddress .list .item input {
+    height: 90rpx;
+    line-height: 90rpx;
+    width: 100%;
+}
+
+.input-width {
+    width: 40%;
+}
+
+.time-frame {
+    display: flex;
+    align-items: center;
+}
+
+.time-frame input {
+    text-align: center;
+}
+
+.time-frame-line {
+    padding: 0 20rpx;
+}
+
+.time-range {
+}
+
+.time-range input {
+    text-align: center;
+}
+
+.time-range-line {
+    text-align: center;
+}
+
+.addAddress .wechatAddress {
+    width: 690rpx;
+    height: 86rpx;
+    border-radius: 16rpx;
+    text-align: center;
+    line-height: 86rpx;
+    margin: 0 auto;
+    font-size: 32rpx;
+    background-color: #07c160;
+    color: #fff;
+}
+
+.keepBnt {
+    border-radius: 0;
+    margin: 0;
+    background-color: rgba(245,68,101,1);
+    color: #fff;
+    font-size: 30rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.keep-box {
+    height: 100rpx;
+}
+
+.checktext {
+    margin-right: 20rpx;
+}
+
+.img-box {
+    width: 480rpx;
+    margin: 20rpx 0 0;
+}
+
+.openVip {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+}

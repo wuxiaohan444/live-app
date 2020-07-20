@@ -1,0 +1,42 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="statistics">
+    <view bindtap="pickerType" class="picker" data-mode="consumption">
+        <view>{{column_name}}</view>
+    </view>
+    <view class="content">
+        <view class="list">
+            <view class="title">成交额（元）</view>
+            <view class="money">{{stat.order_money}}
+                <text>元</text>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">店铺访客（人）</view>
+            <view class="money">{{stat.visit_num}}
+                <text>人</text>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">店铺收藏量（次）</view>
+            <view class="money">{{stat.collect_num}}
+                <text>次</text>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">订单数（笔）</view>
+            <view class="money">{{stat.order_num}}
+                <text>笔</text>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">购物车商品（件）</view>
+            <view class="money">{{stat.cart_num}}
+                <text>件</text>
+            </view>
+        </view>
+    </view>
+</view>
+<van-popup bind:close="onPickerClose" position="bottom" show="{{picker_show}}">
+    <van-picker showToolbar bind:cancel="onPickerCancel" bind:confirm="onPickerConfirm" columns="{{columns}}" valueKey="0"></van-picker>
+</van-popup>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

@@ -1,0 +1,21 @@
+<view class="content">
+    <view class="title">绑定推荐人</view>
+    <view class="input-box">
+        <input bindinput="getCode" class="input" placeholder="输入推荐人ID" type="text" value="{{codeData}}"></input>
+    </view>
+    <view bindtap="onBang" class="btn">绑定推荐人</view>
+    <view class="dialog-box" wx:if="{{shopDialog}}">
+        <view class="dialog">
+            <view class="title">提示</view>
+            <view class="msg">
+        您将要绑定的上级
+        <view class="bang">昵称为XXX ,手机号XXXX,真实姓名XXX</view>
+        是否确认绑定，绑定后将无法修改。
+      </view>
+            <view class="btn">
+                <view class="qd">确定</view>
+                <view bindtap="quxiao" class="qx">取消</view>
+            </view>
+        </view>
+    </view>
+</view>

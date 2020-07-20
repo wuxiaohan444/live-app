@@ -1,0 +1,21 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="commission-header">
+    <view class="commission-text">累积推广订单</view>
+    <view class="commission-total">{{recordCount}}</view>
+</view>
+<view class="order-lists">
+    <view class="order-detail" wx:for="{{recordList}}">
+        <view class="order-user-images">
+            <image src="{{item.avatar}}" style="width: 100rpx;height: 100rpx;"></image>
+        </view>
+        <view class="order-user-nickname">
+            <text>{{item.nickname}}</text>
+            <text>{{item.dateline}}</text>
+        </view>
+        <view class="order-user-price">
+            <text style="color: {{item.order_status_color}};">{{item.order_status_name}}</text>
+            <text>{{item.order_sn}}</text>
+            <text>¥{{item.price}}</text>
+        </view>
+    </view>
+</view>

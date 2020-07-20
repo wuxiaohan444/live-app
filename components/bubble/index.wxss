@@ -1,0 +1,13 @@
+.canvas {
+    position: fixed;
+    right: 0;
+    bottom: 130rpx;
+    width: 120px;
+    height: 400px;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.canvas--fullscreen {
+    right: 6rpx;
+}

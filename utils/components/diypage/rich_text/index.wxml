@@ -1,0 +1,4 @@
+<view class="rich_text" style="background: {{page.background}};padding: {{page.padding_top_buttom}}px {{page.padding_left_right}}px">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>

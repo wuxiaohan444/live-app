@@ -1,0 +1,13 @@
+{
+    "usingComponents": {
+        "authorize": "/components/authorize/authorize",
+        "van-dialog": "/vant/dialog/index",
+        "navbar": "/components/navbar/index",
+        "van-popup": "/vant/popup/index",
+        "van-radio-group": "/vant/radio-group/index",
+        "van-radio": "/vant/radio/index",
+        "van-uploader": "/vant/uploader/index",
+        "van-datetime-picker": "/vant/datetime-picker/index"
+    },
+    "navigationBarTextStyle": "white"
+}

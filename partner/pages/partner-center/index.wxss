@@ -1,0 +1,271 @@
+page {
+    background: #f4f4f4;
+}
+
+.head {
+    background: #fe4564;
+    border-bottom-left-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+    height: 300rpx;
+    padding-top: 30rpx;
+}
+
+.head>.img {
+    width: 200rpx;
+    height: 200rpx;
+    margin: auto;
+    display: block;
+    border-radius: 100%;
+    border: solid 4rpx #fff;
+}
+
+.head>.my-quan {
+    position: absolute;
+    right: 0;
+    top: 160rpx;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 22rpx;
+    line-height: 1.5;
+    background: #c62b45;
+    height: 50rpx;
+    width: 160rpx;
+    justify-content: center;
+    border-top-left-radius: 40rpx;
+    border-bottom-left-radius: 40rpx;
+}
+
+.head>.my-quan>.img {
+    width: 28rpx;
+    height: 26rpx;
+    margin-right: 10rpx;
+}
+
+.my-card {
+    background: #fff;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    border-radius: 12rpx;
+    margin-top: -40rpx;
+}
+
+.my-card>.box {
+    display: flex;
+    align-items: center;
+    height: 180rpx;
+}
+
+.my-card>.box>.list {
+    flex: 1;
+    text-align: center;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.my-card>.box>.list>.num {
+    font-size: 36rpx;
+    font-weight: 700;
+    margin-bottom: 6rpx;
+    color: #333;
+}
+
+.yaoqing {
+    background: #fe4564;
+    color: #fff;
+    border-radius: 40rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    text-align: center;
+    margin: 30rpx;
+}
+
+.top-tab {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: #333;
+    font-weight: 600;
+    height: 90rpx;
+    background: #fff;
+    top: 0;
+    z-index: 99;
+}
+
+.top-tab>.item {
+    flex: 1;
+    text-align: center;
+    line-height: 90rpx;
+}
+
+.top-tab>.active {
+    color: #fe4564;
+    font-weight: 600;
+    position: relative;
+}
+
+.top-tab>.active::after {
+    content: '';
+    position: absolute;
+    width: 40rpx;
+    height: 4rpx;
+    background: #fe4564;
+    border-radius: 12rpx;
+    bottom: 10rpx;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.main {
+    background: #fff;
+}
+
+.swiper {
+    height: calc(100vh - 665rpx);
+    margin: 0 30rpx;
+    position: relative;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    overflow-y: scroll;
+    height: 100%;
+    top: 0;
+}
+
+.content>.no-shop {
+    text-align: center;
+    color: #666;
+    font-size: 24rpx;
+    margin-top: 30%;
+}
+
+.content>.no-shop-btn {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin-top: 50rpx;
+}
+
+.content>.no-shop-btn>.item {
+    display: inline-block;
+    line-height: 70rpx;
+    width: 200rpx;
+    background: #fe4564;
+    color: #fff;
+    font-size: 24rpx;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 20rpx;
+    border-radius: 6rpx;
+}
+
+.content>.list {
+    display: flex;
+    align-items: center;
+    height: 120rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.content>.list:last-child {
+    border-bottom: none;
+}
+
+.content>.list>.num {
+    flex: 0 0 50rpx;
+    height: 50rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.content>.list>.num>.img {
+    width: 30rpx;
+    height: 38rpx;
+    margin: auto;
+}
+
+.content>.list>.form-name {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 0 30rpx;
+}
+
+.content>.list>.form-name>.touxiang>.img {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 100%;
+}
+
+.content>.list>.form-name>.name-text {
+    font-size: 20rpx;
+    color: #666;
+    padding: 0 20rpx;
+}
+
+.content>.list>.form-name>.name-text>.name {
+    font-size: 28rpx;
+    font-weight: 600;
+    color: #333;
+}
+
+.content>.list>.money {
+    font-size: 28rpx;
+    font-weight: 700;
+    color: #333;
+}
+
+.content>.list>.time {
+    color: #666;
+    font-size: 24rpx;
+}
+
+.content>.list>.m-money {
+    color: #fe4564;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+.haibao-box {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    z-index: 100;
+}
+
+.haibao-box>.bg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    z-index: 101;
+    background: rgba(0,0,0,0.6);
+}
+
+.haibao-box>.img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 105;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.baocun {
+    background: #fe4564;
+    color: #fff;
+    border-radius: 40rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    text-align: center;
+    margin: 30rpx auto;
+    width: 80%;
+}

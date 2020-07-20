@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "authorize": "/components/authorize/authorize",
+        "payment-partner-apply": "/components/payment-partner-apply/index",
+        "van-dialog": "/vant/dialog/index",
+        "painter": "../../painter/painter"
+    },
+    "navigationBarTitleText": "我的团队"
+}

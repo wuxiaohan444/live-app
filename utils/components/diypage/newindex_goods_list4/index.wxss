@@ -1,0 +1,91 @@
+@import "../../../../Wxss/0.wxss";
+
+.title {
+    font-size: 34rpx;
+    font-weight: 700;
+    padding: 30rpx;
+}
+
+.recommend-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 20rpx;
+}
+
+.recommend-content-list {
+    flex: 0 0 50%;
+    margin-bottom: 30rpx;
+    overflow: hidden;
+}
+
+.recommend-content-list>.list-images {
+    padding: 0 10rpx;
+    position: relative;
+}
+
+.recommend-content-list>.list-images>.mark {
+    position: absolute;
+    top: 0;
+    left: 10rpx;
+    background-color: rgba(238,59,14,0.6);
+    font-size: 24rpx;
+    padding: 4rpx 20rpx;
+    color: #fff;
+}
+
+.recommend-content-list>.list-information {
+    padding: 20rpx 10rpx 0 20rpx;
+}
+
+.recommend-content-list>.list-images>image {
+    width: 100%;
+    height: 330rpx;
+    border-radius: 12rpx;
+}
+
+.list-information>.information-title {
+    font-size: 26rpx;
+    font-weight: 700;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 70rpx;
+    line-height: 1.3;
+}
+
+.list-information>.information-titles {
+    font-size: 28rpx;
+    font-weight: 500;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: #666;
+}
+
+.information-tip {
+    font-size: 24rpx;
+    color: #999999;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 10rpx 0;
+}
+
+.information-money {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: #e53530;
+}

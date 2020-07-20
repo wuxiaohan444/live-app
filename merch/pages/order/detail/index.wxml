@@ -1,0 +1,192 @@
+<navbar id="navbar" parameter="{{parameter}}"></navbar>
+<van-dialog id="van-dialog"></van-dialog>
+<view class="order-details">
+    <view class="header acea-row row-middle {{isGoodsReturn?'on':''}}">
+        <view class="pictrue" wx:if="{{isGoodsReturn==false}}">
+            <image src="{{static_url}}order/order_detail_{{orderInfo._status._type}}.png"></image>
+        </view>
+        <view class="msg-box data {{isGoodsReturn?'on':''}}">
+            <view class="state">{{orderInfo._status._title}}</view>
+            <view>
+                <text class="time">{{orderInfo._status._msg}}</text>
+            </view>
+        </view>
+    </view>
+    <van-steps active="{{active}}" activeColor="#5fb923" activeIcon="success" steps="{{steps}}" wx:if="{{status.type>=0}}"></van-steps>
+    <view>
+        <view class="address">
+            <view class="name">
+                <van-icon name="location-o"></van-icon>
+                收货人：{{orderInfo.real_name}}
+                <text class="phone">{{orderInfo.user_phone}}</text>
+                <text bindtap="copyAddress" class="copy" style="float: right">复制</text>
+            </view>
+            <view class="location">收货地址：{{orderInfo.user_address}}</view>
+        </view>
+        <view class="line">
+            <image src="/images/line.jpg"></image>
+        </view>
+    </view>
+    <view class="refund_info" wx:if="{{orderInfo.refund_status>0}}">
+        <view class="title">退款信息</view>
+        <view class="item">
+            <view class="label">退款类型:</view>
+            <view class="text">{{orderInfo.refund_type}}</view>
+        </view>
+        <view class="item">
+            <view class="label">退款原因:</view>
+            <view class="text">{{orderInfo.refund_reason_wap}}</view>
+        </view>
+        <view class="item">
+            <view class="label">退款说明:</view>
+            <view class="text">{{orderInfo.refund_reason_wap_explain}}</view>
+        </view>
+        <view class="item">
+            <view class="label">退款金额:</view>
+            <view class="text">￥{{orderInfo.refund_price}}</view>
+        </view>
+        <view class="item">
+            <view class="label">申请时间:</view>
+            <view class="text">{{orderInfo.refund_reason_time}}</view>
+        </view>
+        <view class="item" wx:if="{{orderInfo.refund_reason_wap_img}}">
+            <view class="label">退款凭证:</view>
+            <view class="text reason_img">
+                <image bindtap="previewRefundImage" data-url="{{item}}" src="{{item}}" wx:for="{{orderInfo.refund_reason_wap_img}}"></image>
+            </view>
+        </view>
+    </view>
+    <orderGoods cartInfo="{{cartInfo}}" evaluate="{{evaluate}}" orderId="{{order_id}}"></orderGoods>
+    <view class="wrapper">
+        <view class="item acea-row row-between">
+            <view>配送方式</view>
+            <view class="conter acea-row row-middle row-right">
+                <view>{{orderInfo._delivery_type}}</view>
+            </view>
+        </view>
+        <view style="margin-top: 20rpx" wx:if="{{orderInfo.status!=0}}">
+            <view wx:if="{{orderInfo.delivery_type=='express'}}">
+                <view class="item acea-row row-between">
+                    <view>快递公司：</view>
+                    <view class="conter">{{orderInfo.delivery_name||''}}</view>
+                </view>
+                <view class="item acea-row row-between">
+                    <view>快递号：</view>
+                    <view class="conter">{{orderInfo.delivery_id||''}}</view>
+                </view>
+            </view>
+            <view wx:elif="{{orderInfo.delivery_type=='send'}}">
+                <view class="item acea-row row-between">
+                    <view>配送人姓名：</view>
+                    <view class="conter">{{orderInfo.delivery_name||''}}</view>
+                </view>
+                <view class="item acea-row row-between">
+                    <view>联系电话：</view>
+                    <view class="conter acea-row row-middle row-right">{{orderInfo.delivery_id||''}}
+                        <text bindtap="goTel" class="copy">拨打</text>
+                    </view>
+                </view>
+            </view>
+            <view wx:elif="{{orderInfo.delivery_type=='fictitious'}}">
+                <view class="item acea-row row-between">
+                    <view>虚拟发货：</view>
+                    <view class="conter">已发货，请注意查收</view>
+                </view>
+            </view>
+        </view>
+        <view class="border-line"></view>
+        <view class="item acea-row row-between">
+            <view>买家留言</view>
+            <view class="conter acea-row row-middle row-right">
+                {{orderInfo.mark?orderInfo.mark:'无'}}
+            </view>
+        </view>
+    </view>
+    <view class="wrapper">
+        <view class="item acea-row row-between">
+            <view>商品金额</view>
+            <view class="conter acea-row row-middle row-right">
+                <view>￥{{orderInfo.goods_price}}</view>
+            </view>
+        </view>
+        <view class="item acea-row row-between">
+            <view>运费</view>
+            <view class="conter acea-row row-middle row-right">
+                <view>￥{{orderInfo.pay_postage}}</view>
+            </view>
+        </view>
+        <view class="item acea-row row-between" wx:if="{{orderInfo.paid==1}}">
+            <view>付款方式：</view>
+            <view class="conter">{{orderInfo._status._payType}}</view>
+        </view>
+        <view class="actualPay acea-row row-right">实付款：
+            <text class="money font-color">￥{{orderInfo.pay_price}}</text>
+        </view>
+        <view class="actualPay acea-row row-right" wx:if="{{orderInfo.refund_price>0}}">已退款：
+            <text class="money font-color">￥{{orderInfo.refund_price}}</text>
+        </view>
+        <view class="border-line"></view>
+    </view>
+    <view class="wrapper bottom-box">
+        <view class="item-bottom">
+            订单编号：
+            {{orderInfo.order_id}}
+            <text bindtap="copy" class="copy">复制</text>
+        </view>
+        <view class="item-bottom">
+            创建时间：
+            {{orderInfo.add_time_y+' '+orderInfo.add_time_h}}
+        </view>
+        <view class="item-bottom" wx:if="{{orderInfo.paid==1}}">
+            付款时间：
+            {{orderInfo._pay_time}}
+        </view>
+    </view>
+    <view style="height:120rpx;"></view>
+    <view class="footer acea-row row-right row-middle" wx:if="{{orderInfo._status._type==0}}">
+        <view bindtap="cancelOrderPop" class="bnt cancel">
+                关闭订单
+            </view>
+        <navigator class="bnt cancel" hoverClass="none" url="/merch/pages/order/change_price/index?order_id={{orderInfo.order_id}}">修改价格
+            </navigator>
+        <navigator class="bnt cancel" hoverClass="none" url="/merch/pages/order/change_address/index?order_id={{orderInfo.order_id}}">修改地址
+            </navigator>
+    </view>
+    <view class="footer acea-row row-right row-middle" wx:elif="{{orderInfo._status._type==1}}">
+        <navigator class="bnt cancel" hoverClass="none" url="/merch/pages/order/change_address/index?order_id={{orderInfo.order_id}}">修改地址
+            </navigator>
+        <navigator class="bnt bg-color" hoverClass="none" url="/merch/pages/order/deliver/index?order_id={{orderInfo.order_id}}">发货
+            </navigator>
+    </view>
+    <view class="footer acea-row row-right row-middle" wx:elif="{{orderInfo._status._type>=2}}">
+        <navigator class="bnt cancel" hoverClass="none" url="/order/pages/goods_logistics/index?orderId={{orderInfo.order_id}}">查看物流
+            </navigator>
+    </view>
+    <view class="footer acea-row row-right row-middle" wx:elif="{{orderInfo._status._type==-1}}">
+        <navigator class="bnt bg-color" hoverClass="none" url="/merch/pages/order/refund_reason/index?order_id={{orderInfo.order_id}}">拒绝退款
+            </navigator>
+        <view bindtap="refundConfirm" class="bnt bg-color" data-order_id="{{orderInfo.order_id}}">
+                同意退款
+            </view>
+    </view>
+</view>
+<van-popup bind:close="showCancelReason" closeable="{{true}}" customStyle="" overlay="{{true}}" position="bottom" round="{{true}}" show="{{showCancelReason}}">
+    <view class="cancel-reason-box">
+        <view class="title">取消订单</view>
+        <view class="tip">请您与买家沟通达成一致后再取消交易</view>
+        <view class="reason-list">
+            <van-radio-group bind:change="onChangeCancelReason" value="{{reasonIndex}}">
+                <van-radio checkedColor="#ff4466" customClass="reason-radio" iconSize="16" labelPosition="right" name="{{index}}" wx:for="{{cancelReason}}">{{item}}
+                    </van-radio>
+            </van-radio-group>
+        </view>
+    </view>
+    <view class="footer-btn">
+        <button bindtap="showCancelReason" size="mini" type="warn">暂不取消
+        </button>
+        <button bindtap="cancelOrder" size="mini" type="warn">取消订单
+        </button>
+    </view>
+</van-popup>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<payment bind:onChangeFun="onChangeFun" order_id="{{pay_order_id}}" pay_close="{{pay_close}}" totalPrice="{{totalPrice}}" userInfo="{{userInfo}}" wx:if="{{userInfo.id}}"></payment>

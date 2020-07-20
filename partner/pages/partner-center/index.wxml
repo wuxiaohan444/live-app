@@ -1,0 +1,139 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="promotionCenter">
+    <view class="head">
+        <image class="img" src="{{partnerInfo.logo}}"></image>
+        <view bindtap="gopages" class="my-quan" data-url="/partner/pages/partner_equity/index">
+            <image class="img" src="/images/partner/tuiguangb.png"></image>
+            <view>我的权益</view>
+        </view>
+    </view>
+    <view class="my-card">
+        <view class="box">
+            <view class="list">
+                <view class="num">¥{{commission_total}}</view>
+                <view>已获得奖励</view>
+            </view>
+            <view class="list">
+                <view class="num">{{ini_anchors_nums}}</view>
+                <view>邀请主播</view>
+            </view>
+            <view class="list">
+                <view class="num">{{can_give_anchors}}</view>
+                <view>剩余主播名额</view>
+            </view>
+        </view>
+        <view class="box">
+            <view class="list">
+                <view class="num">¥{{can_cash_apply}}</view>
+                <view>可提现金额</view>
+            </view>
+            <view class="list">
+                <view class="num">{{ini_partner_nums}}</view>
+                <view>邀请合伙人</view>
+            </view>
+            <view class="list">
+                <view class="num">{{partner_group_nums}}</view>
+                <view>我的团队人数</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="drawPic" class="yaoqing">{{apply_config.apply_text}}</view>
+    <view class="main">
+        <view class="top-tab">
+            <view bindtap="titleClick" class="item {{0==currentIndex?'active':''}}" data-idx="0">佣金记录</view>
+            <view bindtap="titleClick" class="item {{1==currentIndex?'active':''}}" data-idx="1">名下主播</view>
+            <view bindtap="titleClick" class="item {{2==currentIndex?'active':''}}" data-idx="2">名下合伙人</view>
+            <view bindtap="titleClick" class="item {{3==currentIndex?'active':''}}" data-idx="3">业绩明细</view>
+        </view>
+        <swiper bindchange="pagechange" class="swiper" current="{{currentIndex}}">
+            <swiper-item class="item">
+                <view class="content">
+                    <block wx:if="{{commission.length>0}}">
+                        <view class="list" wx:for="{{commission}}" wx:key="index">
+                            <view class="m-money">¥{{item.commission}}</view>
+                            <view class="form-name">
+                                <view class="name-text">
+                                    <view class="name">{{item.commission_type}}</view>
+                                </view>
+                            </view>
+                            <view class="time">{{item.dateline}}</view>
+                        </view>
+                    </block>
+                    <view class="no-shop" wx:else>暂无信息</view>
+                </view>
+            </swiper-item>
+            <swiper-item class="item">
+                <view class="content">
+                    <block wx:if="{{anchors.length>0}}">
+                        <view class="list" wx:for="{{anchors}}" wx:key="index">
+                            <view class="num">
+                                <image class="img" src="/images/partner/tui1.png" wx:if="{{index===0}}"></image>
+                                <image class="img" src="/images/partner/tui2.png" wx:elif="{{index===1}}"></image>
+                                <image class="img" src="/images/partner/tui3.png" wx:elif="{{index===2}}"></image>
+                                <text wx:else>{{index+1}}</text>
+                            </view>
+                            <view class="form-name">
+                                <view class="touxiang">
+                                    <image class="img" src="{{item.user.avatar}}"></image>
+                                </view>
+                                <view class="name-text">
+                                    <view class="name">{{item.user.nickname}}</view>
+                                    <view>{{item.user_level.name}}(¥{{item.user_level.pay_price}})</view>
+                                </view>
+                            </view>
+                            <view class="money">¥{{item.goods_commission}}</view>
+                        </view>
+                    </block>
+                    <view class="no-shop" wx:else>暂无信息</view>
+                </view>
+            </swiper-item>
+            <swiper-item class="item">
+                <view class="content">
+                    <block wx:if="{{partners.length>0}}">
+                        <view class="list" wx:for="{{partners}}" wx:key="index">
+                            <view class="num">
+                                <text>{{index+1}}</text>
+                            </view>
+                            <view class="form-name">
+                                <view class="touxiang">
+                                    <image class="img" src="{{item.user.avatar}}"></image>
+                                </view>
+                                <view class="name-text">
+                                    <view class="name">{{item.user.nickname}}</view>
+                                    <view>{{item.user_level.name}}(¥{{item.user_level.pay_price}})</view>
+                                </view>
+                            </view>
+                            <view class="time">{{item.dateline}}</view>
+                        </view>
+                    </block>
+                    <view class="no-shop" wx:else>暂无信息</view>
+                </view>
+            </swiper-item>
+            <swiper-item class="item">
+                <view class="content">
+                    <block wx:if="{{achievement.length>0}}">
+                        <view class="list" wx:for="{{achievement}}" wx:key="index">
+                            <view class="m-money">¥{{item.price}}</view>
+                            <view class="form-name">
+                                <view class="name-text">
+                                    <view class="name">{{item.commission_type}}</view>
+                                </view>
+                            </view>
+                            <view class="time">{{item.dateline}}</view>
+                        </view>
+                    </block>
+                    <view class="no-shop" wx:else>暂无信息</view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <painter bind:imgOK="onImgOK" customStyle="position: absolute; left: -9999rpx;" palette="{{template}}" widthPixels="1000"></painter>
+    <view class="haibao-box" wx:if="{{shopImage}}">
+        <view bindtap="onImageHide" class="bg"></view>
+        <view class="img">
+            <image src="{{image}}" style="width: 80%; height: 900rpx; margin:auto;"></image>
+            <view bindtap="saveImage" class="baocun">保存</view>
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

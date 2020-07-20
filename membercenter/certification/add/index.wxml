@@ -1,0 +1,59 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="addAuth-page">
+    <view class="id-card">
+        <view class="title">
+            <text>*</text>
+            上传身份证正反面照片
+        </view>
+        <view class="divide-line-one"></view>
+        <view class="divide-line-two"></view>
+        <view class="remind">
+            温馨提示：请上传原始比例身份证正反面，请勿裁剪涂改，保证身份证清晰显示，否则无法通过审核
+        </view>
+        <view class="subtitle">请拍摄并上传身份证</view>
+        <view class="id-card-position-wrapper">
+            <view class="id-card-wrapper">
+                <view class="id-card-upload">
+                    <image alt="" bindtap="uploadIdCard" data-type="idCardFront" src="{{idCardFront}}"></image>
+                    <view bindtap="cancelIdCardPhoto" class="cancel" data-type="idCardFront" wx:if="{{cancelidCardFront}}">x</view>
+                </view>
+                <text>点击上传身份证正面</text>
+            </view>
+            <view class="id-card-wrapper">
+                <view class="id-card-upload">
+                    <image alt="" bindtap="uploadIdCard" data-type="idCardBehind" id="card_fm" src="{{idCardBehind}}"></image>
+                    <view bindtap="cancelIdCardPhoto" class="cancel" data-type="idCardBehind" wx:if="{{cancelidCardBehind}}">x</view>
+                </view>
+                <text>点击上传身份证反面</text>
+            </view>
+        </view>
+        <view class="detail">
+            <text>为何要上传身份信息？
+            </text>
+            <text>订单中包含海外购商品，海关要求必须提供真实姓名和身份证号进行实名认证，且实名认证与支付人必须一致，错误信息可能导致无法清关。平台保证您的信息安全，绝不对外泄露！申请{{examineKeywords.keywords_live_anchor}}或者店铺，根据法律必须要获得用户的身份证实名信息，达到管控的目的。
+            </text>
+        </view>
+    </view>
+    <view class="verify-info">
+        <view class="title">
+            <text>*</text>
+            个人信息确认（请核查）
+        </view>
+        <view class="divide-line-one"></view>
+        <view class="divide-line-two"></view>
+        <view class="info-detail-wrapper">
+            <form bindsubmit="formSubmit">
+                <label class="info-detail" for="姓名">
+                    姓名：
+                    <input bindinput="bindKeyInput" data-column="realname" maxlength="8" name="realname" placeholder="此为真实姓名" value="{{realname}}"></input>
+                </label>
+                <label class="info-detail" for="身份证号">
+                    身份证号：
+                    <input bindinput="bindKeyInput" data-column="idcard" name="idcard" placeholder="请填写正确身份证号(将加密保存)" type="idcard" value="{{idcard}}"></input>
+                </label>
+                <button bind:tap="submit" class="save-btn">保存</button>
+            </form>
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

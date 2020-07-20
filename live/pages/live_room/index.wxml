@@ -1,0 +1,159 @@
+<view class="livePlayer-wrap" style="height:{{winH}}px;" wx:if="{{examineKeywords.switch==0}}">
+    <view style="width:100%; height:{{isInput?screenTotalH-100:screenTotalH}}rpx;">
+        <live-player autoPauseIfNavigate="{{true}}" autoplay="true" bindfullscreenchange="onFullScreenChange" bindnetstatus="onNetStatus" bindrendererror="onLivePlayerRenderError" bindstatechange="onStateChange" class="live-room-player" id="livePlayer" maxCache="{{2}}" minCache="{{0.2}}" objectFit="fillCrop" src="{{live.play_url.url}}" style="height:{{isInput?screenTotalH-100:screenTotalH}}rpx;" wx:if="{{live.play_url.player=='liveplayer'}}"></live-player>
+        <video autoplay autoPauseIfNavigate="{{true}}" bindfullscreenchange="onFullScreenChange" bindrendererror="onLivePlayerRenderError" bindstatechange="onStateChange" class="live-room-player" controls="{{false}}" enableProgressGesture="{{false}}" id="livePlayer" maxCache="{{2}}" minCache="{{0.2}}" objectFit="cover" poster="{{live.cover}}" showCenterPlayBtn="{{false}}" showFullscreenBtn="{{false}}" showPlayBtn="{{false}}" src="{{live.play_url.url}}" style="height:{{isInput?screenTotalH-100:screenTotalH}}rpx;" wx:else></video>
+    </view>
+    <view class="livePlayer-ctn-box" style="height:{{isInput?screenTotalH-100:screenTotalH}}rpx;">
+        <view class="livePlayer-navBar-box" style="height:{{navH}}rpx;">
+            <view class="livePlayer-navBar">
+                <image bindtap="liveBack" class="livePlayer-back" src="../../../resource/img/room-back.png" style="cursor:pointer;"></image>
+                <view class="player-info">
+                    <image bindtap="gopages" class="logo" data-url="/live/pages/live_homepage/index?live_id={{live.id}}" src="{{live.cover}}"></image>
+                    <view class="name">
+                        <view class="business-name">{{live.title}}</view>
+                        <view class="online">{{live.view_num}}观看</view>
+                    </view>
+                    <view bindtap="follow" class="subscribe">
+                        <view wx:if="{{is_follow==0}}">关注</view>
+                        <view wx:if="{{is_follow==1}}">已关注</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="commodity-hot-box" style="top:{{navH+20}}rpx;">
+            <view bindtap="joinCart" class="commodity-hot-li" data-goodsid="{{rgoods.id}}" wx:for="{{recommend_goods}}" wx:for-item="rgoods" wx:key="rgoods_key">
+                <view class="commodity-hot-li-img">
+                    <image src="{{rgoods.thumb}}"></image>
+                </view>
+                <view class="commodity-hot-li-font">¥{{rgoods.marketprice}}</view>
+            </view>
+        </view>
+        <view class="chat-box">
+            <view class="chat-ctn">
+                <view class="chat-getinto {{showNotice?'notice--show':''}}">
+                    <view class="chat-getinto-name">{{welcome}}</view>
+                    <view>来了</view>
+                </view>
+                <view style="height:26px;"></view>
+                <scroll-view scrollY class="chat-scroll" scrollTop="{{scrollT}}">
+                    <view id="chatInfo">
+                        <view class="bulletin">
+              {{chat_notice}}
+            </view>
+                        <view class="bulletin" wx:for="{{comments}}" wx:for-item="comment" wx:key="comment_key">
+                            <block wx:if="{{comment.content_type==2}}">
+                {{comment.nickname}}：
+                <text>{{comment.content}}</text>
+                            </block>
+                            <block wx:if="{{comment.content_type==1}}">
+                {{comment.nickname}}：
+                <text>{{comment.content}}</text>
+                            </block>
+                            <block wx:if="{{comment.content_type==400}}">
+                系统消息：
+                <text class="goto-sys">您已被禁言</text>
+                            </block>
+                            <block wx:if="{{comment.content_type==500}}">
+                系统消息：
+                <text class="goto-sys">您已被拉黑</text>
+                            </block>
+                            <block wx:if="{{comment.content_type==600}}">
+                系统消息：
+                <text class="goto-sys">您已被解除禁言</text>
+                            </block>
+                            <block wx:if="{{comment.content_type==700}}">
+                系统消息：
+                <text class="goto-sys">您已被解除拉黑</text>
+                            </block>
+                            <block wx:if="{{comment.content_type==800}}">
+                系统消息：
+                <text class="goto-sys">{{comment.content}}</text>
+                            </block>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+        <view class="icons">
+            <view bindtap="getPopPay" class="goods-bag">
+                <image class="icon-goods" src="../../../resource/img/goods-bag.png"></image>
+                <view class="goods-count">{{goodsCount}}</view>
+            </view>
+            <view bindtap="getInput" class="comment" hidden="{{isInput}}">
+        聊点什么吧...
+        <view class="comment-border"></view>
+            </view>
+            <view class="comment" hidden="{{!isInput}}">
+        聊点什么吧...
+        <view class="comment-border"></view>
+            </view>
+            <image bindtap="listenerActionSheet" class="icon" src="../../../resource/img/share.png"></image>
+            <bubble giveups="{{gives}}" id="bubble" live_id="{{live_id}}"></bubble>
+            <image bind:touchcancel="onCancelTouchLike" bind:touchend="onCancelTouchLike" bind:touchstart="onTouchLike" class="icon" src="{{hoverLike?'https://img.yzcdn.cn/guang/like-0305.png':'https://img.yzcdn.cn/guang/like-o-0305.png'}}" wx:if="{{!hidden}}"></image>
+            <view class="like-count" wx:if="{{!hidden}}">
+        {{likeCount}}
+      </view>
+        </view>
+    </view>
+    <view bindtap="closePopPay" class="popPay-bg" wx:if="{{popPayShow}}"></view>
+    <view bindtap="closePopCart" class="popPay-bg" wx:if="{{attribute.cartAttr}}"></view>
+    <view bindtap="closeInput" class="popPay-bg" style="background:none; height:{{screenTotalH-100}}rpx;" wx:if="{{isInput}}"></view>
+    <view class="popPay-commodity {{popPayShow?'popPay--show':''}}" wx:if="{{popPayShow}}">
+        <scroll-view scrollY class="popPay-list">
+            <view class="popPay-list-ul">
+                <view bindtap="joinCart" class="popPay-list-li" data-goodsid="{{item.id}}" wx:for="{{goods}}" wx:key="{{item.index}}">
+                    <view class="popPay-list-li-left">
+                        <image src="{{item.thumb}}"></image>
+                    </view>
+                    <view class="popPay-list-li-right">
+                        <view class="popPay-list-li-title">{{item.title}}</view>
+                        <view class="popPay-list-li-money">
+                            <view>¥{{item.marketprice}}</view>
+                            <view class="popPay-list-li-money-right">
+                                <i class="iconfontJiajia iconcart-Empty-new"></i>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <van-action-sheet actions="{{actions}}" bind:close="listenerActionSheet" bind:select="selectActionSheet" closeOnClickAction="true" closeOnClickOverlay="true" show="{{actionSheetHidden}}"></van-action-sheet>
+    <view class="poster-pop" wx:if="{{posterImageStatus}}">
+        <image bindtap="posterImageClose" class="close" src="/images/poster-close.png"></image>
+        <image src="{{posterImage}}"></image>
+        <view bindtap="savePosterPath" class="save-poster">保存到手机</view>
+    </view>
+    <view class="mask" wx:if="{{posterImageStatus}}"></view>
+    <canvas canvasId="myCanvas" class="canvas" wx:if="{{canvasStatus}}"></canvas>
+    <product-window attribute="{{attribute}}" bind:ChangeAttr="ChangeAttr" bind:ChangeCartNum="ChangeCartNum" bind:myevent="onMyEvent" id="product-window" productAttr="{{productAttr}}" productSelect="{{productSelect}}"></product-window>
+    <view class="footer" wx:if="{{attribute.cartAttr}}">
+        <view class="bnt" wx:if="{{storeInfo.buyway==1}}">
+            <form bindsubmit="goCat" data-ispay="{{0}}" reportSubmit="true">
+                <button class="joinCart bnts" formType="submit">加入购物车</button>
+            </form>
+            <form bindsubmit="goCat" data-ispay="{{1}}" reportSubmit="true">
+                <button class="buy bnts" formType="submit">立即购买</button>
+            </form>
+        </view>
+        <view class="bnt" wx:elif="{{storeInfo.buyway==2}}">
+            <navigator appId="{{storeInfo.thirdurl.appid}}" class="joinCart bnts" extraData="{{storeInfo.thirdurl.extra_data}}" path="{{storeInfo.thirdurl.path}}" target="miniProgram" version="{{storeInfo.thirdurl.version}}">
+              加入购物车
+          </navigator>
+            <navigator appId="{{storeInfo.thirdurl.appid}}" class="buy bnts" extraData="{{storeInfo.thirdurl.extra_data}}" path="{{storeInfo.thirdurl.path}}" target="miniProgram" version="{{storeInfo.thirdurl.version}}">
+              立即购买
+          </navigator>
+        </view>
+    </view>
+    <view class="root" wx:if="{{isInput}}">
+        <view class="field">
+            <input bind:confirm="sendMsg" bind:focus="onFocus" bindinput="onInput" class="van-field__input" confirmType="send" cursor="-1" cursorSpacing="8" focus="{{isInput}}" maxlength="30" placeholder="跟{{examineKeywords.keywords_live_anchor}}说点什么..." placeholderClass="van-field__placeholder" selectionEnd="-1" selectionStart="-1" type="text"></input>
+        </view>
+        <view bindtap="sendMsg" class="van-hairline-left">发送</view>
+    </view>
+</view>
+<view id="examine-content" wx:else>
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>
+<authorize bind:onLoadFun="onLoadFun" iShidden="{{iShidden}}" isAuto="{{isAuto}}"></authorize>

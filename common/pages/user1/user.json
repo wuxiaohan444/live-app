@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "authorize": "/components/authorize/authorize",
+        "bottom-tabbar": "/components/bottom-tabbar/index",
+        "van-icon": "/vant/icon/index"
+    }
+}

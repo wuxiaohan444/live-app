@@ -1,0 +1,33 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="auth-page" style="padding-top: {{statusBarHeight+44}}px;" wx:if="{{!certification||certification.check_status==2}}">
+    <view class="missing-icon">
+        <image alt="" src="{{static_url}}user/missing-icon.png"></image>
+    </view>
+    <view class="missing-text">
+        <text>您还没有通过实名认证
+        </text>
+        <text>通过实名认证平台优先排列首页</text>
+    </view>
+    <navigator class="authenticate-btn" url="/membercenter/certification/add/index">去实名</navigator>
+</view>
+<view class="auth-page" style="padding-top: {{statusBarHeight+44}}px;" wx:if="{{certification&&certification.check_status==0}}">
+    <view class="missing-icon">
+        <image alt="" src="{{static_url}}user/missing-icon.png"></image>
+    </view>
+    <view class="missing-text">
+        <text>认证信息正在审核中，请耐心等候～
+        </text>
+    </view>
+    <navigator class="authenticate-btn" url="/common/pages/loading/loading">商城逛逛</navigator>
+</view>
+<view class="auth-page" style="padding-top: {{statusBarHeight+44}}px;" wx:if="{{certification&&certification.check_status==1}}">
+    <view class="missing-icon">
+        <image alt="" src="{{static_url}}user/missing-icon.png"></image>
+    </view>
+    <view class="missing-text">
+        <text>您已完成实名认证
+        </text>
+    </view>
+    <navigator class="authenticate-btn" url="/common/pages/loading/loading">商城逛逛</navigator>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

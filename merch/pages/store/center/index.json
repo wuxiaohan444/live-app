@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "van-icon": "/vant/icon/index",
+        "van-dialog": "/vant/dialog/index",
+        "navbar": "/components/navbar/index",
+        "authorize": "/components/authorize/authorize"
+    },
+    "navigationBarTitleText": "商家中心"
+}

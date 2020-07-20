@@ -1,0 +1,29 @@
+<view bind:tap="goRoom" class="image" data-index="{{index}}" style="background-image: url('{{live.live.cover}}')">
+    <view class="mask">
+        <live-status class="status" examineKeywords="{{examineKeywords}}" live="{{live.live}}"></live-status>
+        <image class="play-icon" src="https://img.yzcdn.cn/guang/anchor-home-play-1220.png"></image>
+        <view class="desc">
+            <view class="shopInfo">
+                <image class="logo" src="{{live.user.avatar}}"></image>
+                <span class="name">{{live.live.title}}</span>
+            </view>
+            <view class="single-live-title" wx:if="{{live.live.subtitle}}">
+                {{live.live.subtitle}}
+            </view>
+            <view class="goods">
+                <block wx:if="{{live.goods.length>0}}" wx:for="{{live.goods}}" wx:for-item="goods" wx:key="index">
+                    <view class="goods-hot goods-image" style="background-image: url('{{goods.thumb}}')" wx:if="{{live.goods.length!=index+1}}"></view>
+                    <view class="goods-more goods-image" style="background-image: url('{{goods.thumb}}')" wx:else>
+                        <view class="gm-mask">
+                            <p class="gm-m-count">{{live.goods_num}}</p>
+                            <p class="gm-m-text">宝贝</p>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="distance">
+            {{live.live.distance}}km
+        </view>
+    </view>
+</view>

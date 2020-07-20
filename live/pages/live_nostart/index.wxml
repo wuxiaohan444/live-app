@@ -1,0 +1,84 @@
+<navbar parameter="{{parameter}}" wx:if="{{examineKeywords.switch==0}}"></navbar>
+<view wx:if="{{examineKeywords.switch==0}}">
+    <view class="cover">
+        <view bind:tap="previewCover" class="cover__image">
+            <image mode="aspectFill" src="{{live.cover}}"></image>
+            <view class="watch-number">{{wantLook}} 想看</view>
+        </view>
+        <view class="cover--end" wx:if="{{live.live_status==3}}">
+            <view class="cover--end__head">
+                <view class="cover--end__title">本场{{examineKeywords.keywords_live}}已结束</view>
+                <view class="cover--end__time" wx:if="{{live.end_at}}">({{live.end_at}})</view>
+            </view>
+            <view class="button-group">
+                <van-button round bind:tap="openPlayBack" customClass="button-group__btn">看回放</van-button>
+                <van-button round bind:tap="openHome" customClass="button-group__btn">逛商品</van-button>
+            </view>
+            <view round bind:tap="openHome" class="home-btn">
+                <image class="btn-icon" mode="widthFix" src="https://img.yzcdn.cn/guang/icon-home-0726.png" width="16"></image>
+                <view>首页</view>
+            </view>
+        </view>
+    </view>
+    <view class="live-title">
+        <view class="live-title-text">{{live.title}}</view>
+        <view bindtap="goPoster" class="share">
+            <view class="share-text">
+                <view class="iconfontJiajia iconfenxiang"></view>
+              分享
+            </view>
+        </view>
+    </view>
+    <view class="player-info">
+        <image bind:tap="openShopHome" class="logo" src="{{live.anchor.avatar}}"></image>
+        <view bind:tap="openShopHome" class="name">{{live.anchor.nickname}}</view>
+        <view bind:tap="follow" class="player-info__btn follow" wx:if="{{!is_follow}}">关注</view>
+        <view bind:tap="follow" class="player-info__btn" wx:if="{{is_follow}}">已关注</view>
+    </view>
+    <view class="intro van-hairline--bottom" wx:if="{{live.intro}}">{{live.intro}}</view>
+    <view class="goods-title" wx:if="{{goods.length}}">
+        <text>本场{{examineKeywords.keywords_live}}商品</text>
+    </view>
+    <view class="container van-clearfix">
+        <view bind:tap="onTap" class="goods" wx:for="{{goods}}" wx:key="index">
+            <view class="pictrue">
+                <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">佣金:{{item.commission.agent_commission}}</view>
+                <image class="new-goods-img" mode="aspectFill" src="{{item.thumb}}"></image>
+                <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">自购省钱:{{item.commission.partner_commission}}</view>
+            </view>
+            <view class="title van-multi-ellipsis--l2">
+                    {{item.title}}
+                </view>
+            <view class="day-money">
+                <view class="price-tag" style="font-size: {{priceTag.fontSize}}px">
+                      {{item.marketprice}}元
+                  </view>
+                <view class="day-org-price">
+                      {{item.productprice}}元
+                  </view>
+            </view>
+        </view>
+    </view>
+    <view class="placeholder"></view>
+    <view class="bar van-hairline--top" wx:if="1">
+        <van-count-down format="DD 天 HH 时 mm 分 ss 秒" time="{{startedAt}}"></van-count-down>
+        <van-button round bind:tap="goLivePages" class="new-btn" customClass="info-button info-button--active" type="default" wx:if="{{startedAt<=0}}">
+                进入{{examineKeywords.keywords_live_room}}
+            </van-button>
+        <van-button round bind:tap="toggleSubscribe" customClass="info-button {{isSubscribedCurrentLive?'info-button--inactive':'info-button--active'}}" loading="{{subscribing}}" type="{{isSubscribedCurrentLive?'default':'danger'}}" wx:else>
+                {{isSubscribedCurrentLive?'取消提醒':examineKeywords.keywords_live_notice+'提醒'}}
+            </van-button>
+    </view>
+</view>
+<view class="poster-pop" wx:if="{{posterImageStatus}}">
+    <image bindtap="posterImageClose" class="close" src="/images/poster-close.png"></image>
+    <image src="{{posterImage}}"></image>
+    <view bindtap="savePosterPath" class="save-poster">保存到手机</view>
+</view>
+<view class="mask" wx:if="{{posterImageStatus}}"></view>
+<canvas canvasId="myCanvas" class="canvas" wx:if="{{canvasStatus}}"></canvas>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<view id="examine-content" wx:if="{{examineKeywords.switch==1}}">
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>

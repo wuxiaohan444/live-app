@@ -1,0 +1,913 @@
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-column-sb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column-c {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex-row-center {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.flex-content-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.flex-column-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.flex-column-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flex-sb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-sa {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.flex-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-sb-start {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-center-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.flex-end-center {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.flex-end-sb {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.flex-end-start {
+    display: flex;
+    align-items: flex-end;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fit-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.float-right {
+    float: right;
+}
+
+.iphone-x {
+    padding-bottom: 100rpx;
+}
+
+.coupon-large-bg {
+    width: 702rpx;
+    height: 160rpx;
+    position: relative;
+    margin-top: 24rpx;
+    color: #ff0136;
+}
+
+.coupon-across-bg {
+    width: 702rpx;
+    height: 208rpx;
+    position: relative;
+    margin-top: 24rpx;
+}
+
+.coupon-left {
+    width: 220rpx;
+    height: 100%;
+}
+
+.coupon-money {
+    font-size: 30rpx;
+    margin-bottom: 14rpx;
+}
+
+.coupon-num {
+    line-height: 80rpx;
+    font-size: 80rpx;
+    font-family: DIN;
+    font-weight: 500;
+}
+
+.coupon-constraintAmount {
+    height: 24rpx;
+}
+
+.coupon-right {
+    position: relative;
+    width: 481rpx;
+    height: 100%;
+    padding: 24rpx;
+    box-sizing: border-box;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+}
+
+.coupon-right .coupon-type {
+    font-size: 28rpx;
+    line-height: 28rpx;
+    max-width: 280rpx;
+}
+
+.coupon-right .coupon-palcetype {
+    max-width: 288rpx;
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: rgba(255,1,54,.5);
+    margin-top: 26rpx;
+}
+
+.coupon-right .word-hidden {
+    max-width: 144rpx;
+}
+
+.coupon-right .coupon-time {
+    font-size: 22rpx;
+    color: rgba(255,1,54,.5);
+    line-height: 22rpx;
+    margin-top: 6rpx;
+}
+
+.coupon-right .coupon-btns {
+    width: 110rpx;
+    height: 48rpx;
+}
+
+.coupon-right .btn-item {
+    width: 110rpx;
+    height: 48rpx;
+    line-height: 49rpx;
+    text-align: center;
+    border-radius: 45rpx;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    margin-bottom: 20rpx;
+}
+
+.coupon-right .btn-item.unused {
+    color: #fff;
+    background: linear-gradient(202deg,rgba(255,2,102,1) 0,rgba(255,1,54,1) 100%);
+}
+
+.coupon-right .btn-item.used {
+    background: #f5f5f5;
+    border: 1rpx solid rgba(5,5,5,.1);
+    color: #999;
+}
+
+.coupon-right .btn-item.no-begin {
+    background: linear-gradient(202deg,rgba(255,2,102,1) 0,rgba(255,1,54,1) 100%);
+    opacity: .6;
+    color: #fff;
+}
+
+.coupon-right .use-direction {
+    width: 420rpx;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 22rpx;
+    bottom: 24rpx;
+    left: 24rpx;
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+}
+
+.coupon-right .icon {
+    width: 20rpx;
+    height: 12rpx;
+}
+
+.coupon-right .check-btn {
+    position: absolute;
+    top: 62rpx;
+    right: 30rpx;
+}
+
+.coupon-right .btn-img {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.coupon-right .commission {
+    display: flex;
+    align-items: center;
+    margin-top: 10rpx;
+    margin-bottom: 21rpx;
+}
+
+.coupon-right .commission .img-area {
+    height: 42rpx;
+}
+
+.coupon-right .commission .commission-img {
+    width: 42rpx;
+    height: 42rpx;
+    margin-right: 6rpx;
+    border-radius: 50%;
+    background-color: #0ff;
+}
+
+.coupon-right .commission .commission-title {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #ff0136;
+    line-height: 24rpx;
+}
+
+.gray {
+    color: #999;
+}
+
+.gray .coupon-palcetype,.gray .coupon-time,.gray .use-direction {
+    color: rgba(153,153,153,.5);
+}
+
+.red {
+    color: #ff0136;
+}
+
+.red .coupon-palcetype,.red .coupon-time,.red .use-direction {
+    color: rgba(255,1,54,.5);
+}
+
+.coupon-large-bg.gray {
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/large-gray.png?x-oss-process=image/resize,w_702,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+}
+
+.coupon-large-bg.red {
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/large-red.png?x-oss-process=image/resize,w_702,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+}
+
+.coupon-across-bg.gray {
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/across-gray.png?x-oss-process=image/resize,w_702,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+}
+
+.coupon-across-bg.red {
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/across-red.png?x-oss-process=image/resize,w_702,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+}
+
+.coupon-small-bg {
+    width: 468rpx;
+    height: 142rpx;
+    position: relative;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/middle-red.png?x-oss-process=image/resize,w_468,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+    margin: 24rpx 0;
+    flex-shrink: 0;
+}
+
+.small-left {
+    width: 166rpx;
+    height: 100%;
+    color: #ff0136;
+}
+
+.small-left .left-money {
+    font-size: 30rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    line-height: 30rpx;
+    margin-bottom: 8rpx;
+}
+
+.small-left .left-num {
+    font-size: 70rpx;
+    font-family: DIN;
+    font-weight: 500;
+    line-height: 70rpx;
+}
+
+.small-left .left-count {
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    line-height: 22rpx;
+}
+
+.small-left .random-highest {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 69rpx;
+    height: 27rpx;
+    line-height: 27rpx;
+    text-align: center;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/highest.png?x-oss-process=image/resize,w_69,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+    font-size: 22rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 1rpx;
+}
+
+.small-right {
+    width: 301rpx;
+    height: 100%;
+    padding: 24rpx;
+    box-sizing: border-box;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    position: relative;
+}
+
+.small-right .commission {
+    display: flex;
+    align-items: center;
+    margin-top: 10rpx;
+    margin-bottom: 15rpx;
+}
+
+.small-right .commission .img-area {
+    height: 42rpx;
+}
+
+.small-right .commission .commission-img {
+    width: 42rpx;
+    height: 42rpx;
+    margin-right: 6rpx;
+    border-radius: 50%;
+    background-color: #0ff;
+}
+
+.small-right .commission .commission-title {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #ff0136;
+    line-height: 24rpx;
+}
+
+.small-right .coupon-type {
+    max-width: 150rpx;
+    font-size: 24rpx;
+    color: #ff0136;
+    line-height: 24rpx;
+    margin-bottom: 18rpx;
+}
+
+.small-right .coupon-palcetype {
+    max-width: 220rpx;
+    font-size: 22rpx;
+    color: rgba(255,1,54,.5);
+    line-height: 22rpx;
+    margin-bottom: 6rpx;
+}
+
+.small-right .coupon-time {
+    font-size: 20rpx;
+    color: rgba(255,1,54,.5);
+    line-height: 20rpx;
+}
+
+.small-right .coupon-btns {
+    position: absolute;
+    top: 16rpx;
+    right: 24rpx;
+}
+
+.small-right .btn-item {
+    width: 86rpx;
+    height: 38rpx;
+    line-height: 39rpx;
+    text-align: center;
+    border-radius: 45rpx;
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+}
+
+.small-right .btn-item.unused {
+    background: linear-gradient(202deg,rgba(255,2,102,1) 0,rgba(255,1,54,1) 100%);
+    color: #fff;
+}
+
+.small-right .btn-item.no-begin {
+    background: linear-gradient(202deg,rgba(255,2,102,1) 0,rgba(255,1,54,1) 100%);
+    opacity: .6;
+    color: #fff;
+}
+
+.small-right .word-hidden {
+    max-width: 220rpx;
+}
+
+.coupon-share {
+    width: 446rpx;
+    height: 180rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/share-red.png?x-oss-process=image/resize,w_446,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+    position: relative;
+    margin: 24rpx 0;
+}
+
+.coupon-share .share-title {
+    position: absolute;
+    bottom: 10rpx;
+    left: 113rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #fff;
+    line-height: 24rpx;
+}
+
+.coupon-share .coupon-info {
+    position: absolute;
+    top: 0;
+    left: 12rpx;
+    width: 422rpx;
+    height: 122rpx;
+}
+
+.coupon-share .share-left {
+    width: 268rpx;
+    height: 100%;
+    padding: 0 18rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.coupon-share .share-money {
+    font-size: 30rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #ff0136;
+    line-height: 30rpx;
+    margin-bottom: 6rpx;
+}
+
+.coupon-share .share-num {
+    font-size: 70rpx;
+    font-family: DIN;
+    font-weight: 500;
+    line-height: 70rpx;
+}
+
+.coupon-share .share-count {
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #ff0136;
+    line-height: 22rpx;
+    margin-bottom: 6rpx;
+}
+
+.coupon-share .share-type {
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255,1,54,.5);
+    line-height: 22rpx;
+}
+
+.coupon-share .word-hidden {
+    max-width: 135rpx;
+}
+
+.coupon-share .share-right {
+    width: 177rpx;
+    height: 100%;
+}
+
+.coupon-share .share-img {
+    margin-top: 10rpx;
+}
+
+.coupon-share .share-btns {
+    width: 86rpx;
+    height: 38rpx;
+    margin-top: 12rpx;
+    border-radius: 45rpx;
+}
+
+.coupon-share .btn-item {
+    width: 86rpx;
+    height: 38rpx;
+    line-height: 39rpx;
+    text-align: center;
+    background: linear-gradient(202deg,rgba(255,2,102,1) 0,rgba(255,1,54,1) 100%);
+    border-radius: 45rpx;
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #fff;
+}
+
+.commission-coupon .coupon-bg {
+    width: 654rpx;
+    height: 220rpx;
+    margin-top: 24rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/commission-coupon.png?x-oss-process=image/resize,w_654,x-oss-process=image/format,png) no-repeat center;
+    background-size: 100%;
+}
+
+.commission-coupon .top {
+    padding: 0 18rpx 0 20rpx;
+    height: 155rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.commission-coupon .top .top-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.commission-coupon .top .money {
+    display: flex;
+}
+
+.commission-coupon .top .money .tip {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #ff0136;
+    line-height: 24rpx;
+    margin-top: 39rpx;
+    margin-left: 14rpx;
+}
+
+.commission-coupon .top .exhibition {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255,2,92,.5);
+    line-height: 24rpx;
+    margin-top: 16rpx;
+}
+
+.commission-coupon .top .time {
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255,2,94,.5);
+    line-height: 22rpx;
+    margin-top: 10rpx;
+}
+
+.commission-coupon .top .money-num {
+    display: flex;
+}
+
+.commission-coupon .top .money-num .mark {
+    font-size: 30rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #ff0136;
+    line-height: 30rpx;
+    margin-top: 33rpx;
+    margin-right: 4rpx;
+}
+
+.commission-coupon .top .money-num .number {
+    font-size: 46rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #ff0136;
+    line-height: 46rpx;
+    margin-top: 24rpx;
+}
+
+.commission-coupon .top .top-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.commission-coupon .top .top-right .award {
+    display: flex;
+    font-size: 24rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #ff025c;
+    line-height: 24rpx;
+}
+
+.commission-coupon .top .top-right .why {
+    width: 24rpx;
+    height: 24rpx;
+    line-height: 24rpx;
+    border: 1rpx solid #ff025c;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 22rpx;
+    margin-left: 4rpx;
+    margin-top: -2rpx;
+}
+
+.commission-coupon .top .top-right .send {
+    width: 160rpx;
+    height: 50rpx;
+    background: linear-gradient(225deg,rgba(255,2,102,1) 0,rgba(255,1,54,1) 100%);
+    border-radius: 40rpx;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #fff;
+    line-height: 50rpx;
+    text-align: center;
+    margin-top: 13rpx;
+}
+
+.commission-coupon .bottom {
+    padding: 0 28rpx 0 25rpx;
+    height: 64rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.commission-coupon .bottom .out {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255,1,54,.6);
+    line-height: 24rpx;
+}
+
+.commission-coupon .bottom .in {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #ff025c;
+    line-height: 24rpx;
+}
+
+.commission-coupon .bottom .in image {
+    width: 9rpx;
+    height: 16rpx;
+    margin-left: 11rpx;
+}
+
+.group-sign {
+    position: absolute;
+    width: 114rpx;
+    height: 32rpx;
+    background: rgba(252,87,51,1);
+    border-radius: 18rpx 0rpx 12rpx 0rpx;
+    font-size: 22rpx;
+    font-family: PingFangSC;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.group-sign .group-sign-image {
+    width: 23rpx;
+    height: 19rpx;
+    margin-right: 6rpx;
+}
+
+.vip-coupon {
+    position: relative;
+    width: 268rpx;
+    height: 142rpx;
+}
+
+.vip-coupon .vip {
+    width: 268rpx;
+    height: 142rpx;
+}
+
+.vip-coupon .left-side {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 17rpx;
+    top: 15rpx;
+}
+
+.vip-coupon .left-side .money {
+    height: 66rpx;
+    font-size: 30rpx;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    line-height: 30rpx;
+    color: #333;
+}
+
+.vip-coupon .left-side .money .number {
+    height: 80rpx;
+    font-size: 46rpx;
+    font-family: DIN-Medium,DIN;
+    font-weight: 500;
+    line-height: 80rpx;
+}
+
+.vip-coupon .left-side .text {
+    width: 96rpx;
+    height: 36rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #666;
+    line-height: 36rpx;
+    opacity: .4;
+}
+
+.vip-coupon .btn {
+    width: 100rpx;
+    height: 50rpx;
+    background: #333;
+    border-radius: 40rpx;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #ffeacb;
+    line-height: 50rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 50rpx;
+    text-align: center;
+}
+
+.vip-coupon .hasRecevied {
+    background: #333;
+    opacity: .15;
+    color: #ffeacb;
+}
+
+.vip-large-coupon {
+    position: relative;
+    width: 702rpx;
+    height: 142rpx;
+}
+
+.vip-large-coupon .vip {
+    width: 702rpx;
+    height: 142rpx;
+}
+
+.vip-large-coupon .left-side {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 54rpx;
+    top: 19rpx;
+}
+
+.vip-large-coupon .left-side .money {
+    height: 66rpx;
+    font-size: 30rpx;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    line-height: 30rpx;
+    color: #333;
+}
+
+.vip-large-coupon .left-side .money .number {
+    height: 80rpx;
+    font-size: 46rpx;
+    font-family: DIN-Medium,DIN;
+    font-weight: 500;
+    line-height: 80rpx;
+    margin-right: 6rpx;
+}
+
+.vip-large-coupon .left-side .money .desc {
+    height: 24rpx;
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #333;
+    line-height: 24rpx;
+    opacity: .6;
+}
+
+.vip-large-coupon .left-side .text {
+    height: 33rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #666;
+    line-height: 33rpx;
+    opacity: .9;
+    margin-top: 11rpx;
+}
+
+.vip-large-coupon .btn {
+    width: 160rpx;
+    height: 50rpx;
+    background: #333;
+    border-radius: 40rpx;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #ffeacb;
+    line-height: 50rpx;
+    position: absolute;
+    right: 42rpx;
+    top: 55rpx;
+    text-align: center;
+}
+
+.vip-large-coupon .hasRecevied {
+    background: #333;
+    opacity: .15;
+    color: #ffeacb;
+}

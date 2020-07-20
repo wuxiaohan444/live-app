@@ -1,0 +1,33 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="magazine">
+    <navigator class="list" hoverClass="none" url="/market/pages/article/detail/index?id={{item.id}}" wx:for="{{list}}" wx:key="index">
+        <view class="img-box">
+            <image class="img" src="{{item.cover_img}}"></image>
+            <view class="img-text">
+                <view class="title">{{item.title}}</view>
+                <view class="tip">
+                    <view class="line"></view>
+                    <view class="text">{{item.author}}</view>
+                    <view class="line"></view>
+                </view>
+            </view>
+        </view>
+        <view class="time">
+            <view class="line"></view>
+            <view class="text"> {{item.created_date}}</view>
+            <view class="line"></view>
+        </view>
+    </navigator>
+</view>
+<view class="loadingicon acea-row row-center-wrapper">
+    <text class="loading iconfont icon-jiazai" hidden="{{loading==false}}"></text>
+    {{loadTitle}}
+</view>
+<view class="noCommodity" wx:if="{{list.length==0}}">
+    <view class="pictrue">
+        <view class="nosearch">
+            暂无文章
+        </view>
+    </view>
+</view>
+<bottom-tabbar></bottom-tabbar>

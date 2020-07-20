@@ -1,0 +1,18 @@
+<view class="viewXscroll">
+    <view class="title">
+        <view class="text">{{page.title}}</view>
+        <view class="tip">{{page.subtitle}}</view>
+    </view>
+    <navigator class="big-img" hoverClass="none" url="{{page.ad_link}}" wx:if="{{page.ad_image}}">
+        <image class="img" src="{{page.ad_image}}"></image>
+    </navigator>
+    <view class="scroll">
+        <scroll-view class="scroll-view" scrollX="true">
+            <navigator class="item" hoverClass="none" url="{{item.link}}" wx:for="{{page.items}}" wx:key="index">
+                <image class="img" src="{{item.image}}" wx:if="{{item.image}}"></image>
+                <view class="name" wx:if="{{item.text1}}">{{item.text1}}</view>
+                <view class="money" wx:if="{{item.text2}}">{{item.text2}}</view>
+            </navigator>
+        </scroll-view>
+    </view>
+</view>

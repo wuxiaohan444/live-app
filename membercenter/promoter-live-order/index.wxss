@@ -1,0 +1,57 @@
+page {
+    margin: 20rpx;
+    width: 95%;
+}
+
+image {
+    border-radius: 50%;
+}
+
+.commission-header {
+    height: 150rpx;
+    background: #ff7664;
+    border-radius: 5px;
+    padding-left: 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.commission-text {
+    color: #fff;
+    font-size: 12px;
+    margin-top: 15rpx;
+}
+
+.commission-total {
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.order-lists {
+}
+
+.order-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 5px;
+    padding: 20rpx;
+    margin-top: 20rpx;
+}
+
+.order-user-nickname {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.order-user-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}

@@ -1,0 +1,1 @@
+<view class="help_line" style="border:{{page.style}} {{page.border_width}}px {{page.border_color}};background:{{page.background}};height:{{page.border_width}}px;padding:{{page.padding_top_buttom}}px 0;margin:0 {{page.padding_left_right}}px"></view>

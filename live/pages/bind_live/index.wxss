@@ -1,0 +1,228 @@
+.btn {
+    -moz-appearance: none;
+    background: rgba(0,0,0,0) none repeat scroll 0 0;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 30rpx;
+    height: 80rpx;
+    line-height: 76rpx;
+    padding: 0 20rpx;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid #f90;
+    margin: 0.5em;
+    user-select: none;
+    transition-duration: 300ms;
+    transition-property: background-color;
+    display: inline-block;
+    z-index: 100;
+}
+
+.btn.block {
+    display: block;
+}
+
+.btn.btn-sm {
+    height: 56rpx;
+    line-height: 52rpx;
+    margin: 0;
+    font-size: 26rpx;
+}
+
+.btn.btn-default {
+    background: #f7f7f7;
+    color: #333;
+    border: 1px solid #dfdfdf;
+}
+
+.btn.btn-default:active {
+    background: #dedede;
+    color: #a1a1a1;
+    border: 1px solid #c8c8c8;
+}
+
+.btn.btn-default.disabled {
+    background: #ccc;
+    color: #fff;
+    border: 1px solid #dfdfdf;
+}
+
+.btn.btn-default.disabled:active {
+    background: #f7f7f7;
+    color: #c9c9c9;
+    border: 1px solid #dfdfdf;
+}
+
+.btn.btn-success {
+    background: #04be02;
+    color: #fff;
+    border: 1px solid #04ab02;
+}
+
+.btn.btn-success:active,.btn.btn-success.disabled {
+    background: #039702;
+    color: #9be59a;
+    border: 1px solid #038802;
+}
+
+.btn.btn-primary {
+    background: #0290be;
+    color: #fff;
+    border: 1px solid #0281ab;
+}
+
+.btn.btn-primary:active,.btn.btn-primary.disabled {
+    background: #027297;
+    color: #67abc1;
+    border: 1px solid #026688;
+}
+
+.btn.btn-warning {
+    background: #ff8000;
+    color: #fff;
+    border: 1px solid #ff8000;
+}
+
+.btn.btn-warning:active {
+    background: #e67300;
+    color: #f4a85a;
+    border: 1px solid #ce6600;
+}
+
+.btn.btn-warning.disabled {
+    background: #ccc;
+    color: #fff;
+    border: 1px solid #ccc;
+}
+
+.btn.btn-danger {
+    background: #ff5555;
+    color: #fff;
+    border: 1px solid #ff5555;
+}
+
+.btn.btn-danger:active {
+    background: #c13e3e;
+    color: #d2848b;
+    border: 1px solid #ae3838;
+}
+
+.btn.btn-danger.disabled {
+    background: #ccc;
+    color: #fff;
+    border: 1px solid #ccc;
+}
+
+.btn.btn-default-o {
+    background: transparent;
+    color: #666;
+    border: 1px solid #666;
+}
+
+.btn.btn-default-o:active {
+    background: transparent;
+    color: #666;
+    border: 1px solid #666;
+}
+
+.btn.btn-default-o.disabled,.btn.btn-success-o.disabled,.btn.btn-primary-o.disabled,.btn.btn-warning-o.disabled,.btn.btn-danger-o.disabled {
+    background: transparent;
+    color: #999;
+    border: 1px solid #999;
+}
+
+.btn.btn-success-o {
+    background: transparent;
+    color: #04be02;
+    border: 1px solid #04ab02;
+}
+
+.btn.btn-primary-o {
+    background: transparent;
+    color: #0290be;
+    border: 1px solid #0290be;
+}
+
+.btn.btn-warning-o {
+    background: transparent;
+    color: #ff9326;
+    border: 1px solid #ff9326;
+}
+
+.btn.btn-danger-o {
+    background: transparent;
+    color: #ff5555;
+    border: 1px solid #ff5555;
+}
+
+page {
+    background-color: #f3f3f3;
+    font-size: 16px;
+    height: 100%;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.page {
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100%;
+    overflow-y: scroll;
+}
+
+.page.navbar,.page.footer {
+    padding-bottom: 120rpx;
+}
+
+.page.navbar-footer,.page.footer-navbar {
+    padding-bottom: 200rpx;
+}
+
+.page.navbar-footer .fui-footer,.page.footer-navbar .fui-navbar {
+    bottom: 0;
+}
+
+.page.header {
+    padding-top: 88rpx;
+}
+
+.page.header-sort {
+    padding-top: 168rpx;
+}
+
+.page.footer.padding-b {
+    padding-bottom: 170rpx;
+}
+
+.page.navbar.padding-b {
+    padding-bottom: 170rpx;
+}
+
+.register .fui-list-group .fui-list .image-32 {
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.register .fui-content image {
+    width: 100%;
+    height: 242rpx;
+}
+
+.wait {
+    text-align: center;
+}
+
+.wait image {
+    width: 220rpx;
+    height: 220rpx;
+    margin: 50rpx 0;
+}
+
+.wait view {
+    margin: 20rpx;
+    color: #666;
+}

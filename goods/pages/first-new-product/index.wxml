@@ -1,0 +1,57 @@
+<view bindtap="navigateBack" class="iconfont icon-xiangzuo navigateBack">
+   返回
+</view>
+<view class="new-page {{iphoneX}}">
+    <view>
+        <swiper autoplay="true" class="exhi-header-box" style="height: {{statusBarHeight+369}}rpx;">
+            <navigator hoverClass="none" url="{{item.wxappurl}}" wx:for="{{banners}}">
+                <swiper-item>
+                    <image class="banner" src="{{item.pic}}"></image>
+                </swiper-item>
+            </navigator>
+        </swiper>
+        <view class="exhi-base-info" style="top:{{statusBarHeight+168}}rpx">
+            <view class="exhi-detail">
+                <view class="exhi-brand-name">
+                    <view>{{parameter.title}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="content-container" style="top: {{statusBarHeight+339}}rpx;">
+            <view class="list-container" style="margin-top:30rpx;">
+                <view style="position: absolute;left:0;width:100%;top:0px;">
+                    <view class="list-data">
+                        <navigator class="item" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{bastList}}">
+                            <view class="img-box">
+                                <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">佣金:{{item.commission.agent_commission}}</view>
+                                <image class="item-img" src="{{item.thumb}}"></image>
+                                <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">自购省钱:{{item.commission.partner_commission}}</view>
+                            </view>
+                            <view class="item-info">
+                                <view class="item-name">
+                                    <text class="word">{{item.title}}</text>
+                                </view>
+                                <view class="item-price" style="padding-top:3px;">
+                                    <view>
+                                        <view class="line-price">
+                                            <view class="price">
+                                                <text>￥</text>
+                                                <text class="real-price">{{item.marketprice}}</text>
+                                            </view>
+                                            <view class="originPrice">
+                                    {{item.productprice}}
+                                 </view>
+                                        </view>
+                                    </view>
+                                    <view class="item-buy-cart">
+                                        <image src="{{static_url}}common/newShopping.png"></image>
+                                    </view>
+                                </view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

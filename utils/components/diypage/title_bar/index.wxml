@@ -1,0 +1,24 @@
+<view class="title_bar" style="background: {{page.background}};padding:{{page.padding_top_buttom}}px {{page.padding_left_right}}px" wx:if="{{page.style==1}}">
+    <view class="title-box">
+        <view class="title" style="color:{{page.title_color}}">{{page.title}}</view>
+        <view class="subtitle" style="color:{{page.subtitle_color}}">{{page.subtitle}}</view>
+    </view>
+    <view class="chak">{{page.more_text}}</view>
+    <view class="iconfont icon-xiangzuo"></view>
+</view>
+<view class="title_bar" style="background: {{page.background}};padding:{{page.padding_top_buttom}}px {{page.padding_left_right}}px" wx:if="{{page.style==2}}">
+    <view class="title-box">
+        <view class="title" style="color:{{page.title_color}}">{{page.title}} <text class="subtitle" style="color:{{page.subtitle_color}}">{{page.subtitle}}</text>
+        </view>
+    </view>
+</view>
+<view class="title_bar" style="background: {{page.background}};padding:{{page.padding_top_buttom}}px {{page.padding_left_right}}px" wx:if="{{page.style==3}}">
+    <view class="title-box style3">
+        <view class="title style3" style="color:{{page.title_color}}">
+            <view class="line"></view>
+            <view>{{page.title}}</view>
+            <view class="line"></view>
+        </view>
+        <view class="subtitle" style="color:{{page.subtitle_color}}">{{page.subtitle}}</view>
+    </view>
+</view>

@@ -1,0 +1,10 @@
+<view catchtouchmove="setTouchMove" class="home" style=" top:{{top*2}}rpx;">
+    <view class="homeCon bg-color acea-row row-column-between {{homeActive==true?'on':''}}">
+        <navigator class="iconfont icon-shouye-xianxing" hoverClass="none" openType="redirect" url="/common/pages/index/index"></navigator>
+        <navigator class="iconfont icon-caigou-xianxing" hoverClass="none" openType="redirect" url="/order/pages/order_addcart/order_addcart"></navigator>
+        <navigator class="iconfont icon-yonghu1" hoverClass="none" openType="redirect" url="/common/pages/user/user"></navigator>
+    </view>
+    <view bindtap="open" class="pictrue">
+        <image src="{{homeActive==false?'/images/close.gif':'/images/open.gif'}}"></image>
+    </view>
+</view>

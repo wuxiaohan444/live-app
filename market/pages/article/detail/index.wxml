@@ -1,0 +1,20 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view id="content">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+</view>
+<view class="shop-list" wx:if="{{detail.goods.length>0}}">
+    <view class="content">
+        <navigator class="list" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{detail.goods}}" wx:key="index">
+            <text class="tip">{{index+1}}</text>
+            <image class="img" src="{{item.thumb}}"></image>
+            <view class="text">
+                <view class="name">{{item.title}}</view>
+                <view class="money">
+                    <view>￥{{item.marketprice}}</view>
+                    <image class="img" src="{{imgSrc}}newLive/gouwuche.png"></image>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>

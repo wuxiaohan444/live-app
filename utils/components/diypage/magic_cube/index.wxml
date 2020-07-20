@@ -1,0 +1,9 @@
+<view class="magic_cube">
+    <view class="content">
+        <view class="list" style="padding:{{page.padding}}px" wx:for="{{16}}" wx:key="index">
+            <navigator class="item" hoverClass="none" url="{{page.link}}">
+                <image class="img" mode="aspectFill" src="https://yanshi.jiaodudesign.com/attachment/images/4/2020/03/jvp6BOBrQFeY6BbZZ6WodULPQwUBMD.jpg"></image>
+            </navigator>
+        </view>
+    </view>
+</view>

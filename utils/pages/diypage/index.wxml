@@ -1,0 +1,41 @@
+<view class="navbar" style="background: {{content.navigationBar.backgroundColor}};">
+    <view class="navbarH" style="height:{{navH}}rpx;">
+        <view class="navbarCon acea-row row-center-wrapper">
+            <view class="name line1" style="color: {{content.navigationBar.frontColor}}">
+                {{content.navigationBar.title}}
+            </view>
+        </view>
+    </view>
+</view>
+<view style="height:{{navH}}rpx"></view>
+<view class="content">
+    <view wx:if="{{!item.hide}}" wx:for="{{content.items}}" wx:key="index">
+        <shop_list page="{{item}}" wx:if="{{item.type=='goods'}}"></shop_list>
+        <view class="audio" wx:if="{{item.type=='video'}}">
+            <index_video page="{{item}}"></index_video>
+        </view>
+        <view class="audio" wx:if="{{item.type=='audio'}}">
+            <index_audio page="{{item}}"></index_audio>
+        </view>
+        <title_bar page="{{item}}" wx:if="{{item.type=='title_bar'}}"></title_bar>
+        <help_line page="{{item}}" wx:if="{{item.type=='help_line'}}"></help_line>
+        <help_blank page="{{item}}" wx:if="{{item.type=='help_blank'}}"></help_blank>
+        <magic_cube page="{{item}}" wx:if="{{item.type=='magic_cube'}}"></magic_cube>
+        <one_image page="{{item}}" wx:if="{{item.type=='image'}}"></one_image>
+        <notice page="{{item}}" wx:if="{{item.type=='notice'}}"></notice>
+        <search_bar page="{{item}}" wx:if="{{item.type=='search_bar'}}"></search_bar>
+        <nav_btn page="{{item}}" wx:if="{{item.type=='nav_btn'}}"></nav_btn>
+        <nav_list page="{{item}}" wx:if="{{item.type=='nav_list'}}"></nav_list>
+        <image_banner page="{{item}}" wx:if="{{item.type=='image_banner'}}"></image_banner>
+        <newindex_search_bar page="{{item}}" wx:if="{{item.type=='newindex_search_bar'}}"></newindex_search_bar>
+        <rich_text page="{{item}}" wx:if="{{item.type=='rich_text'}}"></rich_text>
+        <newindex_goods_category page="{{item}}" wx:if="{{item.type=='newindex_goods_category'}}"></newindex_goods_category>
+        <newindex_banner page="{{item}}" wx:if="{{item.type=='newindex_banner'}}"></newindex_banner>
+        <newindex_water_flow page="{{item}}" wx:if="{{item.type=='newindex_water_flow'}}"></newindex_water_flow>
+        <newindex_goods_list1 page="{{item}}" wx:if="{{item.type=='newindex_goods_list1'}}"></newindex_goods_list1>
+        <newindex_goods_list2 page="{{item}}" wx:if="{{item.type=='newindex_goods_list2'}}"></newindex_goods_list2>
+        <newindex_goods_list3 page="{{item}}" wx:if="{{item.type=='newindex_goods_list3'}}"></newindex_goods_list3>
+        <newindex_goods_list4 page="{{item}}" wx:if="{{item.type=='newindex_goods_list4'}}"></newindex_goods_list4>
+    </view>
+</view>
+<bottom-tabbar></bottom-tabbar>

@@ -1,0 +1,195 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="search-box" style="background-color:{{searchInfo.bgcolor}};color:{{searchInfo.textColor}}">
+    <view class="navbar-search acea-row row-middle">
+        <navigator hoverClass="none" url="/goods/pages/goods_cate/goods_cate">
+            <view class="logo">
+                <view>
+                    <i class="iconfontJiajia iconfenlei"></i>
+                </view>
+                <view>分类</view>
+            </view>
+        </navigator>
+        <view bindtap="setGoodsSearch" class="search acea-row row-middle">
+            <text class="iconfont icon-xiazai5"></text>{{searchInfo.placeholder}}
+      </view>
+    </view>
+</view>
+<view class="index">
+    <view class="index-bg" style="background-color:{{themeColor.themeColor}}" wx:if="{{banners.length}}"></view>
+    <official-account wx:if="{{follow_weixin}}"></official-account>
+    <view>
+        <view class="swpier">
+            <swiper autoplay="{{autoplay}}" bindchange="swiperChange" circular="{{circular}}" duration="100" indicatorActiveColor="#fe6c9c" indicatorColor="rgba(255, 255, 255, 0.5)" indicatorDots="false" interval="{{interval}}">
+                <swiper-item wx:for="{{banners}}" wx:key="index">
+                    <navigator class="slide-navigator acea-row row-between-wrapper" hoverClass="none" url="{{item.wxappurl}}">
+                        <image class="slide-image" mode="aspectFill" src="{{item.pic}}"></image>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+            <view class="dots">
+                <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{banners}}" wx:key="index"></view>
+            </view>
+        </view>
+        <view class="hot-list-box" wx:if="{{lives.length>0}}">
+            <block wx:for="{{lives}}" wx:key="index">
+                <navigator class="more" hoverClass="none" url="/live/pages/live_nostart/index?live_id={{item.id}}" wx:if="{{item.live_status==1}}">
+                    <view class="hot-list-li">
+                        <view class="hot-list-li-img">
+                            <image src="{{item.cover}}"></image>
+                        </view>
+                        <view class="hot-list-li-font">
+                {{item.title}}
+              </view>
+                        <view class="hot-list-li-lable" style="background:linear-gradient(45deg,{{themeColor.gradientB}} 0%,{{themeColor.gradientE}} 100%);">
+                            <i class="iconfontJiajia icondian"></i>
+                            <view>{{item.live_status_text}}</view>
+                        </view>
+                    </view>
+                </navigator>
+                <navigator class="more" hoverClass="none" url="/live/pages/live_room2/index?live_id={{item.id}}" wx:elif="{{item.live_status==2}}">
+                    <view class="hot-list-li">
+                        <view class="hot-list-li-img">
+                            <image src="{{item.cover}}"></image>
+                        </view>
+                        <view class="hot-list-li-font">
+                {{item.title}}
+              </view>
+                        <view class="hot-list-li-lable" style="background:linear-gradient(45deg,{{themeColor.gradientB}} 0%,{{themeColor.gradientE}} 100%);">
+                            <i class="iconfontJiajia icondian"></i>
+                            <view>{{item.live_status_text}}</view>
+                        </view>
+                    </view>
+                </navigator>
+                <navigator class="more" hoverClass="none" url="/live/pages/live_room2/index?live_id={{item.id}}" wx:else>
+                    <view class="hot-list-li">
+                        <view class="hot-list-li-img">
+                            <image src="{{item.cover}}"></image>
+                        </view>
+                        <view class="hot-list-li-font">
+                {{item.title}}
+              </view>
+                        <view class="hot-list-li-lable" style="background:linear-gradient(45deg,{{themeColor.gradientB}} 0%,{{themeColor.gradientE}} 100%);">
+                            <i class="iconfontJiajia icondian"></i>
+                            <view>{{item.live_status_text}}</view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+    <view class="entry-list bgcolor mt15" wx:if="{{categorys.length}}">
+        <view class="list special">
+            <navigator class="item" hoverClass="none" url="/goods/pages/goods_list/goods_list?sid={{item.id}}&title={{item.name}}" wx:for="{{categorys}}" wx:key="index">
+                <image src="{{item.home_pic}}"></image>
+                <view class="label">{{item.name}}</view>
+            </navigator>
+        </view>
+    </view>
+    <view class="news acea-row row-between-wrapper bgcolor mt15" wx:if="{{news.length}}">
+        <view class="pictrue">
+            <image src="/images/didinews.png"></image>
+        </view>
+        <view class="swiperTxt">
+            <swiper autoplay="{{autoplay}}" circular="true" duration="{{duration}}" indicatorDots="{{indicatorDots}}" interval="2500" vertical="true">
+                <swiper-item catchtouchmove="catchTouchMove" wx:for="{{news}}" wx:key="index">
+                    <navigator class="acea-row row-between-wrapper" hoverClass="none" openType="switchTab" url="{{item}}">
+                        <view class="text acea-row row-between-wrapper">
+                            <view class="label border2" wx:if="{{item.tip}}">{{item.tip}}</view>
+                            <view class="newsTitle line1">{{item.text}}</view>
+                        </view>
+                        <view class="iconfont icon-xiangyou"></view>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="wrapper bgcolor mt15" wx:if="{{vip_goods.length}}">
+        <view class="title acea-row row-between-wrapper">
+            <view class="text">
+                <view class="name line1">精选商品</view>
+                <navigator class="more" hoverClass="none" url="/goods/pages/first-new-product/index?type=1">更多>
+        </navigator>
+            </view>
+        </view>
+        <view class="boutique" wx:if="{{vip_banner.length>0}}">
+            <swiper autoplay="true" circular="{{circular}}" duration="{{duration}}" indicatorActiveColor="#fc4141" indicatorColor="rgba(252,65,65,0.3)" indicatorDots="true" interval="{{interval}}">
+                <swiper-item wx:for="{{vip_banner}}">
+                    <navigator hoverClass="none" style="width:100%;height:100%;" url="{{item}}">
+                        <image class="slide-image" data-idx="{{index}}" src="{{item}}"></image>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="goodList">
+            <navigator class="list" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{vip_goods}}" wx:key="index">
+                <view class="pictrue">
+                    <image class="img" src="{{item.thumb}}"></image>
+                    <image class="numPic" src="/images/one.png" wx:if="{{index==0&&status==1}}"></image>
+                    <image class="numPic" src="/images/two.png" wx:if="{{index==1&&status==1}}"></image>
+                    <image class="numPic" src="/images/three.png" wx:if="{{index==2&&status==1}}"></image>
+                </view>
+                <view class="underline">
+                    <view class="text">
+                        <view class="info-box-top-stand">
+                            <view class="goos-title">{{item.title}}</view>
+                            <view class="sale-process" style="background:{{themeColor.gradientE}};">
+                                <view class="inner-proc" style="width: 80%;background:{{themeColor.gradientB}};"></view>
+                                <view class="inner-text">已售{{item.sale_num}}{{item.unit}}</view>
+                            </view>
+                        </view>
+                        <view class="buy-box">
+                            <view class="left-box">
+                                <view class="sale-price">￥{{item.marketprice}}</view>
+                                <view class="org-price">￥{{item.productprice}}</view>
+                            </view>
+                            <view class="right-box" style="background:linear-gradient(45deg,{{themeColor.gradientB}} 0%,{{themeColor.gradientE}} 100%);">
+                              马上抢 >
+                          </view>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view class="adver" wx:if="{{ad_pic}}">
+        <image src="{{ad_pic}}"></image>
+    </view>
+    <view class="wrapper bgcolor mt15" wx:if="{{new_goods.length}}">
+        <view class="title acea-row row-between-wrapper">
+            <view class="text">
+                <view class="name line1">抢先好货
+          <text class="new font-color">NEW~</text>
+                </view>
+                <navigator class="more" hoverClass="none" url="/goods/pages/first-new-product/index?type=3">更多>
+        </navigator>
+            </view>
+        </view>
+        <view class="newProducts">
+            <scroll-view scrollX class="scroll-view_x" style="width:auto;overflow:hidden;">
+                <navigator class="item" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{new_goods}}" wx:key="index">
+                    <view class="img-box">
+                        <image src="{{item.thumb}}"></image>
+                    </view>
+                    <view class="pro-info line1">{{item.title}}</view>
+                    <view class="money font-color">￥{{item.marketprice}}</view>
+                </navigator>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="wrapper bgcolor mt15" wx:if="{{sale_goods.length}}">
+        <view class="title acea-row row-between-wrapper">
+            <view class="text">
+                <view class="name line1">热卖促销</view>
+                <navigator class="more" hoverClass="none" url="/goods/pages/promotional-items/index">更多>
+        </navigator>
+            </view>
+        </view>
+        <promotionGood benefit="{{sale_goods}}"></promotionGood>
+    </view>
+    <tagGoods tags="{{tags}}" wx:if="{{tags.length}}"></tagGoods>
+    <view style="height: 130rpx"></view>
+</view>
+<coupon-window bind:onColse="onColse" couponList="{{couponList}}" window="{{window}}"></coupon-window>
+<collect-tip></collect-tip>
+<bottom-tabbar></bottom-tabbar>
+<goingTop topShow="{{topShow}}"></goingTop>

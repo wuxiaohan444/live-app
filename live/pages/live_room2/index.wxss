@@ -1,0 +1,52 @@
+@import "../../../Wxss/0.wxss";
+
+.canvas {
+    width: 750px;
+    height: 1298px;
+}
+
+.poster-pop {
+    width: 450rpx;
+    height: 714rpx;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    top: 50%;
+    margin-top: -357rpx;
+}
+
+.poster-pop image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.poster-pop .close {
+    width: 46rpx;
+    height: 75rpx;
+    position: fixed;
+    right: 0;
+    top: -73rpx;
+    display: block;
+}
+
+.poster-pop .save-poster {
+    background-color: #ff0077;
+    font-size: ：22rpx;
+    color: #fff;
+    text-align: center;
+    height: 76rpx;
+    line-height: 76rpx;
+    width: 100%;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 21;
+}

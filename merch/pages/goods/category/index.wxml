@@ -1,0 +1,36 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="shopClassification">
+    <view class="top-btn">
+        <view bindtap="onAdd" class="add">添加</view>
+    </view>
+    <view class="content" wx:if="{{list.length>0}}">
+        <view class="list" wx:for="{{list}}" wx:key="index">
+            <view bindtap="selectCategory" class="name" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+            <view bindtap="onEditSort" class="sort" data-id="{{item.id}}">排序值</view>
+            <view bindtap="onUpdate" class="item" data-id="{{item.id}}" data-name="{{item.name}}">编辑</view>
+            <view bindtap="onDelete" class="item" data-id="{{item.id}}">删除</view>
+        </view>
+    </view>
+    <view class="content" wx:else>
+        <view class="list">
+            暂无分类
+        </view>
+    </view>
+    <van-popup bind:close="onCloseCategory" closeable="{{true}}" customStyle="padding:20rpx;width:90%;height: 350rpx;margin-top:-150rpx;padding-top:70rpx;border-radius:20rpx;" overlay="{{true}}" round="{{false}}" show="{{showAdd}}">
+        <view class="category_title">添加店铺分类</view>
+        <input bindinput="formDataChange" class="category_input" data-column="name" focus="{{true}}" maxlength="8" name="name" placeholder="请输入店铺分类，8个字以内" type="text" value="{{name}}"></input>
+        <button bindtap="onSubmitAddCategory" class="submit_btn" size="mini" type="primary">确定</button>
+    </van-popup>
+    <van-popup bind:close="onCloseCategory" closeable="{{true}}" customStyle="padding:20rpx;width:90%;height: 350rpx;margin-top:-150rpx;padding-top:70rpx;border-radius:20rpx;" overlay="{{true}}" round="{{false}}" show="{{showEdit}}">
+        <view class="category_title">修改店铺分类</view>
+        <input bindinput="formDataChange" class="category_input" data-column="name" focus="{{true}}" maxlength="8" name="name" placeholder="请输入店铺分类，8个字以内" type="text" value="{{name}}"></input>
+        <button bindtap="onSubmitEditCategory" class="submit_btn" size="mini" type="primary">确定</button>
+    </van-popup>
+    <van-popup bind:close="onCloseCategory" closeable="{{true}}" customStyle="padding:20rpx;width:90%;height: 350rpx;margin-top:-150rpx;padding-top:70rpx;border-radius:20rpx;" overlay="{{true}}" round="{{false}}" show="{{showEditSort}}">
+        <view class="category_title">修改店铺排序</view>
+        <input bindinput="formDataChange" class="category_input" data-column="sort" focus="{{true}}" name="sort" type="number" value="{{sort}}"></input>
+        <button bindtap="onSubmitSortCategory" class="submit_btn" size="mini" type="primary">确定</button>
+    </van-popup>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<van-dialog id="van-dialog"></van-dialog>

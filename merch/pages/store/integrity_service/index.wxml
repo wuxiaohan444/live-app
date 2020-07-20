@@ -1,0 +1,9 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view id="apply-content">
+    <template is="wxParse" data="{{wxParseData:service.nodes}}"></template>
+</view>
+<view class="fui-button">
+    <view class="">恭喜，你已成为{{config.integrity_text}}</view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<import src="/lib/wxParse/wxParse.wxml"></import>

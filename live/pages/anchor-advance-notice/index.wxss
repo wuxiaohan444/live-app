@@ -1,0 +1,68 @@
+@import "../../../Wxss/0.wxss";
+
+.addAddress {
+    background: #fff;
+}
+
+.addAddress .list .item {
+    padding: 0 30rpx;
+    border-top: 1rpx solid #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.addAddress .list .item .name {
+    width: 195rpx;
+    font-size: 30rpx;
+    color: #333;
+    min-height: 90rpx;
+    display: flex;
+    align-items: center;
+}
+
+.addAddress .list .item .textarea {
+    padding: 34rpx 0;
+    flex: 1;
+}
+
+.addAddress .list .item input {
+    height: 90rpx;
+    line-height: 90rpx;
+    flex: 1;
+}
+
+.addAddress .list .item .van-radio {
+    margin-top: 25rpx;
+}
+
+.addAddress .list .item .van-radio:last-child {
+    margin-bottom: 25rpx;
+}
+
+.img-box {
+    flex: 1;
+    margin: 20rpx 0 0;
+}
+
+.fui-button {
+    font-size: 30rpx;
+    background: #fe4564;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 100rpx;
+    align-items: center;
+    color: #fff;
+}
+
+.fui-button view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

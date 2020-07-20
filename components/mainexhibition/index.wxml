@@ -1,0 +1,30 @@
+<view bindtap="jumpMainExhibitionDetail" class="normal-exhibition">
+    <view catchtap="jumpMainExhibitionDetail" class="banner" data-id="{{tag.id}}">
+        <view class="discount">{{tag.name}}</view>
+        <view class="tag">
+            <view class="tag-item">{{tag.title}}</view>
+        </view>
+        <image lazyLoad class="exhibition-poster" mode="aspectFill" src="{{tag.banners[0].pic}}" wx:if="{{tag.banners}}"></image>
+    </view>
+    <view class="goods-list">
+        <scroll-view scrollX class="product-list">
+            <view catch:tap="goToGoodsPage" class="product-item" data-id="{{item.id}}" wx:for="{{tag.list}}" wx:key="tag_goods_id">
+                <view class="day-img">
+                    <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">佣金:{{item.commission.agent_commission}}</view>
+                    <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">自购省钱:{{item.commission.partner_commission}}</view>
+                    <image lazyLoad class="item-pic" src="{{item.thumb}}"></image>
+                </view>
+                <view class="pro-price">
+                    <view class="discount-price">
+                        <text class="price-icon">¥</text>
+                        <text class="money">{{item.marketprice}}</text>
+                    </view>
+                    <view class="origin-price">
+                        <text>¥</text>
+                        <text class="money origin-price">{{item.productprice}}</text>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

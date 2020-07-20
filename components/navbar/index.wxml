@@ -1,0 +1,9 @@
+<view class="navbar {{parameter.class}}" style="height:{{navH}}rpx;background-color:{{parameter.bgcolor}};">
+    <view class="navbarH" style="height:{{navH}}rpx;">
+        <view class="navbarCon acea-row row-center-wrapper" wx:if="{{parameter.navbar==1}}">
+            <view class="name {{parameter.color==true?'on':''}} line1" style="color:{{parameter.textColor}}">{{parameter.title}}</view>
+            <view bindtap="return" class="iconfont icon-xiangzuo {{parameter.color==true?'on':''}}" style="color:{{parameter.textColor}}" wx:if="{{parameter.return==1}}"></view>
+        </view>
+    </view>
+</view>
+<view style="height:{{navH}}rpx;" wx:if="{{!parameter.topFixed}}"></view>

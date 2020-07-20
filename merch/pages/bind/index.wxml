@@ -1,0 +1,5 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view>
+    正在绑定...
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

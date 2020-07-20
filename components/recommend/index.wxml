@@ -1,0 +1,31 @@
+<view class="recommend" wx:if="{{list.length>0}}">
+    <view class="title acea-row row-center-wrapper">
+        <text class="iconfont icon-zhuangshixian"></text>
+        <text class="name">猜你喜欢</text>
+        <text class="iconfont icon-zhuangshixian lefticon"></text>
+    </view>
+    <view class="recommendList acea-row row-between-wrapper">
+        <navigator class="item" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{list}}">
+            <view class="pictrue">
+                <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">佣金:{{item.commission.agent_commission}}</view>
+                <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">自购省钱:{{item.commission.partner_commission}}</view>
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view class="name line1">{{item.title}}</view>
+            <view class="money">
+                <view class="price">￥
+                    <text class="num">{{item.marketprice}}</text>
+                </view>
+                <view class="price day-org-price">￥
+                    <text class="">{{item.productprice}}</text>
+                </view>
+                <view class="buy-num">
+                    {{item.sale_num}}人已买
+                </view>
+            </view>
+        </navigator>
+        <view class="loadingicon acea-row row-center-wrapper" wx:if="{{loading}}">
+            <text class="loading iconfont icon-jiazai" hidden="{{loading==false}}"></text>
+        </view>
+    </view>
+</view>

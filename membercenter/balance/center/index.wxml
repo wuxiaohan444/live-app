@@ -1,0 +1,53 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="my-account">
+    <view class="wrapper">
+        <view class="header">
+            <view class="headerCon">
+                <view class="account acea-row row-top  top-box row-between">
+                    <view class="assets">
+                        <view>总资产(元)</view>
+                        <view class="money">{{userInfo.total_balance||0}}</view>
+                    </view>
+                    <view class="right-buttons">
+                        <navigator class="recharge font-color" hoverClass="none" url="/membercenter/balance/withdraw/index" wx:if="{{userInfo.balance>0&&balance_withdraw==1}}">提现
+                        </navigator>
+                        <navigator class="recharge font-color" hoverClass="none" url="/membercenter/balance/recharge/index" wx:if="{{recharge_switch==1}}">充值
+                        </navigator>
+                    </view>
+                </view>
+                <view class="cumulative acea-row row-top">
+                    <view class="item" wx:if="{{recharge_switch==1}}">
+                        <view>累计充值(元)</view>
+                        <view class="money">{{userInfo.recharge_money||0}}</view>
+                    </view>
+                    <view class="item">
+                        <view>累计消费(元)</view>
+                        <view class="money">{{userInfo.pay_money||0}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="nav acea-row row-middle">
+            <navigator class="item" hoverClass="none" url="/membercenter/balance/bill/index?pm=0">
+                <view class="pictrue">
+                    <image src="/images/record1.png"></image>
+                </view>
+                <view>全部记录</view>
+            </navigator>
+            <navigator class="item" hoverClass="none" url="/membercenter/balance/bill/index?pm=1">
+                <view class="pictrue">
+                    <image src="/images/record3.png"></image>
+                </view>
+                <view>充值记录</view>
+            </navigator>
+            <navigator class="item" hoverClass="none" url="/membercenter/balance/bill/index?pm=2">
+                <view class="pictrue">
+                    <image src="/images/record2.png"></image>
+                </view>
+                <view>扣款记录</view>
+            </navigator>
+        </view>
+    </view>
+    <recommend id="recommend"></recommend>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

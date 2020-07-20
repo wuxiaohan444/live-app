@@ -1,0 +1,83 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="home" wx:if="{{examineKeywords.switch==0}}">
+    <view class="bg" style="background-color:{{themeColor.themeColor}}"></view>
+    <view class="index-bg" style="background-color:{{themeColor.themeColor}}" wx:if="{{banners.length}}">
+        <swiper autoplay="{{autoplay}}" circular="{{circular}}" duration="100" indicatorActiveColor="#fe6c9c" indicatorColor="rgba(255, 255, 255, 0.5)" indicatorDots="false" interval="{{interval}}">
+            <swiper-item wx:for="{{banners}}" wx:key="index">
+                <navigator class="slide-navigator acea-row row-between-wrapper" hoverClass="none" url="{{item.wxappurl}}">
+                    <image class="slide-image" mode="aspectFill" src="{{item.pic}}"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{banners}}" wx:key="index"></view>
+        </view>
+    </view>
+    <view class="search" style="top:{{navH}}rpx;background-color:{{themeColor.themeColor}}" wx:if="{{shopsearch}}">
+        <view class="search-box">
+            <view class="iconfontJiajia iconsearch"></view>
+            <input bindconfirm="searchRoom" confirmType="search" placeholder="请搜索主播"></input>
+        </view>
+    </view>
+    <view class="kind_contain" style="top:{{navH+100}}rpx">
+        <view class="rp" style="background:{{navbgcolor}}">
+            <scroll-view scrollWithAnimation scrollX class="nav" scrollLeft="{{scrollLeft}}rpx">
+                <view bindtap="collegeSelect" class="nav-item" data-catid="{{item.id}}" data-id="{{index}}" wx:for="{{college}}" wx:key="id">
+                    <view class="nav-text {{index==collegeCur+1?'tab-on':''}}" style="color:{{index==collegeCur+1?navbgcolor:''}}">{{item.name}}</view>
+                </view>
+            </scroll-view>
+            <view bindtap="showlist" class="kind_img">
+                <image lazyLoad src="{{showList?'l_down.png':'l_right.png'}}"></image>
+            </view>
+            <view class="kindlist_box" wx:if="{{showList}}">
+                <view class="kindlist_card">
+                    <view class="list_grid">
+                        <view bindtap="collegeSelect" class="list_one" data-catid="{{item.id}}" data-class="{{item.id}}" data-id="{{index}}" wx:for="{{college}}" wx:key="id">
+                            <view class="{{index==collegeCur+1?'list-on':''}}" style="background-color:{{index==collegeCur+1?themeColor.themeColor:''}};color:{{index==collegeCur+1?themeColor.text:''}}">{{item.name}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="list" wx:for="{{lives}}" wx:for-item="live" wx:key="live_key">
+            <view bindtap="onLive" class="img" data-id="{{index}}" data-liveid="{{live.live.id}}" data-status="{{live.live.live_status}}">
+                <image class="title-img" mode="aspectFill" src="{{live.live.cover}}"></image>
+                <view class="tip">
+                    <view class="tip-status" style="background:linear-gradient(45deg,{{themeColor.gradientB}} 0%,{{themeColor.gradientE}} 100%);">
+                        <i class="iconfontJiajia icondian"></i>
+                        <view wx:if="{{live.live.live_status==1}}">即将直播</view>
+                        <view wx:if="{{live.live.live_status==2}}">直播中</view>
+                        <view wx:if="{{live.live.live_status==3}}">回放</view>
+                    </view>
+                    <view class="text">{{live.live.fic_num}}观看</view>
+                </view>
+                <view class="user">
+                    <view class="user-title">
+                        <view class="shop-info" wx:if="{{live.goods.length>0}}">
+                            <view class="title">{{live.goods[0].title}}</view>
+                        </view>
+                    </view>
+                    <view class="user-info">
+                        <view class="shop-img">
+                            <image class="img" mode="aspectFill" src="{{live.user.avatar}}"></image>
+                            <view class="name">
+                                <view class="n">{{live.user.nickname}}</view>
+                                <view class="i">{{live.live.id}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="lives-loadend" wx:if="{{loadend}}">{{loadTitle}}</view>
+        <view class="loading" hidden="{{!loading}}">
+            <van-loading size="22px" type="spinner">加载中...</van-loading>
+        </view>
+    </view>
+</view>
+<view id="examine-content" wx:else>
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<bottom-tabbar></bottom-tabbar>

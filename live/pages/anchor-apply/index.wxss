@@ -1,0 +1,203 @@
+@import "../../../Wxss/6.wxss";
+
+page {
+    background: #fff!important;
+    width: 100%;
+}
+
+#apply-content {
+    padding: 20rpx;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#apply-content image {
+    max-width: 100%!important;
+}
+
+.fui-button {
+    font-size: 30rpx;
+    background: #fe4564;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 100rpx;
+    align-items: center;
+    color: #fff;
+}
+
+.fui-button view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.apply-protocol-content {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 30rpx;
+    margin-bottom: 10rpx;
+    margin-top: 60rpx;
+}
+
+.show-protocol {
+    color: #387cdf;
+    margin-left: 5rpx;
+}
+
+.btn-disable {
+    color: #cacaca;
+}
+
+.popup-protocol {
+    padding: 20rpx;
+}
+
+.apply-condition {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20rpx;
+}
+
+.apply-condition .apply-title {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.apply-condition .apply-tip {
+    font-size: 26rpx;
+    color: #bbbbbb;
+    margin-top: 10rpx;
+}
+
+.apply-condition .apply-detail {
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0 20rpx;
+}
+
+.apply-condition .apply-detail .apply-icon {
+    background: #edfce7;
+    width: 90rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-radius: 50%;
+    text-align: center;
+    color: #7ab855;
+    margin-left: 50rpx;
+}
+
+.apply-condition .apply-detail .apply-text-box {
+    margin-left: 20rpx;
+}
+
+.apply-condition .apply-detail .apply-text-box .apply-text {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.apply-condition .apply-detail .apply-text-box .apply-tiptext {
+    color: #afadae;
+}
+
+.apply-condition .apply-detail .apply-btn {
+    border: 2px solid #8bb591;
+    padding: 10rpx 20rpx;
+    border-radius: 30rpx;
+    color: #8bb591;
+    height: 60rpx;
+    margin-left: auto;
+    margin-right: 50rpx;
+}
+
+.van-checkbox__icon--checked {
+    background-color: #fe4564!important;
+    border-color: #fe4564!important;
+}
+
+.ti-btn {
+    background-color: #fe4564!important;
+    line-height: 90rpx;
+    height: 90rpx;
+    margin-top: 30rpx;
+    align-items: center;
+}
+
+.under{
+    display: flex;
+    background: #ffffff;
+    width:100%;
+    height:120rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.under .cost-price{
+    flex: 1;
+    font-size:48rpx;
+    font-weight:bold;
+    color:rgba(255,67,101,1);
+    text-indent: 30rpx;
+    padding-top: 10rpx;
+    box-sizing: border-box;
+    background: #F8F8F8;
+}
+
+.under .cost-price wx-text{
+    font-size:24rpx;
+    color:rgba(153,153,153,1);
+    line-height:24rpx;
+    display: block;
+    font-weight:500;
+}
+
+.under .but{
+    flex: 1;
+    color:#fff;
+    font-size:28rpx;
+    border-radius: 0;
+    background: #999999;
+    text-align: center;
+    padding-top: 24rpx;
+    box-sizing: border-box;
+}
+
+.under .but wx-text{
+    font-size:20rpx;
+    font-weight:500;
+    color:rgba(255,255,255,1);
+    opacity:0.47;
+}
+
+.protocol-title{
+    font-size:30rpx;
+    font-family:PingFang SC;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+    line-height:100rpx;
+    padding-left: 25rpx;
+    display: flex;
+    align-items: center;
+}
+
+.look-protocol{
+    width: 200rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    background: #F8F8F8;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    margin-left: 50rpx;
+}

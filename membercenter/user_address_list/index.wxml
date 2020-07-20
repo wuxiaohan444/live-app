@@ -1,0 +1,44 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="address-management {{addressList.length<1&&page>1?'fff':''}}">
+    <view class="line">
+        <image src="/images/line.jpg" wx:if="{{addressList.length}}"></image>
+    </view>
+    <radio-group bindchange="radioChange" class="radio-group" wx:if="{{addressList.length}}">
+        <view class="item" data-index="{{index}}" wx:for="{{addressList}}">
+            <view bindtap="goOrder" class="address" data-id="{{item.id}}">
+                <view class="consignee">收货人：{{item.realname}}<text class="phone">{{item.mobile}}</text>
+                </view>
+                <view>收货地址：{{item.province}}{{item.city}}{{item.district}}{{item.address_info}}</view>
+            </view>
+            <view class="operation acea-row row-between-wrapper">
+                <radio checked="{{item.is_default?true:false}}" class="radio" value="{{index}}">
+                    <text>设为默认</text>
+                </radio>
+                <view class="acea-row row-middle">
+                    <view bindtap="editAddress" data-id="{{item.id}}">
+                        <text class="iconfont icon-bianji address-icon"></text>编辑</view>
+                    <view bindtap="delAddress" data-index="{{index}}">
+                        <text class="iconfont icon-shanchu address-icon"></text>删除</view>
+                </view>
+            </view>
+        </view>
+    </radio-group>
+    <view class="loadingicon acea-row row-center-wrapper" wx:if="{{addressList.length}}">
+        <text class="loading iconfont icon-jiazai" hidden="{{loading==false}}"></text>{{loadTitle}}
+     </view>
+    <view class="noCommodity" wx:if="{{addressList.length<1&&page>1}}">
+        <view class="pictrue">
+            <view class="nosearch">
+              暂无收货地址
+          </view>
+        </view>
+    </view>
+    <view style="height:120rpx;"></view>
+    <view class="footer acea-row row-between-wrapper">
+        <view bindtap="getWxAddress" class="addressBnt wxbnt">
+            <text class="iconfont icon-weixin2"></text>使用微信地址</view>
+        <view bindtap="addAddress" class="addressBnt addbnt">
+            <text class="iconfont icon-tianjiadizhi"></text>添加收货地址</view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

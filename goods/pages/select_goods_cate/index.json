@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "bottom-tabbar": "/components/bottom-tabbar/index",
+        "navbar": "/components/navbar/index"
+    }
+}

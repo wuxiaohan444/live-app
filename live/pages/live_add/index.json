@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "van-radio-group": "/vant/radio-group/index",
+        "van-radio": "/vant/radio/index",
+        "authorize": "/components/authorize/authorize"
+    },
+    "navigationBarTextStyle": "white",
+    "disableScroll": true
+}

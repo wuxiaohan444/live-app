@@ -1,0 +1,24 @@
+<view class="youbei-top">
+    <view class="title">
+        <view class="name">{{page.title}}
+            <text>{{page.subtitle}}</text>
+        </view>
+        <navigator class="more" hoverClass="none" url="{{page.more_link}}">
+            <text>{{page.moretitle}}</text>
+            <view class="iconfont icon-xiangyou"></view>
+        </navigator>
+    </view>
+    <view class="scroll">
+        <scroll-view class="scroll-view" scrollX="true">
+            <navigator class="item" hoverClass="none" url="{{item.link}}" wx:for="{{page.items}}" wx:key="index">
+                <view class="msg" wx:if="{{item.left_tip}}">
+                    {{item.left_tip}}
+                </view>
+                <view class="shop" wx:if="{{item.right_tip}}">{{item.right_tip}}</view>
+                <image class="img" src="{{item.image}}"></image>
+                <view class="name">{{item.text}}</view>
+            </navigator>
+        </scroll-view>
+    </view>
+    <view class="all-line"></view>
+</view>

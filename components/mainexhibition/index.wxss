@@ -1,0 +1,272 @@
+.normal-exhibition {
+    width: 702rpx;
+    border-radius: 18rpx;
+    background: #fff;
+    position: relative;
+    margin-left: 24rpx;
+    padding-top: 20rpx;
+}
+
+.normal-exhibition .exhibition-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12rpx 30rpx;
+    height: 84rpx;
+    box-sizing: border-box;
+}
+
+.normal-exhibition .exhibition-header .header-img {
+    width: 120rpx;
+    height: 60rpx;
+    border-radius: 12rpx;
+}
+
+.normal-exhibition .exhibition-header .header-img1,.normal-exhibition .exhibition-header .header-img2 {
+    margin-left: 12rpx;
+}
+
+.normal-exhibition .banner {
+    position: relative;
+    width: 100%;
+    height: 248rpx;
+}
+
+.normal-exhibition .banner .superKeeper-info {
+    position: absolute;
+    top: 36rpx;
+    left: 30rpx;
+    height: 36rpx;
+    width: 312rpx;
+    padding-left: 176rpx;
+    color: #8e542c;
+    font-size: 24rpx;
+    line-height: 36rpx;
+    border-radius: 12rpx;
+    box-sizing: border-box;
+    background-image: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/newIndex/shopKeeper-line-bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.normal-exhibition .banner .share-icon {
+    position: absolute;
+    right: 30rpx;
+    top: 31rpx;
+    width: 54rpx;
+    height: 54rpx;
+}
+
+.normal-exhibition .banner .top-item {
+    position: absolute;
+    top: 36rpx;
+    left: 30rpx;
+    width: 84rpx;
+    height: 36rpx;
+    background: linear-gradient(200deg,rgba(255,2,102,1) 0,rgba(255,1,54,1) 100%);
+    border-radius: 12rpx;
+    font-size: 24rpx;
+    font-family: DIN;
+    font-weight: 700;
+    color: #fff;
+    line-height: 36rpx;
+    text-align: center;
+}
+
+.normal-exhibition .banner .img-tag-item {
+    position: absolute;
+    top: 36rpx;
+    left: 30rpx;
+    width: 110rpx;
+    height: 36rpx;
+}
+
+.normal-exhibition .banner .tags-private {
+    position: absolute;
+    top: 36rpx;
+    left: 30rpx;
+    text-align: center;
+    height: 36rpx;
+    line-height: 36rpx;
+    border-radius: 12rpx;
+    font-size: 20rpx;
+    font-family: PingFangSC-Semibold;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    letter-spacing: 1rpx;
+    width: 120rpx;
+    background: rgba(214,168,116,1);
+}
+
+.normal-exhibition .banner .discount {
+    position: absolute;
+    top: 131rpx;
+    left: 30rpx;
+    font-size: 30rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #fff;
+    line-height: 30rpx;
+    text-shadow: 0rpx 2rpx 4rpx rgba(0,0,0,.3);
+}
+
+.normal-exhibition .banner .tag {
+    position: absolute;
+    left: 30rpx;
+    bottom: 33rpx;
+    display: flex;
+}
+
+.normal-exhibition .banner .tag .tag-item {
+    font-size: 24rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #fff;
+    background: rgba(0,0,0,.5);
+    padding: 0 10rpx;
+    border-radius: 12rpx;
+    margin-right: 6rpx;
+    height: 36rpx;
+    line-height: 37rpx;
+    box-sizing: border-box;
+}
+
+.normal-exhibition .banner .fast-buy {
+    position: absolute;
+    right: 30rpx;
+    bottom: 26rpx;
+    width: 118rpx;
+    height: 50rpx;
+    background: rgba(255,255,255,.9);
+    border-radius: 28rpx;
+    border: 1rpx solid rgba(255,255,255,1);
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.normal-exhibition .goods-list {
+    padding: 30rpx 30rpx 20rpx;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.normal-exhibition .goods-list .product-list {
+    width: auto;
+    overflow: hidden;
+}
+
+.normal-exhibition .goods-list .product-list .product-item {
+    width: 198rpx;
+    display: inline-block;
+    margin-right: 24rpx;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .day-img {
+    position: relative;
+}
+
+.day-zigoushengqian {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #ff3c2b;
+    padding: 10rpx 20rpx;
+    color: #fff;
+    font-size: 20rpx;
+    border-radius: 0 30rpx 0 0;
+    line-height: 1;
+    text-align: center;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .item-pic {
+    width: 198rpx;
+    height: 198rpx;
+    border-radius: 6rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/newIndex/index-modal.png?x-oss-process=image/resize,w_210,x-oss-process=image/format,png) no-repeat center;
+    background-size: cover;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .pro-tit {
+    font-size: 26rpx;
+    color: #333;
+    height: 26rpx;
+    line-height: 26rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 197rpx;
+    margin-top: 18rpx;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .pro-price {
+    font-size: 26rpx;
+    margin-top: 18rpx;
+    height: 26rpx;
+    font-family: DIN;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .pro-price .discount-price {
+    color: #ff0136;
+    font-size: 30rpx;
+    margin-right: 5rpx;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .pro-price .price-icon {
+    font-size: 20rpx;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .pro-price .origin-price {
+    font-size: 24rpx;
+    font-family: DIN;
+    font-weight: 400;
+    color: #999;
+    line-height: 26rpx;
+    text-decoration: line-through;
+    margin-top: 4rpx;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .pro-price .get-price {
+    font-size: 22rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #d6a874;
+    line-height: 22rpx;
+    margin-left: 6rpx;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .pro-price .small-free-size {
+    font-size: 20rpx;
+}
+
+.normal-exhibition .goods-list .product-list .product-item .pro-price .small-origin-size {
+    font-size: 22rpx;
+}
+
+.normal-exhibition .exhibition-poster {
+    border-radius: 18rpx 18rpx 0 0;
+    width: 702rpx;
+    height: 248rpx;
+    background: url(https://cdn.webuy.ai/static/sh-assets/weapp/pages/newIndex/bottom-modal-new.png?x-oss-process=image/resize,w_702,x-oss-process=image/format,png) no-repeat center;
+    background-size: cover;
+}
+
+.day-yongjin {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ff3c2b;
+    padding: 10rpx 20rpx;
+    color: #fff;
+    font-size: 20rpx;
+    border-radius: 0 0 0 30rpx;
+    line-height: 1;
+    text-align: center;
+}

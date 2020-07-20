@@ -1,0 +1,33 @@
+<view class="replay_list" wx:if="{{examineKeywords.switch==0}}">
+    <navbar parameter="{{parameter}}"></navbar>
+    <scroll-view scrollY="{{isScroll}}" wx:if="{{list.length>0}}">
+        <navigator url="/live/pages/live_playback/index?playback={{item.id}}" wx:for="{{list}}" wx:key="index">
+            <view bindtouchend="drawEnd" bindtouchmove="drawMove" bindtouchstart="drawStart" class="order-item" data-index="{{index}}" style="right:{{item.right}}rpx">
+                <view class="content">
+                    <image class="img" src="{{item.cover}}"></image>
+                    <view class="text">
+                        <view class="title">{{item.title}}</view>
+                        <view class="num">本场观看人数：{{item.total_num}}人</view>
+                        <view class="num" style="margin-top: 10rpx">直播开始时间：{{item.start_time}}</view>
+                    </view>
+                </view>
+                <view bindtap="delLog" class="remove" data-id="{{item.id}}">删除</view>
+            </view>
+        </navigator>
+    </scroll-view>
+    <view class="loadingicon acea-row row-center-wrapper" wx:if="{{loadTitle&&list.length>0}}">
+        <text class="loading iconfont icon-jiazai" hidden="{{loading==false}}"></text>{{loadTitle}}
+    </view>
+    <view class="noCommodity" wx:if="{{!list.length}}">
+        <view class="pictrue">
+            <view class="nosearch">
+                您还没有回放记录哦~
+            </view>
+        </view>
+    </view>
+</view>
+<view id="examine-content" wx:if="{{examineKeywords.switch==1}}">
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

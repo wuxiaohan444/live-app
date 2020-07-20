@@ -1,0 +1,99 @@
+page {
+    margin: 20rpx;
+    width: 95%;
+}
+
+image {
+    border-radius: 50%;
+}
+
+.promoter-text {
+    height: 70rpx;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    background: #fff;
+    padding-left: 20rpx;
+    border-radius: 5px;
+}
+
+.commission-header {
+    height: 150rpx;
+    background: #ff7664;
+    border-radius: 5px;
+    padding-left: 30rpx;
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+    flex-direction: row;
+}
+
+.commission-header-image {
+    margin-right: 20rpx;
+}
+
+.commission-header-content {
+}
+
+.commission-parent-nickname {
+    color: #fff;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.commission-parent-uid {
+    color: #fff;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.promoter-list {
+    border-radius: 5px;
+    margin-top: 20rpx;
+}
+
+.role {
+    height: 70rpx;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    background: #fff;
+    margin-top: 20rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+.children-info-detail {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.children-info-image {
+    margin-right: 20rpx;
+}
+
+.children-info-content {
+}
+
+.children-info-nickname {
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.children-info-uid {
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.children-info-more {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

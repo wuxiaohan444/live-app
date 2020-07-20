@@ -1,0 +1,33 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="roomCard">
+    <view class="content" wx:if="{{itemData.length>0}}">
+        <view class="list">
+            <view class="title">{{itemData[itemActive].name}}</view>
+            <input bindinput="bindTitle" class="input" data-itemActive="{{itemActive}}" placeholder="请输入标题" value="{{itemData[itemActive].title}}"></input>
+        </view>
+        <view class="list">
+            <view class="title">{{itemData[itemActive].tip}}</view>
+            <input bindinput="bindText" class="input" data-itemActive="{{itemActive}}" placeholder="请输入说明" value="{{itemData[itemActive].text}}"></input>
+        </view>
+    </view>
+    <view class="neirong">
+        <view class="title">
+            <view class="name">内容</view>
+            <view class="item-box">
+                <view bindtap="onItem" class="item {{itemActive===index?'itemActive':''}}" data-index="{{index}}" wx:for="{{itemData}}" wx:key="index">
+                    <text bindtap="onDelete" class="delete" data-index="{{index}}">-</text>
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="tipbox">
+        <view class="title">{{itemData[itemActive].title}}</view>
+        <view class="text">{{itemData[itemActive].text}}</view>
+    </view>
+    <view class="btn">
+        <view bindtap="onAdd" class="item add">添加</view>
+        <view bindtap="onBao" class="item bao">保存</view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

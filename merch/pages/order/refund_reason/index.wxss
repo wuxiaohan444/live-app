@@ -1,0 +1,27 @@
+.reason {
+    background: #fff;
+    color: #6e6e6e;
+    height: 300rpx;
+    padding: 20rpx;
+}
+
+.reason textarea {
+    width: 100%;
+    height: 300rpx;
+}
+
+.footer-btn {
+    position: fixed;
+    bottom: 10rpx;
+    width: 100%;
+}
+
+.footer-btn .submit-btn {
+    font-size: 26rpx;
+    color: #fff;
+    background: #ff4466;
+    border-radius: 50rpx;
+    width: 90%;
+    padding: 15rpx;
+    margin: 0 auto;
+}

@@ -1,0 +1,74 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="home" wx:if="{{examineKeywords.switch==0}}">
+    <view class="bg"></view>
+    <view class="index-bg" wx:if="{{banners.length}}">
+        <swiper autoplay="{{autoplay}}" circular="{{circular}}" duration="100" indicatorActiveColor="#fe6c9c" indicatorColor="rgba(255, 255, 255, 0.5)" indicatorDots="true" interval="{{interval}}">
+            <swiper-item wx:for="{{banners}}" wx:key="index">
+                <navigator class="slide-navigator acea-row row-between-wrapper" hoverClass="none" url="{{item.wxappurl}}">
+                    <image class="slide-image" mode="aspectFill" src="{{item.pic}}"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="search" style="top:{{navH}}rpx" wx:if="{{shopsearch}}">
+        <view class="search-box">
+            <view class="iconfontJiajia iconsearch"></view>
+            <input bindconfirm="searchRoom" confirmType="search" placeholder="请搜索主播"></input>
+        </view>
+    </view>
+    <scrolltab bindtabtap="tabtapopt" navbgcolor="{{navbgcolor}}" scrollH="{{scrollH}}" scrollTop="{{scrollTop}}" tabdata="{{college}}"></scrolltab>
+    <view class="content">
+        <view class="list" wx:for="{{lives}}" wx:for-item="live" wx:key="live_key">
+            <view bindtap="onLive" class="img" data-id="{{index}}" data-liveid="{{live.live.id}}" data-status="{{live.live.live_status}}">
+                <image class="title-img" mode="aspectFill" src="{{live.live.cover}}"></image>
+                <view class="tip-status">
+                    <i class="iconfontJiajia icondian"></i>
+                    <view wx:if="{{live.live.live_status==1}}">即将直播</view>
+                    <view wx:if="{{live.live.live_status==2}}">直播中</view>
+                    <view wx:if="{{live.live.live_status==3}}">回放</view>
+                </view>
+                <view class="tip">
+                    <view class="home-page-info-left-num">
+                        <view class="icon-text">
+                            <text class="line1"></text>
+                            <text class="line2"></text>
+                            <text class="line3"></text>
+                            <text class="line4"></text>
+                        </view>
+                    </view>
+                    <view class="text">{{live.live.fic_num}}观看</view>
+                </view>
+                <view class="user">
+                    <view class="user-title">
+                        <view class="shop-info" wx:if="{{live.goods.length>0}}">
+                            <view class="title">{{live.goods[0].title}}</view>
+                            <view class="shop-img">
+                                <image class="img" mode="aspectFill" src="{{live.user.avatar}}"></image>
+                                <view class="name">{{live.user.nickname}}</view>
+                            </view>
+                        </view>
+                        <image class="img" mode="aspectFill" src="{{live.goods[0].thumb}}"></image>
+                    </view>
+                    <view class="user-info">
+                        <view class="title">{{live.live.title}}</view>
+                        <view class="user-tip">
+                            <view class="juli">{{live.live.distance}}km</view>
+                            <view class="user-look">
+                                <image class="img" src="{{comment.avatar}}" wx:if="{{live.comments.list.length>0}}" wx:for="{{live.comments.list}}" wx:for-item="comment" wx:key="index"></image>
+                                <view class="num" wx:if="{{live.comments.usernumber>0}}">{{live.comments.usernumber}}位好友互动过</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="lives-loadend" wx:if="{{loadend}}">{{loadTitle}}</view>
+        <view class="loading" hidden="{{!loading}}">
+            <van-loading size="22px" type="spinner">加载中...</van-loading>
+        </view>
+    </view>
+</view>
+<view id="examine-content" wx:else>
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<bottom-tabbar></bottom-tabbar>

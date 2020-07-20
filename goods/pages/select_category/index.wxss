@@ -1,0 +1,22 @@
+page {
+    background: #fff!important;
+}
+
+.categoryList>.list {
+    display: flex;
+    align-items: center;
+    line-height: 80rpx;
+    padding: 0 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+    font-size: 28rpx;
+}
+
+.categoryList>.list>.right {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: auto;
+}
+
+.block-nav-icon {
+    margin-left: auto;
+}

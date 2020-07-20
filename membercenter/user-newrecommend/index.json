@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "authorize": "/components/authorize/authorize",
+        "van-dialog": "/vant/dialog/index"
+    },
+    "navigationBarTitleText": "店铺公告"
+}

@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "van-tabs": "/vant/tabs/index",
+        "van-tab": "/vant/tab/index",
+        "van-collapse": "/vant/collapse/index",
+        "van-collapse-item": "/vant/collapse-item/index",
+        "authorize": "/components/authorize/authorize"
+    },
+    "navigationBarTextStyle": "white"
+}

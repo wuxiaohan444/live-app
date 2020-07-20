@@ -1,0 +1,61 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="productList">
+    <view class="search bg-color acea-row row-between-wrapper" style="top:{{navH}}rpx">
+        <view class="input acea-row row-between-wrapper">
+            <text class="iconfont icon-sousuo"></text>
+            <form bindsubmit="searchSubmit">
+                <input bindconfirm="searchSubmit" confirmType="search" name="search" placeholder="搜索商品名称" placeholderClass="placeholder" value="{{where.keyword}}"></input>
+            </form>
+        </view>
+    </view>
+    <view class="nav acea-row row-middle" style="top:{{navH}}rpx;margin-top:86rpx">
+        <view bindtap="set_where" class="item {{title?'font-color':''}}" data-type="1">{{title?title:'默认'}}</view>
+        <view bindtap="set_where" class="item" data-type="2">
+      价格
+      <image src="/images/up.png" wx:if="{{price==1}}"></image>
+            <image src="/images/down.png" wx:elif="{{price==2}}"></image>
+            <image src="/images/horn.png" wx:else></image>
+        </view>
+        <view bindtap="set_where" class="item" data-type="3">
+        销量
+        <image src="/images/up.png" wx:if="{{stock==1}}"></image>
+            <image src="/images/down.png" wx:elif="{{stock==2}}"></image>
+            <image src="/images/horn.png" wx:else></image>
+        </view>
+        <view bindtap="set_where" class="item {{nows?'font-color':''}}" data-type="4">新品</view>
+    </view>
+    <view class="list acea-row row-between-wrapper {{is_switch==true?'':'on'}}">
+        <navigator class="item {{is_switch==true?'':'on'}}" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{productList}}">
+            <view class="pictrue {{is_switch==true?'':'on'}}">
+                <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">佣金:{{item.commission.agent_commission}}</view>
+                <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">自购省钱:{{item.commission.partner_commission}}</view>
+                <image class="{{is_switch==true?'':'on'}}" src="{{item.thumb}}"></image>
+            </view>
+            <view class="text {{is_switch==true?'':'on'}}">
+                <view class="name line1">{{item.title}}</view>
+                <view class="day-org">
+                    <view class="money font-color {{is_switch==true?'':'on'}}">￥<text class="num">{{item.marketprice}}</text>
+                    </view>
+                    <view class="money day-org-price">￥<text class="">{{item.productprice}}</text>
+                    </view>
+                </view>
+                <view class="vip acea-row row-between-wrapper {{is_switch==true?'':'on'}}">
+                    <view class="vip-money" wx:if="{{item.marketprice&&item.marketprice==0}}">￥{{item.marketprice}}<image src="/images/vip.png"></image>
+                    </view>
+                    <view>已售{{item.sale_num}}{{item.unit}}</view>
+                </view>
+            </view>
+        </navigator>
+        <view class="loadingicon acea-row row-center-wrapper" wx:if="{{productList.length>0}}">
+            <text class="loading iconfont icon-jiazai" hidden="{{loading==false}}"></text>{{loadTitle}}
+     </view>
+    </view>
+</view>
+<view class="noCommodity" wx:if="{{productList.length==0&&where.page>1}}">
+    <view class="pictrue">
+        <view class="nosearch">
+           未找到商品！
+       </view>
+    </view>
+</view>
+<recommend id="recommend"></recommend>

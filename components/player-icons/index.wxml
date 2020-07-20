@@ -1,0 +1,7 @@
+<view class="icons icons__vertical">
+    <image bind:touchcancel="onCancelTouchLike" bind:touchend="onCancelTouchLike" bind:touchstart="onTouchLike" class="icon" src="{{hoverLike?'https://img.yzcdn.cn/guang/like-0305.png':'https://img.yzcdn.cn/guang/like-o-0305.png'}}" wx:if="{{!hidden}}"></image>
+    <image catch:tap="onClickRecover" class="icon icon-recover" hidden="{{playEnded}}" src="https://img.yzcdn.cn/guang/recover-0305.png" wx:if="{{hidden}}"></image>
+    <view class="like-count" wx:if="{{!hidden}}">
+        {{goodJobCountText}}
+    </view>
+</view>

@@ -1,0 +1,5 @@
+<view class="one_image" style="background:{{page.background}}">
+    <navigator class="item" hoverClass="none" style="padding:{{page.padding_left_right}}px {{page.padding_top_buttom}}px" url="{{page.link}}">
+        <image class="one-img" mode="widthFix" src="{{page.image}}"></image>
+    </navigator>
+</view>

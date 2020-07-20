@@ -1,0 +1,71 @@
+<bottom-tabbar></bottom-tabbar>
+<navbar parameter="{{parameter}}"></navbar>
+<view class="page-container">
+    <view class="head-bg">
+        <view class="avatar" wx:if="{{userInfo.id}}">
+            <image class="avatar-img" src="{{userInfo.avatar}}"></image>
+            <view class="nickname-box">
+                <view bindtap="goPages" class="avatar-text" data-url="/common/pages/user_info/index">
+                    {{userInfo.nickname}}
+                </view>
+                <view bindtap="goPages" class="id" data-url="/common/pages/user_info/index" wx:if="{{userInfo.mobile}}">
+                    ID：{{userInfo.id||0}}
+                    <text class="iconfont icon-bianji1"></text>
+                </view>
+                <view bindtap="goPages" data-url="/common/pages/user_info/index" wx:else>
+                    <text class="binding">完善信息</text>
+                </view>
+            </view>
+        </view>
+        <view class="avatar" wx:else>
+            <image class="avatar-img" src="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/user/icon/tx.png"></image>
+            <view bindtap="goPages" class="avatar-text" data-url="/common/pages/user_phone/index">点击授权</view>
+        </view>
+    </view>
+    <view class="nav acea-row row-middle" wx:if="{{userInfo.assetsMenu.length>0}}">
+        <view bindtap="goPages" class="item" data-url="{{item.page}}" wx:for="{{userInfo.assetsMenu}}">
+            <view>{{item.name}}</view>
+            <view class="num">{{item.text}}</view>
+        </view>
+    </view>
+    <view class="order block">
+        <navigator class="block-nav" data-ei="order_list" hoverClass="none" url="/membercenter/order_list/index">
+            <view class="block-nav-title">我的订单</view>
+            <view class="block-nav-link">全部订单</view>
+            <view class="block-nav-icon">
+                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+            </view>
+        </navigator>
+        <view class="order-detail">
+            <navigator bindtap="onOrderClick" class="order-detail-item" data-item="{{item}}" hoverClass="none" url="{{item.url}}" wx:for="{{orderInfo}}" wx:key="{{ item.id }}">
+                <van-icon info="{{orderNum[item.id]}}" name="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/user/icon/{{item.id}}.png" size="28px"></van-icon>
+                <text class="order-status-num" wx:if="{{orderStatusNum[item.num]>0}}">{{orderStatusNum[item.num]}}
+                </text>
+                <view>{{item.name}}</view>
+            </navigator>
+        </view>
+    </view>
+    <view class="order block" wx:for="{{MyMenus}}" wx:for-index="groupname" wx:for-item="menugroup">
+        <view class="block-nav">
+            <view class="block-nav-title">
+                {{groupname}}
+            </view>
+        </view>
+        <view class="order-detail" wx:for="{{menugroup}}" wx:for-item="menus">
+            <block wx:for="{{menus}}" wx:for-item="menu">
+                <view class="order-detail-item" wx:if="{{menu.name=='联系客服'}}">
+                    <button class="contact-btn" openType="contact" type="default">
+                        <image class="icon-image" src="{{menu.pic}}"></image>
+                        <view>{{menu.name}}</view>
+                    </button>
+                </view>
+                <navigator class="order-detail-item" hoverClass="none" url="{{menu.url}}" wx:else>
+                    <van-icon name="{{menu.pic}}" size="28px"></van-icon>
+                    <view>{{menu.name}}</view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+    <view style="height: 130rpx"></view>
+</view>
+<authorize bind:onLoadFun="onLoadFun" iShidden="{{iShidden}}" isAuto="{{isAuto}}" isGoIndex="{{isGoIndex}}"></authorize>

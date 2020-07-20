@@ -1,0 +1,9 @@
+<view class="collect-tip device-{{deviceType}}" wx:if="{{showTip}}">
+    <view class="collect-tip__line">
+        点击“
+        <van-icon customClass="share-icon" name="weapp-nav"></van-icon>
+        ”添加到我的小程序
+    </view>
+    <view class="collect-tip__line">微信首页下拉可快速找到我</view>
+    <van-icon bind:click="onClose" customClass="van-icon-clear" name="clear"></van-icon>
+</view>

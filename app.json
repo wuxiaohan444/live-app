@@ -1,0 +1,176 @@
+{
+  "pages": [
+    "common/pages/loading/loading",
+    "common/pages/indexs/index",
+    "common/pages/user_phone/index",
+    "common/pages/user_info/index",
+    "common/pages/user/user",
+    "common/pages/user1/user",
+    "components/coupon-window/index",
+    "components/recommend-code/index",
+    "common/pages/index_2/index",
+    "common/pages/user_2/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "正在加载中...",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "subPackages": [
+    {
+      "root": "goods/",
+      "name": "商品",
+      "pages": [
+        "pages/goods_search/index",
+        "pages/goods_details/index",
+        "pages/first-new-product/index",
+        "pages/tag-goods/index",
+        "pages/promotional-items/index",
+        "pages/goods_cate/goods_cate",
+        "pages/goods_list/goods_list",
+        "pages/goods_comment_list/index",
+        "pages/select_category/index",
+        "pages/select_goods_cate/index"
+      ]
+    },
+    {
+      "root": "order/",
+      "name": "订单",
+      "pages": [
+        "pages/order_addcart/order_addcart",
+        "pages/order_confirm/index",
+        "pages/order_details/index",
+        "pages/goods_return/index",
+        "pages/goods_logistics/index",
+        "pages/goods_comment_con/index",
+        "pages/user_return_list/index"
+      ]
+    },
+    {
+      "root": "live/",
+      "name": "live",
+      "pages": [
+        "pages/bind_live/index",
+        "pages/searchLive/index",
+        "pages/live_list/index",
+        "pages/live_nostart/index",
+        "pages/live_list1/index",
+        "pages/live_list2/index",
+        "pages/live_list4/index",
+        "pages/live_list5/index",
+        "pages/live_room/index",
+        "pages/live_playback/index",
+        "pages/live_add/index",
+        "pages/anchor-apply/index",
+        "pages/anchor-inviation/index",
+        "pages/anchor-inviation-logs/index",
+        "pages/live_push/index",
+        "pages/live_homepage/index",
+        "pages/anchor-advance-notice/index",
+        "pages/anchor-goods/index",
+        "pages/live_room2/index",
+        "pages/live_end/index",
+        "pages/room-card/index",
+        "pages/live_room3/index",
+        "pages/replay_list/index",
+        "pages/live_list3/index"
+      ]
+    },
+    {
+      "root": "membercenter/",
+      "name": "用户",
+      "pages": [
+        "user_address_list/index",
+        "user-fans/index",
+        "user_address/index",
+        "commission-apply/index",
+        "user_spread_user/index",
+        "user_spread_code/index",
+        "order_list/index",
+        "promoter-order/index",
+        "promoter-list/index",
+        "user_cash/index",
+        "user_spread_money/index",
+        "certification/index",
+        "certification/add/index",
+        "user_goods_collection/index",
+        "balance/center/index",
+        "balance/recharge/index",
+        "balance/withdraw/index",
+        "user-recommend/index",
+        "user-newrecommend/index",
+        "balance/bill/index",
+        "balance/new-recharge/index",
+        "commission-deliver/index",
+        "ship-order/index"
+      ]
+    },
+    {
+      "root": "merch/",
+      "name": "多商户",
+      "pages": [
+        "pages/apply/index",
+        "pages/bind/index",
+        "pages/account/index",
+        "pages/analysis/index",
+        "pages/user/center/index",
+        "pages/user/goods_list/index",
+        "pages/user/collect_list/index",
+        "pages/store/center/index",
+        "pages/store/integrity_approve/index",
+        "pages/store/integrity_service/index",
+        "pages/store/edit_info/index",
+        "pages/store/edit_notice/index",
+        "pages/store/bill/index",
+        "pages/store/withdraw/index",
+        "pages/goods/list/index",
+        "pages/goods/category_list/index",
+        "pages/goods/add/index",
+        "pages/goods/edit/index",
+        "pages/goods/category/index",
+        "pages/goods/rich_text/index",
+        "pages/order/list/index",
+        "pages/order/detail/index",
+        "pages/order/change_price/index",
+        "pages/order/change_address/index",
+        "pages/order/deliver/index",
+        "pages/order/refund_reason/index",
+        "pages/order/refund_list/index"
+      ]
+    },
+    {
+      "root": "market/",
+      "name": "营销",
+      "pages": [
+        "pages/article/list/index",
+        "pages/article/detail/index"
+      ]
+    },
+    {
+      "root": "partner/",
+      "name": "合伙人",
+      "pages": [
+        "pages/partner-apply/index",
+        "pages/partner-center/index"
+      ]
+    },
+    {
+      "root": "utils/",
+      "name": "工具",
+      "pages": [
+        "pages/diypage/index"
+      ]
+    }
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx20a117734d98ec7e"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

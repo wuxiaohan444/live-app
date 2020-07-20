@@ -1,0 +1,48 @@
+<view class="live-end-bg" style="height:{{screenTotalH}}rpx; background: url({{bgsrc}}) no-repeat;" wx:if="{{examineKeywords.switch==0}}">
+    <view style="width:100%; height:{{navH}}rpx;"></view>
+    <view class="live-end-title">{{examineKeywords.keywords_live}}已结束</view>
+    <view class="live-end-font-01">
+        <view class="live-end-font-line"></view>
+        <view class="live-end-font-ctn">{{examineKeywords.keywords_live}}已结束</view>
+        <view class="live-end-font-line"></view>
+    </view>
+    <view class="live-end-font-02">{{live_time}}</view>
+    <view class="live-end-list">
+        <view class="live-end-list-box">
+            <view class="live-end-list-box-left">
+                <i class="iconfontJiajia icondingdan1"></i>
+            </view>
+            <view class="live-end-list-box-right">本次{{examineKeywords.keywords_live}}获订单：{{live_order}}笔</view>
+        </view>
+    </view>
+    <view class="live-end-list">
+        <view class="live-end-list-box">
+            <view class="live-end-list-box-left">
+                <i class="iconfontJiajia icondingdan1"></i>
+            </view>
+            <view class="live-end-list-box-right">本次{{examineKeywords.keywords_live}}收获礼物：{{live_gift}}元</view>
+        </view>
+    </view>
+    <view class="live-end-info-list">
+        <view class="live-end-info-list-li">
+            <view>{{live_likes}}</view>
+            <view style="color:#aaa;">点赞次数</view>
+        </view>
+        <view class="live-end-info-list-li">
+            <view>{{live_follow}}</view>
+            <view style="color:#aaa;">新增粉丝</view>
+        </view>
+        <view class="live-end-info-list-li">
+            <view>{{live_shares}}</view>
+            <view style="color:#aaa;">分享次数</view>
+        </view>
+    </view>
+    <view class="live-end-info-button">
+        <button bindtap="goHome">返回首页</button>
+    </view>
+</view>
+<view id="examine-content" wx:else>
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

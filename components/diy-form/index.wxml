@@ -1,0 +1,90 @@
+<view class="addAddress">
+    <view class="list">
+        <view class="item acea-row row-between-wrapper" wx:for="{{value}}" wx:for-item="field" wx:key="index">
+            <view class="name">{{field.tp_name}}</view>
+            <input bindinput="getInput0Value" data-index="{{index}}" placeholder="{{field.placeholder}}"
+                   placeholderClass="placeholder" type="text" value="{{field.value}}"
+                   wx:if="{{field.data_type==0}}"></input>
+            <textarea bindinput="getInput1Value" data-index="{{index}}" placeholder="{{field.placeholder}}"
+                      placeholderClass="placeholder" value="{{field.value}}" wx:if="{{field.data_type==1}}"></textarea>
+            <input bindtap="selectPicker" data-data="{{field.tp_text}}" data-index="{{index}}" disabled
+                   placeholder="{{field.placeholder?field.placeholder:'请选择'}}" type="text" value="{{field.value}}"
+                   wx:if="{{field.data_type==2}}"></input>
+            <checkbox-group bindchange="checkboxChange" data-index="{{index}}" style="width: calc(100% - 100rpx)"
+                            wx:if="{{field.data_type==3}}">
+                <block wx:for="{{field.tp_text}}" wx:key="index">
+                    <checkbox checked="{{item.checked}}" value="{{item.name}}"></checkbox>
+                    {{item.value}}
+                    <text class="checktext">{{item.name}}</text>
+                </block>
+            </checkbox-group>
+            <input bindtap="selectPicker" data-data="{{field.tp_text}}" data-index="{{index}}" disabled
+                   placeholder="{{field.placeholder?field.placeholder:'请选择'}}" type="text" value="{{field.value}}"
+                   wx:if="{{field.data_type==4}}"></input>
+            <block wx:if="{{field.data_type==5}}">
+                <view class="img-box">
+                    <van-uploader bind:after-read="afterRead" bind:delete="onDeleteImg" data-index="{{index}}"
+                                  fileList="{{fileListZ[index]}}" maxCount="{{field.tp_max}}">
+                    </van-uploader>
+                </view>
+                <view class="img-box" wx:if="{{index===indexB}}">
+                    <van-uploader bind:after-read="afterRead" bind:delete="onDeleteImg" data-index="{{index}}"
+                                  fileList="{{fileListB}}" maxCount="{{field.tp_max}}"></van-uploader>
+                </view>
+            </block>
+            <input bindinput="getInput6Value" data-index="{{index}}" name="{{index}}" placeholder="请输入身份证号码" type="text"
+                   value="{{field.value}}" wx:if="{{field.data_type==6}}"></input>
+            <input bindtap="onDataShow" data-index="{{index}}" disabled name="{{index}}" placeholder="请选择" type="text"
+                   value="{{field.value}}" wx:if="{{field.data_type==7}}"></input>
+            <view class="time-frame" wx:if="{{field.data_type==8}}">
+                <input bindtap="onMinDataShow" data-index="{{index}}" disabled name="{{index+'min'}}" placeholder="请选择"
+                       type="text" value="{{field.min_value}}"></input>
+                <view class="time-frame-line">-</view>
+                <input bindtap="onMaxDataShow" data-index="{{index}}" disabled name="{{index+'max'}}" placeholder="请选择"
+                       type="text" value="{{field.max_value}}"></input>
+            </view>
+            <input bindtap="onAreaShow" data-index="{{index}}" disabled name="{{index}}" placeholder="请选择" type="text"
+                   value="{{field.value}}" wx:if="{{field.data_type==9}}"></input>
+            <input bindtap="onTimerShow" data-index="{{index}}" disabled name="{{index}}" placeholder="请选择" type="text"
+                   value="{{field.value}}" wx:if="{{field.data_type==11}}"></input>
+            <view class="time-frame" wx:if="{{field.data_type==12}}">
+                <input bindtap="onMinTimerShow" data-index="{{index}}" disabled name="{{index+'min'}}" placeholder="请选择"
+                       type="text" value="{{field.min_value}}"></input>
+                <view class="time-range-line">-</view>
+                <input bindtap="onMaxTimerShow" data-index="{{index}}" disabled name="{{index+'max'}}" placeholder="请选择"
+                       type="text" value="{{field.max_value}}"></input>
+            </view>
+        </view>
+    </view>
+</view>
+<van-popup bind:close="onPickerClose" position="bottom" show="{{picker_show}}">
+    <van-picker showToolbar bind:cancel="onPickerCancel" bind:change="onChange" bind:confirm="onPickerConfirm"
+                columns="{{columns}}" title="请选择"></van-picker>
+</van-popup>
+<van-popup bind:close="onDateClose" position="bottom" show="{{data_show}}">
+    <van-datetime-picker bind:cancel="onCancelDate" bind:confirm="onConfirmDate" minDate="{{minDate}}"
+                         type="date"></van-datetime-picker>
+</van-popup>
+<van-popup bind:close="onMinDataClose" position="bottom" show="{{range_min_data_show}}">
+    <van-datetime-picker bind:cancel="onCancelMinData" bind:confirm="onMinData" maxDate="{{maxMaxDate}}"
+                         minDate="{{maxMinDate}}" type="date"></van-datetime-picker>
+</van-popup>
+<van-popup bind:close="onMaxDataClose" position="bottom" show="{{range_max_data_show}}">
+    <van-datetime-picker bind:cancel="onCancelMaxData" bind:confirm="onMaxData" minDate="{{maxMinDate}}"
+                         type="date"></van-datetime-picker>
+</van-popup>
+<van-popup bind:close="onTimerClose" position="bottom" show="{{timer_show}}">
+    <van-datetime-picker bind:cancel="onCancelTime" bind:confirm="onConfirmTime" minDate="{{minDate}}"
+                         type="datetime"></van-datetime-picker>
+</van-popup>
+<van-popup bind:close="onMinTimerClose" position="bottom" show="{{range_min_timer_show}}">
+    <van-datetime-picker bind:cancel="onCancelMinTimer" bind:confirm="onMinTimer" maxHour="{{maxMaxTimer}}"
+                         maxMinute="{{maxMaxMinuteTimer}}" type="time"></van-datetime-picker>
+</van-popup>
+<van-popup bind:close="onMaxTimerClose" position="bottom" show="{{range_max_timer_show}}">
+    <van-datetime-picker bind:cancel="onCancelMaxTimer" bind:confirm="onMaxTimer" minHour="{{maxMinTimer}}"
+                         minMinute="{{maxMinMinuteTimer}}" type="time"></van-datetime-picker>
+</van-popup>
+<van-popup bind:close="onAreaClose" position="bottom" show="{{area_show}}">
+    <van-area areaList="{{areaList}}" bind:cancel="onCancelArea" bind:confirm="areaConfirm"></van-area>
+</van-popup>

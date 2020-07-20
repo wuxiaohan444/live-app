@@ -1,0 +1,32 @@
+<view class="goodList">
+    <navigator class="item acea-row row-between-wrapper" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{bastList}}" wx:key="index">
+        <view class="pictrue">
+            <image src="{{item.thumb}}"></image>
+            <image class="numPic" src="/images/one.png" wx:if="{{index==0&&status==1}}"></image>
+            <image class="numPic" src="/images/two.png" wx:if="{{index==1&&status==1}}"></image>
+            <image class="numPic" src="/images/three.png" wx:if="{{index==2&&status==1}}"></image>
+            <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">自购省钱:{{item.commission.partner_commission}}</view>
+            <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">佣金:{{item.commission.agent_commission}}</view>
+        </view>
+        <view class="underline">
+            <view class="text">
+                <view class="info-box-top-stand">
+                    <view class="line1">{{item.title}}</view>
+                    <view class="sale-process">
+                        <view class="inner-proc" style="width: 80%"></view>
+                        <view class="inner-text">已售{{item.sale_num}}{{item.unit}}</view>
+                    </view>
+                </view>
+                <view class="buy-box">
+                    <view class="left-box">
+                        <view class="sale-price">￥{{item.marketprice}}</view>
+                        <view class="org-price">￥{{item.productprice}}</view>
+                    </view>
+                    <view class="right-box">
+                            马上抢 >
+                        </view>
+                </view>
+            </view>
+        </view>
+    </navigator>
+</view>

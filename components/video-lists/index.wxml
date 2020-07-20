@@ -1,0 +1,308 @@
+<view class="video-container">
+    <view class="day-pay-money" wx:if="{{liveLimit&&liveLimit.limit_type==1&&!liveLimit.has_permission}}">
+        <van-dialog useSlot bind:confirm="onSubmitCame" show="{{liveLimit&&liveLimit.limit_type==1&&!liveLimit.has_permission}}" title="输入卡密观看本次直播">
+            <input bindinput="onInputCame" class="kamiInput" placeholder="请输入卡密观看" type="text" value="{{cameValue}}"></input>
+        </van-dialog>
+    </view>
+    <view animation="{{scrollAnimate}}" class="video-scroll-container">
+        <view class="video-scroll-item" data-videoidx="{{idx}}" wx:for="{{videoList}}" wx:for-index="idx" wx:for-item="items" wx:key="idx">
+            <block wx:if="{{items.video_is_player}}">
+                <block wx:if="{{playerType==='video'}}">
+                    <video autoplay="{{true}}" class="video-player" controls="{{false}}" loop="{{true}}" objectFit="cover" poster="{{items.live.live.cover}}" showFullscreenBtn="{{false}}" showPlayBtn="{{false}}" src="{{items.live.live.play_url.url}}" wx:if="{{items.live.live.play_url.player==='video'}}"></video>
+                    <live-player autoplay="{{true}}" class="video-player" objectFit="fillCrop" showFullscreenBtn="{{false}}" showPlayBtn="{{false}}" src="{{items.live.live.play_url.url}}" wx:else></live-player>
+                    <view class="head fixed" style="height:{{commonHeadHeight.titleHeight}}px">
+                        <view style="height:{{commonHeadHeight.statusBarHeight}}px"></view>
+                        <view class="title" style="height:{{commonHeadHeight.titleHeight-commonHeadHeight.statusBarHeight}}px;line-height:{{commonHeadHeight.titleHeight-commonHeadHeight.statusBarHeight}}px;">
+                            <image bindtap="liveBack" class="back" src="{{imgSrc}}newLive/back.png"></image>
+              {{items.live.live.title}}
+            </view>
+                    </view>
+                    <view class="attention fixed" style="top:{{commonHeadHeight.titleHeight}}px">
+                        <view class="zhuInfo">
+                            <image bindtap="gopages" class="img" data-url="/live/pages/live_homepage/index?live_id={{live.id}}" src="{{items.live.live.anchor.avatar}}"></image>
+                            <view bindtap="gopages" class="info" data-url="/live/pages/live_homepage/index?live_id={{live.id}}">
+                                <view class="name">{{items.live.live.anchor.nickname}}</view>
+                                <view class="num">
+                                    <image class="img" src="{{imgSrc}}newLive/zan.png"></image>
+                                    <view>{{live.anchor.follower_num}}关注</view>
+                                </view>
+                            </view>
+                            <view bindtap="follow" class="btn" style="{{is_follow==1?'background:#fff;color:#ec5469':''}}">{{is_follow==1?'已关注':'关注'}}</view>
+                        </view>
+                        <view class="fanBox">
+                            <view bindtap="onShopBang" class="fanImg">
+                                <image class="img" src="{{item.user.avatar}}" wx:for="{{viewers}}" wx:key="index"></image>
+                            </view>
+                            <view class="num">{{live.fic_num}}</view>
+                            <image class="x" src="{{imgSrc}}newLive/x.png"></image>
+                        </view>
+                    </view>
+                    <view class="envelope fixed" style="top:{{commonHeadHeight.titleHeight+60}}px">
+                        <view class="hongbao">
+                            <image src="{{imgSrc}}newLive/hongbao.png" wx:if="{{plugins.viewing_rewards.enable&&plugins.viewing_rewards.data}}"></image>
+                            <view class="time" wx:if="{{plugins.viewing_rewards.data.status==0&&plugins.viewing_rewards.data.time>0}}">
+                                <text class="out-time-box">{{countDownList[0].day}}</text>
+                                <text class="out-time-box">:</text>
+                                <text class="out-time-box">{{countDownList[0].hou}}</text>
+                                <text class="out-time-box">:</text>
+                                <text class="out-time-box">{{countDownList[0].min}}</text>
+                                <text class="out-time-box">:</text>
+                                <text class="out-time-box">{{countDownList[0].sec}}</text>
+                            </view>
+                        </view>
+                        <view class="room-id">
+                            <view class="title">{{siteInfo.site_name}}</view>
+                            <view class="id">ID:{{live_id}}</view>
+                        </view>
+                    </view>
+                    <view class="main">
+                        <view class="flex-main">
+                            <view class="gift-main">
+                                <view class="allbox">
+                                    <view animation="{{animation5}}" class="gift-box">
+                                        <view class="list" id="{{item.gift_id}}" wx:for="{{socketGiftData}}" wx:key="index">
+                                            <view class="form" style="">
+                                                <image class="img" src="{{item.avatar}}"></image>
+                                                <view class="gift-tip">
+                                                    <view class="name">{{item.nickname}}</view>
+                                                    <view class="gift-name">{{item.content}}</view>
+                                                </view>
+                                            </view>
+                                            <image class="gift-img" src="{{item.gift_img}}"></image>
+                                            <view class="xnum">
+                                                <image class="xnum-img" src="{{imgSrc}}newLive/xnum.png"></image>
+                                                <view class="num-num">{{item.gift_num}}</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="chat-getinto {{showNotice?'notice--show':''}}">
+                                    <view class="chat-getinto-name">{{welcome}}</view>
+                                    <view>来了</view>
+                                </view>
+                                <view style="height:36px;"></view>
+                                <view class="gonggao" wx:if="{{timeOutGonggao}}">
+                                    <view class="text" style="color:#3ea999">{{chat_notice}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="barrage">
+                            <scroll-view scrollY class="chat-scroll" scrollTop="{{scrollT}}">
+                                <view class="content" id="chatInfo">
+                                    <view class="list" wx:for="{{comments}}" wx:key="index">
+                                        <block wx:if="{{item.content_type==1}}">
+                                            <view class="dengji" style="background: {{item.bgcolor}}" wx:if="{{item.level}}">{{item.level}}</view>
+                                            <view class="text" style="{{index%2==0?'color:#ff3e75':''}}">
+                                                <text>{{item.nickname}}：</text>{{item.content}}</view>
+                                        </block>
+                                        <view class="text" style="color:#ff3e75" wx:if="{{item.content_type==400}}">
+                                            <text>系统消息：</text>您已被禁言</view>
+                                        <view class="text" style="color:#ff3e75" wx:if="{{item.content_type==500}}">
+                                            <text>系统消息：</text>您已被拉黑</view>
+                                        <view class="text" style="color:#ff3e75" wx:if="{{item.content_type==600}}">
+                                            <text>系统消息：</text>您已被解除禁言</view>
+                                        <view class="text" style="color:#ff3e75" wx:if="{{item.content_type==700}}">
+                                            <text>系统消息：</text>您已被解除拉黑</view>
+                                        <view class="text" style="color:#ff3e75" wx:if="{{item.content_type==800}}">
+                                            <text>系统消息：</text>{{item.content}}</view>
+                                    </view>
+                                </view>
+                            </scroll-view>
+                        </view>
+                        <view bindtap="joinCart" class="tuijian-shop" data-goodsid="{{recommend_goods.id}}" wx:if="{{has_recommend}}">
+                            <image class="img" src="{{recommend_goods.thumb}}"></image>
+                            <view class="title">
+                                <view class="name">{{recommend_goods.title}}</view>
+                                <view class="money">¥{{recommend_goods.marketprice}}</view>
+                            </view>
+                        </view>
+                        <view class="btn-box">
+                            <image bindtap="getLiveGoods" class="shop" src="{{imgSrc}}newLive/shop.png"></image>
+                            <view bindtap="onInputShop" class="input">快来撩一下...</view>
+                            <image bindtap="onShopFen" class="zhuanfa" src="{{imgSrc}}newLive/zhuanfa.png"></image>
+                            <image bindtap="onGiftPorpShop" class="liwu" src="{{imgSrc}}newLive/liwu.png" wx:if="{{gift_show}}"></image>
+                            <bubble giveups="{{gives}}" id="bubble" live_id="{{live_id}}"></bubble>
+                            <image bind:touchcancel="onCancelTouchLike" bind:touchend="onCancelTouchLike" bind:touchstart="onTouchLike" class="zans" src="{{imgSrc}}newLive/zan.png" wx:if="{{!hidden}}"></image>
+                        </view>
+                    </view>
+                    <view bindtap="onHideShopList" class="shop-list-bg" wx:if="{{shopList}}"></view>
+                    <view animation="{{animation}}" class="shop-list">
+                        <view class="title">全部宝贝{{goods.length}}</view>
+                        <scroll-view bindscrolltolower="onBindscroll" class="scroll-view" scrollY="{{true}}">
+                            <view class="contnet">
+                                <view bindtap="joinCart" class="list" data-goodsid="{{item.id}}" wx:for="{{goods}}" wx:key="index">
+                                    <view class="img-box">
+                                        <text class="tip">{{index+1}}</text>
+                                        <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">佣金:{{item.commission.agent_commission}}</view>
+                                        <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">自购省钱:{{item.commission.partner_commission}}</view>
+                                        <image class="img" src="{{item.thumb}}"></image>
+                                    </view>
+                                    <view class="text">
+                                        <view class="name">{{item.title}}</view>
+                                        <view class="money">
+                                            <view>￥{{item.marketprice}}</view>
+                                            <view class="day-org-price">￥100</view>
+                                            <image class="img" src="{{imgSrc}}newLive/gouwuche.png"></image>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <view>
+                        <product-window attribute="{{attribute}}" bind:ChangeAttr="ChangeAttr" bind:ChangeCartNum="ChangeCartNum" bind:myevent="onMyEvent" bind:mygoCat="goCat" id="product-window" productAttr="{{productAttr}}" productSelect="{{productSelect}}"></product-window>
+                        <view class="footer" wx:if="{{attribute.cartAttr}}">
+                            <view class="bnt" wx:if="{{storeInfo.buyway==1}}">
+                                <form bindsubmit="goCat" data-ispay="{{0}}" reportSubmit="true">
+                                    <button class="joinCart bnts" formType="submit">加入购物车</button>
+                                </form>
+                                <form bindsubmit="goCat" data-ispay="{{1}}" reportSubmit="true">
+                                    <button class="buy bnts" formType="submit">立即购买</button>
+                                </form>
+                            </view>
+                            <view class="bnt" wx:elif="{{storeInfo.buyway==2}}">
+                                <navigator appId="{{storeInfo.thirdurl.appid}}" class="joinCart bnts" extraData="{{storeInfo.thirdurl.extra_data}}" path="{{storeInfo.thirdurl.path}}" target="miniProgram" version="{{storeInfo.thirdurl.version}}">
+                  加入购物车
+                </navigator>
+                                <navigator appId="{{storeInfo.thirdurl.appid}}" class="buy bnts" extraData="{{storeInfo.thirdurl.extra_data}}" path="{{storeInfo.thirdurl.path}}" target="miniProgram" version="{{storeInfo.thirdurl.version}}">
+                  立即购买
+                </navigator>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="onHideShopBang" class="zhichi-list-bg" wx:if="{{shopBang}}"></view>
+                    <view animation="{{animation2}}" class="zhichi-list">
+                        <view class="title">
+                            <view class="tab">
+                                <view bindtap="onGlActive" class="item {{glActive==0?'on':''}}" data-active="0">支持榜</view>
+                            </view>
+                            <image bindtap="onHideShopBang" class="img" src="{{imgSrc}}/newLive/x2.png"></image>
+                        </view>
+                        <view class="num-title" wx:if="{{glActive==0}}">
+                            <view class="num">{{benZhi?'本周支持榜':'支持榜'}}（{{rankLists.num}}）</view>
+                            <view bindtap="onWeekRank" class="tg" wx:if="{{!benZhi}}">本周支持榜</view>
+                            <view bindtap="onTotalRank" class="tg" wx:if="{{benZhi}}">支持榜</view>
+                            <image class="img" src="{{imgSrc}}/newLive/r.png"></image>
+                        </view>
+                        <view class="num-title" wx:if="{{glActive==1}}">
+                            <view class="num">管理员（{{shopBangData.num}}）</view>
+                        </view>
+                        <view class="content">
+                            <view class="list" wx:for="{{rankLists.lists}}" wx:key="index">
+                                <image class="img" src="{{item.avatar}}"></image>
+                                <view class="item">
+                                    <view class="name">{{item.nickname}}</view>
+                                </view>
+                                <view class="gold">
+                                    <image class="img" src="{{imgSrc}}/newLive/d1.png" wx:if="{{index===0}}"></image>
+                                    <image class="img" src="{{imgSrc}}/newLive/d2.png" wx:elif="{{index===1}}"></image>
+                                    <image class="img" src="{{imgSrc}}/newLive/d3.png" wx:elif="{{index===2}}"></image>
+                                    <view class="index" wx:else>{{index+1}}</view>
+                                    <view class="money">{{item.amount}}元</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="onHideInputShop" class="input-bg" wx:if="{{inputShop}}"></view>
+                    <view animation="{{animation3}}" class="msg-input" wx:if="{{inputShop}}">
+                        <input focus bindconfirm="sendMsg" bindinput="sendInput" class="input" cursorSpacing="20rpx" placeholder="请输入内容"></input>
+                        <image bindtap="sendMsg" class="fa-img" src="{{imgSrc}}/newLive/fasong.png"></image>
+                    </view>
+                    <view bindtap="onHideGiftPorpShop" class="gift-bg" wx:if="{{giftPorpShop}}"></view>
+                    <view animation="{{animation4}}" class="gift-porp">
+                        <view class="title">
+                            <view class="tab">
+                                <view bindtap="onLwActive" class="item {{lwActive==0?'on':''}}" data-active="0">礼物</view>
+                            </view>
+                            <image bindtap="onHideGiftPorpShop" class="img" src="{{imgSrc}}newLive/dw.png"></image>
+                        </view>
+                        <view class="gift-list">
+                            <view class="swiper">
+                                <view bindtap="onClickGift" class="item {{giftActive==item.id?'giftActive':''}}" data-id="{{item.id}}" wx:for="{{giftData}}" wx:key="index">
+                                    <image class="img" src="{{item.image}}"></image>
+                                    <view class="text">{{item.name}}</view>
+                                    <view class="money">{{item.price}}元</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="jbi-list">
+                            <view class="jb-box">
+                                <image bindtap="sendMsg" class="jb-img" src="{{imgSrc}}newLive/jb.png"></image>
+                                <view class="jb-num">{{userInfo.total_balance}}</view>
+                            </view>
+                            <view class="chongzhi">
+                                <view bindtap="gopages" data-url="/membercenter/balance/recharge/index">充值</view>
+                                <image class="img" src="{{imgSrc}}newLive/dw.png"></image>
+                            </view>
+                            <view class="gbtn-box">
+                                <view class="num-porpo" wx:if="{{nowNumShop}}">
+                                    <view bindtap="onNowNumShop" class="list" data-item="{{item}}" wx:for="{{socketNum}}" wx:key="index">
+                                        <text>{{item.num}}</text> {{item.name}}</view>
+                                    <view bindtap="onNumClick" class="list order">其他数量</view>
+                                </view>
+                                <view bindtap="nowNumShopNum" class="num">
+                                    <view>数量 {{nowNum}} </view>
+                                    <image class="img" src="{{imgSrc}}newLive/dw.png"></image>
+                                </view>
+                                <view bindtap="onNowSendGift" class="btn">赠送</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view animation="{{animation7}}" class="num-input">
+                        <input bindconfirm="onNumInputClick" bindinput="onNumInput" class="input" placeholder="请输入数量" type="number"></input>
+                        <view bindtap="onNumInputClick">确定</view>
+                    </view>
+                    <view class="hongbao-porp" wx:if="{{hongbaoTan||hongbaoKai||hongbaoBang}}">
+                        <view class="open-content" wx:if="{{hongbaoKai}}">
+                            <image bindtap="sendMsg" class="b-img" src="{{imgSrc}}newLive/n-hongbao.png"></image>
+                            <view class="title">{{plugins.viewing_rewards.data.reward_info.reward_title}}</view>
+                            <view class="money">
+                {{plugins.viewing_rewards.data.reward_info.reward_amount}} <text>元</text>
+                            </view>
+                            <view class="tip">已存入钱包，可直接提现</view>
+                            <image class="z-img" src="{{plugins.viewing_rewards.data.reward_info.reward_logo}}"></image>
+                            <view class="form">{{plugins.viewing_rewards.data.reward_info.reward_text}}</view>
+                            <view bindtap="onHongbaoBang" class="look">{{plugins.viewing_rewards.data.reward_info.reward_bottom_text}}</view>
+                            <image bindtap="onHideHongbaoKai" class="c-img" src="{{imgSrc}}newLive/hcloser.png"></image>
+                        </view>
+                        <view animation="{{animation6}}" class="ling-content">
+                            <view class="title">
+                                <image class="z-img" src="../../../image/zhu1.png"></image>
+                                <image bindtap="onHideHongbaoBang" class="x-img" src="../../../image/x2.png"></image>
+                                <view class="tip">
+                                    <text>用户张扬子瑞</text>的红包</view>
+                                <view class="money">
+                  4.37 <text>元</text>
+                                </view>
+                            </view>
+                            <view class="num">以领取5/26个</view>
+                            <view class="content">
+                                <view class="list" wx:for="{{6}}" wx:key="index">
+                                    <image class="img" src="../../../image/zhu1.png"></image>
+                                    <view class="text">
+                                        <view class="name">王梓涵</view>
+                                        <view>01-19 12:52:16</view>
+                                    </view>
+                                    <view class="money">
+                    4.37 <text>元</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="onHideFen" class="fen-bg" wx:if="{{fenData}}"></view>
+                    <view animation="{{animation8}}" class="fen-content">
+                        <button class="list" openType="share">分享给好友</button>
+                        <button bindtap="sharePoster" class="list">生成海报分享给好友</button>
+                    </view>
+                    <view class="poster-pop" wx:if="{{posterImageStatus}}">
+                        <image bindtap="posterImageClose" class="close" src="{{imgSrc}}newLive/poster-close.png"></image>
+                        <image src="{{posterImage}}"></image>
+                        <view bindtap="savePosterPath" class="save-poster">保存到手机</view>
+                    </view>
+                    <view class="mask" wx:if="{{posterImageStatus}}"></view>
+                </block>
+            </block>
+        </view>
+    </view>
+</view>

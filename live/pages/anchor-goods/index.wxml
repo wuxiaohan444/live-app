@@ -1,0 +1,81 @@
+<van-dialog id="van-dialog"></van-dialog>
+<navbar parameter="{{parameter}}" wx:if="{{examineKeywords.switch==0}}"></navbar>
+<view class="popPay-commodity-lists popPay--show" wx:if="{{examineKeywords.switch==0}}">
+    <view class="popPay-list-ul mr120" wx:if="{{liveGoods.length>0}}">
+        <view class="popPay-list-li" wx:for="{{liveGoods}}" wx:for-item="liveGood" wx:key="liveGood_key">
+            <view class="popPay-list-li-left">
+                <image mode="aspectFill" src="{{liveGood.thumb}}"></image>
+            </view>
+            <view class="popPay-list-li-right">
+                <view class="popPay-list-li-title">
+                    {{liveGood.title}}
+                </view>
+                <view class="popPay-list-li-num popPay-list-li-moreinfo">
+                    <view>剩余{{liveGood.stock}}件</view>
+<!--                    <view class="popPay-list-li-goods-commission">佣金：¥{{liveGood.commission}}</view>-->
+                </view>
+                <view class="popPay-list-li-money">
+                    <view><text style="color: #999999">预付定金：</text>¥{{liveGood.marketprice}}</view>
+                    <view class="popPay-list-li-money-right">
+                        <button bindtap="exposure" class="sec-button-red" data-goodsid="{{liveGood.id}}" data-status="0" wx:if="{{liveGood.status==1}}">曝光中</button>
+                        <button bindtap="exposure" class="sec-button-disabled" data-goodsid="{{liveGood.id}}" data-status="1" wx:if="{{liveGood.status==0}}">曝光</button>
+                        <button bindtap="changTop" class="sec-button-red" data-goodsid="{{liveGood.id}}" data-sort="0" wx:if="{{liveGood.sort==1}}">置顶中</button>
+                        <button bindtap="changTop" class="sec-button-disabled" data-goodsid="{{liveGood.id}}" data-sort="1" wx:if="{{liveGood.sort==0}}">置顶</button>
+                        <button bindtap="delLiveGoods" data-goodsid="{{liveGood.id}}">移除</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="no-liveGoods" wx:else>
+        <view>暂无商品，快去添加吧</view>
+    </view>
+</view>
+<view class="popPay-commodity {{addGoodsShow?'popPay--show':''}}" style="z-index:22;" wx:if="{{addGoodsShow}}">
+    <view class="popPay-title">
+        添加商品
+        <view bindtap="addGoodsOpen" class="popPay-close">
+            <i class="iconfontJiajia iconguanbi"></i>
+        </view>
+    </view>
+    <view class="goods-add-search-box">
+        <view class="goods-add-search">
+            <view class="goods-add-search-icon iconfontJiajia iconsearch"></view>
+            <view class="goods-add-search-input">
+                <input bindinput="searchGoods" confirmType="search" placeholder="请通过搜索名称或关键词搜索要添加的商品"></input>
+            </view>
+        </view>
+    </view>
+    <scroll-view scrollY bindscrolltolower="onGoodscroll" class="popPay-list">
+        <view class="popPay-list-ul">
+            <view class="popPay-list-li" wx:for="{{searchGoods}}" wx:for-item="searchGood" wx:key="searchGood_key">
+                <view class="popPay-list-li-left">
+                    <image src="{{searchGood.thumb}}"></image>
+                </view>
+                <view class="popPay-list-li-right">
+                    <view class="popPay-list-li-title">{{searchGood.title}}</view>
+                    <view class="popPay-list-li-num">剩余{{searchGood.stock}}件</view>
+                    <view class="popPay-list-li-money">
+                        <view class="popPay-list-li-marketprice"><text style="color: #999999">预付定金：</text>¥{{searchGood.marketprice}}
+<!--                            /<view class="popPay-list-li-commission">佣金:¥{{searchGood.commission}}</view>-->
+                        </view>
+                        <view class="popPay-list-li-money-right">
+                            <button class="sec-button-red" wx:if="{{searchGood.has_add}}">已添加</button>
+                            <button bindtap="addliveGoods" class="sec-button-red" data-goodsid="{{searchGood.id}}" wx:else>添加</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="fui-button" wx:if="{{examineKeywords.switch==0}}">
+    <view bindtap="addGoodsOpen" class="btn btn-danger block btn-submit">添加商品</view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<view id="examine-content" wx:if="{{examineKeywords.switch==1}}">
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+
+<button class="start-live" hidden="{{liveButton}}" bindtap="goLivePush">开始直播</button>
+<import src="/lib/wxParse/wxParse.wxml"></import>

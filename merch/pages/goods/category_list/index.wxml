@@ -1,0 +1,9 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="categoryList">
+    <navigator class="list" data-id="{{item.id}}" data-name="{{item.name}}" data-pid="{{item.pid}}" hoverClass="none" url="/merch/pages/user/goods_list/index?store_id={{store_id}}&sid={{item.id}}&title={{item.name}}" wx:for="{{list}}" wx:key="index">
+        <view>{{item.name}}</view>
+        <view class="block-nav-icon">
+            <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+        </view>
+    </navigator>
+</view>

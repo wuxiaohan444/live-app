@@ -1,0 +1,10 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="page register">
+    <view class="wait">
+        <image src="/images/wait-128.png"></image>
+        <view>你好，请确认是否接受邀请成为{{examineKeywords.keywords_live_room}}:{{live.title}}的{{examineKeywords.keywords_live_anchor}}，绑定后你将有权进行该{{examineKeywords.keywords_live_room}}的管理</view>
+        <button bindtap="agree" class="btn btn-success">同意操作</button>
+        <button bindtap="goshop" class="btn btn-danger">去商城逛逛</button>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

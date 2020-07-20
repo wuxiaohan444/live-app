@@ -1,0 +1,13 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="center">
+    <navigator url="/live/pages/live_homepage/index?live_id={{item.live_id}}" class="center-item" wx:for="{{fansList}}"
+               :key="{{index}}">
+        <view style="display: flex;align-items: center">
+            <image src="{{item.avatar}}"></image>
+            <text>{{item.nickname}}</text>
+        </view>
+
+        <button class="button" wx:if="{{type==2}}">已关注</button>
+    </navigator>
+    <view class="none" wx:if="{{fansList.length==0}}">暂时没有数据</view>
+</view>

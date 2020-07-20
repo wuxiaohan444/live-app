@@ -1,0 +1,10 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "van-loading": "/vant/loading/index",
+        "van-dialog": "/vant/dialog/index",
+        "authorize": "/components/authorize/authorize"
+    },
+    "navigationBarTitleText": "商品管理"
+}

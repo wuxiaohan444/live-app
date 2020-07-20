@@ -1,0 +1,14 @@
+<view class="custom-class status">
+    <view class="type status--playing" wx:if="{{live.live_status==1}}">
+            即将{{examineKeywords.keywords_live}}
+        </view>
+    <view class="type status--playing" wx:if="{{live.live_status==2}}">
+            {{examineKeywords.keywords_live}}中
+        </view>
+    <view class="type status--playing" wx:if="{{live.live_status==3}}">
+            {{examineKeywords.keywords_live_playback}}
+        </view>
+    <view class="vice">
+        {{live.fic_num}}人观看
+    </view>
+</view>

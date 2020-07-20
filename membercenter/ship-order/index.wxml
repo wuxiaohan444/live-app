@@ -1,0 +1,37 @@
+<view class="ship-order">
+    <navbar parameter="{{parameter}}"></navbar>
+    <view class="commission-header">
+        <view class="commission-text">累积发货订单</view>
+        <view class="commission-total">{{orderCount}}</view>
+    </view>
+    <view class="content">
+        <view class="list-box" wx:for="{{orderLists}}" wx:key="index">
+            <view class="time">
+                <view>{{item.pay_time}}</view>
+                <view class="tip" style="color:{{item.order_status_color}}">{{item.order_status_name}}</view>
+            </view>
+            <view class="list" wx:for="{{item.goods}}" wx:for-index="goods_index" wx:for-item="items">
+                <view class="img">
+                    <image src="{{items.image}}"></image>
+                </view>
+                <view class="text-box">
+                    <view class="name">{{items.title}}</view>
+                    <view class="money">
+                        <view class="m">￥{{items.truePrice}}</view>
+                        <view class="num">x{{items.cart_num}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="user_address">收货地址：{{item.user_address}}</view>
+            <view class="info">共{{item.total_num}}件商品，合计￥{{item.pay_price}}元(含运费：{{item.pay_postage}})</view>
+            <view class="lirun">
+                <view class="num">利润：<text>+￥{{item.commission}}</text>
+                </view>
+                <navigator class="btn bg-color" hoverClass="none" url="/membercenter/commission-deliver/index?order_id={{item.order_id}}" wx:if="{{item.order_status==2}}">
+                    <view class="btn">立即发货</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

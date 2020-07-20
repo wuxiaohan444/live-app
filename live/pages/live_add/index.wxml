@@ -1,0 +1,48 @@
+<view class="livePlayer-wrap" style="height:{{isInput?screenTotalH-100:screenTotalH}}rpx;" wx:if="{{examineKeywords.switch==0}}">
+    <camera class="live-room-player" devicePosition="front" flash="off" style="width:{{winW}}px; height:{{isInput?screenTotalH-100:screenTotalH}}rpx; margin-left:0px">
+        <cover-view class="livePlayer-ctn-box" bindtap="closeChannel">
+            <cover-view class="livePlayer-navBar-box" style="height:{{navH}}rpx;">
+                <cover-view class="livePlayer-navBar">
+                    <cover-image bindtap="liveBack" class="livePlayer-back" src="../../../resource/img/room-back.png"></cover-image>
+                </cover-view>
+            </cover-view>
+            <cover-view class="live-surplus">
+                当前剩余天数:{{fee_days}}
+            </cover-view>
+            <cover-view class="live-player-add" style="top:260rpx">
+                <!--<cover-view class="live-player-add-title">发起{{examineKeywords.keywords_live}}</cover-view>-->
+                <cover-view class="live-player-add-info">
+                    <cover-view bindtap="uploadpic" class="live-player-add-info-left">
+                        <cover-image src="{{live_cover}}" wx:if="{{live_cover}}"></cover-image>
+                        <cover-view class="live-player-add-info-left-font">更换封面</cover-view>
+                    </cover-view>
+                    <cover-view bindtap="getInput" class="live-player-add-info-right">{{placeholder}}</cover-view>
+                </cover-view>
+<!--                <cover-view class="choose-channel" catchtap="chooseChannelShow">{{channelText}}</cover-view>-->
+            </cover-view>
+            <cover-view class="live-player-deficiency" hidden="{{feeShow}}">
+                <cover-view class="live-player-deficiency-title">您剩余直播推流天数不足  请续费后再开播</cover-view>
+                <cover-view class="live-player-deficiency-num">{{fee_days}}</cover-view>
+                <cover-view class="live-player-deficiency-residue">当前剩余天数</cover-view>
+                <cover-view class="live-player-deficiency-button" bindtap="goRecharge">立即充值</cover-view>
+            </cover-view>
+            <cover-view bindtap="goLivePush" class="live-player-add-btn" hoverClass="live-player-add-btn-hover">发起{{examineKeywords.keywords_live}}</cover-view>
+        </cover-view>
+        <cover-view bindtap="closeInput" class="popPay-bg" style="background:none;" wx:if="{{isInput}}"></cover-view>
+    </camera>
+    <cover-view class="channel" hidden="{{channelShow}}">
+        <cover-view bindtap="chooseChannel" data-text="个人直播 》" data-type="0">普通直播 </cover-view>
+        <cover-view bindtap="chooseChannel" data-text="经销商直播 》" data-type="1">经销商直播</cover-view>
+        <cover-view bindtap="chooseChannel" data-text="企业直播 》" data-type="2">企业直播 </cover-view>
+    </cover-view>
+</view>
+<view id="examine-content" wx:else>
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>
+<view class="root" wx:if="{{isInput}}">
+    <view class="field">
+        <input bindinput="onInputChange" class="van-field__input" cursor="-1" cursorSpacing="8" focus="{{isInput}}" maxlength="60" placeholder="好的标题能吸引更多粉丝哦！" placeholderClass="van-field__placeholder" selectionEnd="-1" selectionStart="-1" type="text"></input>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

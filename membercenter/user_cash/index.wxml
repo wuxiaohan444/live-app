@@ -1,0 +1,72 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="cash-withdrawal">
+    <van-tabs bind:click="swichNav">
+        <van-tab data-current="{{index}}" title="{{item.name}}" wx:for="{{navList}}"></van-tab>
+    </van-tabs>
+    <view class="wrapper">
+        <view class="list" hidden="{{currentTab!=0}}">
+            <form bindsubmit="subCash" reportSubmit="true">
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">持卡人</view>
+                    <view class="input">
+                        <input name="name" placeholder="请输入持卡人姓名" placeholderClass="placeholder"></input>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">卡号</view>
+                    <view class="input">
+                        <input name="cardnum" placeholder="请填写卡号" placeholderClass="placeholder" type="number"></input>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">银行</view>
+                    <view class="input">
+                        <picker bindchange="bindPickerChange" range="{{array}}" value="{{index}}">
+                            <text class="Bank">{{array[index]}}</text>
+                            <text class="iconfont icon-qiepian38"></text>
+                        </picker>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">开户行地址</view>
+                    <view class="input">
+                        <input name="bank_address" placeholder="请填写开户行地址" placeholderClass="placeholder" type="text"></input>
+                    </view>
+                </view>
+                <view class="tip">当前可提现金额: {{commission}}</view>
+                <button class="bnt bg-color" formType="submit">提现</button>
+            </form>
+        </view>
+        <view class="list" hidden="{{currentTab!=1}}">
+            <form bindsubmit="subCash" reportSubmit="true">
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">账号</view>
+                    <view class="input">
+                        <input name="name" placeholder="请填写您的微信账号" placeholderClass="placeholder"></input>
+                    </view>
+                </view>
+                <view class="tip">当前可提现金额: {{commission}}</view>
+                <button class="bnt bg-color" formType="submit">提现</button>
+            </form>
+        </view>
+        <view class="list" hidden="{{currentTab!=2}}">
+            <form bindsubmit="subCash" reportSubmit="true">
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">姓名</view>
+                    <view class="input">
+                        <input name="realname" placeholder="请输入姓名" placeholderClass="placeholder"></input>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">账号</view>
+                    <view class="input">
+                        <input name="name" placeholder="请填写您的支付宝账号" placeholderClass="placeholder"></input>
+                    </view>
+                </view>
+                <view class="tip">当前可提现金额: {{commission}}</view>
+                <button class="bnt bg-color" formType="submit">提现</button>
+            </form>
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

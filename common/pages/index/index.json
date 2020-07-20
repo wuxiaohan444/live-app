@@ -1,0 +1,20 @@
+{
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#efefef",
+    "navigationBarBackgroundColor": "#ff4466",
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "searchBar": "/components/searchBar/index",
+        "goodList": "/components/goodList/index",
+        "promotionGood": "/components/promotionGood/index",
+        "coupon-window": "/components/coupon-window/index",
+        "tagGoods": "/components/tagGoods/index",
+        "collect-tip": "/components/collect-tip/index",
+        "goingTop": "/components/goingTop/index",
+        "bottom-tabbar": "/components/bottom-tabbar/index",
+        "live-preview": "/components/live-preview/index",
+        "single-live": "/components/single-live/index",
+        "authorize": "/components/authorize/authorize"
+    }
+}

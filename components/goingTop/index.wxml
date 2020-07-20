@@ -1,0 +1,3 @@
+<view class="go-top {{topShow?'show-top':''}}" style="{{rootStyle}}">
+    <image bindtap="goTop" src="{{img}}"></image>
+</view>

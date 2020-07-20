@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "authorize": "/components/authorize/authorize",
+        "van-icon": "/vant/icon/index",
+        "navbar": "/components/navbar/index"
+    }
+}

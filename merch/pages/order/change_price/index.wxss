@@ -1,0 +1,149 @@
+.change-price {
+    padding: 20rpx;
+    background: #fff;
+    font-size: 26rpx;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-info .avatar {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.user-info .avatar image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-info .username .create-time {
+    color: #999;
+    font-size: 24rpx;
+}
+
+.user-info .username {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
+}
+
+.goods-info {
+    margin-top: 20rpx;
+}
+
+.goods-info .goods-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.goods-info .goods-item .thumb {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.goods-info .goods-item .thumb image {
+    width: 100%;
+    height: 100%;
+    border-radius: 6rpx;
+}
+
+.goods-info .goods-item .name-box {
+    margin-left: 20rpx;
+    width: 450rpx;
+    color: #282828;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.goods-info .goods-item .name-box .goods-name {
+    width: 450rpx;
+    color: #282828;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.goods-info .goods-item .attr-info {
+    color: #999;
+}
+
+.money-box {
+    margin-left: auto;
+}
+
+.money-box .money {
+    text-align: right;
+    color: #999;
+}
+
+.price-form {
+    margin-top: 20rpx;
+}
+
+.price-form .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 20rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    align-items: center;
+}
+
+.price-form .item .label {
+    text-align: right;
+    width: 120rpx;
+}
+
+.price-form .item .input {
+    margin-left: 20rpx;
+    width: 200rpx;
+}
+
+.price-form .item .input .price-input {
+    padding: 5rpx 10rpx;
+    border: 1px solid #ddd;
+    background: #f4f4f4;
+    color: #6e6e6e;
+}
+
+.price-form .item .total {
+    margin-left: auto;
+}
+
+.settlement {
+    margin-top: 50rpx;
+    border-top: 1px solid #ddd;
+    padding-top: 20rpx;
+}
+
+.settlement .detail {
+    text-align: right;
+}
+
+.footer-btn {
+    position: fixed;
+    bottom: 10rpx;
+    width: 100%;
+}
+
+.footer-btn .submit-btn {
+    font-size: 26rpx;
+    color: #fff;
+    background: #ff4466;
+    border-radius: 50rpx;
+    width: 90%;
+    padding: 15rpx;
+    margin: 0 auto;
+}

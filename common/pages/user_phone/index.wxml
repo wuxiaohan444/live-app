@@ -1,0 +1,16 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="ChangePassword">
+    <view class="list">
+        <view class="item">
+            <input bindblur="inputgetName" data-name="phone" placeholder="填写手机号码" placeholderClass="placeholder" type="number"></input>
+        </view>
+        <view class="item acea-row row-between-wrapper">
+            <input bindblur="inputgetName" class="codeIput" data-name="captcha" placeholder="填写验证码" placeholderClass="placeholder" type="number"></input>
+            <button bindtap="code" class="code font-color {{disabled===true?'on':''}}" disabled="{{disabled}}">
+            {{timetext}}
+          </button>
+        </view>
+    </view>
+    <view bindtap="editPwd" class="confirmBnt bg-color">确认绑定</view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

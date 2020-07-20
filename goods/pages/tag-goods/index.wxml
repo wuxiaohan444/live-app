@@ -1,0 +1,14 @@
+<view bindtap="navigateBack" class="iconfont icon-xiangzuo navigateBack">
+    返回
+</view>
+<view class="new-page {{iphoneX}}">
+    <view>
+        <swiper autoplay="true" class="exhi-header-box" style="height: 100%;">
+            <navigator hoverClass="none" url="{{item.wxappurl}}" wx:for="{{banners}}" wx:key="index">
+                <swiper-item>
+                    <image class="banner" mode="scaleToFill" src="https://copyright.sczlxf.cn/attachment/images/3/2020/03/fuSep0eWBBewUxJPbSPsWpPW99p0pU.jpg"></image>
+                </swiper-item>
+            </navigator>
+        </swiper>
+    </view>
+</view>

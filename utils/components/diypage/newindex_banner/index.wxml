@@ -1,0 +1,14 @@
+<view class="swiper">
+    <swiper autoplay="{{autoplay}}" bindchange="swiperChange" circular="{{true}}" duration="{{duration}}" interval="{{interval}}" nextMargin="80rpx" previousMargin="80rpx">
+        <swiper-item wx:for="{{page.items}}" wx:key="*this">
+            <view class="swiper-item">
+                <navigator class="img" hoverClass="none" url="{{item.link}}">
+                    <image mode="scaleToFill" src="{{item.image}}"></image>
+                </navigator>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="dots">
+        <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{page.items}}" wx:key="unique"></view>
+    </view>
+</view>

@@ -1,0 +1,33 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="balance">
+    <view class="head">
+        <view bindtap="titleClick" class="titleSel {{0==currentIndex?'active':''}}" data-idx="0">
+            我的资产
+        </view>
+    </view>
+    <swiper bindchange="pagechange" class="swiper" current="{{currentIndex}}">
+        <swiper-item class="swiper">
+            <view class="content">
+                <view class="title">账户余额（元）</view>
+                <view class="money">{{store.total_money}}
+                    <text>元</text>
+                </view>
+                <navigator hoverClass="none" url="/merch/pages/store/bill/index">
+                    <text class="tip">交易明细</text>
+                </navigator>
+                <view class="tab">
+                    <view class="item">
+                        <view class="text">交易中金额（元）</view>
+                        <view class="money">¥{{store.pending_money}}</view>
+                    </view>
+                    <view class="item">
+                        <view class="text">可提现金额（元）</view>
+                        <view class="money">¥{{store.balance_money}}</view>
+                        <navigator class="btn" hoverClass="none" url="/merch/pages/store/withdraw/index">提现</navigator>
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

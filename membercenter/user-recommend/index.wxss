@@ -1,0 +1,69 @@
+.input-box {
+    margin-top: 20rpx;
+}
+
+.notice_input {
+    background: #fff;
+    padding: 10rpx;
+    width: 100%;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.footer-btn {
+    position: fixed;
+    bottom: 10rpx;
+    width: 100%;
+}
+
+.footer-btn .submit-btn {
+    font-size: 26rpx;
+    color: #fff;
+    background: #ff4466;
+    border-radius: 50rpx;
+    width: 90%;
+    padding: 15rpx;
+    margin: 0 auto;
+}
+
+.promoter-text {
+    height: 70rpx;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    background: #fff;
+    padding-left: 20rpx;
+    border-radius: 5px;
+}
+
+.commission-header {
+    height: 150rpx;
+    background: #ff7664;
+    border-radius: 5px;
+    padding-left: 30rpx;
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+    flex-direction: row;
+}
+
+.commission-header-image {
+    margin-right: 20rpx;
+}
+
+.commission-header-content {
+}
+
+.commission-parent-nickname {
+    color: #fff;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.commission-parent-uid {
+    color: #fff;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,69 @@
+<navbar parameter="{{parameter}}"></navbar>
+<van-dialog id="van-dialog"></van-dialog>
+<view class="change-price">
+    <view class="user-info">
+        <view class="avatar">
+            <image src="{{order.user_info.avatar}}"></image>
+        </view>
+        <view class="username">
+            <view class="text">{{order.user_info.realname?order.user_info.realname:order.user_info.nickname}}</view>
+            <view class="create-time">{{order._add_time}}</view>
+        </view>
+    </view>
+    <view class="goods-info">
+        <view class="goods-item" wx:for="{{order.cartInfo}}">
+            <view bindtap="previewImage" class="thumb" data-url="{{item.productInfo.image}}">
+                <image src="{{item.productInfo.image}}"></image>
+            </view>
+            <view class="name-box">
+                <view class="goods-name">
+                    {{item.productInfo.store_name}}
+                </view>
+                <view class="attr-info" wx:if="{{item.productInfo.attrInfo}}">
+                    规格: {{item.productInfo.attrInfo.suk}}
+                </view>
+            </view>
+            <view class="money-box">
+                <view class="money">
+                    <view wx:if="{{item.productInfo.attrInfo}}">￥{{item.productInfo.attrInfo.price}}
+                    </view>
+                    <view wx:else>￥{{item.productInfo.price}}</view>
+                    <view>x{{item.cart_num}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="price-form">
+        <view class="item">
+            <view class="label">支付金额: </view>
+            <view class="input">
+                <input bindblur="payPriceBlur" bindinput="changePrice" class="price-input" data-column="pay_price" type="digit" value="{{result_pay_price}}"></input>
+            </view>
+            <view class="total">
+                <view>商品合计: <text class="font-color">{{result_goods_price}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="item">
+            <view class="label">运费: </view>
+            <view class="input">
+                <input bindinput="changePrice" class="price-input" data-column="pay_postage" type="digit" value="{{result_postage_price}}"></input>
+            </view>
+            <view class="total">
+                <view>运费: {{result_postage_price}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="settlement">
+        <view class="detail">
+            修改前总价: {{order.total_price}}
+            修改后合计:
+            <text class="font-color">￥{{result_price}}</text>
+        </view>
+    </view>
+</view>
+<view style="height: 200rpx"></view>
+<view class="footer-btn">
+    <button bindtap="submit" class="submit-btn">确认修改</button>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

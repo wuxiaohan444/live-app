@@ -1,0 +1,2 @@
+<van-dialog showCancelButton bind:close="close" bind:getuserinfo="setUserInfo" cancelButtonText="暂不授权" confirmButtonOpenType="getUserInfo" confirmButtonText="同意授权" lang="zh_CN" message="为了更好的体验,系统需要获取您的昵称，头像" show="{{!iShidden}}" title="授权提醒"></van-dialog>
+<van-dialog bind:close="closeAuthMobile" bind:getphonenumber="setUserMobile" confirmButtonOpenType="getPhoneNumber" confirmButtonText="同意授权" lang="zh_CN" message="为了更便捷的服务，需要获取您的手机号信息" show="{{showAuthMobile}}" showCancelButton="{{false}}" title="授权提醒"></van-dialog>

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "mainexhibition": "/components/mainexhibition/index"
+    },
+    "component": true
+}

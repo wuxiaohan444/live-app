@@ -1,0 +1,21 @@
+<view class="kind_contain" style="top:{{navH+100}}rpx">
+    <view class="rp" style="background:{{navbgcolor}}">
+        <scroll-view scrollWithAnimation scrollX class="nav" scrollLeft="{{scrollLeft}}rpx">
+            <view bindtap="collegeSelect" class="nav-item" data-catid="{{item.id}}" data-id="{{index}}" wx:for="{{college}}" wx:key="id">
+                <view class="nav-text {{index==collegeCur+1?'tab-on':''}}">{{item.name}}</view>
+            </view>
+        </scroll-view>
+        <view bindtap="showlist" class="kind_img">
+            <image lazyLoad src="{{showList?'l_down.png':'l_right.png'}}"></image>
+        </view>
+        <view class="kindlist_box" wx:if="{{showList}}">
+            <view class="kindlist_card">
+                <view class="list_grid">
+                    <view bindtap="collegeSelect" class="list_one" data-catid="{{item.id}}" data-class="{{item.id}}" data-id="{{index}}" wx:for="{{college}}" wx:key="id">
+                        <view class="{{index==collegeCur+1?'list-on':''}}">{{item.name}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

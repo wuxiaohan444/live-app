@@ -1,0 +1,17 @@
+.main {
+    column-gap: 20rpx;
+    column-count: 2;
+    margin: 0 auto;
+    padding: 30rpx;
+}
+
+.item {
+    margin-bottom: 20rpx;
+    height: 100%;
+    overflow: auto;
+}
+
+image {
+    display: block;
+    width: 100%;
+}

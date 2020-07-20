@@ -1,0 +1,47 @@
+@import "../../../../Wxss/0.wxss";
+
+.title_bar {
+    display: flex;
+    align-items: center;
+}
+
+.title-box {
+    flex: 1;
+}
+
+.title-box>.title {
+    font-size: 32rpx;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.title-box .subtitle {
+    font-size: 24rpx;
+    color: #666;
+    margin-top: 5rpx;
+    margin-right: 5rpx;
+}
+
+.chak {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.icon-xiangzuo {
+    transform: rotate(-180deg);
+    font-size: 24rpx;
+}
+
+.style3 {
+    text-align: center;
+    justify-content: center;
+}
+
+.line {
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 100%;
+    background: #ff4466;
+    margin: 0 20rpx;
+}

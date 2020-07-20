@@ -1,0 +1,27 @@
+<view class="address-window {{address.address==true?'on':''}}">
+    <view class="title">选择地址
+        <text bindtap="close" class="iconfont icon-guanbi"></text>
+    </view>
+    <view class="list">
+        <view bindtap="tapAddress" class="item acea-row row-between-wrapper {{active==index?'active':''}}" data-addressId="{{item.id}}" data-id="{{index}}" wx:for="{{addressList}}">
+            <view class="address">
+                <view class="icon">
+                    <van-icon name="location-o" size="32rpx"></van-icon>
+                </view>
+                <view>
+                    <view class="name">{{item.realname}}
+                        <text class="phone">{{item.mobile}}</text>
+                    </view>
+                    <view class="line1">{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="pictrue" wx:if="{{!is_loading&&!addressList.length}}">
+        <view class="nosearch">
+            暂无收货地址
+        </view>
+    </view>
+    <view bindtap="goAddressPages" class="addressBnt bg-color">选择其他地址</view>
+</view>
+<view bindtap="close" catchtouchmove="true" class="mask" hidden="{{address.address==false}}"></view>

@@ -1,0 +1,102 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="cash-withdrawal">
+    <view class="nav acea-row">
+        <view bindtap="swichNav" class="item font-color" data-current="{{index}}" wx:for="{{navList}}">
+            <view class="line bg-color {{currentTab==index?'on':''}}"></view>
+            <view class="iconfont {{item.icon}} {{currentTab==index?'on':''}}"></view>
+            <view>{{item.name}}</view>
+        </view>
+    </view>
+    <view class="wrapper">
+        <view class="list" wx:if="{{currentTab=='bank'}}">
+            <form bindsubmit="doConfirmSubmit" reportSubmit="true">
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">持卡人</view>
+                    <view class="input">
+                        <input bindinput="bindKeyChange" data-column="name" name="name" placeholder="请输入持卡人姓名" placeholderClass="placeholder"></input>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">卡号</view>
+                    <view class="input">
+                        <input bindinput="bindKeyChange" data-column="cardnum" name="cardnum" placeholder="请填写卡号" placeholderClass="placeholder" type="number"></input>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">银行</view>
+                    <view class="input">
+                        <picker bindchange="bindKeyChange" data-column="bank" range="{{array}}" value="{{index}}">
+                            <text class="Bank">{{array[index]}}</text>
+                            <text class="iconfont icon-qiepian38"></text>
+                        </picker>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">开户行名称</view>
+                    <view class="input">
+                        <input bindinput="bindKeyChange" data-column="bankaddress" name="bankaddress" placeholder="请填写开户行名称" placeholderClass="placeholder"></input>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">提现</view>
+                    <view class="input">
+                        <input bindchange="bindKeyChange" data-column="money" name="money" placeholder="请输入提现金额" placeholderClass="placeholder" type="digit"></input>
+                    </view>
+                </view>
+                <view class="tip">当前可提现金额: {{store.balance_money}}</view>
+                <button bindtap="doConfirmSubmit" class="bnt bg-color">提现</button>
+            </form>
+        </view>
+        <view class="list" wx:if="{{currentTab=='weixin'}}">
+            <form reportSubmit="true">
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">账号</view>
+                    <view class="input">
+                        <input bindchange="bindKeyChange" data-column="name" name="name" placeholder="请填写您的微信账号" placeholderClass="placeholder"></input>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">提现</view>
+                    <view class="input">
+                        <input bindchange="bindKeyChange" data-column="money" name="money" placeholder="请输入提现金额" placeholderClass="placeholder" type="digit"></input>
+                    </view>
+                </view>
+                <view class="tip">当前可提现金额: {{store.balance_money}}</view>
+                <button bindtap="doConfirmSubmit" class="bnt bg-color">提现</button>
+            </form>
+        </view>
+        <view class="list" wx:if="{{currentTab=='alipay'}}">
+            <form bindsubmit="doConfirmSubmit" reportSubmit="true">
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">账号</view>
+                    <view class="input">
+                        <input bindchange="bindKeyChange" data-column="name" name="name" placeholder="请填写您的支付宝账号" placeholderClass="placeholder"></input>
+                    </view>
+                </view>
+                <view class="item acea-row row-between-wrapper">
+                    <view class="name">提现</view>
+                    <view class="input">
+                        <input bindchange="bindKeyChange" data-column="money" name="money" placeholder="请输入提现金额" placeholderClass="placeholder" type="digit"></input>
+                    </view>
+                </view>
+                <view class="tip">当前可提现金额: {{store.balance_money}}</view>
+                <button bindtap="doConfirmSubmit" class="bnt bg-color">提现</button>
+            </form>
+        </view>
+    </view>
+    <view class="rule-block">
+        <view class="title">
+            提现规则
+        </view>
+        <view class="rule" wx:for="{{rule}}">
+            {{item}}
+        </view>
+        <view class="rule">
+            1.提现金额服务费0.6%由腾讯官方收取。
+        </view>
+        <view class="rule">
+            2.温馨提示： 申请提现后平台官方通过严格审核后将在1-7个工作日内将您提现额打入您指定的账户。
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

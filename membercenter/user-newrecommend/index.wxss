@@ -1,0 +1,157 @@
+page {
+    background: #fff;
+}
+
+.input-box {
+    margin-top: 20rpx;
+}
+
+.notice_input {
+    background: #fff;
+    padding: 10rpx;
+    width: 100%;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.footer-btn {
+    position: fixed;
+    bottom: 10rpx;
+    width: 100%;
+}
+
+.footer-btn .submit-btn {
+    font-size: 26rpx;
+    color: #fff;
+    background: #ff4466;
+    border-radius: 50rpx;
+    width: 90%;
+    padding: 15rpx;
+    margin: 0 auto;
+}
+
+.promoter-text {
+    height: 70rpx;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    background: #fff;
+    padding-left: 20rpx;
+    border-radius: 5px;
+}
+
+.commission-header {
+    height: 150rpx;
+    background: #ff7664;
+    border-radius: 5px;
+    padding-left: 30rpx;
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+    flex-direction: row;
+}
+
+.commission-header-image {
+    margin-right: 20rpx;
+}
+
+.commission-header-content {
+}
+
+.commission-parent-nickname {
+    color: #fff;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.commission-parent-uid {
+    color: #fff;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.content>.title {
+    font-size: 32rpx;
+    font-weight: 700;
+}
+
+.content>.input-box {
+    display: flex;
+    justify-content: center;
+}
+
+.content>.input-box>.input {
+    font-size: 24rpx;
+    border: solid 1rpx #f4f4f4;
+    border-radius: 6rpx;
+    width: 500rpx;
+    margin-top: 30rpx;
+    height: 70rpx;
+}
+
+.content>.btn {
+    border-radius: 10rpx;
+    margin: 30rpx auto;
+    background-color: rgba(245,68,101,1);
+    color: #fff;
+    font-size: 26rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    width: 300rpx;
+}
+
+.dialog-box>.dialog {
+    position: fixed;
+    width: 320px;
+    top: 45%;
+    left: 50%;
+    background: #fff;
+    z-index: 9;
+    border: solid 1rpx #f4f4f4;
+    border-radius: 12rpx;
+    transform: translate(-50%,-50%);
+}
+
+.dialog-box>.dialog>.title {
+    font-size: 28rpx;
+    font-weight: 700;
+    line-height: 80rpx;
+    border-bottom: solid 1rpx #f4f4f4;
+}
+
+.dialog-box>.dialog>.msg {
+    padding: 30rpx;
+}
+
+.dialog-box>.dialog>.msg>.bang {
+    padding: 10rpx 0;
+}
+
+.dialog-box>.dialog>.btn {
+    display: flex;
+    align-items: center;
+    border-top: solid 1rpx #f4f4f4;
+}
+
+.dialog-box>.dialog>.btn>.qd {
+    flex: 1;
+    line-height: 80rpx;
+    color: #fe4564;
+}
+
+.dialog-box>.dialog>.btn>.qx {
+    flex: 1;
+    line-height: 80rpx;
+    border-left: solid 1rpx #f4f4f4;
+}

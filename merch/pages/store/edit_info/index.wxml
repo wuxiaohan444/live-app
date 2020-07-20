@@ -1,0 +1,100 @@
+<view class="navbar red" style="height:{{navH}}rpx">
+    <view class="navbarH" style="height:{{navH}}rpx;">
+        <view class="navbarCon acea-row row-center-wrapper">
+            <view class="name {{parameter.color==true?'on':''}} line1">{{parameter.title}}</view>
+            <view bindtap="returnBack" class="iconfont icon-xiangzuo {{parameter.color==true?'on':''}}"
+                  wx:if="{{parameter.return==1}}"></view>
+        </view>
+    </view>
+</view>
+<view style="height:{{navH}}rpx"></view>
+<view class="release-shop">
+    <view class="content">
+        <view class="tip">店铺信息</view>
+        <view class="list">
+            <view class="title">店铺名称</view>
+            <input bindinput="formDataChange" class="input" data-column="name" maxlength="20" name="name"
+                   placeholder="请输入店铺名称" value="{{formData.name}}"></input>
+        </view>
+        <view class="list">
+            <view class="title">
+                <view>店铺logo</view>
+                <view class="num">{{formData.logo.length||0}}/1</view>
+            </view>
+            <view class="up-image">
+                <van-uploader accept="image" bind:after-read="uploadLogo" bind:delete="deleteLogo"
+                              fileList="{{formData.logo}}" maxCount="1"></van-uploader>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">主营</view>
+            <input bindinput="formDataChange" class="input" data-column="salecate" maxlength="50" name="salecate"
+                   placeholder="请输入店铺主营业务" value="{{formData.salecate}}"></input>
+        </view>
+        <view class="list">
+            <view class="title">店铺分类</view>
+            <input class="input" data-column="salecate" maxlength="50" name="salecate"
+                   placeholder="" value="{{formData.category_name}}" disabled></input>
+        </view>
+        <!--        <view class="list mt20">-->
+        <!--            <view class="title">店铺分类</view>-->
+        <!--            <picker data-column="category_index" name="category_index" range="{{categorys}}"-->
+        <!--                    rangeKey="name" value="{{formData.category_index}}">-->
+        <!--                <view class="name">-->
+        <!--                    <view class="picker" style="min-width: 200rpx">-->
+        <!--                        {{formData.category_id?formData.category_name:'请选择分类'}}-->
+        <!--                    </view>-->
+        <!--                </view>-->
+        <!--            </picker>-->
+        <!--        </view>-->
+        <view class="list">
+            <view class="title">所在地区</view>
+            <picker bindchange="formDataChange" data-column="region" mode="region"
+                    value="{{[ formData.region['province'],formData.region['city'],formData.region['district'] ]}}">
+                <view class="picker">
+                    {{formData.region['province']}},{{formData.region['city']}},{{formData.region['district']}}
+                </view>
+            </picker>
+        </view>
+        <view class="list">
+            <view class="title">详细地址</view>
+            <input bindinput="formDataChange" class="input" data-column="address" name="address" placeholder="请填写店铺具体地址"
+                   value="{{formData.address}}"></input>
+        </view>
+        <view class="list top">
+            <view class="title">店铺简介</view>
+            <textarea bindinput="formDataChange" class="textarea" data-column="intro" name="intro"
+                      placeholder="了解你，从简介开始" value="{{formData.intro}}"></textarea>
+        </view>
+        <view class="tip">店主信息</view>
+        <view class="list">
+            <view class="title">联系人</view>
+            <input bindinput="formDataChange" class="input" data-column="realname" maxlength="20" name="realname"
+                   placeholder="留下店主大名" value="{{formData.realname}}"></input>
+        </view>
+        <view class="list">
+            <view class="title">联系电话</view>
+            <input bindinput="formDataChange" class="input" data-column="mobile" maxlength="20" name="mobile"
+                   placeholder="为了不放过任何一笔订单" value="{{formData.mobile}}"></input>
+        </view>
+        <view class="tip">店铺宣传</view>
+        <view class="list">
+            <view class="title">
+                <view>店铺宣传图</view>
+                <view class="num">{{formData.banners.length||0}}/6</view>
+            </view>
+            <view class="up-image">
+                <van-uploader accept="image" bind:after-read="uploadBanners" bind:delete="deleteBanners"
+                              fileList="{{formData.banners}}" maxCount="9"></van-uploader>
+            </view>
+        </view>
+    </view>
+    <view class="bottom-btn">
+        <view class="box">
+            <view bindtap="storeSumit" class="item">保存</view>
+        </view>
+    </view>
+    <picker bindfinish="finishHandler" id="moneyType" isShadow="{{true}}" pickerData="{{val}}" value="{{[0]}}"></picker>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<van-dialog id="van-dialog"></van-dialog>

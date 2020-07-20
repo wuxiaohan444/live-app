@@ -1,0 +1,161 @@
+page {
+    background: #f4f4f4;
+}
+
+.balance {
+    margin: 30rpx;
+    border-top-right-radius: 12rpx;
+    border-top-left-radius: 12rpx;
+}
+
+.head {
+    width: 100%;
+    height: 90rpx;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top-right-radius: 12rpx;
+    border-top-left-radius: 12rpx;
+}
+
+.titleSel {
+    color: #666;
+    font-size: 30rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    line-height: 90rpx;
+}
+
+.active {
+    color: #fe4564;
+    font-weight: 600;
+    position: relative;
+}
+
+.active::after {
+    content: '';
+    position: absolute;
+    width: 50rpx;
+    height: 4rpx;
+    background: #fe4564;
+    border-radius: 12rpx;
+    bottom: 10rpx;
+}
+
+.swiper {
+    width: 100%;
+    flex: 1;
+    overflow: scroll;
+    height: 430rpx;
+    background: #fff;
+    border-bottom-right-radius: 12rpx;
+    border-bottom-left-radius: 12rpx;
+}
+
+.content {
+    padding: 30rpx;
+    background: #fff;
+    text-align: center;
+}
+
+.content>.title {
+    font-size: 24rpx;
+    color: #333;
+}
+
+.content>.money {
+    font-size: 58rpx;
+    color: #fe4564;
+    font-weight: 700;
+    padding: 10rpx 0;
+}
+
+.content>.money>text {
+    font-size: 24rpx;
+    font-weight: normal;
+    vertical-align: bottom;
+}
+
+.content .tip {
+    text-decoration: underline;
+    color: #666;
+}
+
+.content>.tab {
+    display: flex;
+    align-items: centerl;
+    justify-content: center;
+}
+
+.content>.tab>.item {
+    flex: 1;
+    padding: 30rpx 0 0 0;
+}
+
+.content>.tab>.item>.text {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.content>.tab>.item>.money {
+    font-size: 36rpx;
+    font-weight: 700;
+    color: #fe4564;
+}
+
+.content>.tab>.item>.btn {
+    color: #fe4564;
+    font-size: 24rpx;
+    border: solid 1rpx #fe4564;
+    border-radius: 40rpx;
+    padding: 2rpx 30rpx;
+    display: inline-block;
+}
+
+.card {
+    background: #fff;
+    padding: 0 30rpx;
+    margin: 30rpx 0;
+    border-radius: 12rpx;
+}
+
+.card>.title {
+    font-size: 28rpx;
+    font-weight: 600;
+    line-height: 90rpx;
+}
+
+.card>.main {
+    padding-bottom: 30rpx;
+}
+
+.card>.main>.noCard>.img {
+    width: 175rpx;
+    height: 137rpx;
+    margin: auto;
+}
+
+.card>.main>.noCard>.text {
+    font-size: 22rpx;
+    color: #666;
+    text-align: center;
+    margin-top: 10rpx;
+}
+
+.card>.main>.btn {
+    text-align: center;
+    padding: 30rpx 0;
+}
+
+.card>.main>.btn>.text {
+    display: inline-block;
+    width: 360rpx;
+    line-height: 80rpx;
+    background: #fe4564;
+    color: #fff;
+    text-align: center;
+    border-radius: 40rpx;
+}

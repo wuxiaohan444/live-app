@@ -1,0 +1,27 @@
+<view class="kind_contain">
+    <view class="rp">
+        <scroll-view scrollWithAnimation scrollX class="nav" scrollLeft="{{scrollLeft}}rpx">
+            <view class="nav-item">
+                <view class="nav-text tab-on">首页</view>
+            </view>
+            <navigator class="nav-item" hoverClass="none" url="{{item.link}}" wx:for="{{page.items}}">
+                <view class="nav-text">{{item.text}}</view>
+            </navigator>
+        </scroll-view>
+        <view bindtap="showlist" class="kind_img">
+            <image lazyLoad src="{{showList?'l_down.png':'l_right.png'}}"></image>
+        </view>
+        <view class="kindlist_box" wx:if="{{showList}}">
+            <view class="kindlist_card">
+                <view class="list_grid">
+                    <view class="list_one">
+                        <view class="list-on">首页</view>
+                    </view>
+                    <navigator class="list_one" hoverClass="none" url="{{item.link}}" wx:for="{{page.items}}" wx:key="id">
+                        <view class="">{{item.text}}</view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

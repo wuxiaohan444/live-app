@@ -1,0 +1,31 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="searchGood">
+    <van-search bind:cancel="onCancel" bind:change="setValue" bind:search="searchBut" focus="{{focus}}" placeholder="{{placeholder}}" value="{{searchValue}}"></van-search>
+    <view wx:if="{{!searchValue}}">
+        <view class="title history-title">
+            <view>历史搜索</view>
+            <van-icon bind:click="clearHistory" name="delete" style="float: right" wx:if="{{historys.length>0}}"></van-icon>
+        </view>
+        <view class="list acea-row">
+            <view bindtap="setHotSearchValue" class="item" data-item="{{item}}" wx:for="{{historys}}">{{item}}</view>
+        </view>
+        <view class="title">热搜</view>
+        <view class="list acea-row">
+            <view bindtap="setHotSearchValue" class="item" data-item="{{item}}" wx:for="{{hotSearchList}}">{{item}}</view>
+        </view>
+        <view class="line"></view>
+    </view>
+    <goodList bastList="{{bastList}}" wx:if="{{bastList.length>0}}"></goodList>
+    <view class="loadingicon acea-row row-center-wrapper" wx:if="{{bastList.length>0}}">
+        <text class="loading iconfont icon-jiazai" hidden="{{loading==false}}"></text>
+        <view class="loadend">
+            {{loadTitle}}
+        </view>
+    </view>
+</view>
+<view class="noCommodity" style="border: none">
+    <view class="nosearch" wx:if="{{bastList.length==0}}">
+        没有搜索到任何商品~
+    </view>
+    <recommend id="recommend"></recommend>
+</view>

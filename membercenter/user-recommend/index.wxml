@@ -1,0 +1,24 @@
+<navbar parameter="{{parameter}}"></navbar>
+<block wx:if="{{has_parent}}">
+    <view class="promoter-text">
+        <text style="color:rgb(140, 140, 140)">我的上级</text>
+    </view>
+    <view class="commission-header">
+        <view class="commission-header-image">
+            <image src="{{parent.avatar}}" style="width: 100rpx;height: 100rpx;"></image>
+        </view>
+        <view class="commission-header-content">
+            <view class="commission-parent-nickname">昵称：{{parent.nickname}}</view>
+            <view class="commission-parent-uid">会员ID：{{parent.id}}</view>
+        </view>
+    </view>
+</block>
+<form bindreset="formReset" bindsubmit="formSubmit" wx:else>
+    <view class="input-box">
+        <input autoFocus="{{true}}" class="notice_input" maxlength="20" name="parent_uid" placeholder="请输入您的推荐人" value="{{parent_uid}}"></input>
+    </view>
+    <view class="footer-btn" wx:if="{{!has_parent}}">
+        <button class="submit-btn" formType="submit" type="primary">保存</button>
+    </view>
+</form>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

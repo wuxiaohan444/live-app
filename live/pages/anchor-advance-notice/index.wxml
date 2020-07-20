@@ -1,0 +1,43 @@
+<van-dialog id="van-dialog"></van-dialog>
+<navbar parameter="{{parameter}}" wx:if="{{examineKeywords.switch==0}}"></navbar>
+<view class="addAddress" wx:if="{{examineKeywords.switch==0}}">
+    <view class="list">
+        <view class="item acea-row row-between-wrapper">
+            <view class="name">标题</view>
+            <input bindinput="getNameValue" placeholder="请输入标题" placeholderClass="placeholder" type="text" value="{{formData.title}}"></input>
+        </view>
+        <view class="item acea-row row-between-wrapper">
+            <view class="name">{{examineKeywords.keywords_live_notice}}封面</view>
+            <view class="img-box">
+                <van-uploader bind:after-read="afterRead" bind:delete="onDeleteImg" fileList="{{fileList}}" maxCount="1"></van-uploader>
+            </view>
+        </view>
+        <view class="item acea-row row-between-wrapper">
+            <view class="name">{{examineKeywords.keywords_live_start}}时间</view>
+            <input disabled bindtap="onDataShow" name="sdsd" placeholder="请选择{{examineKeywords.keywords_live_start}}时间" type="text" value="{{formData.start_at}}"></input>
+        </view>
+        <!--<view class="item acea-row row-between-wrapper">-->
+        <!--<view class="name">观看限制</view>-->
+        <!--<van-radio-group bind:change="onChangeLimitType" value="{{formData.limit_type}}">-->
+        <!--<van-radio checkedColor="#07c160" name="0">无</van-radio>-->
+        <!--<van-radio checkedColor="#07c160" name="1">卡密</van-radio>-->
+        <!--</van-radio-group>-->
+        <!--</view>-->
+        <view class="item acea-row row-between-wrapper">
+            <view class="name">本场介绍</view>
+            <textarea bindinput="getIntroValue" class="textarea" placeholder="请填写{{examineKeywords.keywords_live_notice}}介绍" placeholderClass="placeholder" value="{{formData.intro}}" wx:if="{{shopTextarea}}"></textarea>
+            <text class="textarea" wx:else>{{formData.intro}}</text>
+        </view>
+    </view>
+</view>
+<view class="fui-button" wx:if="{{examineKeywords.switch==0}}">
+    <view bindtap="submit_notice" class="btn btn-danger block btn-submit">创建{{examineKeywords.keywords_live_notice}}</view>
+</view>
+<van-popup bind:close="onDateClose" position="bottom" show="{{data_show}}">
+    <van-datetime-picker bind:cancel="onCancelDate" bind:confirm="onConfirmDate" minDate="{{minData}}" type="datetime"></van-datetime-picker>
+</van-popup>
+<view id="examine-content" wx:if="{{examineKeywords.switch==1}}">
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

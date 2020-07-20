@@ -1,0 +1,114 @@
+<bottom-tabbar></bottom-tabbar>
+<navbar parameter="{{parameter}}"></navbar>
+<view class="center">
+    <view class="head" style="background:{{themeColor.themeColor}}">
+        <view class="user-info" wx:if="{{userInfo.nickname}}">
+            <image class="img" src="{{userInfo.avatar}}"></image>
+            <view class="user">
+                <view class="name">
+          {{userInfo.nickname}}
+          <text>ID：{{userInfo.id||0}}</text>
+                </view>
+                <view class="tip">粉丝 {{userInfo.follower_num||0}}
+          <text>关注 {{userInfo.follow_num||0}}</text>
+                </view>
+                <view bindtap="goPages" class="edit" data-url="/common/pages/user_info/index" wx:if="{{!userInfo.mobile||!userInfo.realname}}">完善资料
+        </view>
+                <view bindtap="goPages" class="edit" data-url="/common/pages/user_info/index" wx:else>编辑资料</view>
+            </view>
+            <view bindtap="goPages" class="id-info" data-url="/membercenter/certification/index" style="background:rgba(255,255,255, 0.3)">
+                <image class="img" src="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/user/center/id.png"></image>
+                <view>实名认证</view>
+            </view>
+        </view>
+        <view bindtap="goPages" class="user-info" data-url="/common/pages/user_phone/index" wx:else>
+            <image class="img" src="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/user/icon/tx.png"></image>
+            <view class="user">
+                <view class="name">
+          点击授权
+        </view>
+            </view>
+        </view>
+    </view>
+    <view class="my-card">
+        <navigator class="title" hoverClass="none" url="/membercenter/order_list/index">
+            <view class="text">我的订单</view>
+            <view class="more">全部订单</view>
+            <view class="block-nav-icon">
+                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+            </view>
+        </navigator>
+        <view class="content">
+            <navigator class="list" data-item="{{item}}" hoverClass="none" url="{{item.url}}" wx:for="{{orderInfo}}" wx:key="index">
+                <image class="img" src="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/user/center/{{item.icon}}.png"></image>
+                <text class="order-status-num" wx:if="{{orderStatusNum[item.num]>0}}">{{orderStatusNum[item.num]}}
+                </text> {{item.name}}
+      </navigator>
+        </view>
+    </view>
+    <navigator class="my-balance" hoverClass="none" url="/membercenter/balance/center/index" wx:if="{{configBalance.switch==1&&examineKeywords.switch==0}}">
+        <view class="img-box" style="background:linear-gradient(45deg,{{themeColor.gradientB}} 0%,{{themeColor.gradientE}} 100%);">
+            <image class="img" src="money.png"></image>
+        </view>
+        <view class="content">
+            <view class="balance">
+                <view class="title">我的{{configBalance.balance_text}}</view>
+                <view class="money">{{userInfo.total_balance}}
+          <text>元</text>
+                </view>
+            </view>
+            <navigator class="btn" hoverClass="none" url="/membercenter/balance/recharge/index" wx:if="{{configBalance.recharge==1&&examineKeywords.switch==0}}">{{examineKeywords.keywords_live_recharge}}
+      </navigator>
+        </view>
+    </navigator>
+    <view class="my-promote" wx:if="{{userInfo.commission_level>0}}">
+        <view class="title">
+            <view class="text">我的推广</view>
+            <navigator class="more" hoverClass="none" url="/membercenter/user_spread_user/index" wx:if="{{userInfo.is_agent}}">
+        推广中心
+      </navigator>
+            <view class="block-nav-icon">
+                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+            </view>
+        </view>
+        <view class="content">
+            <view class="money">
+                <navigator class="item" hoverClass="none" url="/membercenter/user_spread_user/index" wx:if="{{userInfo.is_agent}}">
+                    <view class="num">¥{{userInfo.commission}}</view>
+                    <view class="text">推广总佣金</view>
+                </navigator>
+                <navigator class="item" hoverClass="none" url="/membercenter/commission-apply/index" wx:else>
+                    <view class="num">¥{{userInfo.commission}}</view>
+                    <view class="text">推广总佣金</view>
+                </navigator>
+                <navigator class="item" hoverClass="none" url="/membercenter/balance/center/index">
+                    <view class="num">¥{{userInfo.balance}}</view>
+                    <view class="text">可提现余额</view>
+                </navigator>
+            </view>
+            <navigator class="sheng" hoverClass="none" style="color:{{themeColor.themeColor}}" url="/membercenter/commission-apply/index" wx:if="{{!userInfo.is_agent}}">分销商申请
+      </navigator>
+        </view>
+    </view>
+    <view class="my-service" wx:for="{{MyMenus}}" wx:for-index="groupname" wx:for-item="menugroup" wx:key="index">
+        <view class="title">
+            <view class="text">{{groupname}}
+      </view>
+        </view>
+        <view class="content">
+            <block wx:for="{{menugroup}}" wx:for-item="menu" wx:key="index">
+                <navigator class="list" hoverClass="none" url="{{menu.wxapp_url}}" wx:if="{{menu.type=='link'}}">
+                    <image class="img" src="{{menu.icon}}"></image>
+          {{menu.name}}
+        </navigator>
+                <button class="list" hoverClass="none" openType="contact" type="default" url="{{menu.wxapp_url}}" wx:elif="{{menu.type=='contact'}}">
+                    <image class="img" src="{{menu.icon}}"></image>
+          {{menu.name}}
+        </button>
+            </block>
+        </view>
+    </view>
+    <company-bottom></company-bottom>
+    <view style="height:{{deviceType?'180':'130'}}rpx"></view>
+</view>
+<authorize bind:onLoadFun="onLoadFun" iShidden="{{iShidden}}" isAuto="{{isAuto}}" isGoIndex="{{isGoIndex}}"></authorize>

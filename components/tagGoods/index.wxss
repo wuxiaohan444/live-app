@@ -1,0 +1,236 @@
+@import "../../app.wxss";
+
+.wrapper .title {
+    border-top: 1rpx solid #eee;
+    padding-top: 34rpx;
+    margin: 0 30rpx;
+}
+
+.wrapper .title .text {
+    font-size: 24rpx;
+    color: #999;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.wrapper .title .text .name {
+    color: #282828;
+    max-width: 200rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    margin-bottom: 5rpx;
+    position: relative;
+}
+
+.wrapper .title .text .info {
+    max-width: 400rpx;
+    display: inline-block;
+    padding-left: 10rpx;
+}
+
+.wrapper .title .text .name .new {
+    position: absolute;
+    top: 2rpx;
+    left: 130rpx;
+    font-size: 16rpx;
+    font-weight: bold;
+}
+
+.wrapper .title .more {
+    font-size: 24rpx;
+    color: #999;
+    margin-left: auto;
+}
+
+.wrapper .title .more .iconfont {
+    margin-left: 9rpx;
+    font-size: 26rpx;
+    vertical-align: 3rpx;
+}
+
+.wrapper .newProducts {
+    white-space: nowrap;
+    padding: 0 30rpx;
+    margin: 35rpx 0 42rpx 0;
+}
+
+.wrapper .newProducts .item {
+    display: inline-block;
+    width: 240rpx;
+    margin-right: 20rpx;
+    border: 1rpx solid #eee;
+    border-radius: 12rpx;
+}
+
+.wrapper .newProducts .item:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.wrapper .newProducts .item .img-box {
+    width: 100%;
+    height: 240rpx;
+}
+
+.wrapper .newProducts .item .img-box image {
+    width: 100%;
+    height: 100%;
+    border-radius: 12rpx 12rpx 0 0;
+}
+
+.wrapper .newProducts .item .pro-info {
+    font-size: 28rpx;
+    color: #333;
+    text-align: center;
+    padding: 19rpx 10rpx 0 10rpx;
+}
+
+.wrapper .newProducts .item .money {
+    padding: 0 10rpx 18rpx 10rpx;
+    text-align: center;
+    font-size: 26rpx;
+    font-weight: bold;
+}
+
+.promotionGood {
+    padding: 0 30rpx;
+}
+
+.promotionGood .item {
+    border-bottom: 1rpx solid #eee;
+    height: 250rpx;
+}
+
+.promotionGood .item .pictrue {
+    width: 188rpx;
+    height: 188rpx;
+}
+
+.promotionGood .item .pictrue image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8rpx;
+}
+
+.promotionGood .item .text {
+    font-size: 24rpx;
+    color: #999;
+    width: 472rpx;
+}
+
+.promotionGood .item .text .name {
+    font-size: 30rpx;
+    color: #333;
+}
+
+.promotionGood .item .text .sp-money {
+    margin: 34rpx 0 20rpx 0;
+}
+
+.promotionGood .item .text .sp-money .moneyCon {
+    padding: 0 18rpx;
+    background-color: red;
+    height: 46rpx;
+    line-height: 46rpx;
+    background-image: linear-gradient(to right,#ff6248 0%,#ff3e1e 100%);
+    font-size: 20rpx;
+    color: #fff;
+    border-radius: 24rpx 3rpx 24rpx 3rpx;
+}
+
+.promotionGood .item .text .sp-money .moneyCon .num {
+    font-size: 24rpx;
+}
+
+.promotionGood .item .text .money {
+    text-decoration: line-through;
+}
+
+.goodList .item {
+    position: relative;
+    padding-left: 30rpx;
+}
+
+.goodList .item .pictrue {
+    width: 180rpx;
+    height: 180rpx;
+    position: relative;
+}
+
+.goodList .item .pictrue image {
+    width: 100%;
+    height: 100%;
+    border-radius: 6rpx;
+}
+
+.goodList .item .pictrue .numPic {
+    position: absolute;
+    left: 7rpx;
+    top: 7rpx;
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+}
+
+.goodList .item .underline {
+    padding: 30rpx 30rpx 30rpx 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.goodList .item:nth-last-child(1) .underline {
+    border-bottom: 0;
+}
+
+.goodList .item .text {
+    font-size: 30rpx;
+    color: #222;
+    width: 489rpx;
+}
+
+.goodList .item .text .money {
+    font-size: 26rpx;
+    font-weight: bold;
+    margin-top: 50rpx;
+}
+
+.goodList .item .text .money .num {
+    font-size: 34rpx;
+}
+
+.goodList .item .text .vip-money {
+    font-size: 24rpx;
+    color: #282828;
+    font-weight: bold;
+    margin-top: 15rpx;
+}
+
+.goodList .item .text .vip-money image {
+    width: 46rpx;
+    height: 21rpx;
+    margin-left: 5rpx;
+}
+
+.goodList .item .text .vip-money .num {
+    font-size: 22rpx;
+    color: #aaa;
+    font-weight: normal;
+    margin: -2rpx 0 0 22rpx;
+}
+
+.goodList .item .iconfont {
+    position: absolute;
+    right: 30rpx;
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    font-size: 30rpx;
+    bottom: 38rpx;
+}
+
+.bgcolor {
+    background-color: #fff;
+}
+
+.mt15 {
+    margin-top: 15rpx;
+}

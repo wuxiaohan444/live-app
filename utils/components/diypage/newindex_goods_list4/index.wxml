@@ -1,0 +1,17 @@
+<view class="list-box">
+    <view class="title">{{page.title}}</view>
+    <view class="recommend-content">
+        <navigator class="recommend-content-list" data-id="{{index}}" hoverClass="none" url="{{item.link}}" wx:for="{{page.items}}" wx:key="index">
+            <view class="list-images">
+                <image class="img" src="{{item.image}}" wx:if="{{item.image}}"></image>
+            </view>
+            <view class="list-information">
+                <view class="information-title" wx:if="{{item.text1}}">{{item.text1}}</view>
+                <view class="information-tip" wx:if="{{item.text2}}">{{item.text2}}</view>
+                <view class="information-money" wx:if="{{item.text3}}">
+                    <view class="price">{{item.text3}}</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>

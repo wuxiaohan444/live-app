@@ -1,0 +1,14 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="categoryList">
+    <block wx:if="{{list.length>0}}">
+        <view bindtap="onChild" class="list" data-id="{{item.id}}" data-name="{{item.name}}" data-pid="{{item.pid}}" wx:for="{{list}}" wx:key="index">
+            <view>{{item.name}}</view>
+            <view class="block-nav-icon">
+                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+            </view>
+        </view>
+    </block>
+    <view class="nosearch" wx:else>
+          当前没有可选分类
+    </view>
+</view>

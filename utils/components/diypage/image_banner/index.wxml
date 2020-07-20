@@ -1,0 +1,20 @@
+<view class="swiper">
+    <swiper autoplay="{{true}}" bindchange="swiperChange" circular="{{true}}" interval="{{3000}}">
+        <swiper-item wx:for="{{page.items}}" wx:key="index">
+            <navigator class="item-box" hoverClass="none" url="{{item.link}}">
+                <view class="swiper-item">
+                    <view class="img">
+                        <image mode="scaleToFill" src="{{item.image}}"></image>
+                    </view>
+                </view>
+            </navigator>
+        </swiper-item>
+    </swiper>
+    <view class="dots {{page.dot_align=='alignleft'?'alignleft':page.dot_align=='aligncenter'?'aligncenter':page.dot_align=='alignright'?'alignright':''}}">
+        <block wx:for="{{page.items}}" wx:key="index">
+            <view class="round {{index==swiperCurrent?' active':''}}" wx:if="{{page.corner=='round'}}"></view>
+            <view class="arc {{index==swiperCurrent?' active':''}}" wx:if="{{page.corner=='arc'}}"></view>
+            <view class="square {{index==swiperCurrent?' active':''}}" wx:if="{{page.corner=='square'}}"></view>
+        </block>
+    </view>
+</view>

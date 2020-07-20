@@ -1,0 +1,4 @@
+<navigator class="company-bottom" hoverClass="none" url="{{config.copyright_link}}" wx:if="{{config}}">
+    <image src="{{config.copyright_logo}}" wx:if="{{config.copyright_logo}}"></image>
+    <view class="text" wx:if="{{config.copyright_text}}">{{config.copyright_text}}</view>
+</navigator>

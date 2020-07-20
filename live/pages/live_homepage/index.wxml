@@ -1,0 +1,153 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view>
+    <view class="home-page-img">
+        <swiper autoplay="{{autoplay}}" bindchange="swiperChange" circular="{{circular}}" data-current="{{index}}" duration="100" indicatorActiveColor="#fe6c9c" indicatorColor="rgba(255, 255, 255, 0.5)" interval="{{interval}}" style="">
+            <swiper-item wx:for="{{banners}}" wx:key="index">
+                <image bindtap="gopages" class="slide-image" data-url="{{item}}" mode="aspectFill" src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' actives':''}}" wx:for="{{banners}}" wx:key="unique"></view>
+        </view>
+        <view class="home-page-font">
+            <view class="home-page-top-icon">
+                <button openType="share" style="background:none;border: none;">
+                    <view class="home-page-icon-box">
+                        <i class="iconfontJiajia iconfenxiang"></i>
+                    </view>
+                </button>
+            </view>
+        </view>
+    </view>
+    <view class="home-page-info">
+        <view class="home-page-info-left">
+            <image src="{{live.cover}}"></image>
+            <view class="home-page-info-left-num">
+                <view class="icon-text">
+                    <text class="line1"></text>
+                    <text class="line2"></text>
+                    <text class="line3"></text>
+                    <text class="line4"></text>
+                </view>
+                <view class="home-page-info-left-num-font">{{live.fic_num}}人</view>
+            </view>
+        </view>
+        <view class="home-page-info-right">
+            <view class="title-box">
+                <view class="title">{{live.title}}</view>
+            </view>
+            <view class="info-box">ID：{{live.id}}</view>
+            <view class="phone" catchtap='freeTell' data-phone="{{store.mobile}}"><image src="../../../images/dianhua.png"></image> {{store.mobile}}</view>
+            <view class="qr">
+                <image src="../../../images/wx.png"></image>
+                <view class="check-qr" catchtap="checkQr">查看二维码</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="browse-list-box">
+    <view class="browse-list-left">
+        <text>{{total_nums}}</text>人来过店铺
+  </view>
+    <view class="browse-list-right">
+        <view class="browse-list-img" wx:for="{{viewers}}" wx:for-item="viewer" wx:key="viewer_index">
+            <image src="{{viewer.avatar}}"></image>
+        </view>
+    </view>
+</view>
+<view class="home-page-nav {{navFexid?'nav-flexd':''}}" style="top:{{navH}}rpx;">
+    <view class="home-page-nav-tab">
+        <view class="home-page-nav-button">
+            <view bindtap="clickTab" class="home-page-nav-button-li {{currentTab==0?'active':''}}" data-current="0">宝贝</view>
+            <!--<view bindtap="clickTab" class="home-page-nav-button-li {{currentTab==2?'active':''}}" data-current="2">回放</view>-->
+        </view>
+    </view>
+</view>
+<view class="productList {{currentTab==0?'show':'hidden'}}">
+    <view class="nav acea-row row-middle">
+        <view class="item {{title?'font-color':''}}">{{title?title:'默认'}}</view>
+        <view bindtap="set_where" class="item" data-type="2">
+      价格
+      <image src="/images/up.png" wx:if="{{price==1}}"></image>
+            <image src="/images/down.png" wx:elif="{{price==2}}"></image>
+            <image src="/images/horn.png" wx:else></image>
+        </view>
+        <view bindtap="set_where" class="item" data-type="3">
+      销量
+      <image src="/images/up.png" wx:if="{{stock==1}}"></image>
+            <image src="/images/down.png" wx:elif="{{stock==2}}"></image>
+            <image src="/images/horn.png" wx:else></image>
+        </view>
+        <view bindtap="set_where" class="item {{nows?'font-color':''}}" data-type="4">新品</view>
+    </view>
+    <view class="list acea-row row-between-wrapper">
+        <navigator class="item" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{goods}}" wx:key="index">
+            <view class="pictrue">
+                <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">佣金:{{item.commission.agent_commission}}</view>
+                <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">自购省钱:{{item.commission.partner_commission}}</view>
+                <image class="" src="{{item.thumb}}"></image>
+            </view>
+            <view class="text">
+                <view class="name line1">{{item.title}}</view>
+                <view class="day-money">
+                    <view class="money font-color">￥
+            <text class="num">{{item.marketprice}}</text>
+                    </view>
+                    <view class="day-org-price">
+            {{item.productprice}}元
+          </view>
+                </view>
+                <view class="vip acea-row row-between-wrapper">
+                    <view class="vip-money" wx:if="{{item.marketprice&&item.marketprice==0}}">￥{{item.marketprice}}
+            <image src="/images/vip.png"></image>
+                    </view>
+                    <view>已售{{item.sale_num}}{{item.unit}}</view>
+                </view>
+            </view>
+        </navigator>
+        <view class="loadingicon acea-row row-center-wrapper" wx:if="{{goods.length>0}}">
+            <text class="loading iconfont icon-jiazai" hidden="{{loading_0==false}}"></text>{{loadTitle_0}}
+    </view>
+    </view>
+    <view class="noCommodity" wx:if="{{goods.length==0&&page_0>1}}">
+        <view class="pictrue">
+            <view class="nosearch">
+        未找到商品！
+      </view>
+        </view>
+    </view>
+</view>
+<view class="{{currentTab==1?'show':'hidden'}}">动态</view>
+<view class="{{currentTab==2?'show':'hidden'}}">
+    <view class="palyback_lists">
+        <view class="img_item" wx:for="{{livelogs}}" wx:key="id">
+            <view bindtap="goRoom" class="cascade-box" data-id="{{item.id}}">
+                <image src="{{item.cover}}" style="width:100%;"></image>
+                <view class="paly-btn iconfontJiajia iconplay"></view>
+                <view class="help-goods-title">
+                    <view class="help-goods-title-left">{{item.video_start}}</view>
+                    <view class="help-goods-title-left">
+                        <i class="iconfontJiajia iconaccount-new"></i> {{item.total_num}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="loadingicon acea-row row-center-wrapper" wx:if="{{livelogs.length>0}}">
+            <text class="loading iconfont icon-jiazai" hidden="{{loading_2==false}}"></text>{{loadTitle_2}}
+    </view>
+        <view class="noCommodity" wx:if="{{livelogs.length==0&&page_2>1}}">
+            <view class="pictrue">
+                <view class="nosearch">
+          未找到回放记录！
+        </view>
+            </view>
+        </view>
+    </view>
+</view>
+<modal hidden="{{modalHidden}}" title="二维码" confirm-text="确认"  bindcancel="cancel" bindconfirm="confirm"
+       class="qr-modal" no-cancel="true">
+    <view>
+        <image src="{{store.qrcode}}"></image>
+    </view>
+</modal>
+<view class="{{currentTab==3?'show':'hidden'}}"></view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

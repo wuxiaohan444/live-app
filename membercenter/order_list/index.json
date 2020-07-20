@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "authorize": "/components/authorize/authorize",
+        "home": "/components/home/index",
+        "payment": "/components/payment/index",
+        "van-search": "/vant/search/index",
+        "van-tabs": "/vant/tabs/index",
+        "van-tab": "/vant/tab/index",
+        "van-icon": "/vant/icon/index",
+        "van-loading": "/vant/loading/index",
+        "van-dialog": "/vant/dialog/index"
+    },
+    "navigationBarTextStyle": "white"
+}

@@ -1,0 +1,3 @@
+<view class="video">
+    <video controls poster="{{page.cover}}" src="{{page.url}}"></video>
+</view>

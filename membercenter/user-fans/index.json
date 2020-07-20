@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "authorize": "/components/authorize/authorize",
+        "bottom-tabbar": "/components/bottom-tabbar/index",
+        "company-bottom": "/components/company-bottom/index",
+        "van-icon": "/vant/icon/index"
+    },
+    "navigationBarTitleText": "个人中心"
+}

@@ -1,0 +1,218 @@
+<navbar parameter="{{parameter}}"></navbar>
+<searchBar link="/live/pages/searchLive/index" logoUrl="iconfenlei" searchInfo="{{searchInfo}}"
+           searchList="{{top_titles}}"></searchBar>
+<view class="index">
+    <view class="index-bg" wx:if="{{banners.length>0}}">
+        <swiper autoplay="{{autoplay}}" circular="{{circular}}" duration="100" indicatorActiveColor="#fe6c9c"
+                indicatorColor="rgba(255, 255, 255, 0.5)" indicatorDots="true" interval="{{interval}}"
+                style="background: url({{sitepath}}/addons/shimmer_liveshop/static/wxapp/home-top-bg.png);background-size: 100% 100%;padding-top: 10rpx">
+            <swiper-item wx:for="{{banners}}" wx:key="index">
+                <navigator class="slide-navigator acea-row row-between-wrapper" hoverClass="none"
+                           url="{{item.wxappurl}}" wx:if="{{item.link_type==0}}">
+                    <image class="slide-image" mode="aspectFill" src="{{item.pic}}"></image>
+                </navigator>
+                <navigator appId="{{item.link_data.appid}}" class="slide-navigator acea-row row-between-wrapper"
+                           extraData="{{item.link_data.extra_data}}" hoverClass="none" path="{{item.link_data.path}}"
+                           target="miniProgram" version="{{item.link_data.version}}" wx:elif="{{item.link_type==1}}">
+                    <image class="slide-image" mode="aspectFill" src="{{item.pic}}"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <official-account wx:if="{{follow_weixin}}"></official-account>
+    <view class="hot-list-box" wx:if="{{lives.length>0}}">
+        <block wx:for="{{lives}}" wx:key="index">
+            <navigator class="more" hoverClass="none" url="/live/pages/live_nostart/index?live_id={{item.id}}"
+                       wx:if="{{item.live_status==1}}">
+                <view class="hot-list-li">
+                    <view class="hot-list-li-img">
+                        <image src="{{item.cover}}"></image>
+                    </view>
+                    <view class="hot-list-li-font">
+                        {{item.title}}
+                    </view>
+                    <view class="hot-list-li-lable">
+                        <i class="iconfontJiajia icondian"></i>
+                        <view>{{item.live_status_text}}</view>
+                    </view>
+                </view>
+            </navigator>
+            <navigator class="more" hoverClass="none" url="/live/pages/live_room3/index?live_id={{item.id}}"
+                       wx:elif="{{item.live_status==2}}">
+                <view class="hot-list-li">
+                    <view class="hot-list-li-img">
+                        <image src="{{item.cover}}"></image>
+                    </view>
+                    <view class="hot-list-li-font">
+                        {{item.title}}
+                    </view>
+                    <view class="hot-list-li-lable">
+                        <i class="iconfontJiajia icondian"></i>
+                        <view>{{item.live_status_text}}</view>
+                    </view>
+                </view>
+            </navigator>
+            <navigator class="more" hoverClass="none" url="/live/pages/live_room3/index?live_id={{item.id}}" wx:else>
+                <view class="hot-list-li">
+                    <view class="hot-list-li-img">
+                        <image src="{{item.cover}}"></image>
+                    </view>
+                    <view class="hot-list-li-font">
+                        {{item.title}}
+                    </view>
+                    <view class="hot-list-li-lable">
+                        <i class="iconfontJiajia icondian"></i>
+                        <view>{{item.live_status_text}}</view>
+                    </view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+    <view class="entry-list bgcolor mt15">
+        <view class="list special" wx:if="{{categorys.length}}">
+            <view class="item" hoverClass="none"  bindtap="skip"  data-name="{{item.name}}"  data-id="{{item.id}}"
+                       wx:for="{{categorys}}" wx:key="index">
+                <image src="{{item.home_pic}}"></image>
+                <view class="label">{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="news acea-row row-between-wrapper bgcolor mt15" wx:if="{{news.length}}">
+        <view class="pictrue">
+            <image src="/images/news.png"></image>
+        </view>
+        <view class="swiperTxt">
+            <swiper autoplay="{{autoplay}}" circular="true" duration="{{duration}}" indicatorDots="{{indicatorDots}}"
+                    interval="2500" vertical="true">
+                <swiper-item catchtouchmove="catchTouchMove" wx:for="{{news}}" wx:key="index">
+                    <navigator class="acea-row row-between-wrapper" hoverClass="none" openType="switchTab"
+                               url="{{item}}">
+                        <view class="text acea-row row-between-wrapper">
+                            <view class="label border2" wx:if="{{item.tip}}">{{item.tip}}</view>
+                            <view class="newsTitle line1">{{item.text}}</view>
+                        </view>
+                        <view class="iconfont icon-xiangyou"></view>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="wrapper bgcolor mt15" wx:if="{{vip_goods.length}}">
+        <view class="title acea-row row-between-wrapper">
+            <view class="text">
+                <view class="name line1">精选商品</view>
+                <navigator class="more" hoverClass="none" url="/goods/pages/first-new-product/index?type=1">更多>
+                </navigator>
+            </view>
+        </view>
+        <view class="boutique" wx:if="{{vip_banner.length>0}}">
+            <swiper autoplay="true" circular="{{circular}}" duration="{{duration}}" indicatorActiveColor="#fc4141"
+                    indicatorColor="rgba(252,65,65,0.3)" indicatorDots="true" interval="{{interval}}">
+                <swiper-item wx:for="{{vip_banner}}">
+                    <navigator hoverClass="none" style="width:100%;height:100%;" url="{{item}}">
+                        <image class="slide-image" data-idx="{{index}}" src="{{item}}"></image>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+        </view>
+        <goodList bastList="{{vip_goods}}"></goodList>
+    </view>
+    <view class="wrapper bgcolor mt15" wx:if="{{vip_goods.length}}">
+        <view class="title acea-row row-between-wrapper">
+            <view class="text">
+                <view class="name line1">精选商品</view>
+                <navigator class="more" hoverClass="none" url="/goods/pages/first-new-product/index?type=1">更多>
+                </navigator>
+            </view>
+        </view>
+        <view class="boutique" wx:if="{{vip_banner.length>0}}">
+            <swiper autoplay="true" circular="{{circular}}" duration="{{duration}}" indicatorActiveColor="#fc4141"
+                    indicatorColor="rgba(252,65,65,0.3)" indicatorDots="true" interval="{{interval}}">
+                <swiper-item wx:for="{{vip_banner}}">
+                    <navigator hoverClass="none" style="width:100%;height:100%;" url="{{item}}">
+                        <image class="slide-image" data-idx="{{index}}" src="{{item}}"></image>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+        </view>
+        <goodList bastList="{{vip_goods}}"></goodList>
+    </view>
+    <view class="adver" wx:if="{{ad_pic}}">
+        <image src="{{ad_pic}}"></image>
+    </view>
+    <view class="wrapper bgcolor mt15" wx:if="{{new_goods.length}}">
+        <view class="title acea-row row-between-wrapper">
+            <view class="text">
+                <view class="name line1">抢先好货
+                    <text class="new font-color">NEW~</text>
+                </view>
+                <navigator class="more" hoverClass="none" url="/goods/pages/first-new-product/index?type=3">更多>
+                </navigator>
+            </view>
+        </view>
+        <view class="newProducts">
+            <scroll-view scrollX class="scroll-view_x" style="width:auto;overflow:hidden;">
+                <navigator class="item" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}"
+                           wx:for="{{new_goods}}" wx:key="index">
+                    <view class="img-box">
+                        <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">
+                            佣金:{{item.commission.agent_commission}}
+                        </view>
+                        <image src="{{item.thumb}}"></image>
+                        <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">
+                            自购省钱:{{item.commission.partner_commission}}
+                        </view>
+                    </view>
+                    <view class="pro-info line1">{{item.title}}</view>
+                    <view class="money font-color">￥{{item.marketprice}}
+                        <text class="day-org-price">￥{{item.productprice}}</text>
+                    </view>
+                </navigator>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="wrapper bgcolor mt15" wx:if="{{sale_goods.length}}">
+        <view class="title acea-row row-between-wrapper">
+            <view class="text">
+                <view class="name line1">热卖促销</view>
+                <navigator class="more" hoverClass="none" url="/goods/pages/promotional-items/index">更多>
+                </navigator>
+            </view>
+        </view>
+        <promotionGood benefit="{{sale_goods}}"></promotionGood>
+    </view>
+    <tagGoods tags="{{tags}}" wx:if="{{tags.length}}"></tagGoods>
+    <!--<view style="height: 130rpx"></view>-->
+    <!--直播-->
+    <view class="page page--{{deviceType}} goods-list" wx:if="{{examineKeywords.switch==0}}" style="padding-bottom: 100rpx">
+        <view class="single-live" wx:for="{{newLivesList}}" wx:key="live_index">
+            <single-live examineKeywords="{{examineKeywords}}" live="{{item}}"></single-live>
+        </view>
+        <view class="loading" hidden="{{loading}}">
+            <van-loading size="22px" type="spinner">暂无直播</van-loading>
+        </view>
+    </view>
+</view>
+<coupon-window bind:onColse="onColse" couponList="{{couponList}}" window="{{window}}"></coupon-window>
+<collect-tip></collect-tip>
+<bottom-tabbar></bottom-tabbar>
+<goingTop topShow="{{topShow}}"></goingTop>
+<view class="fake-goods" wx:if="{{check_status==1}}">
+    <view class="fake-goods-list">
+        <image src="//img.alicdn.com/imgextra/i1/126351555/O1CN01fZE9YP1NMEUGQenu0_!!0-saturn_solar.jpg_220x220.jpg"></image>
+        <text>贸奶奶装夏装棉麻套装 外女装衣服女夏装</text>
+    </view>
+    <view class="fake-goods-list">
+        <image src="//img.alicdn.com/imgextra/i2/33060593/O1CN01XGXSYE1GFdTLUBXY6_!!0-saturn_solar.jpg_220x220.jpg"></image>
+        <text>简约休闲纯棉体恤男生潮流纯色衣服2020夏装</text>
+    </view>
+    <view class="fake-goods-list">
+        <image src="//img.alicdn.com/imgextra/i3/1112410167/O1CN018u3J5d1D6Wk2ZsEcz_!!0-saturn_solar.jpg_220x220.jpg"></image>
+        <text>恒源祥2019新款男士t恤短袖爸爸男装中</text>
+    </view>
+    <view class="fake-goods-list">
+        <image src="//img.alicdn.com/imgextra/i3/310380047/O1CN01FxNTSN1CDZDg2n2hk_!!0-saturn_solar.jpg_220x220.jpg"></image>
+        <text>中考高考必胜锦鲤大红纯棉短袖马到成功t恤</text>
+    </view>
+</view>
+<authorize bind:onLoadFun='onLoadFun' iShidden="{{iShidden}}" isAuto="{{isAuto}}" isGoIndex="{{isGoIndex}}"></authorize>

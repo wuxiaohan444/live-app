@@ -1,0 +1,4 @@
+.video>video {
+    width: 100vw;
+    height: 420rpx;
+}

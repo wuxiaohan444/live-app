@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "recommend": "/components/recommend/index",
+        "bottom-tabbar": "/components/bottom-tabbar/index",
+        "van-icon": "/vant/icon/index",
+        "authorize": "/components/authorize/authorize"
+    }
+}

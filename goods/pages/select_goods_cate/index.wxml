@@ -1,0 +1,27 @@
+<bottom-tabbar></bottom-tabbar>
+<navbar parameter="{{parameter}}"></navbar>
+<view class="productSort">
+    <view class="aside" style="top:{{navH}}rpx;">
+        <view bindtap="tap" class="item acea-row row-center-wrapper {{index==navActive?'on':''}}" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{parentList}}">
+            <text>{{item.name}}</text>
+        </view>
+    </view>
+    <view class="conter" style="margin-top:0rpx;">
+        <view class="listw mt0" style="height:{{height}}rpx;">
+            <view class="list acea-row">
+                <view bindtap="selectCategory" class="item acea-row row-column row-middle" data-id="{{item.id}}" data-name="{{item.name}}" wx:if="{{!loading}}" wx:for="{{categoryList}}">
+                    <view class="picture">
+                        <image src="{{item.pic}}"></image>
+                    </view>
+                    <view class="name line1">{{item.name}}</view>
+                </view>
+                <view class="loadingicon acea-row row-center-wrapper" wx:if="{{loading}}">
+                    <text class="loading iconfont icon-jiazai" hidden="{{loading==false}}"></text>
+                </view>
+                <view class="nosearch" wx:if="{{!loading&&categoryList.length==0}}">
+                    暂无分类~
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

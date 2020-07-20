@@ -1,0 +1,10 @@
+<view class="nav_btn">
+    <view class="nav_btn-box" style="background:{{page.background}};color:{{page.color}}">
+        <navigator class="item-box {{page.line_num==3?'col3':page.line_num==4?'col4':page.line_num==5?'col5':''}}" hoverClass="none" url="{{item.link}}" wx:for="{{page.items}}" wx:key="index">
+            <view class="item">
+                <image src="{{item.image}}" style="border-radius: {{page.corner=='circle'?'50%':page.corner=='arc'?'12rpx':''}}"></image>
+                <text>{{item.text}}</text>
+            </view>
+        </navigator>
+    </view>
+</view>

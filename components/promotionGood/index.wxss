@@ -1,0 +1,110 @@
+@import "../../app.wxss";
+
+.promotionGood {
+    padding-left: 30rpx;
+    margin-top: 30rpx;
+}
+
+.promotionGood .item {
+    border-bottom: 1rpx solid #eee;
+    margin-top: 30rpx;
+}
+
+.promotionGood .item .pictrue {
+    width: 270rpx;
+    height: 270rpx;
+    position: relative;
+}
+
+.promotionGood .item .pictrue image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8rpx;
+}
+
+.promotionGood .item .text {
+    font-size: 24rpx;
+    color: #999;
+    width: 420rpx;
+    margin-left: 15rpx;
+}
+
+.promotionGood .item .text .name {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.promotionGood .item .text .sp-money {
+    margin: 34rpx 0 20rpx 0;
+    height: 176rpx;
+}
+
+.sale-process .moneyCon {
+    padding: 0 18rpx;
+    background-color: #FF4466;
+    height: 46rpx;
+    line-height: 46rpx;
+    background-image: linear-gradient(to right,#FF4466 0%,#FF4466 100%);
+    font-size: 20rpx;
+    color: #fff;
+    border-radius: 24rpx;
+    margin-top: 30rpx;
+    width: 218rpx;
+}
+
+.promotionGood .item .text .sp-money .moneyCon .num {
+    font-size: 24rpx;
+}
+
+.promotionGood .item .text .money {
+    text-decoration: line-through;
+}
+
+.acea-row.row-between-wrapper {
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.info-box-top-stand {
+    width: inherit;
+    height: 176rpx;
+}
+
+.buy-box {
+    display: flex;
+    width: inherit;
+    height: 60rpx;
+    margin-top: 50rpx;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.left-box {
+}
+
+.left-box .sale-price {
+    width: inherit;
+    height: 30rpx;
+    line-height: 30rpx;
+    color: #ff4466;
+    font-size: 32rpx;
+    overflow: hidden;
+}
+
+.left-box .org-price {
+    width: inherit;
+    height: 24rpx;
+    line-height: 24rpx;
+    padding-left: 4rpx;
+    color: #999;
+    font-size: 22rpx;
+    text-decoration: line-through;
+    overflow: hidden;
+}
+
+.right-box {
+    color: #999;
+    text-align: center;
+}

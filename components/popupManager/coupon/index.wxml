@@ -1,0 +1,280 @@
+<import src="../../template/money/money"></import>
+<view class="coupon-contain" wx:if="{{size=='middle'}}">
+    <view class="coupon-small-bg vip-coupon coupon-bg" wx:if="{{vipCoupon.showVipPackageStatus}}">
+        <view class="left-side">
+            <view class="money">￥
+                <template is="money" data="{{money:vipCoupon.redPackageAmount,class:'number'}}"></template>
+            </view>
+            <view class="text">现金红包</view>
+        </view>
+        <view bindtap="changeVipPopup" class="btn {{vipCoupon.redPackagePickUpStatus?'hasRecevied':''}}">
+            {{vipCoupon.redPackagePickUpStatus?'已领取':'领取'}}
+        </view>
+        <image class="vip" src="{{filter.addImgSuffix(icon.small_pack,268,'origin')}}"></image>
+    </view>
+    <block wx:for="{{component.statusMap(couponList)}}" wx:key="index">
+        <view class="coupon-share" wx:if="{{item.couponFlag==24}}">
+            <view class="coupon-info flex-row">
+                <view class="share-left">
+                    <view class="share-money">
+                        ¥
+                        <text class="share-num">{{item.preferentialAmount}}</text>
+                    </view>
+                    <view class="share-count">
+                        <text wx:if="{{item.constraintType===1}}">满{{item.constraintAmount}}可用</text>
+                        <text wx:elif="{{item.constraintType===0}}">无门槛</text>
+                    </view>
+                    <view class="share-type">
+                        <text wx:if="{{item.usePlaceType===0}}">全平台通用券</text>
+                        <view wx:elif="{{item.usePlaceType===4}}">全场通用券</view>
+                        <view class="flex" wx:elif="{{component.match( item.usePlaceType,[1,2,3] )}}">
+                            <view class="ellipsis word-hidden">
+                                {{item.exhibitionInfos?item.exhibitionInfos[0].exhibitionName:item.exhibitionParkName}}
+                            </view>
+                            会场专用
+                        </view>
+                        <view class="flex" wx:elif="{{component.match( item.usePlaceType,[11,12,13] )}}">
+                            <view class="ellipsis word-hidden">{{item.exhibitionParkName}}</view>
+                            店铺专用
+                        </view>
+                        <text wx:elif="{{item.usePlaceType===5}}">跨会场优惠券</text>
+                    </view>
+                </view>
+                <view class="share-right flex-center">
+                    <Avatar class="share-img" height="60" size="60" src="{{filter.addImgSuffix(shareNick,60)}}"></Avatar>
+                    <view class="share-btns">
+                        <view catchtap="showShareBox" class="btn-item" data-id="{{item.couponTemplateId}}" wx:if="{{item.status==1||item.status==2}}">甩券
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="share-title">好友“甩”来的专属券</view>
+        </view>
+        <view class="coupon-small-bg flex-row coupon-bg" wx:else>
+            <view class="group-sign" wx:if="{{item.couponFlag===33&&item.status===1}}">
+                <image class="group-sign-image" src="{{filter.addImgSuffix(icon.groupIcon,23,'origin')}}"></image>
+                群专属
+            </view>
+            <view class="small-left flex-center">
+                <view class="left-money">
+                    ¥
+                    <text class="left-num">{{item.preferentialAmount}}</text>
+                </view>
+                <view class="left-count">
+                    <text wx:if="{{item.constraintType===1}}">满{{item.constraintAmount}}可用</text>
+                    <text wx:elif="{{item.constraintType===0}}">无门槛</text>
+                </view>
+                <view class="random-highest" wx:if="{{item.preferentialType==3&&item.status===2}}">最高</view>
+            </view>
+            <view class="small-right">
+                <view class="coupon-info">
+                    <view class="coupon-type ellipsis" wx:if="{{item.couponFlag!==33||item.couponFlag===33&&item.status===1}}">
+                        <text wx:if="{{item.usePlaceType===0}}">全平台券</text>
+                        <text wx:elif="{{item.usePlaceType===4}}">全场券</text>
+                        <text wx:elif="{{item.usePlaceType===20}}">指定商品优惠券</text>
+                        <text wx:elif="{{item.couponFlag===23}}">新人专享券</text>
+                        <text wx:elif="{{component.match( item.usePlaceType,[1,2,3] )}}">
+                            {{from==='live'?'专属券':'会场专享券'}}
+                        </text>
+                        <text wx:elif="{{component.match( item.usePlaceType,[11,12,13] )}}">店铺专享券</text>
+                        <text wx:elif="{{item.usePlaceType===5}}">跨会场优惠券</text>
+                    </view>
+                    <view class="coupon-palcetype ellipsis" wx:if="{{item.couponFlag!==33||item.couponFlag===33&&item.status===1}}">
+                        <text wx:if="{{item.usePlaceType===0}}">全平台通用</text>
+                        <text wx:if="{{item.usePlaceType===4}}">全场通用</text>
+                        <view class="flex" wx:elif="{{component.match( item.usePlaceType,[1,2,3] )}}">
+                            <view class="ellipsis word-hidden">
+                                {{item.exhibitionInfos?item.exhibitionInfos[0].exhibitionName:item.exhibitionParkName}}
+                            </view>
+                            会场专用
+                        </view>
+                        <view class="flex" wx:elif="{{component.match( item.usePlaceType,[11,12,13] )}}">
+                            <view class="ellipsis word-hidden">{{item.exhibitionParkName}}</view>
+                            店铺专用
+                        </view>
+                        <text wx:elif="{{item.usePlaceType===5}}">多会场可用</text>
+                        <view class="flex" wx:elif="{{item.usePlaceType===20}}">
+                            <view class="ellipsis word-hidden">{{item.itemInfos[0].itemName}}</view>
+                            指定商品可用
+                        </view>
+                    </view>
+                    <view class="commission" wx:if="{{item.couponFlag===33&&item.status!==1}}">
+                        <view class="img-area">
+                            <image class="commission-img" src="{{myAvatar}}" wx:if="{{scene!==3}}"></image>
+                        </view>
+                        <view class="commission-title">群优惠券 会场专用</view>
+                    </view>
+                    <view class="coupon-time" wx:if="{{item.couponTime}}">
+                        <view class="time-info" wx:if="{{item.gmtEnd}}">
+                            <view>{{item.gmtStart}} 至</view>
+                            <view>{{item.gmtEnd}}</view>
+                        </view>
+                        <view wx:else>不限时</view>
+                    </view>
+                </view>
+                <view class="coupon-btns" wx:if="{{couponType!=='commission'}}">
+                    <block wx:if="{{item.instance}}">
+                        <view bindtap="toPage" class="btn-item unused" data-coupon-flag="{{item.couponFlag}}" data-exParkId="{{item.usePlaceBody}}" data-track-area="useCounpon" data-track-type="click" data-type="{{item.usePlaceType}}" wx:if="{{item.status===2}}">去使用
+                        </view>
+                    </block>
+                    <block wx:elif="{{instance}}">
+                        <view catchtap="receiveCoupon" class="btn-item unused" data-couponflag="{{item.couponFlag}}" data-id="{{item.couponTemplateId}}" data-index="{{index}}" data-prize="{{item.constraintAmount}}" data-subtract="{{item.preferentialAmount}}" wx:if="{{item.status===1&&scene!==3}}">领取
+                        </view>
+                        <view bindtap="toPage" class="btn-item unused" data-coupon-flag="{{item.couponFlag}}" data-exParkId="{{item.usePlaceBody}}" data-type="{{item.usePlaceType}}" wx:elif="{{item.status===2&&!isExhibitionPark}}">去使用
+                        </view>
+                        <view class="btn-item unused no-begin" wx:elif="{{item.receiveStatus===1&&isExhibitionPark&&item.couponFlag!==33}}">已领取
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view catchtap="receiveCoupon" class="btn-item unused" data-id="{{item.couponTemplateId}}" data-index="{{index}}" wx:if="{{item.status===2&&scene!==3}}">领取
+                        </view>
+                    </block>
+                    <view class="btn-item no-begin" wx:if="{{item.status===-3}}">未开始</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view wx:elif="{{size=='large'}}">
+    <view class="coupon-large-bg vip-large-coupon" wx:if="{{vipCoupon.showVipPackageStatus}}">
+        <view class="left-side">
+            <view class="money">￥
+                <template is="money" data="{{money:vipCoupon.redPackageAmount,class:'number'}}"></template>
+                <text class="desc">无门槛现金红包</text>
+            </view>
+            <view class="text">新会员专享，全场下单立减</view>
+        </view>
+        <view bindtap="changeVipPopup" class="btn {{vipCoupon.redPackagePickUpStatus?'hasRecevied':''}}">
+            {{vipCoupon.redPackagePickUpStatus?'已领取':'立即领取'}}
+        </view>
+        <image class="vip" src="{{filter.addImgSuffix(icon.large_pack,702,'origin')}}"></image>
+    </view>
+    <view catchtap="choseCoupon" class="{{item.usePlaceType===5?'coupon-across-bg':'coupon-large-bg'}} flex-row {{item.status==4||item.status==-1||item.status==3||!used?'gray':'red'}}" data-choesd="{{item.choesd}}" data-constraintAmount="{{item.constraintAmount}}" data-id="{{item.couponId}}" data-index="{{index}}" data-preferentialAmount="{{item.preferentialAmount}}" wx:for="{{component.statusMap(couponList)}}" wx:key="index">
+        <view class="group-sign" wx:if="{{item.couponFlag===33&&item.status===1}}">
+            <image class="group-sign-image" src="{{icon.groupIcon}}"></image>
+            群专属
+        </view>
+        <view class="coupon-left flex-center">
+            <view class="coupon-money">
+                ¥
+                <text class="coupon-num">{{item.preferentialAmount}}</text>
+            </view>
+            <view class="coupon-constraintAmount">
+                <text wx:if="{{item.constraintType===1}}">满{{item.constraintAmount}}可用</text>
+                <text wx:elif="{{item.constraintType===0}}">无门槛</text>
+            </view>
+        </view>
+        <view class="coupon-right">
+            <view class="coupon-info">
+                <view class="coupon-type ellipsis" wx:if="{{item.couponFlag!==33||item.couponFlag===33&&item.status===1}}">
+                    <text wx:if="{{item.usePlaceType===0}}">全平台券</text>
+                    <text wx:elif="{{item.usePlaceType===4}}">全场券</text>
+                    <text wx:elif="{{item.usePlaceType===20}}">指定商品优惠券</text>
+                    <text wx:elif="{{item.couponFlag===23}}">新人专享券</text>
+                    <text wx:elif="{{component.match( item.usePlaceType,[1,2,3] )}}">会场专享券</text>
+                    <text wx:elif="{{component.match( item.usePlaceType,[11,12,13] )}}">店铺专享券</text>
+                    <text wx:elif="{{item.usePlaceType===5}}">跨会场优惠券</text>
+                </view>
+                <view class="coupon-palcetype ellipsis" wx:if="{{item.couponFlag!==33||item.couponFlag===33&&item.status===1}}">
+                    <view wx:if="{{item.usePlaceType===0}}">全平台通用</view>
+                    <view wx:elif="{{item.usePlaceType===4}}">全场通用</view>
+                    <view class="flex" wx:elif="{{component.match( item.usePlaceType,[1,2,3] )}}">
+                        <view class="ellipsis word-hidden">
+                            {{item.exhibitionInfos?item.exhibitionInfos[0].exhibitionName:item.exhibitionParkName}}
+                        </view>
+                        会场专用
+                    </view>
+                    <view class="flex" wx:elif="{{component.match( item.usePlaceType,[11,12,13] )}}">
+                        <view class="ellipsis word-hidden">{{item.exhibitionParkName}}</view>
+                        店铺专用
+                    </view>
+                    <view wx:elif="{{item.usePlaceType===5}}">多会场可用</view>
+                    <view class="flex" wx:elif="{{item.usePlaceType===20}}">
+                        <view class="ellipsis word-hidden">{{item.itemInfos[0].itemName||item.itemName}}</view>
+                        指定商品可用
+                    </view>
+                </view>
+                <view class="commission" wx:if="{{item.couponFlag===33&&item.status!==1}}">
+                    <view class="img-area">
+                        <image class="commission-img" src="{{myAvatar}}" wx:if="{{scene!==3}}"></image>
+                    </view>
+                    <view class="commission-title">群优惠券 会场专用</view>
+                </view>
+                <view class="coupon-time" wx:if="{{item.couponTime}}">
+                    <view class="time-info" wx:if="{{item.gmtEnd}}">
+                        <view>{{item.gmtStart}} 至</view>
+                        <view>{{item.gmtEnd}}</view>
+                    </view>
+                    <view wx:else>不限时</view>
+                </view>
+            </view>
+            <view class="coupon-btns" wx:if="{{scene==1}}">
+                <view bindtap="getFromGoods" class="btn-item unused" data-couponflag="{{item.couponFlag}}" data-id="{{item.couponTemplateId}}" data-index="{{index}}" data-prize="{{item.constraintAmount}}" data-subtract="{{item.preferentialAmount}}" wx:if="{{item.status===1}}">领取
+                </view>
+                <view bindtap="toSomePage" class="btn-item unused" data-coupon-flag="{{item.couponFlag}}" data-exParkId="{{item.usePlaceBody}}" data-track-area="useCounpon" data-track-type="click" data-type="{{item.usePlaceType}}" wx:elif="{{item.status===2&&diversion==2}}">去使用
+                </view>
+                <view class="btn-item no-begin" wx:elif="{{item.status===2&&diversion===1}}">已领取</view>
+                <view class="btn-item no-begin" wx:elif="{{item.status===-3}}">未开始</view>
+                <view class="btn-item used" wx:elif="{{item.status===4}}">已使用</view>
+                <view class="btn-item used" wx:elif="{{item.status===-1}}">已失效</view>
+                <view bindtap="toShareCoupon" class="btn-item unused" data-id="{{item.couponId}}" data-idx="{{index}}" data-track-area="giveCoupon" data-track-type="click" wx:if="{{diversion==2&&(item.status==2||item.status==-3)&&couponWhiteSwitch&&item.couponSend!==0}}">
+                    去赠送
+                </view>
+                <button class="btn-item unused" data-id="{{item.couponTemplateId}}" data-useplacebody="{{item.usePlaceBody}}" data-useplacetype="{{item.usePlaceType}}" openType="share" wx:if="{{wxShare}}">去发券
+                </button>
+            </view>
+            <view class="check-btn" wx:if="{{scene==2&&item.choesd}}">
+                <image class="btn-img" src="{{filter.addImgSuffix('https://cdn.webuy.ai/static/sh-assets/weapp/components/coupon/checked.png',36,'png')}}"></image>
+            </view>
+            <view class="use-direction" wx:if="{{item.usePlaceType===5}}">
+                <view>使用说明</view>
+                <image class="icon" src="{{filter.addImgSuffix(icon.acrossDown,20,'png')}}"></image>
+                <image class="icon" src="{{filter.addImgSuffix(icon.grayDown,20,'png')}}" wx:if="{{item.status==4||item.status==5}}"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="commission-coupon" wx:if="{{size=='commission'}}">
+    <view class="coupon-bg" wx:for="{{couponList}}" wx:key="index">
+        <view class="top">
+            <view class="top-left">
+                <view class="money">
+                    <view class="money-num">
+                        <view class="mark">¥</view>
+                        <view class="number">
+                            {{priceFilter.formatAmountFixed2(item.wxhcCouponTemplateDTO.preferentialAmount)}}
+                        </view>
+                    </view>
+                    <view class="tip">
+                        满{{priceFilter.formatAmountFixed2(item.wxhcCouponTemplateDTO.constraintAmount)}}可用
+                    </view>
+                </view>
+                <view class="exhibition">会场优惠券</view>
+                <view class="time" wx:if="{{item.wxhcCouponTemplateDTO.gmtEnd>218310998400000}}">不限时</view>
+                <view class="time" wx:else>有效期
+                    {{date.formatTime(item.wxhcCouponTemplateDTO.gmtStart,'Y.M.D')}}-{{date.formatTime(item.wxhcCouponTemplateDTO.gmtEnd,'M.D')}}
+                </view>
+            </view>
+            <view class="top-right">
+                <view class="award" wx:if="{{couponType==='commission'}}">
+                    赚{{item.wxhcCouponTemplateDTO.attributes.shareCommissionRate}}%推广奖励
+                    <view catchtap="showRule" class="why">?</view>
+                </view>
+                <view catchtap="groupSendCoupon" class="send" wx:if="{{item.wxhcCouponTemplateExpVO.couponSharePic===''}}">立即发券
+                </view>
+                <button class="send" data-exId="{{item.wxhcCouponTemplateDTO.usePlaceBody}}" data-exhibitionParkName="{{exhibitionParkName}}" data-id="{{item.wxhcCouponTemplateDTO.couponTemplateId}}" data-url="{{item.wxhcCouponTemplateExpVO.couponSharePic}}" hoverClass="none" openType="share" wx:else>立即发券
+                </button>
+            </view>
+        </view>
+        <view catchtap="getCouponDetail" class="bottom" data-url="{{'/campaign/pages/allGroupOwner/pages/getCouponDetail/getCouponDetail?couponTemplateId='+item.wxhcCouponTemplateDTO.couponTemplateId+'&couponType='+couponType}}">
+            <view class="out">{{item.wxhcCouponTemplateExpVO.shareNum}}人领取/{{item.wxhcCouponTemplateExpVO.usedNum}}人使用
+            </view>
+            <view class="in">
+                <text wx:if="{{couponType==='commission'}}">
+                    预估收入¥{{priceFilter.formatAmountFixed2(item.wxhcCouponTemplateExpVO.price)}}
+                </text>
+                <image src="{{filter.addImgSuffix(icon.noSelectRight,6,'png')}}"></image>
+            </view>
+        </view>
+    </view>
+</view>

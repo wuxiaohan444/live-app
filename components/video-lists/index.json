@@ -1,0 +1,9 @@
+{
+    "component": true,
+    "usingComponents": {
+        "bubble": "./../bubble/index",
+        "product-window": "./../product-window/index",
+        "van-dialog": "/vant/dialog/index"
+    },
+    "disableScroll": true
+}

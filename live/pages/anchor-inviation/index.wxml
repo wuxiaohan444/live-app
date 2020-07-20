@@ -1,0 +1,41 @@
+<navbar parameter="{{parameter}}"></navbar>
+<!--<view class="page register" wx:if="{{applyInfo&&examineKeywords.switch==0}}">-->
+<!--    <view class="fui-content">-->
+<!--        <template is="wxParse" data="{{wxParseData:invitation_text.nodes}}"></template>-->
+<!--    </view>-->
+<!--    <view class="fui-button">-->
+<!--        <view bindtap="goLogs" class="inviation-logs block btn-submit">邀请记录</view>-->
+<!--        <view bindtap="goPoster" class="inviation-code block btn-submit">邀请海报</view>-->
+<!--    </view>-->
+<!--</view>-->
+<!--<view class="poster-pop" wx:if="{{posterImageStatus}}">-->
+<!--    <image bindtap="posterImageClose" class="close" src="/images/poster-close.png"></image>-->
+<!--    <image src="{{posterImage}}"></image>-->
+<!--    <view bindtap="savePosterPath" class="save-poster">保存到手机</view>-->
+<!--</view>-->
+<!--<view class="mask" wx:if="{{posterImageStatus}}"></view>-->
+<!--<canvas canvasId="myCanvas" class="canvas" wx:if="{{canvasStatus}}"></canvas>-->
+<!--<view id="examine-content" wx:if="{{examineKeywords.switch==1}}">-->
+<!--    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>-->
+<!--</view>-->
+
+<view class="page">
+    <view class="center-item" wx:for="{{fansList}}"
+          :key="{{index}}">
+        <view style="display: flex;align-items: center">
+            <view class="one index" wx:if="{{index==0}}">{{index+1}}</view>
+            <view class="two index" wx:if="{{index==1}}">{{index+1}}</view>
+            <view class="three index" wx:if="{{index==2}}">{{index+1}}</view>
+            <view class="one index" wx:if="{{index>2}}">{{index+1}}</view>
+            <image src="{{item.avatar}}"></image>
+            <text class="nickanme">{{item.nickname}}</text>
+            <view style="margin-left: 30px">邀请
+                <text style="font-weight: 700;color: #00aaea">{{item.invite_count}}</text>
+                人
+            </view>
+        </view>
+    </view>
+</view>
+
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<import src="/lib/wxParse/wxParse.wxml"></import>

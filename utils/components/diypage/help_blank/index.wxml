@@ -1,0 +1,1 @@
+<view class="help_blank" style="background:{{page.background}};height:{{page.height}}px"></view>

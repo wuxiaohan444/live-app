@@ -1,0 +1,330 @@
+<view class="popup-manager" wx:if="{{showType!==''&&(showType==='moveApplets'&&pageInfo.exhibitionParkType===20||showType!=='moveApplets')}}">
+    <view catchtap="toSomePage" class="mask" data-url="/pages/newIndex/newIndex" wx:if="{{showType==='groupOuter'||showType==='moveApplets'}}"></view>
+    <view catchtap="closePopup" class="mask" wx:else></view>
+    <image catchtap="popupToPage" class="popUp-img {{popUpAnimation?'popUp-animation':''}}" data-exParkId="{{popupInfo.linkUrl}}" data-type="{{popupInfo.linkType}}" mode="aspectFit" src="{{filter.addImgSuffix(popupInfo.url,494,'png')}}" wx:if="{{showType==='common'}}"></image>
+    <image catch:tap="popupToPage" class="popUp-examine {{popUpAnimation?'popUp-animation':''}}" data-exparkid="{{'/doubleEleven/pages/parallelSessions/parallelSessions?noJump=yes&exhibitionParkId='+popupInfo.exhibitionParkId}}" data-track-area="examinePop" data-track-type="view" data-type="{{4}}" src="{{filter.addImgSuffix(img.examineIndex,494,'png')}}" wx:if="{{showType==='examinePopUp'}}"></image>
+    <view catchtap="showShareBox" class="{{popUpAnimation?'popUp-animation':''}} update-bronze-bg" wx:if="{{showType==='updateBronze'}}"></view>
+    <view class="receive-coupon" wx:if="{{showType==='coupon'}}">
+        <view class="coupon-top">
+            <view class="top-title">会场专属优惠券已到账！</view>
+            <scroll-view class="coupon-group-popup-contain" scrollY="{{popupInfo.couponList.length>2?true:false}}">
+                <view class="coupon-item">
+                    <coupon bind:closePopup="closePopup" bind:receiveCoupon="receiveCoupon" couponList="{{popupInfo.couponList}}" size="middle"></coupon>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="coupon-bottom">
+            <view class="bottom-title">可在“我的-我的优惠券”查看</view>
+            <view catchtap="getPopUpCoupon" class="bottom-btn">一键领取</view>
+        </view>
+    </view>
+    <view class="receive-group-coupon" wx:if="{{showType==='recieveGroupCoupon'}}">
+        <view class="coupon-top">
+            <Avatar class="share-pic" height="{{120}}" size="{{120}}" src="{{filter.addImgSuffix(myAvatar,120,'png')}}"></Avatar>
+            <view class="top-title ellipsis">你的专属优惠券已到账！</view>
+            <scroll-view class="coupon-group-popup-contain" scrollY="{{popupInfo.receiveGroupCouponList.length>2?true:false}}">
+                <view class="coupon-item">
+                    <coupon couponList="{{popupInfo.receiveGroupCouponList}}" couponType="commission" scene="{{3}}" size="middle"></coupon>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="coupon-bottom">
+            <view class="bottom-title">可在“我的-我的优惠券”查看</view>
+            <view catchtap="closePopup" class="bottom-btn" wx:if="{{!allGroupOwner.isAll}}">立即使用</view>
+            <view catchtap="toSomePage" class="bottom-btn" data-url="/subPages/pages/mine/coupon/coupon" wx:else>查看全部
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{showType==='userRetention'}}">
+        <view class="user-retention-container">
+            <view catchtap="closePopup" class="close" data-track-area="retention-close" data-track-type="click">
+                <image class="img-common" mode="aspectFill" src="https://cdn.webuy.ai/static/sh-assets/weapp/icons/close.png?x-oss-processx3dimage/resize,w_42,x-oss-processx3dimage/format,png"></image>
+            </view>
+            <view catch:tap="goUserRetention" class="user-retention-content" data-track-area="userRetention-list-open" data-track-type="click">
+                <image class="img-title" mode="aspectFill" src="{{filter.addImgSuffix(img.popTitle,584,'png')}}"></image>
+                <text class="red-num">{{giftNum}}</text>
+                <image class="img-gold" mode="aspectFill" src="{{filter.addImgSuffix(img.popLeft,174,'png')}}"></image>
+                <image class="img-blur" mode="aspectFill" src="{{filter.addImgSuffix(img.popRight,152,'png')}}"></image>
+                <view class="goods-item">
+                    <goodItem item="{{item}}" wx:for="{{filter.slice(recommendedGiftPitemList,0,3)}}" wx:key="index"></goodItem>
+                </view>
+                <view catch:tap="goUserRetention" class="item-btn" data-track-area="userRetention-btn-open" data-track-type="click">去逛逛，有礼包拆
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{showType==='newUser'}}">
+        <view class="user-coupon-container">
+            <view catchtap="closePopup" class="close" data-track-area="growth-visitor-close" data-track-type="click">
+                <image class="img-common" mode="aspectFill" src="https://cdn.webuy.ai/static/sh-assets/weapp/icons/close.png?x-oss-processx3dimage/resize,w_42,x-oss-processx3dimage/format,png"></image>
+            </view>
+            <verifyButton bind:getUser="showNewUserMoney" data-track-area="growth-visitor-open" data-track-type="view">
+                <view catchtap="showNewUserMoney" class="user-coupon-content">
+                    <image class="img-blur" mode="aspectFill" src="{{filter.addImgSuffix(img.blur,174,'png')}}"></image>
+                    <image class="img-gold" mode="aspectFill" src="{{filter.addImgSuffix(img.gold,152,'png')}}"></image>
+                    <view class="first-row" wx:if="{{kocNewUserHelpPop}}">感谢你的助力送你一个红包</view>
+                    <view class="first-row" wx:else>恭喜你获得新人专享福利</view>
+                    <view class="second-row">最高可得15元</view>
+                    <image class="img-open" mode="aspectFill" src="{{filter.addImgSuffix(img.open,152,'png')}}"></image>
+                </view>
+            </verifyButton>
+        </view>
+    </view>
+    <view wx:if="{{showType==='newUserMoney'}}">
+        <view class="user-money-container">
+            <view bind:getUser="toNewerExhibition" data-track-area="growth-open" data-track-type="click">
+                <view catchtap="toNewerExhibition" class="user-money-content" data-track-area="growth-open" data-track-type="click" style="background: url('{{filter.addImgSuffix(img.money,750,'png')}}') no-repeat;background-size: 100% 100%;">
+                    <view class="content-money">{{preferentialAmount/100}}
+                        <text style="font-size:32rpx;">元</text>
+                    </view>
+                    <view class="content-desc">新人现金红包</view>
+                    <view class="content-btn">立即使用</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <image catchtap="toSomePage" class="popUp-img {{popUpAnimation?'popUp-animation':''}}" data-url="/pages/taskCenter/taskCenter" mode="aspectFit" src="{{filter.addImgSuffix('https://cdn.webuy.ai/assets/file/09/13/n_1536831051403_7256.png',494)}}" wx:if="{{showType==='sign'}}"></image>
+    <view class="red-envelope-poup" wx:if="{{showType==='redEnvelopeRain'||showType==='groupEnvelope'||showType==='openGroupEnvelope'}}">
+        <redEnvelopeRain bind:onClose="closePopup" info="{{popupInfo}}" playType="{{playType}}" showType="{{showType}}"></redEnvelopeRain>
+    </view>
+    <view class="popUp-dividends {{popUpAnimation?'popUp-animation':''}}" style="background-image:url({{popupInfo.dividendsPopUpBg}});" wx:if="{{showType==='dividends'}}">
+        <view class="popUp-dividends-title" style="background-image:{{popupInfo.titleColor}};">
+            <view>在您离开的时间里</view>
+            <view>获得了以下收益</view>
+        </view>
+        <view class="popUp-dividends-info flex-column">
+            <view class="flex-row margin" wx:if="{{item.value!=='0'}}" wx:for="{{popupInfo.dividendsList}}" wx:key="index">
+                <view class="icon {{item.icon}}"></view>
+                <view>
+                    <view class="name" style="color: {{item.color}};">{{item.name}}</view>
+                    <view>{{item.value>0?'+':''}} {{item.name=='影响力'?'':'¥'}}{{item.value}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="popSuperKeeper {{popUpAnimation?'popUp-animation':''}}" wx:if="{{showType==='superKeeper'}}">
+        <view class="baby-popup" wx:if="{{popupInfo.userRole===0}}">
+            <view class="text-desc flex-center" wx:if="{{popupInfo.phase}}">
+                <view>成功完成</view>
+                <view>“宝宝升级掌柜大冲刺”</view>
+                <view>将在{{popupInfo.endTime}}</view>
+                <view>
+                    瓜分
+                    <text class="baby-number">{{popupInfo.amount/100}}元</text>
+                    奖金池
+                </view>
+            </view>
+            <view class="text-desc flex-center" wx:elif="{{popupInfo.finish}}">
+                <view>成功完成</view>
+                <view>“宝宝升级掌柜大冲刺”</view>
+                <view>获得奖励金</view>
+                <view>
+                    <text class="baby-number">{{popupInfo.prizeValue/100}}元</text>
+                </view>
+            </view>
+            <view bindtap="superKeeperShare" class="show-me-off flex-center" data-popup-info="{{popupInfo}}" style="margin-top:62rpx">
+                <text class="btn-text">炫耀一下</text>
+            </view>
+        </view>
+        <view class="{{isStage?'super-last-popup':'super-popup'}}" wx:if="{{popupInfo.userRole>=1&&popupInfo.phase&&popupInfo.pkMethod===1}}">
+            <view class="text-desc text-size flex-center first-stage-padding" wx:if="{{!isStage}}">
+                <view class="super-stage-number" wx:if="{{popupInfo.prizeType===1}}">
+                    恭喜进入
+                    <text>{{popupInfo.amount/100}}元</text>
+                    奖金池
+                </view>
+                <view class="super-stage-number" wx:else>
+                    恭喜获得一阶奖金
+                    <text>{{popupInfo.amount/100}}元</text>
+                    {{superKeeperFilter.qualifications(popupInfo.pkMethod,popupInfo.prizeType)}}
+                </view>
+                <view style="padding-top:20rpx">
+                    {{superKeeperFilter.textDesc(popupInfo.activityType,popupInfo.pkMethod).textname1}}
+                    <text class="stage-number-1" decode="{{true}}" space="{{true}}">
+                        &nbsp;&nbsp;{{popupInfo.calcValue}}
+                    </text>
+                    {{superKeeperFilter.textDesc(popupInfo.activityType,popupInfo.pkMethod).textname2}}
+                </view>
+                <view wx:if="{{popupInfo.prizeType===1}}">即可进入下一奖池</view>
+                <view wx:else>
+                    <text>
+                        即可获得下一阶奖金{{superKeeperFilter.qualifications(popupInfo.pkMethod,popupInfo.prizeType)}}
+                    </text>
+                    <text class="stage-number-1" wx:if="{{popupInfo.pkMethod===2&&popupInfo.prizeType===2&&popupInfo.activityType===1}}">
+                        {{''}}
+                    </text>
+                    <text class="stage-number-1" wx:else>{{''}}</text>
+                </view>
+                <view wx:if="{{popupInfo.pkMethod===1}}">继续努力哦～</view>
+                <view wx:else>{{superKeeperFilter.textDesc(popupInfo.activityType,popupInfo.pkMethod).textname3}}</view>
+            </view>
+            <view class="text-desc flex-center" style="padding-top:315rpx;" wx:elif="{{isStage&&popupInfo.pkMethod!==2}}"></view>
+            <view bindtap="superKeeperShare" class="show-me-off flex-center" data-popup-info="{{popupInfo}}" style="margin-top:{{popupInfo.prizeType===1?'62rpx':'60rpx'}}">
+                <text class="btn-text">炫耀一下</text>
+            </view>
+        </view>
+        <view class="super-top-popup" wx:elif="{{popupInfo.userRole>=1&&popupInfo.phase&&popupInfo.pkMethod===2}}">
+            <view class="text-desc text-size flex-center" style="padding-top:180rpx;">
+                <view class="super-stage-number">超级掌柜top榜</view>
+                <view class="super-stage-number">激烈竞争中</view>
+                <view class="super-stage-number">千万不要掉队哦！</view>
+            </view>
+            <view bindtap="toSomePage" class="show-me-off flex-center" data-popup-info="{{popupInfo}}" data-url="/campaign/pages/superKeeper/task/task" style="margin-top:{{popupInfo.prizeType===1?'62rpx':'60rpx'}}">
+                <text class="btn-text">赶紧去看看</text>
+            </view>
+        </view>
+        <view class="super-popup-finish" wx:elif="{{popupInfo.userRole>=1&&popupInfo.finish}}">
+            <view class="text-desc flex-center font-size-line-height" wx:if="{{popupInfo.pkMethod===1}}">
+                <view>瓜分到现金</view>
+                <view>
+                    <text class="finish-number">¥{{popupInfo.prizeValue/100}}</text>
+                </view>
+                <view>获得超级掌柜勋章</view>
+            </view>
+            <view class="text-desc flex-center font-size-line-height" wx:else>
+                <view>成功进入top</view>
+                <view>
+                    <text class="finish-number">¥{{popupInfo.prizeValue/100}}</text>
+                </view>
+                <view>继续保持, 千万不要掉队!</view>
+            </view>
+            <view bindtap="superKeeperShare" class="show-me-off flex-center" data-popup-info="{{popupInfo}}" style="margin-top:40rpx">
+                <text class="btn-text">炫耀一下</text>
+            </view>
+        </view>
+    </view>
+    <view class="black-user-popup" wx:if="{{showType==='blackUser'}}">
+        <view class="title">警告</view>
+        <view class="content">您的账号因宣传内容违规已被封停，封停期间、不再享有佣金收入且提现售后等功能受限</view>
+        <view class="tip">请自改联系13739299284解封(微信同号）</view>
+        <view catchtap="closePopup" class="close-btn">我知道了</view>
+    </view>
+    <view class="talenr-popup {{popUpAnimation?'popUp-animation':''}}" wx:if="{{showType==='talenr'}}">
+        <view class="header">
+            <view class="user-info">
+                <image class="avatar" mode="aspectFill" src="{{filter.addImgSuffix(popupInfo.avatarUrl,160)}}"></image>
+                <image class="tag-level" mode="aspectFit" src="{{filter.addImgSuffix('https://cdn.webuy.ai/assets/file/2019/03/22/n_1553254011851_8628.png',105,'png')}}"></image>
+            </view>
+            <view class="desc">恭喜您成为</view>
+            <image class="tag" mode="aspectFit" src="{{filter.addImgSuffix('https://cdn.webuy.ai/assets/file/2019/03/22/n_1553254097121_7069.png',228,'png')}}"></image>
+            <view class="tip">有效期至: {{dateFilter.formatTime(popupInfo.tagEnd,'M月D日 h:m:s')}}</view>
+        </view>
+        <view class="words">今天您的带货能力超过了平台99%的用户！在您的空间和您的分享海报上都会带上您的专属称号哦。</view>
+        <view catchtap="getTalenrShareImg" class="share-btn">炫耀一下</view>
+    </view>
+    <view class="upgrade-pop" wx:if="{{showType==='groupOuter'}}">
+        <image class="outer-img" src="{{filter.addImgSuffix('https://cdn.webuy.ai/assets/img/2019/04/19/n_1555663632214_2702___size450x506.png',450,'png')}}"></image>
+        <view class="pop-tips">
+            <button catch:tap="toSomePage" class="know-btn" data-url="/pages/newIndex/newIndex">知道了</button>
+        </view>
+    </view>
+    <view class="move-pop" wx:if="{{showType==='moveApplets'&&pageInfo.exhibitionParkType===20}}">
+        <view class="move-tips">
+            <text>团购会场已迁移</text>
+            <text>甩甩团小程序，快去瞧瞧吧！</text>
+        </view>
+        <button catch:tap="moveApplets" class="move-btn">立即前往</button>
+    </view>
+    <block wx:if="{{showType==='upOrDownPop'}}">
+        <view wx:if="{{popupInfo.popType>0&&popupInfo.popType<3}}">
+            <image class="pop-img" src="{{filter.addImgSuffix(img.practicePop,400,'png')}}" wx:if="{{popupInfo.popType===1}}"></image>
+            <image class="pop-img" src="{{filter.addImgSuffix(img.grouperPop,400,'png')}}" wx:if="{{popupInfo.popType===2}}"></image>
+            <view class="pop-tips flex-column">
+                <button catch:tap="moveApplets" class="share-new">立即前往</button>
+            </view>
+        </view>
+        <view class="down-grade" wx:elif="{{popupInfo.popType===0}}">
+            <image class="head-img" src="{{filter.addImgSuffix('https://cdn.webuy.ai/assets/img/2019/05/23/n_1558596332783_9518___size600x208.png',600,'png')}}"></image>
+            <view class="head-wraper flex-column-c">
+                <view class="down-title">团长身份降级</view>
+                <view class="tips-order">订单退款导致团长身份降级</view>
+                <view class="tips-order">
+                    再售
+                    <text class="price">¥{{needCount/100}}</text>
+                    即可恢复哦～
+                </view>
+            </view>
+            <view class="list-wraper">
+                <upSaleList bind:getNeedCount="getNeedCount"></upSaleList>
+            </view>
+            <button catch:tap="closePopup" class="more-hard">再接再厉</button>
+        </view>
+    </block>
+    <view class="authorize-pop flex-column-center" wx:if="{{showType==='allGroupOwnerAuthorize'}}">
+        <image class="inviter-img" src="{{filter.addImgSuffix(popupInfo.inviterHeadPortrait,'180')}}"></image>
+        <view class="inviter">{{popupInfo.inviterNickName}}</view>
+        <view class="inviter-info">添加你为 {{allGroupOwnerFilter.filterName(popupInfo.roleType)}}</view>
+        <view catch:tap="toSomePage" class="authorize-btn" data-url="/campaign/pages/allGroupOwner/pages/index/index">
+            立即查看
+        </view>
+    </view>
+    <view class="authorize-send-pop flex-column-center" wx:if="{{showType==='allGroupOwnerSendEx'||showType==='allGroupOwnerSendCoupon'}}">
+        <image class="inviter-img" src="{{filter.addImgSuffix(popupInfo.avatarUrl,'180')}}"></image>
+        <view class="sub-info">{{popupInfo.popUpText}}</view>
+        <view class="flex inviter-container">
+            <view class="inviter">{{popupInfo.inviterNickName}}</view>
+            <view wx:if="{{showType==='allGroupOwnerSendCoupon'}}">送你一张优惠券</view>
+        </view>
+        <view class="main-info flex-row" wx:if="{{showType==='allGroupOwnerSendEx'}}">
+            送你
+            <text class="text">{{popupInfo.score}}</text>
+            影响力
+        </view>
+        <view class="main-info flex-row" wx:else>
+            <coupon couponList="{{popupInfo.receiveCouponList}}" size="middle"></coupon>
+        </view>
+        <view class="award-info">{{popupInfo.awardText}}</view>
+        <view catch:tap="toSomePage" class="authorize-btn" data-url="{{popupInfo.url}}">立即查看</view>
+    </view>
+    <view class="commission-double" wx:if="{{showType==='commissionDouble'}}">
+        <image catchtap="toSomePage" class="img" data-url="/doubleEleven/pages/parallelSessions/parallelSessions?exhibitionParkId=128184" src="{{filter.addImgSuffix(img.commissionDouble,'550','png')}}"></image>
+    </view>
+    <view class="upgrade {{popupInfo.success?'upgrade-success':''}}" wx:if="{{showType==='upgrade'}}">
+        <block wx:if="{{popupInfo.success}}">
+            <image class="success-img" src="{{filter.addImgSuffix(popupInfo.avatarUrl,104,'png')}}"></image>
+            <image class="crown" src="{{filter.addImgSuffix(img.crown,49,'png')}}"></image>
+            <view catch:tap="toSomePage" class="get-vip btn-animate" data-track-area="vipPop" data-track-type="view" data-url="/campaign/pages/userRight/userRight">去查看权益
+            </view>
+        </block>
+        <view catch:tap="toSomePage" class="get-vip btn-animate" data-track-area="vipPop" data-track-type="view" data-url="/campaign/pages/userRight/userRight" wx:elif="{{!popupInfo.success}}">免费领取甩宝VIP会员
+        </view>
+    </view>
+    <view catch:tap="toSomePage" class="{{popupInfo.popupType===2?'new-boss-coupon':'newed-boss-coupon'}} boss-coupon" data-url="/campaign/pages/shopkeeperFirstOrder/pages/index/index" wx:if="{{showType==='newBossCoupon'}}">
+        <image catchtap="closePopup" class="close-bossPopUpImg" src="{{filter.addImgSuffix(close,60,'png')}}"></image>
+        <view class="boss-coupon-num flex-content-center">
+            ¥
+            <view class="boss-num">{{popupInfo.totalDiscount/100}}</view>
+            <view class="boss-coupon-name ellipsis">{{popupInfo.couponName}}</view>
+        </view>
+        <view class="flex-content-center boss-coupon-center">
+            <view class="boss-coupon-btn flex-c" data-track-area="new-keeper-coupon" data-track-business="TOB" data-track-type="click">立即花掉
+            </view>
+        </view>
+        <view class="boss-coupon-time flex-content-center boss-coupon-center">
+            <typeClock cType="1" currentTime="{{popupInfo.couponDeadline}}" timerColor="#fff" timerNumStyle="color:#000;width:36rpx;margin:0 7rpx;"></typeClock>
+        </view>
+    </view>
+    <view class="super-koc" wx:if="{{showType==='superKoc'}}">
+        <view class="help-koc-pop flex-column pop-common " wx:if="{{popupInfo.type<1}}">
+            <view class="title">很抱歉助力失败了</view>
+            <view class="tips">只有新人才能帮忙助力</view>
+            <view class="icon">
+                <image class="img-common" lazyLoad="{{true}}" mode="aspectFill" src="https://cdn.webuy.ai/static/sh-assets/weapp/icons/close.png?x-oss-processx3dimage/resize,w_42,x-oss-processx3dimage/format,png"></image>
+            </view>
+            <view catch:tap="closePopup" class="btn">我知道啦</view>
+        </view>
+        <view class="help-koc-pop help-koc-pop-boss flex-column pop-common " wx:if="{{popupInfo.type>=1}}">
+            <view class="title">很抱歉助力失败了</view>
+            <view class="tips">只有新人才能帮忙助力</view>
+            <view class="tips sub-tips">但你可以自己去参加哦！</view>
+            <view class="icon">
+                <image class="img-common" lazyLoad="{{true}}" mode="aspectFill" src="https://cdn.webuy.ai/static/sh-assets/weapp/icons/close.png?x-oss-processx3dimage/resize,w_42,x-oss-processx3dimage/format,png"></image>
+            </view>
+            <view catch:tap="toSomePage" class="btn go-see" data-url="/campaign/pages/couponCenter/pages/kocIndex/kocIndex">去参加
+            </view>
+        </view>
+    </view>
+    <image catchtap="closePopup" class="close-popUpImg {{popUpAnimation?'popUp-animation':''}}" src="{{filter.addImgSuffix(close,50,'png')}}" wx:if="{{showType!=='upOrDownPop'&&showType!=='moveApplets'&&showType!=='groupOuter'&&showType!=='redEnvelopeRain'&&showType!=='groupEnvelope'&&showType!=='openGroupEnvelope'&&showType!=='blackUser'&&showType!=='authorize'&&showType!=='newUser'&&showType!=='userRetention'&&showType!=='financeUp'&&showType!=='newBossCoupon'&&showType!=='newUserMoney'&&showType!=='examinePopUp'}}"></image>
+    <template is="shareBar" data="{{showShare:showShare,iphoneX:iphoneX,showImg:showImg,filePath:filePath}}"></template>
+</view>
+<modal bindcloseModal="closeModal" confirmBtnStyle="color: #333; font-size: 32rpx;" modalInfo="反反复复" rootStyle="width:400rpx;"></modal>

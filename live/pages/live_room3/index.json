@@ -1,0 +1,11 @@
+{
+    "navigationStyle": "custom",
+    "usingComponents": {
+        "bubble": "/components/bubble/index",
+        "authorize": "/components/authorize/authorize",
+        "product-window": "/components/product-window/index",
+        "van-dialog": "/vant/dialog/index"
+    },
+    "navigationBarTextStyle": "white",
+    "disableScroll": true
+}

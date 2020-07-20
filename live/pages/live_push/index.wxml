@@ -1,0 +1,548 @@
+<van-dialog id="van-dialog"></van-dialog>
+<live-pusher autopush="true" backgroundMute="{{backgroundMute}}" beauty="{{beauty/10}}" bindstatechange="onPushEvent"
+             debug="{{debug}}" devicePosition="{{device}}" enableAns="{{ans}}" enableCamera="{{enableCamera}}"
+             hidden="{{hide}}" id="camera-push" maxBitrate="{{maxBitrate}}" minBitrate="{{minBitrate}}" mode="{{mode}}"
+             muted="{{muted}}" objectFit="fillCrop" orientation="{{orientation}}"
+             style="width:100%;height:{{isInput?screenTotalH-100:screenTotalH}}rpx;" url="{{pushUrl}}"
+             waitingImage="{{siteInfo.sitepath}}addons/wxz_superstore/static/img/wxapp/push/pause_publish.jpg"
+             whiteness="{{whiteness/10}}" wx:if="{{examineKeywords.switch==0}}"></live-pusher>
+<view class="livePlayer-ctn-box" style="height:{{isInput?screenTotalH-100:screenTotalH}}rpx;"
+      wx:if="{{examineKeywords.switch==0}}">
+    <view class="livePlayer-navBar-box" style="height:{{navH}}rpx;">
+        <view class="livePlayer-navBar">
+            <view bindtap="liveBack" class="out-live">结束{{examineKeywords.keywords_live}}</view>
+            <view class="player-info">
+                <image class="logo" src="{{live.cover}}"></image>
+                <view class="name">
+                    <view class="business-name">{{live.title}}</view>
+                    <view class="online">{{followNums}}关注 | 热度 {{live.fic_num}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="envelope fixed" style="top:{{commonHeadHeight.titleHeight+40}}px">
+        <view class="hongbao">
+            <image src="{{imgSrc}}newLive/hongbao.png"
+                   wx:if="{{plugins.viewing_rewards.enable&&plugins.viewing_rewards.data}}"></image>
+            <view class="time" wx:if="{{plugins.viewing_rewards.data.status==0&&plugins.viewing_rewards.data.time>0}}">
+                <text class="out-time-box">{{countDownList[0].day}}</text>
+                <text class="out-time-box">:</text>
+                <text class="out-time-box">{{countDownList[0].hou}}</text>
+                <text class="out-time-box">:</text>
+                <text class="out-time-box">{{countDownList[0].min}}</text>
+                <text class="out-time-box">:</text>
+                <text class="out-time-box">{{countDownList[0].sec}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="hongbao-porp" wx:if="{{hongbaoTan||hongbaoKai||hongbaoBang}}">
+        <view class="open-content" wx:if="{{hongbaoKai}}">
+            <image bindtap="sendMsg" class="b-img" src="{{imgSrc}}newLive/n-hongbao.png"></image>
+            <view class="title">{{plugins.viewing_rewards.data.reward_info.reward_title}}</view>
+            <view class="money">
+                {{plugins.viewing_rewards.data.reward_info.reward_amount}}
+                <text>元</text>
+            </view>
+            <view class="tip">已存入钱包，可直接提现</view>
+            <image class="z-img" src="{{plugins.viewing_rewards.data.reward_info.reward_logo}}"></image>
+            <view class="form">{{plugins.viewing_rewards.data.reward_info.reward_text}}</view>
+            <view bindtap="onHongbaoBang" class="look">{{plugins.viewing_rewards.data.reward_info.reward_bottom_text}}
+            </view>
+            <image bindtap="onHideHongbaoKai" class="c-img" src="{{imgSrc}}newLive/hcloser.png"></image>
+        </view>
+    </view>
+
+    <view class="setEnvelope fixed" style="top: {{commonHeadHeight.titleHeight+100}}px" wx:if="{{pocket_show}}">
+        <view bindtap="onShopHongbao2" class="hongbao">
+            <image class="image" src="{{imgSrc}}newLive/hongbao.png" wx:if="{{hongbaoData.relation_id}}"></image>
+        </view>
+        <image bindtap="onShopSetEnvelope" class="img" mode="" src="../../../resource/img/fahongbao.png"></image>
+    </view>
+    <view bindtap="onShopSetEnvelope" class="setEnvelope-bg" wx:if="{{shopAmd}}"></view>
+    <view class="setEnvelope-porp {{shopAmd?'shopAmd':''}}">
+        <view class="title">
+            发红包
+        </view>
+        <view class="contents">
+            <view class="list">
+                <view class="text">
+                    总金额
+                </view>
+                <input bindinput="onHongbaoM" class="input" placeholder="0.00" type="number"
+                       value="{{hongbaoForm.money}}"></input>
+                <view class="text">
+                    元
+                </view>
+            </view>
+            <view class="tip">
+                当前为
+                <text>{{hongType?'普通红包':'拼手气红包'}}</text>
+                ，
+                <text bindtap="onHongType" class="ts">{{!hongType?'改为普通红包':'改为拼手气红包'}}</text>
+            </view>
+            <view class="list">
+                <view class="text">
+                    红包个数
+                </view>
+                <input bindinput="onHongbaoN" class="input" placeholder="填写个数" type="text"
+                       value="{{hongbaoForm.num}}"></input>
+                <view class="text">
+                    个
+                </view>
+            </view>
+            <view class="tip">
+                最大红包个数为100个
+            </view>
+            <view class="money">
+                <text class="b">￥</text>
+                {{hongbaoForm.money?hongbaoForm.money:0}}
+            </view>
+            <view class="money-tip">
+                未领取的24小时原路返回
+            </view>
+            <view bindtap="onPaytype" class="btn" data-type="1">
+                塞钱进红包
+            </view>
+        </view>
+    </view>
+    <view class="hongbao-porp" wx:if="{{hongbaoKai2||hongbaoLing2||hongbaoWan2}}">
+        <view class="open-content">
+            <block wx:if="{{hongbaoKai2}}">
+                <image class="b-img" src="{{imgSrc}}newLive/n-hongbao.png"></image>
+                <view class="title">恭喜你，抢到红包</view>
+                <view class="money">
+                    {{userHongBao.content}}
+                    <text>拼手豆</text>
+                </view>
+                <view class="tip">已存入钱包，可直接提现</view>
+                <image class="z-img" src="{{hongbaoData.avatar}}"></image>
+                <view class="form">用户{{hongbaoData.nickname}}的红包</view>
+                <view bindtap="onHongbaoBang" class="look">查看领取详情</view>
+            </block>
+            <block wx:if="{{hongbaoWan2}}">
+                <image class="b-img" src="{{imgSrc}}newLive/n-hongbao.png"></image>
+                <view class="titleWan">手慢了，红包派完了</view>
+                <image class="z-img" src="{{hongbaoData.avatar}}"></image>
+                <view class="form">用户{{hongbaoData.nickname}}的红包</view>
+                <view bindtap="onHongbaoBang" class="look">查看领取详情</view>
+            </block>
+            <block wx:if="{{hongbaoLing2}}">
+                <image class="b-img" src="{{imgSrc}}newLive/n-hongbao.png"></image>
+                <view class="titleWan">已经领过红包了</view>
+                <image :src="hongbaoData.avatar" class="z-img"></image>
+                <view class="form">用户{{hongbaoData.nickname}}的红包</view>
+                <view bindtap="onHongbaoBang" class="look">查看领取详情</view>
+            </block>
+            <image bindtap="onHideHongbaoKai2" class="c-img" src="{{imgSrc}}newLive/hcloser.png"></image>
+        </view>
+        <view class="ling-content {{listShop?'shopAmd':''}}">
+            <view class="title">
+                <image class="z-img" src="{{hongbaoData.avatar}}"></image>
+                <image bindtap="onHideHongbaoBang2" class="x-img" src="../../../resource/img/del_1.png"></image>
+                <view class="tip">
+                    <text>用户{{hongbaoData.nickname}}</text>
+                    的红包
+                </view>
+                <view class="money">
+                    {{hongbaoData.content}}
+                    <text>拼手豆</text>
+                </view>
+            </view>
+            <view class="num">以领取{{userHongBaoList.hongbao.user_num}}/{{userHongBaoList.hongbao.num}}个</view>
+            <view class="contentl">
+                <view class="list" key="index" wx:for="{{userHongBaoList.receive_list}}">
+                    <image class="img" src="{{item.user.avatar}}"></image>
+                    <view class="text">
+                        <view class="name">{{item.user.nickname}}</view>
+                        <view>{{item.created_at}}</view>
+                    </view>
+                    <view class="money">
+                        {{item.money}}
+                        <text>拼手豆</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="chat-box">
+        <view class="chat-ctn">
+            <scroll-view scrollY class="chat-scroll" scrollTop="{{scrollT}}">
+                <view id="chatInfo">
+                    <view class="bulletin" wx:if="{{chat_notice!==''}}">
+                        {{chat_notice}}
+                    </view>
+                    <block wx:for="{{msgs}}" wx:for-item="msg" wx:key="msg_key">
+                        <view bindtap="getProhibit" class="goto-enter" data-avatar="{{msg.avatar}}"
+                              data-name="{{msg.nickname}}" data-uid="{{msg.user_id}}" wx:if="{{msg.content_type==99}}">
+                            {{msg.nickname}}进入{{examineKeywords.keywords_live_room}}
+                        </view>
+                        <view bindtap="getProhibit" class="bulletin" data-avatar="{{msg.avatar}}"
+                              data-name="{{msg.nickname}}" data-uid="{{msg.user_id}}" wx:if="{{msg.content_type==1}}">
+                            {{msg.nickname}}：
+                            <text>{{msg.content}}</text>
+                        </view>
+                        <view class="goto-sys" wx:if="{{msg.content_type==4}}">
+                            系统消息：
+                            <text>{{msg.nickname}}{{msg.content}}</text>
+                        </view>
+                        <view class="goto-sys" wx:if="{{msg.content_type==5}}">
+                            系统消息：{{msg.content}}
+                        </view>
+                        <view class="goto-sys" data-name="{{msg.nickname}}" wx:if="{{msg.content_type==400}}">
+                            系统消息：用户{{msg.nickname}}被禁言
+                        </view>
+                        <view class="goto-sys" data-name="{{msg.nickname}}" wx:if="{{msg.content_type==500}}">
+                            系统消息：用户{{msg.nickname}}被拉黑
+                        </view>
+                        <view class="goto-sys" data-name="{{msg.nickname}}" wx:if="{{msg.content_type==600}}">
+                            系统消息：用户{{msg.nickname}}被解除禁言
+                        </view>
+                        <view class="goto-sys" data-name="{{msg.nickname}}" wx:if="{{msg.content_type==700}}">
+                            系统消息：用户{{msg.nickname}}被解除拉黑
+                        </view>
+                        <view class="goto-sys" data-name="{{msg.nickname}}" wx:if="{{msg.content_type==800}}">
+                            系统消息：{{msg.content}}
+                        </view>
+                    </block>
+                    <view class=""></view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="icons">
+        <view bindtap="getPopPayShop" class="goods-bag">
+            <image class="icon-goods" src="../../../resource/img/goods-bag.png"></image>
+            <view class="goods-count">宝贝</view>
+        </view>
+        <view bindtap="getPopOrder" class="icon-push">
+            <view class="iconfontJiajia icondingdan1 icon-class"></view>
+            <view class="icon-font">订单</view>
+        </view>
+        <view bindtap="getInput" class="icon-push" hidden="{{isInput}}">
+            <view class="iconfontJiajia iconliaotian icon-class"></view>
+            <view class="icon-font">聊天</view>
+        </view>
+        <view class="icon-push" hidden="{{!isInput}}">
+            <view class="iconfontJiajia iconliaotian icon-class"></view>
+            <view class="icon-font">聊天</view>
+        </view>
+        <!--<view bindtap="onBeautyClick" class="icon-push">-->
+            <!--<view class="iconfontJiajia iconmeiyan icon-class"></view>-->
+            <!--<view class="icon-font">美颜</view>-->
+        <!--</view>-->
+        <view bindtap="getTool" class="icon-push">
+            <view class="iconfontJiajia iconhebingxingzhuang- icon-class"></view>
+            <view class="icon-font">工具</view>
+        </view>
+        <view bindtap="showToolPopup" class="icon-push">
+            <view class="iconfontJiajia iconfanzhuanxiangji icon-class"></view>
+            <view class="icon-font">设置</view>
+        </view>
+    </view>
+    <view bindtap="closePopPay" class="popPay-bg" wx:if="{{popPayShow}}"></view>
+    <view bindtap="closePopOrder" class="popPay-bg" wx:if="{{popOrderShow}}"></view>
+    <view bindtap="closeProhibit" class="popPay-bg" wx:if="{{prohibitShow}}"></view>
+    <view bindtap="closeTool" class="popPay-bg" wx:if="{{toolShow}}"></view>
+    <view bindtap="closeInput" class="popPay-bg" style="background:none;" wx:if="{{isInput}}"></view>
+    <view bindtap="closeAddPay" class="popPay-bg" style="z-index:21;" wx:if="{{addPayShow}}"></view>
+    <view bindtap="closeForbidden" class="popPay-bg" style="z-index:21;" wx:if="{{forbiddenShow}}"></view>
+    <view bindtap="closePullBlack" class="popPay-bg" style="z-index:21;" wx:if="{{pullBlackShow}}"></view>
+    <view class="popPay-commodity {{prohibitShow?'popPay--show':''}}" wx:if="{{prohibitShow}}">
+        <view class="prohibitUser">
+            <image src="{{operUser.avatar}}"></image>
+            <view class="prohibitUser-name">{{operUser.nickname}}</view>
+        </view>
+        <view style="height:40rpx;"></view>
+        <view bindtap="setShutup" class="prohibitUser-list">禁言</view>
+        <view bindtap="setBlack" class="prohibitUser-list">拉黑</view>
+        <view bindtap="closeProhibit" class="prohibitUser-list" style="color:#888;">取消</view>
+    </view>
+    <view class="popPay-commodity {{toolShow?'popPay--show':''}}" wx:if="{{toolShow}}">
+        <view class="popPay-title">
+            {{examineKeywords.keywords_live}}工具
+            <view bindtap="closeTool" class="popPay-close">
+                <i class="iconfontJiajia iconguanbi"></i>
+            </view>
+        </view>
+        <view class="poptool-list-box">
+            <view bindtap="getForbidden" class="poptool-list-li">
+                <view class="poptool-list-li-icon poptool-list-li-icon-bg-02">
+                    <i class="iconfontJiajia iconjinyan"></i>
+                </view>
+                <view class="poptool-list-li-font">禁言列表</view>
+            </view>
+            <view bindtap="getPullBlack" class="poptool-list-li">
+                <view class="poptool-list-li-icon poptool-list-li-icon-bg-03">
+                    <i class="iconfontJiajia iconlahei"></i>
+                </view>
+                <view class="poptool-list-li-font">拉黑列表</view>
+            </view>
+            <view class="poptool-list-li">
+                <button class="contact" hoverClass="none" openType="share">
+                    <view class="poptool-list-li-icon poptool-list-li-icon-bg-01">
+                        <i class="iconfontJiajia iconfenxiang1"></i>
+                    </view>
+                    <view class="poptool-list-li-font">分享</view>
+                </button>
+            </view>
+        </view>
+    </view>
+    <view class="popPay-commodity {{forbiddenShow?'popPay--show':''}}" style="z-index:22;" wx:if="{{forbiddenShow}}">
+        <view class="popPay-title">
+            禁言列表
+            <view bindtap="closeForbidden" class="popPay-close">
+                <i class="iconfontJiajia iconguanbi"></i>
+            </view>
+        </view>
+        <scroll-view scrollY class="popPay-list">
+            <view class="popPay-list-ul">
+                <view class="forbidden-li" wx:for="{{shutlist}}" wx:for-item="shut" wx:key="shut_key">
+                    <view class="forbidden-li-left">
+                        <image src="{{shut.avatar}}"></image>
+                    </view>
+                    <view class="forbidden-li-ctn">
+                        <view class="forbidden-li-ctn-name">{{shut.nickname}}</view>
+                        <view class="forbidden-li-ctn-date">{{shut.dateline}}</view>
+                    </view>
+                    <view bindtap="cancelShut" class="forbidden-li-right" data-nickname="{{shut.nickname}}"
+                          data-uid="{{shut.uid}}">解除禁言
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="popPay-commodity {{pullBlackShow?'popPay--show':''}}" style="z-index:22;" wx:if="{{pullBlackShow}}">
+        <view class="popPay-title">
+            拉黑列表
+            <view bindtap="closePullBlack" class="popPay-close">
+                <i class="iconfontJiajia iconguanbi"></i>
+            </view>
+        </view>
+        <scroll-view scrollY class="popPay-list">
+            <view class="popPay-list-ul">
+                <view class="forbidden-li" wx:for="{{blacklist}}" wx:for-item="black" wx:key="black_key">
+                    <view class="forbidden-li-left">
+                        <image src="{{black.avatar}}"></image>
+                    </view>
+                    <view class="forbidden-li-ctn">
+                        <view class="forbidden-li-ctn-name">{{black.nickname}}</view>
+                        <view class="forbidden-li-ctn-date">{{black.dateline}}</view>
+                    </view>
+                    <view bindtap="cancelBlack" class="forbidden-li-right" data-nickname="{{black.nickname}}"
+                          data-uid="{{black.uid}}">解除黑名单
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="popPay-commodity {{popOrderShow?'popPay--show':''}}" wx:if="{{popOrderShow}}">
+        <view class="popPay-title">
+            订单列表
+            <view bindtap="closePopOrder" class="popPay-close">
+                <i class="iconfontJiajia iconguanbi"></i>
+            </view>
+        </view>
+        <scroll-view scrollY class="popPay-list">
+            <view class="popPay-list-ul" wx:if="{{popOrderShow}}">
+                <view class="popPay-list-li" wx:for="{{liveOrders}}" wx:for-item="orders" wx:key="orders_key">
+                    <view class="popPay-list-li-left">
+                        <image src="{{orders.cart_info.productInfo.image}}"></image>
+                    </view>
+                    <view class="popPay-list-li-right">
+                        <view class="popPay-list-li-title">
+                            {{orders.cart_info.productInfo.store_name}}
+                        </view>
+                        <view class="popPay-list-li-num">{{orders.nickname}}</view>
+                        <view class="popPay-list-li-date">{{orders.pay_time}}</view>
+                        <view class="popPay-list-li-money">
+                            <view>购买{{orders.cart_info.cart_num}}件</view>
+                            <view><text style="color: #999999"></text>¥{{orders.cart_info.truePrice}}
+<!--                                /-->
+<!--                                <block wx:if="{{orders.commission}}">-->
+<!--                                    佣金：¥{{orders.commission}}-->
+<!--                                </block>-->
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="popPay-list-ul empty-content" wx:else>
+                <view>暂无订单</view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="popPay-commodity {{popPayShow?'popPay--show':''}}" wx:if="{{popPayShow}}">
+        <view class="popPay-title">
+            {{examineKeywords.keywords_live}}商品
+            <view bindtap="closePopPay" class="popPay-close">
+                <i class="iconfontJiajia iconguanbi"></i>
+            </view>
+            <view bindtap="getAddPay" class="popPay-add">添加商品</view>
+        </view>
+        <scroll-view scrollY bindscrolltolower="onBindscroll" class="popPay-list">
+            <view class="popPay-list-ul" wx:if="{{liveGoods.length>0}}">
+                <view class="popPay-list-li" wx:for="{{liveGoods}}" wx:for-item="liveGood" wx:key="liveGood_key">
+                    <view class="popPay-list-li-left">
+                        <image src="{{liveGood.thumb}}"></image>
+                    </view>
+                    <view class="popPay-list-li-right">
+                        <view class="popPay-list-li-title">{{liveGood.title}}</view>
+                        <view class="popPay-list-li-num popPay-list-li-moreinfo">
+                            <view>剩余{{liveGood.stock}}件</view>
+<!--                            <view class="popPay-list-li-goods-commission" wx:if="{{liveGood.commission}}">-->
+<!--                                佣金：¥{{liveGood.commission}}-->
+<!--                            </view>-->
+                        </view>
+                        <view class="popPay-list-li-money">
+                            <view><text style="color: #999999"></text>¥{{liveGood.marketprice}}</view>
+                            <view class="popPay-list-li-money-right">
+                                <button bindtap="exposure" class="sec-button-red" data-goodsid="{{liveGood.id}}"
+                                        data-status="0" wx:if="{{liveGood.status==1}}">曝光中
+                                </button>
+                                <button bindtap="exposure" class="sec-button-disabled" data-goodsid="{{liveGood.id}}"
+                                        data-status="1" wx:if="{{liveGood.status==0}}">曝光
+                                </button>
+                                <button bindtap="changTop" class="sec-button-red" data-goodsid="{{liveGood.id}}"
+                                        data-sort="0" wx:if="{{liveGood.sort==1}}">置顶中
+                                </button>
+                                <button bindtap="changTop" class="sec-button-disabled" data-goodsid="{{liveGood.id}}"
+                                        data-sort="1" wx:if="{{liveGood.sort==0}}">置顶
+                                </button>
+                                <button bindtap="delLiveGoods" data-goodsid="{{liveGood.id}}">移除</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="popPay-list-ul empty-content" wx:else>
+                <view>暂无商品，快去添加吧</view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="popPay-commodity {{addPayShow?'popPay--show':''}}" style="z-index:22;" wx:if="{{addPayShow}}">
+        <view class="popPay-title">
+            添加商品
+            <view bindtap="closeAddPay" class="popPay-close">
+                <i class="iconfontJiajia iconguanbi"></i>
+            </view>
+        </view>
+        <view class="goods-add-search-box">
+            <view class="goods-add-search">
+                <view class="goods-add-search-icon iconfontJiajia iconsearch"></view>
+                <view class="goods-add-search-input">
+                    <input bindinput="searchGoods" confirmType="search" placeholder="请通过搜索名称或关键词搜索要添加的商品"></input>
+                </view>
+            </view>
+        </view>
+        <scroll-view bindscrolltolower="onGoodscroll" class="popPay-list" scrollY="{{true}}">
+            <view class="popPay-list-ul">
+                <view class="popPay-list-li" wx:for="{{searchGoods}}" wx:for-item="searchGood" wx:key="searchGood_key">
+                    <view class="popPay-list-li-left">
+                        <image src="{{searchGood.thumb}}"></image>
+                    </view>
+                    <view class="popPay-list-li-right">
+                        <view class="popPay-list-li-title">{{searchGood.title}}</view>
+                        <view class="popPay-list-li-num">剩余{{searchGood.stock}}件</view>
+                        <view class="popPay-list-li-money">
+                            <view class="popPay-list-li-marketprice"><text style="color: #999999"></text>¥{{searchGood.marketprice}}
+<!--                                /-->
+<!--                                <view class="popPay-list-li-commission" wx:if="{{searchGood.commission}}">-->
+<!--                                    佣金:¥{{searchGood.commission}}-->
+<!--                                </view>-->
+                            </view>
+                            <view class="popPay-list-li-money-right">
+                                <button class="sec-button-red" wx:if="{{searchGood.has_add}}">已添加</button>
+                                <button bindtap="addliveGoods" class="sec-button-red" data-goodsid="{{searchGood.id}}"
+                                        wx:else>添加
+                                </button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view id="examine-content" wx:if="{{examineKeywords.switch==1}}">
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>
+<view class="root" wx:if="{{isInput}}">
+    <view class="field">
+        <input bind:blur="sendMsg" bind:confirm="onConfirm" blur="sendMsg" class="van-field__input" cursor="-1"
+               cursorSpacing="8" focus="{{isInput}}" maxlength="30"
+               placeholder="跟{{examineKeywords.keywords_live_anchor}}说点什么..." placeholderClass="van-field__placeholder"
+               selectionEnd="-1" selectionStart="-1" type="text"></input>
+    </view>
+    <view class="van-hairline-left">发送</view>
+</view>
+<van-popup round bind:close="onToolClose" customStyle="background-color:rgba(255,255,255,0.2);color:#fff;"
+           position="bottom" show="{{toolMore}}">
+    <view class="pop-title-box">工具</view>
+    <van-cell-group customStyle="background-color:rgba(255,255,255,0.2);color:#fff;">
+        <van-cell customStyle="background-color:rgba(255,255,255,0.2);color:#fff;">
+            <view class="cell-title-box" slot="title">清晰度</view>
+            <view class="camera-box" slot="right-icon">
+                <radio-group bindchange="onRadioChange">
+                    <radio checked="{{item.checked}}" class="radio" color="#07c160" value="{{item.name}}"
+                           wx:for="{{radioItems}}" wx:key="name">
+                        <text>{{item.value}}</text>
+                    </radio>
+                </radio-group>
+            </view>
+        </van-cell>
+        <van-cell customStyle="background-color:rgba(255,255,255,0.2);color:#fff;">
+            <view class="cell-title-box" slot="title">美颜</view>
+            <view class="camera-box" slot="right-icon">
+                <view class="slider-box">
+                    <van-slider bind:drag="onDrag" max="90" min="0" step="{{1}}" value="{{beauty}}"></van-slider>
+                </view>
+                <view class="slider-font">{{beauty/10}}</view>
+            </view>
+        </van-cell>
+        <van-cell customStyle="background-color:rgba(255,255,255,0.2);color:#fff;">
+            <view class="cell-title-box" slot="title">美白</view>
+            <view class="camera-box" slot="right-icon">
+                <view class="slider-box">
+                    <van-slider bind:drag="onWhiteDrag" max="90" min="0" step="{{1}}"
+                                value="{{whiteness}}"></van-slider>
+                </view>
+                <view class="slider-font">{{whiteness/10}}</view>
+            </view>
+        </van-cell>
+        <van-cell customStyle="background-color:rgba(255,255,255,0.2);color:#fff;">
+            <view class="cell-title-box" slot="title">码率</view>
+            <view class="camera-box" slot="right-icon">
+                <view class="slider-box">
+                    <van-slider bind:drag="onBitrateDrag" max="1200" min="200" step="{{10}}"
+                                value="{{bitrate}}"></van-slider>
+                </view>
+                <view class="slider-font">{{bitrate}}</view>
+            </view>
+        </van-cell>
+        <van-cell customStyle="background-color:rgba(255,255,255,0.2);color:#fff;">
+            <view class="cell-title-box" slot="title">摄像头</view>
+            <view class="camera-box" slot="right-icon">
+                <view>前置</view>
+                <view class="camera-checked-box">
+                    <van-switch activeColor="#07c160" bind:change="onCameraChecked" checked="{{cameraChecked}}"
+                                inactiveColor="#ee0a24"></van-switch>
+                </view>
+                <view>后置</view>
+            </view>
+        </van-cell>
+        <van-cell customStyle="background-color:rgba(255,255,255,0.2);color:#fff;">
+            <view class="cell-title-box" slot="title">音频噪声抑制</view>
+            <view class="camera-box" slot="right-icon">
+                <view>关闭</view>
+                <view class="camera-checked-box">
+                    <van-switch activeColor="#07c160" bind:change="onNoiseChecked"
+                                checked="{{noiseChecked}}"></van-switch>
+                </view>
+                <view>开启</view>
+            </view>
+        </van-cell>
+    </van-cell-group>
+</van-popup>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

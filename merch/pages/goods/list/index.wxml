@@ -1,0 +1,80 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="commodity">
+    <view class="top-tab">
+        <view bindtap="switchType" class="item {{1==type?'active':''}}" data-type="1">出售中</view>
+        <view bindtap="switchType" class="item {{2==type?'active':''}}" data-type="2" wx:if="{{store.is_anchor}}">
+            {{examineKeywords.keywords_live}}库
+        </view>
+        <view bindtap="switchType" class="item {{3==type?'active':''}}" data-type="3">仓库中</view>
+    </view>
+    <view class="swiper">
+        <view class="item">
+            <view class="content" wx:if="{{goods.length>0}}">
+                <view class="list" wx:for="{{goods}}">
+                    <navigator class="shop-info" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:if="{{item.state==1}}">
+                        <image class="img" src="{{item.thumb}}"></image>
+                        <view class="main">
+                            <view class="title">{{item.title}}</view>
+                            <view class="xiao">
+                                <view class="item">销量: {{item.sale_num||0}}</view>
+                                <view class="item">库存: {{item.stock||0}}</view>
+                            </view>
+                            <view class="time" wx:if="{{item.stateon_at!='0000-00-00 00:00:00'}}">上架时间: {{item.stateon_at}}</view>
+                            <view class="money">￥{{item.marketprice}}</view>
+                        </view>
+                    </navigator>
+                    <navigator class="shop-info" hoverClass="none" url="/merch/pages/goods/edit/index?id={{item.id}}" wx:else>
+                        <image class="img" src="{{item.thumb}}"></image>
+                        <view class="main">
+                            <view class="title">{{item.title}}</view>
+                            <view class="xiao">
+                                <view class="item">销量: {{item.sale_num||0}}</view>
+                                <view class="item">库存: {{item.stock||0}}</view>
+                            </view>
+                            <view class="time" wx:if="{{item.stateon_at!='0000-00-00 00:00:00'}}">上架时间: {{item.stateon_at}}</view>
+                            <view class="money">￥{{item.marketprice}}</view>
+                        </view>
+                    </navigator>
+                    <view class="btn" wx:if="{{type==1}}">
+                        <view bindtap="upState" class="item" data-id="{{item.id}}" data-state="0">下架</view>
+                        <view bindtap="liveGoodsUpdate" class="item" data-id="{{item.id}}" wx:if="{{item.is_live_goods}}">移除{{examineKeywords.keywords_live}}库
+                        </view>
+                        <view bindtap="liveGoodsUpdate" class="item" data-id="{{item.id}}" wx:else>加入{{examineKeywords.keywords_live}}库</view>
+                        <navigator class="item" hoverClass="none" url="/merch/pages/goods/edit/index?id={{item.id}}">
+                            编辑
+                        </navigator>
+                    </view>
+                    <view class="btn" wx:elif="{{type==2}}">
+                        <view bindtap="upState" class="item" data-id="{{item.id}}" data-state="1">上架</view>
+                        <view bindtap="liveGoodsUpdate" class="item" data-id="{{item.id}}">移除{{examineKeywords.keywords_live}}库</view>
+                        <navigator class="item" hoverClass="none" url="/merch/pages/goods/edit/index?id={{item.id}}">
+                            编辑
+                        </navigator>
+                    </view>
+                    <view class="btn" wx:elif="{{type==3}}">
+                        <view bindtap="upState" class="item" data-id="{{item.id}}" data-state="1">上架</view>
+                        <navigator class="item" hoverClass="none" url="/merch/pages/goods/edit/index?id={{item.id}}">
+                            编辑
+                        </navigator>
+                        <view bindtap="delGoods" class="item" data-id="{{item.id}}">删除</view>
+                    </view>
+                </view>
+            </view>
+            <view class="content" wx:if="{{goods.length==0&&!loading}}">
+                <view class="no-shop" wx:if="{{type==2}}">亲，您的{{examineKeywords.keywords_live}}库还没有任何产品哦！</view>
+                <view class="no-shop" wx:else>亲，您还没有任何商品哦！</view>
+                <view class="no-shop-btn">
+                    <navigator class="item" hoverClass="none" url="/merch/pages/goods/add/index">发布商品</navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="loadend" wx:if="{{!loading&&goods.length>=limit}}">
+    {{loadTitle}}
+</view>
+<view class="loading" hidden="{{!loading}}">
+    <van-loading size="22px" type="spinner">加载中...</van-loading>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<van-dialog id="van-dialog"></van-dialog>

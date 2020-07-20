@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "authorize": "/components/authorize/authorize",
+        "payment-partner-apply": "/components/payment-partner-apply/index",
+        "van-dialog": "/vant/dialog/index",
+        "diy-form": "/components/diy-form/index",
+        "van-popup": "/vant/popup/index"
+    },
+    "navigationBarTitleText": "开通合伙人",
+    "navigationBarBackgroundColor": "#222222"
+}

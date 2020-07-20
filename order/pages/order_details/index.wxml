@@ -1,0 +1,168 @@
+<navbar id="navbar" parameter="{{parameter}}"></navbar>
+<van-dialog id="van-dialog"></van-dialog>
+<view class="order-details">
+    <view class="header acea-row row-middle {{isGoodsReturn?'on':''}}">
+        <view class="pictrue" wx:if="{{isGoodsReturn==false}}">
+            <image src="{{static_url}}order/order_detail_{{orderInfo._status._type}}.png"></image>
+        </view>
+        <view class="msg-box data {{isGoodsReturn?'on':''}}">
+            <view class="state">{{orderInfo._status._title}}</view>
+            <view>
+                <text class="time">{{orderInfo._status._msg}}</text>
+            </view>
+        </view>
+    </view>
+    <van-steps active="{{active}}" activeColor="#5fb923" activeIcon="success" steps="{{steps}}" wx:if="{{status.type>=0}}"></van-steps>
+    <view wx:if="{{isGoodsReturn==false}}">
+        <view class="address">
+            <view class="name">
+                <van-icon name="location-o"></van-icon>
+                收货人：{{orderInfo.real_name}}
+                <text class="phone" style="float: right">{{orderInfo.user_phone}}</text>
+            </view>
+            <view class="location">收货地址：{{orderInfo.user_address}}</view>
+        </view>
+        <view class="line">
+            <image src="/images/line.jpg"></image>
+        </view>
+    </view>
+    <navigator class="store-info" hoverClass="none" url="/merch/pages/user/center/index?id={{group.store.id}}" wx:if="{{orderInfo.store}}">
+        <van-icon color="#969799" name="shop-o" size="22px"></van-icon>
+        {{orderInfo.store.name}}
+    </navigator>
+    <orderGoods cartInfo="{{cartInfo}}" evaluate="{{evaluate}}" orderId="{{order_id}}"></orderGoods>
+    <view class="wrapper">
+        <view class="item acea-row row-between">
+            <view>配送方式</view>
+            <view class="conter acea-row row-middle row-right">
+                <view>{{orderInfo._delivery_type}}</view>
+            </view>
+        </view>
+        <view style="margin-top: 20rpx" wx:if="{{orderInfo.status!=0}}">
+            <view wx:if="{{orderInfo.delivery_type=='express'}}">
+                <view class="item acea-row row-between">
+                    <view>快递公司：</view>
+                    <view class="conter">{{orderInfo.delivery_name||''}}</view>
+                </view>
+                <view class="item acea-row row-between">
+                    <view>快递号：</view>
+                    <view class="conter">{{orderInfo.delivery_id||''}}</view>
+                </view>
+            </view>
+            <view wx:elif="{{orderInfo.delivery_type=='send'}}">
+                <view class="item acea-row row-between">
+                    <view>配送人姓名：</view>
+                    <view class="conter">{{orderInfo.delivery_name||''}}</view>
+                </view>
+                <view class="item acea-row row-between">
+                    <view>联系电话：</view>
+                    <view class="conter acea-row row-middle row-right">{{orderInfo.delivery_id||''}}
+                        <text bindtap="goTel" class="copy">拨打</text>
+                    </view>
+                </view>
+            </view>
+            <view wx:elif="{{orderInfo.delivery_type=='fictitious'}}">
+                <view class="item acea-row row-between">
+                    <view>虚拟发货：</view>
+                    <view class="conter">已发货，请注意查收</view>
+                </view>
+            </view>
+        </view>
+        <view class="border-line"></view>
+        <view class="item acea-row row-between">
+            <view>买家留言</view>
+            <view class="conter acea-row row-middle row-right">
+                {{orderInfo.mark?orderInfo.mark:'无'}}
+            </view>
+        </view>
+    </view>
+    <view class="wrapper">
+        <view class="item acea-row row-between">
+            <view>商品金额</view>
+            <view class="conter acea-row row-middle row-right">
+                <view>￥{{orderInfo.goods_price}}</view>
+            </view>
+        </view>
+        <view class="item acea-row row-between">
+            <view>运费</view>
+            <view class="conter acea-row row-middle row-right">
+                <view>￥{{orderInfo.pay_postage}}</view>
+            </view>
+        </view>
+        <view class="item acea-row row-between" wx:if="{{orderInfo.paid==1}}">
+            <view>付款方式：</view>
+            <view class="conter">{{orderInfo._status._payType}}</view>
+        </view>
+        <view class="actualPay acea-row row-right">实付款：
+            <text class="money font-color">￥{{orderInfo.pay_price}}</text>
+        </view>
+        <view class="actualPay acea-row row-right" wx:if="{{orderInfo.refund_price>0}}">已退款：
+            <text class="money font-color">￥{{orderInfo.refund_price}}</text>
+        </view>
+        <view class="border-line"></view>
+        <view class="item acea-row row-between service-box">
+            <view bind:tap="call" class="service-btn" data-phone="{{orderInfo.consumer_hotline}}">
+                <van-icon name="phone-o"></van-icon>
+                拨打电话
+            </view>
+            <view class="service-btn">
+                <van-icon name="comment-o"></van-icon>
+                <button class="" openType="contact" type="default">在线客服</button>
+            </view>
+        </view>
+    </view>
+    <view class="wrapper bottom-box">
+        <view class="item-bottom">
+            <view class="label-text">
+                订单编号：
+            </view>
+            <view class="right-content">
+                {{orderInfo.order_id}}
+                <text bindtap="copy" class="copy">复制</text>
+            </view>
+        </view>
+        <view class="item-bottom" wx:if="{{orderInfo.came}}">
+            <view class="label-text">
+                卡密：
+            </view>
+            <view class="right-content">
+                {{orderInfo.came}}
+                <text class="font-color" wx:if="{{orderInfo.came_live_id}}">(已使用)</text>
+                <text class="font-color" wx:else>(未使用)</text>
+                <text bindtap="copyData" class="copy" data-content="{{orderInfo.came}}">复制</text>
+            </view>
+        </view>
+        <view class="item-bottom">
+            <view class="label-text">
+                创建时间：
+            </view>
+            <view class="right-content">
+                {{orderInfo.add_time_y+' '+orderInfo.add_time_h}}
+            </view>
+        </view>
+        <view class="item-bottom" wx:if="{{orderInfo.paid==1}}">
+            <view class="label-text">
+                付款时间：
+            </view>
+            <view class="right-content">
+                {{orderInfo._pay_time}}
+            </view>
+        </view>
+    </view>
+    <view style="height:120rpx;"></view>
+    <view class="footer acea-row row-right row-middle" wx:if="{{isGoodsReturn==false||status.type==9}}">
+        <view bindtap="pay_open" class="bnt bg-color" data-order_id="{{orderInfo.order_id}}" wx:if="{{status.type==0}}">
+            立即付款
+        </view>
+        <navigator class="bnt cancel" hoverClass="none" url="/order/pages/goods_return/index?orderId={{orderInfo.order_id}}" wx:elif="{{status.type==1||status.type==2}}">申请退款
+        </navigator>
+        <view bindtap="goJoinPink" class="bnt bg-color" wx:if="{{status.class_status==1}}">查看拼团</view>
+        <navigator class="bnt cancel" hoverClass="none" url="/order/pages/goods_logistics/index?orderId={{orderInfo.order_id}}" wx:if="{{orderInfo.delivery_type=='express'&&status.class_status==3&&status.type==2}}">查看物流
+        </navigator>
+        <view bindtap="confirmOrder" class="bnt bg-color" wx:if="{{status.class_status==3}}">确认收货</view>
+        <view bindtap="delOrder" class="bnt cancel" wx:if="{{status.type==4}}">删除订单</view>
+        <view bindtap="goOrderConfirm" class="bnt bg-color" wx:if="{{status.class_status==5}}">再次购买</view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<payment bind:onChangeFun="onChangeFun" order_id="{{pay_order_id}}" pay_close="{{pay_close}}" totalPrice="{{totalPrice}}" userInfo="{{userInfo}}" wx:if="{{userInfo.id}}"></payment>

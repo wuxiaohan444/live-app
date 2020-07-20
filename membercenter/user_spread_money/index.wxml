@@ -1,0 +1,18 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="commission-header">
+    <view class="commission-text">{{name}}(元)</view>
+    <view class="commission-total">{{recordCount}}</view>
+</view>
+<view wx:if="{{recordList.length>0}}">
+    <view class="commission-info-box" wx:for="{{recordList}}" wx:for-item="child">
+        <view class="commission-info-detail-box">
+            <view class="commission-name-text">{{child.title}}</view>
+            <view class="commission-time-box">{{child.dateline}}</view>
+        </view>
+        <view class="commission-price" wx:if="{{child.has_withdraw==0}}">+{{child.commission}}</view>
+        <view class="commission-price" wx:else>-{{child.commission}}</view>
+    </view>
+</view>
+<view class="popPay-list-ul empty-content" wx:else>
+    <view>暂无佣金记录</view>
+</view>

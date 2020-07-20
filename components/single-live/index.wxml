@@ -1,0 +1,26 @@
+<view bind:tap="goRoom" class="preview single" data-index="2" wx:if="{{style==1}}">
+    <view class="top" style="background-image: url('{{live.live.cover}}')">
+        <live-status class="status" examineKeywords="{{examineKeywords}}" live="{{live.live}}"></live-status>
+        <view class="detail">
+            <view class="shopInfo">
+                <image class="logo" src="{{live.user.avatar}}"></image>
+                <text class="name">{{live.live.title}}</text>
+                <view class="distance">
+                    {{live.live.distance}}km
+                </view>
+            </view>
+        </view>
+    </view>
+<!--    <view class="title">-->
+<!--        <view class="live-name" wx:if="{{live.live.subtitle}}">{{live.live.subtitle}}</view>-->
+<!--        <view class="goods-det" wx:if="{{live.goods.length>0}}">-->
+<!--            <view class="left" wx:if="11">-->
+<!--                <view class="goods-name">{{live.goods[0].title}}</view>-->
+<!--                <view class="goods-price">￥{{live.goods[0].marketprice}}</view>-->
+<!--            </view>-->
+<!--            <view class="right" style="background-image: url('{{live.goods[0].thumb}}')"></view>-->
+<!--        </view>-->
+<!--    </view>-->
+</view>
+<view bind:tap="onTapActivity" class="activity-banner single" style="background-image: url('{{live.live.cover}}')" wx:elif="{{style==2}}"></view>
+<view bind:tap="onTapBanner" class="row-banner" style="background-image: url('{{live.live.cover}}')" wx:elif="{{style==3}}"></view>

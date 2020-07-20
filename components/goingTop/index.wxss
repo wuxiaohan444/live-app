@@ -1,0 +1,20 @@
+.go-top {
+    width: 84rpx;
+    height: 84rpx;
+    position: fixed;
+    right: -84rpx;
+    bottom: 300rpx;
+    z-index: 20;
+    transition: all .5s ease-in-out;
+}
+
+.show-top {
+    right: 20rpx;
+}
+
+.go-top image {
+    border-radius: 50%;
+    width: 84rpx;
+    height: 84rpx;
+    margin-bottom: 30rpx;
+}

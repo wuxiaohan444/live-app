@@ -1,0 +1,155 @@
+.order-empty {
+    text-align: center;
+    margin-top: 100rpx;
+    color: #7d7e80;
+}
+
+.order-loadend {
+    color: #7d7e80;
+    text-align: center;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.my-order .list {
+    margin: 14rpx auto 0 auto;
+}
+
+.my-order .list .item {
+    background-color: #fff;
+    border-radius: 6rpx;
+    margin-bottom: 14rpx;
+}
+
+.my-order .list .item .title {
+    height: 84rpx;
+    padding: 0 30rpx;
+    border-bottom: 1rpx solid #eee;
+    font-size: 28rpx;
+    color: #282828;
+}
+
+.my-order .list .item .title .sign {
+    font-size: 24rpx;
+    padding: 0 7rpx;
+    height: 36rpx;
+    margin-right: 15rpx;
+}
+
+.my-order .list .item .item-info {
+    padding: 0 30rpx;
+    margin-top: 22rpx;
+    display: flex;
+}
+
+.my-order .list .item .item-info .name-box {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rpx;
+}
+
+.my-order .list .item .item-info .name-box .attr-info {
+    font-size: 24rpx;
+}
+
+.my-order .list .item .item-info .money-box {
+    margin-left: auto;
+}
+
+.my-order .list .item .item-info .pictrue {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.my-order .list .item .item-info .pictrue image {
+    width: 100%;
+    height: 100%;
+    border-radius: 6rpx;
+}
+
+.my-order .list .item .item-info .text {
+    font-size: 28rpx;
+    color: #999;
+    margin-top: 6rpx;
+}
+
+.my-order .list .item .item-info .text .name {
+    width: 450rpx;
+    color: #282828;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.my-order .list .item .item-info .text .money {
+    text-align: right;
+}
+
+.my-order .list .item .totalPrice {
+    font-size: 26rpx;
+    color: #282828;
+    text-align: right;
+    margin: 27rpx 0 0 30rpx;
+    padding: 0 30rpx 30rpx 0;
+    border-bottom: 1rpx solid #eee;
+    padding-bottom: 5rpx;
+}
+
+.my-order .list .item .totalPrice .money {
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.my-order .list .item .bottom {
+    height: 107rpx;
+    padding: 0 30rpx;
+}
+
+.my-order .list .item .bottom .bnt {
+    width: 176rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: #fff;
+    font-size: 27rpx;
+}
+
+.my-order .list .item .bottom .bnt.cancelBnt {
+    border: 1rpx solid #ddd;
+    color: #aaa;
+}
+
+.my-order .list .item .bottom .bnt~.bnt {
+    margin-left: 17rpx;
+}
+
+.noCart {
+    margin-top: 171rpx;
+    padding-top: 0.1rpx;
+}
+
+.noCart .pictrue {
+    width: 414rpx;
+    height: 336rpx;
+    margin: 78rpx auto 56rpx auto;
+}
+
+.noCart .pictrue image {
+    width: 100%;
+    height: 100%;
+}
+
+.store-info {
+    display: flex;
+    background: #fff;
+    padding: 20rpx 20rpx;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 0;
+}
+
+.postage {
+    color: #999;
+}

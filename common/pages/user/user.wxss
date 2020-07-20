@@ -1,0 +1,351 @@
+page {
+    background: #f4f4f4;
+    font-size: 24rpx!important;
+}
+
+image {
+    display: block;
+}
+
+.head {
+    background: #fe4564;
+    height: 360rpx;
+    border-bottom-left-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+}
+
+.head>.user-info {
+    display: flex;
+    align-items: center;
+    padding: 40rpx 30rpx;
+    position: relative;
+}
+
+.head>.user-info>.img {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 100%;
+    border: solid 10rpx #fe7d93;
+}
+
+.head>.user-info>.user {
+    flex: 1;
+    color: #fff;
+    padding: 0 30rpx;
+}
+
+.head>.user-info>.user>.name {
+    font-size: 30rpx;
+    font-weight: 700;
+}
+
+.head>.user-info>.user>.name>text {
+    font-size: 22rpx;
+    font-weight: 500;
+    vertical-align: bottom;
+}
+
+.head>.user-info>.user>.tip {
+    font-size: 34rpx;
+    font-weight: 500;
+    line-height: 100rpx;
+}
+
+.head>.user-info>.user>.tip>text {
+    margin-left: 10rpx;
+}
+
+.head>.user-info>.user>.edit {
+    font-size: 20rpx;
+    border: solid 1rpx #fff;
+    display: inline-block;
+    padding: 4rpx 20rpx;
+    border-radius: 6rpx;
+    margin-top: 6rpx;
+}
+
+.head>.user-info>.id-info {
+    position: absolute;
+    top: 30rpx;
+    right: 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d7334e;
+    width: 170rpx;
+    height: 60rpx;
+    text-align: center;
+    border-top-left-radius: 40rpx;
+    border-bottom-left-radius: 40rpx;
+    line-height: 1;
+}
+
+.head>.user-info>.id-info>.img {
+    width: 28rpx;
+    height: 24rpx;
+    margin-right: 10rpx;
+}
+
+.my-card {
+    background: #fff;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    border-radius: 12rpx;
+    margin-top: -120rpx;
+}
+
+.my-card>.title {
+    display: flex;
+    align-items: center;
+    height: 70rpx;
+    padding: 0 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.my-card>.title>.text {
+    font-size: 28rpx;
+    font-weight: 700;
+}
+
+.my-card>.title>.more {
+    margin-left: auto;
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.my-card>.title>.img {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.my-card>.content {
+    display: flex;
+    align-items: center;
+    height: 180rpx;
+}
+
+.my-card>.content>.list {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.my-card>.content>.list>.img {
+    width: 70rpx;
+    height: 70rpx;
+    margin: auto auto 10rpx auto;
+}
+
+.my-balance {
+    margin: 30rpx;
+    position: relative;
+}
+
+.my-balance>.img {
+    width: 100%;
+    height: 140rpx;
+}
+
+.my-balance>.content {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.my-balance>.content>.balance {
+    flex: 1;
+    padding: 0 30rpx;
+}
+
+.my-balance>.content>.balance>.title {
+    font-size: 24rxp;
+    margin-bottom: 5rpx;
+}
+
+.my-balance>.content>.balance>.money {
+    font-size: 48rpx;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.my-balance>.content>.balance>.money>text {
+    font-size: 22rpx;
+    font-weight: 500;
+}
+
+.my-balance>.content>.btn {
+    font-size: 24rpx;
+    border: solid 1rpx #fff;
+    width: 120rpx;
+    line-height: 50rpx;
+    border-radius: 40rpx;
+    text-align: center;
+    margin-right: 30rpx;
+}
+
+.my-promote {
+    background: #fff;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    border-radius: 12rpx;
+}
+
+.my-promote>.title {
+    display: flex;
+    align-items: center;
+    height: 70rpx;
+    padding: 0 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.my-promote>.title>.text {
+    font-size: 28rpx;
+    font-weight: 700;
+    flex: 1;
+}
+
+.my-promote>.title>.more {
+    margin-left: auto;
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.my-promote>.title>.img {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.my-promote>.content {
+    text-align: center;
+    padding-bottom: 30rpx;
+}
+
+.my-promote>.content>.money {
+    display: flex;
+    align-items: center;
+    padding: 30rpx;
+}
+
+.my-promote>.content>.money>.item {
+    flex: 1;
+    text-align: center;
+    border-right: solid 1rpx #f1f1f1;
+}
+
+.my-promote>.content>.money>.item:last-child {
+    border-right: none;
+}
+
+.my-promote>.content>.money>.item>.num {
+    font-size: 36rpx;
+    font-weight: 700;
+}
+
+.my-promote>.content>.money>.item>.text {
+    font-size: 24rpx;
+    color: #666666;
+}
+
+.my-promote>.content>.sheng {
+    color: #fe4564;
+    border: solid 1rpx #fe4564;
+    display: inline-block;
+    border-radius: 40rpx;
+    width: 180rpx;
+    line-height: 50rpx;
+    text-align: center;
+}
+
+.my-service {
+    background: #fff;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    border-radius: 12rpx;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+}
+
+.my-service>.title {
+    display: flex;
+    align-items: center;
+    height: 70rpx;
+    padding: 0 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.my-service>.title>.text {
+    font-size: 28rpx;
+    font-weight: 700;
+}
+
+.my-service>.title>.more {
+    margin-left: auto;
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.my-service>.title>.img {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.my-service>.content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30rpx 0;
+}
+
+.my-service>.content>.list {
+    flex: 0 0 25%;
+    text-align: center;
+    padding: 15rpx 0;
+}
+
+.my-service>.content>.list>.img {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 100%;
+    margin: auto auto 8rpx auto;
+}
+
+.my-service>.content button.list {
+    line-height: normal;
+    background-color: #fff;
+    font-size: inherit;
+    font-weight: normal;
+    color: inherit;
+    display: block;
+}
+
+.my-service>.content button.list:after {
+    border: none;
+}
+
+.block-nav-icon {
+    margin-left: 4px;
+}
+
+.order-status-num {
+    background: #fc3f3f;
+    color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    right: 20rpx;
+    top: -20rpx;
+    font-size: 23rpx;
+    border: none;
+    height: 20rpx;
+    line-height: 20rpx;
+    padding: 10rpx 15rpx;
+}

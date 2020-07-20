@@ -1,0 +1,33 @@
+@import "../../../../Wxss/0.wxss";
+
+.nav_list-box .list {
+    display: flex;
+    align-items: center;
+    padding: 10rpx 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.nav_list-box {
+    padding: 10rpx 0;
+}
+
+.nav_list-box .list:last-child {
+    border-bottom: none;
+}
+
+.nav_list-box .list image {
+    width: 100rpx;
+    height: 100rpx;
+    display: block;
+}
+
+.nav_list-box .list .text {
+    flex: 1;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+}
+
+.nav_list-box .list .iconfont {
+    font-size: 28rpx;
+    color: #888;
+}

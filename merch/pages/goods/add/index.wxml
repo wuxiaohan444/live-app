@@ -1,0 +1,102 @@
+<view class="navbar red" style="height:{{navH}}rpx">
+    <view class="navbarH" style="height:{{navH}}rpx;">
+        <view class="navbarCon acea-row row-center-wrapper">
+            <view class="name {{parameter.color==true?'on':''}} line1">{{parameter.title}}</view>
+            <view bindtap="returnBack" class="iconfont icon-xiangzuo {{parameter.color==true?'on':''}}" wx:if="{{parameter.return==1}}"></view>
+        </view>
+    </view>
+</view>
+<view style="height:{{navH}}rpx"></view>
+<view class="release-shop">
+    <view class="content content-device-{{deviceType}}">
+        <view class="list">
+            <view class="title">商品名称</view>
+            <input bindinput="formDataChange" class="input" data-column="title" maxlength="30" name="title" placeholder="最多30个字" value="{{formData.title}}"></input>
+        </view>
+        <view class="list">
+            <view class="title">商品副标题</view>
+            <input bindinput="formDataChange" class="input" data-column="subtitle" maxlength="50" name="subtitle" placeholder="最多50个字" value="{{formData.subtitle}}"></input>
+        </view>
+<!--        <navigator class="list mt20" hoverClass="none" url="/goods/pages/select_goods_cate/index?from=merch_add_goods&category=0">-->
+<!--            <view class="title">选择商品类目</view>-->
+<!--            <view>{{categoryData.name}}</view>-->
+<!--            <view class="name" wx:if="{{formData.category_id}}">-->
+<!--                {{formData.category_name}}-->
+<!--            </view>-->
+<!--            <view class="block-nav-icon" wx:else>-->
+<!--                <van-icon color="#969799" name="arrow" size="12px"></van-icon>-->
+<!--            </view>-->
+<!--        </navigator>-->
+<!--        <navigator class="list" hoverClass="none" url="/merch/pages/goods/category/index">-->
+<!--            <view class="title">店铺分类</view>-->
+<!--            <view class="name" wx:if="{{formData.store_category_id}}">-->
+<!--                {{formData.store_category_name}}-->
+<!--            </view>-->
+<!--            <view class="block-nav-icon" wx:else>-->
+<!--                <van-icon color="#969799" name="arrow" size="12px"></van-icon>-->
+<!--            </view>-->
+<!--        </navigator>-->
+        <view class="list mt20">
+            <view class="title">
+                <view>商品图片</view>
+                <view class="num">{{formData.thumbs.length||0}}/9</view>
+            </view>
+            <view class="up-image">
+                <van-uploader accept="image" bind:after-read="uploadThumbs" bind:delete="deleteThumbs" fileList="{{formData.thumbs}}" maxCount="9"></van-uploader>
+            </view>
+        </view>
+<!--        <view class="list">-->
+<!--            <view class="title">视频（可选）</view>-->
+<!--            <view class="up-image">-->
+<!--                <van-uploader accept="video" bind:after-read="uploadVideo" bind:delete="deleteVideo" fileList="{{formData.video}}" maxCount="1"></van-uploader>-->
+<!--            </view>-->
+<!--        </view>-->
+        <view class="list mt20">
+            <view class="title">商品单位</view>
+            <input bindinput="formDataChange" class="input" data-column="unit" maxlength="5" name="unit" placeholder="个/件/包" value="{{formData.unit}}"></input>
+        </view>
+        <view class="list">
+            <view class="title">直播价格</view>
+            <input bindinput="formDataChange" class="input" data-column="productprice" name="productprice" placeholder="直播价格" type="digit" value="{{formData.productprice}}"></input>
+        </view>
+        <view class="list">
+            <view class="title">预付定金</view>
+            <input bindinput="formDataChange" class="input" data-column="marketprice" name="marketprice" placeholder="元" type="digit" value="{{formData.marketprice}}"></input>
+        </view>
+<!--        <view class="list">-->
+<!--            <view class="title">直播价格</view>-->
+<!--            <input bindinput="formDataChange" class="input" data-column="productprice" name="productprice" placeholder="直播价格" type="digit" value="{{formData.productprice}}"></input>-->
+<!--        </view>-->
+        <view class="list">
+            <view class="title">商品库存</view>
+            <input bindinput="formDataChange" class="input" data-column="stock" name="stock" placeholder="数量" type="number" value="{{formData.stock}}"></input>
+        </view>
+        <view class="list">
+            <view class="title">快递运费</view>
+            <input bindinput="formDataChange" class="input" data-column="expressprice" name="expressprice" placeholder="元" type="digit" value="{{formData.expressprice}}"></input>
+        </view>
+        <view class="list">
+            <view class="title">包邮</view>
+            <switch bindchange="formDataChange" checked="{{formData.is_free_freight}}" class="switch" color="#fe4564" data-column="is_free_freight"></switch>
+        </view>
+        <navigator class="list mt20" hoverClass="none" url="/merch/pages/goods/rich_text/index">
+            <view class="title">图文详情</view>
+            <view class="name" wx:if="{{formData.description}}">
+                已保存
+            </view>
+            <view class="block-nav-icon" wx:else>
+                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+            </view>
+        </navigator>
+    </view>
+    <view style="height: 100rpx"></view>
+    <view class="bottom-btn">
+        <view class="box">
+            <view bindtap="goodsSumit" class="item l" data-state="0">保存到仓库</view>
+            <view bindtap="goodsSumit" class="item r" data-state="1">发布商品</view>
+        </view>
+    </view>
+    <picker bindfinish="finishHandler" id="moneyType" isShadow="{{true}}" pickerData="{{val}}" value="{{[0]}}"></picker>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<van-dialog id="van-dialog"></van-dialog>

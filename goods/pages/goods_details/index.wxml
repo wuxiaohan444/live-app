@@ -1,0 +1,120 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="product-con">
+    <productConSwiper imageUrl="{{storeInfo.image}}" imgUrls="{{storeInfo.slider_image}}" videoUrl="{{storeInfo.video}}"></productConSwiper>
+    <view class="wrapper">
+        <view class="share acea-row row-between row-bottom">
+            <view class="money">
+                <text class="num font-color">￥{{storeInfo.price}}</text>
+                <text class="product-money">{{storeInfo.ot_price}}</text>
+                <text class="vip-money" wx:if="{{storeInfo.vip_price&&storeInfo.vip_price>0}}">
+                    ￥{{storeInfo.vip_price}}
+                </text>
+                <image src="/images/vip.png" wx:if="{{storeInfo.vip_price&&storeInfo.vip_price>0}}"></image>
+            </view>
+            <view bindtap="listenerActionSheet" class="iconfontJiajia iconfenxiang" style="font-size:22px;"></view>
+        </view>
+        <view class="introduce">{{storeInfo.store_name}}</view>
+        <view class="label acea-row row-between-wrapper">
+            <view>销量:<text class="black">{{storeInfo.fsales}}{{storeInfo.unit_name}}</text>
+            </view>
+            <view wx:if="{{storeInfo.buyway!=2}}">库存:<text class="black">{{storeInfo.stock}}{{storeInfo.unit_name}}</text>
+            </view>
+        </view>
+        <view class="coupon acea-row row-between-wrapper" wx:if="{{storeInfo.give_integral>0}}">
+            <view class="hide line1 acea-row">
+                赠积分:
+                <view class="activity">赠送 {{storeInfo.give_integral}} 积分</view>
+            </view>
+        </view>
+    </view>
+    <view class="attribute acea-row row-between-wrapper">发货: <text class="black">快递:{{storeInfo.is_postage?'包邮':'￥'+storeInfo.postage}}</text>
+    </view>
+    <view class="attribute acea-row row-between-wrapper" wx:if="{{storeInfo.ensures}}">
+        保障: <text class="black">{{storeInfo.ensures}}</text>
+    </view>
+    <view bindtap="selecAttr" class="attribute acea-row row-between-wrapper" wx:if="{{storeInfo.hasoption}}">
+        <view>{{attr}}：
+            <text class="atterTxt">{{attrValue}}</text>
+        </view>
+        <view class="iconfont icon-jiantou"></view>
+    </view>
+    <view class="userEvaluation" wx:if="{{replyCount}}">
+        <view class="title acea-row row-between-wrapper">
+            <view>用户评价({{replyCount}})</view>
+            <navigator class="praise" hoverClass="none" url="/goods/pages/goods_comment_list/index?product_id={{id}}">
+                <text class="font-color">{{replyChance}}%</text>
+                好评率
+                <text class="iconfont icon-jiantou"></text>
+            </navigator>
+        </view>
+        <userEvaluation reply="{{reply}}"></userEvaluation>
+    </view>
+    <view class="store_info" wx:if="{{shopInfo}}">
+        <view class="store-logo">
+            <image src="{{shopInfo.logo}}"></image>
+        </view>
+        <view class="store_name_info">
+            <view class="name">
+                {{shopInfo.name}}
+            </view>
+            <view class="approve" wx:if="{{shopInfo.is_integrity==1}}">
+                <view class="approve_icon">
+                    <image src="{{sitepath}}addons/shimmer_liveshop/static/wxapp/plugin/merch/store/center/dui.png"></image>
+                </view>
+                <view>{{shopInfo.integrity_text}}认证</view>
+            </view>
+        </view>
+        <navigator class="goto-store" hoverClass="none" url="/merch/pages/user/center/index?id={{shopInfo.id}}">
+            进店
+        </navigator>
+    </view>
+    <view class="product-intro">
+        <view class="title">宝贝介绍</view>
+        <view class="conter">
+            <template is="wxParse" data="{{wxParseData:description.nodes}}"></template>
+        </view>
+    </view>
+    <view style="height:120rpx;"></view>
+    <view class="footer acea-row row-between-wrapper">
+        <button class="item" hoverClass="none" openType="contact">
+            <view class="iconfontJiajia iconkefu1"></view>
+            <view>客服</view>
+        </button>
+        <view bindtap="setCollect" class="item">
+            <view class="iconfontJiajia iconshoucang2" wx:if="{{storeInfo.userCollect}}"></view>
+            <view class="iconfontJiajia iconwuxiaoxing-kong" wx:else></view>
+            <view>收藏</view>
+        </view>
+        <navigator class="animated item {{animated==true?'bounceIn':''}}" hoverClass="none" openType="navigate" url="/order/pages/order_addcart/order_addcart">
+            <view class="iconfontJiajia icongouwuche">
+                <text class="num bg-color">{{CartCount||0}}</text>
+            </view>
+            <view>购物车</view>
+        </navigator>
+        <view class="bnt acea-row" wx:if="{{storeInfo.buyway==1}}">
+            <button bindtap="joinCart" class="joinCart bnts">加入购物车</button>
+            <button bindtap="goBuy" class="buy bnts">立即购买</button>
+        </view>
+        <view class="bnt acea-row" wx:elif="{{storeInfo.buyway==2}}">
+            <navigator appId="{{storeInfo.thirdurl.appid}}" class="joinCart bnts" extraData="{{storeInfo.thirdurl.extra_data}}" path="{{storeInfo.thirdurl.path}}" target="miniProgram" version="{{storeInfo.thirdurl.version}}">
+                加入购物车
+            </navigator>
+            <navigator appId="{{storeInfo.thirdurl.appid}}" class="buy bnts" extraData="{{storeInfo.thirdurl.extra_data}}" path="{{storeInfo.thirdurl.path}}" target="miniProgram" version="{{storeInfo.thirdurl.version}}">
+                立即购买
+            </navigator>
+        </view>
+    </view>
+    <shareRedPackets bind:listenerActionSheet="listenerActionSheet" sharePacket="{{sharePacket}}"></shareRedPackets>
+</view>
+<van-action-sheet actions="{{actions}}" bind:close="listenerActionSheet" bind:select="selectActionSheet" closeOnClickAction="true" closeOnClickOverlay="true" show="{{actionSheetHidden}}"></van-action-sheet>
+<view class="poster-pop" wx:if="{{posterImageStatus}}">
+    <image bindtap="posterImageClose" class="close" src="/images/poster-close.png"></image>
+    <image src="{{posterImage}}"></image>
+    <view bindtap="savePosterPath" class="save-poster">保存到手机</view>
+</view>
+<view class="mask" wx:if="{{posterImageStatus}}"></view>
+<canvas canvasId="myCanvas" class="canvas" wx:if="{{canvasStatus}}"></canvas>
+<product-window attribute="{{attribute}}" bind:ChangeAttr="ChangeAttr" bind:ChangeCartNum="ChangeCartNum" bind:myevent="onMyEvent" id="product-window" productAttr="{{productAttr}}" productSelect="{{productSelect}}"></product-window>
+<coupon-list-window bind:ChangCoupons="ChangCoupons" bind:ChangCouponsClone="ChangCouponsClone" coupon="{{coupon}}"></coupon-list-window>
+<authorize bind:onLoadFun="onLoadFun" iShidden="{{iShidden}}" isAuto="{{isAuto}}"></authorize>
+<import src="/lib/wxParse/wxParse.wxml"></import>

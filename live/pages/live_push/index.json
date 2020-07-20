@@ -1,0 +1,17 @@
+{
+    "usingComponents": {
+        "authorize": "/components/authorize/authorize",
+        "van-dialog": "/vant/dialog/index",
+        "van-popup": "/vant/popup/index",
+        "van-cell": "/vant/cell/index",
+        "van-cell-group": "/vant/cell-group/index",
+        "van-switch": "/vant/switch/index",
+        "van-slider": "/vant/slider/index",
+        "van-icon": "/vant/icon/index"
+    },
+    "navigationBarTitleText": "推流工具",
+    "backgroundColor": "#000",
+    "backgroundTextStyle": "light",
+    "disableScroll": true,
+    "navigationBarTextStyle": "white"
+}

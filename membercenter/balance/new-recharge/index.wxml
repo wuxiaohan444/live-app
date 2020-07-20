@@ -1,0 +1,29 @@
+<block wx:if='{{examineKeywords.switch == 0}}'>
+    <navbar parameter='{{parameter}}'></navbar>
+</block>
+<block wx:if='{{examineKeywords.switch == 0}}'>
+    <view class='balance'>
+        <view class='num'>{{residue}}</view>
+        <view class='title'>当前剩余天数</view>
+    </view>
+</block>
+<block>
+    <view class='my-title-price'>
+        <view>充值金额</view>
+        <view>主播直播
+            <text class="price">¥{{price?price:0}}/天</text>
+        </view>
+    </view>
+    <view class='payment'>
+        <input bindinput='bindKeyInput' name='number' placeholder='{{placeholder}}' type='digit'
+               value='{{number}}'></input>
+        <text class="unit">天</text>
+    </view>
+    <view class="under">
+        <view class="cost-price">¥{{total_money}}</view>
+        <button bindtap='submitSub' class='but bg-color'>立即充值</button>
+    </view>
+
+</block>
+<import src='/lib/wxParse/wxParse.wxml'></import>
+<authorize bind:onLoadFun='onLoadFun'></authorize>

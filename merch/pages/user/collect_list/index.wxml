@@ -1,0 +1,27 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="collectionGoods" wx:if="{{list.length}}">
+    <navigator class="item acea-row row-between-wrapper" hoverClass="none" url="/merch/pages/user/center/index?id={{item.sid}}" wx:for="{{list}}">
+        <view class="pictrue">
+            <image src="{{item.logo}}"></image>
+        </view>
+        <view class="text acea-row row-column-between">
+            <view class="line1">{{item.name}}</view>
+            <view class="acea-row row-between-wrapper">
+                <view class="money font-color"></view>
+                <view catchtap="delCollection" class="delete" data-id="{{item.sid}}" data-index="{{index}}">删除</view>
+            </view>
+        </view>
+    </navigator>
+    <view class="loadingicon acea-row row-center-wrapper">
+        <text class="loading iconfont icon-jiazai" hidden="{{loading==false}}"></text>
+        {{loadTitle}}
+    </view>
+</view>
+<view class="noCommodity" wx:elif="{{!list.length}}">
+    <view class="pictrue">
+        <view class="nosearch">
+            您还没有收藏的店铺哦~
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

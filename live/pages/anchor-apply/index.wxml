@@ -1,0 +1,96 @@
+<navbar parameter="{{parameter}}"></navbar>
+<!--<view id="apply-content">-->
+<!--<template is="wxParse" data="{{wxParseData:intro.nodes}}"></template>-->
+<!--</view>-->
+<!--<view class="apply-condition" wx:if="{{!applyIntro['meet_condition']}}">-->
+<!--<view class="apply-title">- 如何达到申请条件 -</view>-->
+<!--<view class="apply-tip">若已达到申请条件未显示，请下拉刷新试试</view>-->
+<!--<view class="apply-detail">-->
+<!--<view class="apply-icon">-->
+<!--<i class="iconfontJiajia iconqianbao1"></i>-->
+<!--</view>-->
+<!--<block wx:if="{{applyIntro['apply_limit']==2}}">-->
+<!--<view class="apply-text-box">-->
+<!--<view class="apply-text">需支付{{applyIntro['apply_limit_pay_money']}}元</view>-->
+<!--</view>-->
+<!--<view bindtap="doApplyCondition" class="apply-btn">-->
+<!--去支付-->
+<!--</view>-->
+<!--</block>-->
+<!--<block wx:elif="{{applyIntro['apply_limit']==3}}">-->
+<!--<view class="apply-text-box">-->
+<!--<view class="apply-text">消费金额满{{applyIntro['apply_limit_buy_monty']}}元</view>-->
+<!--<view class="apply-tiptext">还需购买{{applyIntro['apply_limit_left_buy_monty']}}元</view>-->
+<!--</view>-->
+<!--<view bindtap="doApplyCondition" class="apply-btn">-->
+<!--去消费-->
+<!--</view>-->
+<!--</block>-->
+<!--</view>-->
+<!--</view>-->
+<!--<view class="apply-protocol-content">-->
+<!--<van-checkbox bind:change="onApplyProtocolCheck" shape="square" value="{{applyProtocolCheck}}"></van-checkbox>-->
+<!--<view bindtap="onApplyProtocolCheck" style="line-height: 1.6;margin-left: 20rpx;">同意{{applyIntro['apply_protocol_title']}}</view>-->
+<!--<view bindtap="onShowProtocol" class="show-protocol">-->
+<!--<text decode="true">&lt;&lt;</text>-->
+<!--阅读协议-->
+<!--<text decode="true">&gt;&gt;</text>-->
+<!--</view>-->
+<!--</view>-->
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<!--<view style="height: 120rpx"></view>-->
+<!--<view class="fui-button" wx:if="{{applyIntro['apply_status']==-3}}">-->
+<!--<view bindtap="doApply" class="">{{applyIntro['status_text']}}</view>-->
+<!--</view>-->
+<!--<view class="fui-button" wx:if="{{applyIntro['apply_status']==-2}}">-->
+<!--<view bindtap="doApply" class="">{{applyIntro['status_text']}}</view>-->
+<!--</view>-->
+<!--<view class="fui-button" wx:if="{{applyIntro['apply_status']==-1}}">-->
+<!--<view bindtap="doApply" class="">{{applyIntro['status_text']}}</view>-->
+<!--</view>-->
+<view class="fui-button" wx:if="{{applyIntro['apply_status']==1}}">
+    <view bindtap="doApplyCondition" class="" wx:if="{{applyIntro['btn_enable']}}">{{applyIntro['status_text']}}</view>
+    <view class="btn-disable" wx:else>{{applyIntro['status_text']}}</view>
+</view>
+<view class="fui-button" wx:if="{{applyIntro['apply_status']==0}}">
+    <view bindtap="doApplyCondition" class="" wx:if="{{applyIntro['btn_enable']}}">{{applyIntro['status_text']}}</view>
+    <view class="btn-disable" wx:else>{{applyIntro['status_text']}}</view>
+</view>
+<van-popup bind:close="onShowProtocol" closeable="{{true}}"
+           customStyle="padding:20rpx;width:90%;height: 80%;margin-top:20rpx;overflow-x: scroll;padding-top:70rpx;margin-top:30rpx;"
+           overlay="{{true}}" round="{{false}}" show="{{showApplyProtocol}}">
+    <button bindtap="onShowProtocol" class="ti-btn" size="mini"
+            style="text-align: center;display: flex;justify-content: center" type="warn">关闭
+    </button>
+</van-popup>
+<!--<van-popup bind:close="onCloseDiyForm" closeable="{{true}}"-->
+<!--customStyle="padding:20rpx;width:100%;height: 90%;margin-top:20rpx;overflow: scroll;margin-top:30rpx;padding-bottom:140rpx"-->
+<!--overlay="{{true}}" position="bottom" round="{{false}}" show="{{showDiyForm}}">-->
+<view wx:if="{{showDiyForm}}">
+    <view style="text-indent: 40rpx;font-size: 28rpx;line-height: 80rpx">申请主播条件需先入驻</view>
+    <diy-form bind:getDiyFormData="getDiyFormData" fields="{{applyIntro['form_menu']}}"></diy-form>
+    <view class="protocol-title"><view>{{applyIntro['apply_protocol_title']}}</view>   <button class="look-protocol" bindtap="lookprotocol">查看入驻协议</button></view>
+    <view style="padding-bottom: 140rpx;padding-left: 20rpx;padding-right: 20rpx" hidden="{{protocolHidden}}">
+        <template is="wxParse" data="{{wxParseData:protocolContent.nodes}}"></template>
+    </view>
+
+    <view class="under">
+        <view class="cost-price" wx:if="{{applyIntro.amount>0}}">
+            <view>¥{{applyIntro['amount']}}</view>
+            <text>{{applyIntro['amount']}}元开通主播</text>
+        </view>
+        <view bindtap='doApplyPay' class='but' wx:if="{{applyIntro.amount>0}}">
+            <view>开通主播</view>
+            <text>点击开通即代表您同意入驻协议</text>
+        </view>
+        <view bindtap='doApplyDiyFormSubmit' class='but' wx:if="{{applyIntro.amount==0}}">
+            <view>开通主播</view>
+            <text>点击开通即代表您同意入驻协议</text>
+        </view>
+    </view>
+</view>
+
+
+<!--<button bindtap="doApplyDiyFormSubmit" class="ti-btn" size="mini" style="text-align: center;display: flex;justify-content: center" type="primary">提交申请</button>-->
+<!--</van-popup>-->
+<import src="/lib/wxParse/wxParse.wxml"></import>

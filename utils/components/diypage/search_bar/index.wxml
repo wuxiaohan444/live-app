@@ -1,0 +1,10 @@
+<view id="newindex_search_bar">
+    <view class="search-box" style="background-color: {{page.background}}">
+        <view class="navbar-search acea-row row-middle">
+            <view class="search acea-row row-middle" style="background:{{page.search_background}}">
+                <text class="iconfont icon-xiazai5" style="color:{{page.color}}"></text>
+                <input class="input" placeholder="{{page.placeholder}}" placeholderStyle="color:{{page.color}}" style="color:{{page.color}};text-align:{{page.text_align}}" type="text"></input>
+            </view>
+        </view>
+    </view>
+</view>

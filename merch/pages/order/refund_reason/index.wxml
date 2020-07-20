@@ -1,0 +1,11 @@
+<navbar parameter="{{parameter}}"></navbar>
+<form bindsubmit="submit">
+    <view class="reason">
+        <textarea autoFocus="{{true}}" focus="{{true}}" name="reason" placeholder="请输入拒绝原因"></textarea>
+    </view>
+    <view style="height: 200rpx"></view>
+    <view class="footer-btn">
+        <button class="submit-btn" formType="submit">确认</button>
+    </view>
+</form>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

@@ -1,0 +1,76 @@
+.product-bg {
+    width: 100%;
+    height: 750rpx;
+    position: relative;
+}
+
+.product-bg swiper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.product-bg .slide-image {
+    width: 100%;
+    height: 100%;
+}
+
+.product-bg .pages {
+    position: absolute;
+    background-color: #fff;
+    height: 34rpx;
+    padding: 0 10rpx;
+    border-radius: 8rpx;
+    right: 20rpx;
+    bottom: 20rpx;
+    line-height: 34rpx;
+    font-size: 24rpx;
+    color: #050505;
+}
+
+.video-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 82px;
+    height: 77px;
+    z-index: 999;
+    margin-top: -70rpx;
+    margin-left: -70rpx;
+}
+
+.voice {
+    width: 60rpx;
+    height: 60rpx;
+    position: absolute;
+    top: 50rpx;
+    right: 30rpx;
+}
+
+.mc {
+    width: auto;
+    height: auto;
+    position: absolute;
+    bottom: 80rpx;
+    left: 50%;
+    margin-left: -105rpx;
+}
+
+.mc cover-view,.mc view {
+    display: inline-block;
+    color: black;
+    width: 100rpx;
+    height: 44rpx;
+    border-radius: 20rpx;
+    text-align: center;
+    line-height: 44rpx;
+    float: left;
+    background: #fff;
+    margin: 0 10rpx;
+    font-size: 22rpx;
+}
+
+.mc cover-view.active,.mc view.active {
+    color: #ffffff;
+    background: #ff5555;
+}

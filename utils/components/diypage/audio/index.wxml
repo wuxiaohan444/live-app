@@ -1,0 +1,3 @@
+<view class="audio">
+    <audio controls loop author="{{page.text}}" name="{{page.name}}" poster="{{page.image}}" src="{{page.url}}"></audio>
+</view>

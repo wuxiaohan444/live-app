@@ -1,0 +1,180 @@
+<bottom-tabbar></bottom-tabbar>
+<navbar parameter="{{parameter}}"></navbar>
+<view class="shoppingCart">
+    <view class="nav acea-row row-between-wrapper" style="top:{{navH}}rpx">
+        <view>购物数量
+            <text class="num font-color">{{count?count:0}}</text>
+        </view>
+        <view bindtap="manage" class="administrate acea-row row-center-wrapper" wx:if="{{cartList.valid.length>0||cartList.invalid.length>0}}">
+            <view wx:if="{{footerswitch}}">编辑商品</view>
+            <view wx:else>完成</view>
+        </view>
+    </view>
+    <view wx:if="{{cartList.enable_plugin_merch}}">
+        <view wx:if="{{cartList.valid.length>0||cartList.invalid.length>0}}">
+            <view class="list">
+                <checkbox-group bindchange="checkboxChange">
+                    <block wx:for="{{cartList.valid}}" wx:for-index="group_index" wx:for-item="group">
+                        <navigator class="store-info" hoverClass="none" url="/merch/pages/user/center/index?id={{group.store.id}}" wx:if="{{group.store.id>0}}">
+                            <van-icon color="#969799" name="shop-o" size="22px"></van-icon>
+                            {{group.store.name}}
+                            <view class="block-nav-icon">
+                                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+                            </view>
+                        </navigator>
+                        <view class="item acea-row row-between-wrapper" style="margin-top: 0;margin-bottom: 0" wx:for="{{group.goods}}">
+                            <checkbox checked="{{item.checked}}" value="{{item.id}}"></checkbox>
+                            <navigator class="picTxt acea-row row-between-wrapper" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.product_id}}">
+                                <view class="pictrue">
+                                    <image src="{{item.productInfo.attrInfo.image}}" wx:if="{{item.productInfo.attrInfo}}"></image>
+                                    <image src="{{item.productInfo.image}}" wx:else></image>
+                                </view>
+                                <view class="text">
+                                    <view class="line1">{{item.productInfo.store_name}}</view>
+                                    <view class="infor line1" wx:if="{{item.productInfo.attrInfo}}">
+                                            属性：{{item.productInfo.attrInfo.suk}}
+                                        </view>
+                                    <view class="money">￥{{item.truePrice}}</view>
+                                </view>
+                                <view class="carnum acea-row row-center-wrapper">
+                                    <view catchtap="subCart" class="reduce {{item.numSub?'on':''}}" data-group_index="{{group_index}}" data-index="{{index}}">-
+                                        </view>
+                                    <view class="num">{{item.cart_num}}</view>
+                                    <view catchtap="addCart" class="plus {{item.numAdd?'on':''}}" data-group_index="{{group_index}}" data-index="{{index}}">+
+                                        </view>
+                                </view>
+                            </navigator>
+                        </view>
+                    </block>
+                </checkbox-group>
+            </view>
+            <view class="invalidGoods" wx:if="{{cartList.invalid.length>0}}">
+                <view class="goodsNav acea-row row-between-wrapper">
+                    <view bindtap="goodsOpen">
+                        <text class="iconfont {{goodsHidden==true?'icon-xiangxia':'icon-xiangshang'}}"></text>
+                        失效商品
+                    </view>
+                    <view bindtap="unsetCart" class="del">
+                        <text class="iconfont icon-shanchu1"></text>
+                        清空
+                    </view>
+                </view>
+                <view class="goodsList" hidden="{{goodsHidden}}">
+                    <block wx:for="{{cartList.invalid}}" wx:for-index="group_index" wx:for-item="group">
+                        <navigator class="store-info" hoverClass="none" url="/merch/pages/user/center/index?id={{group.store.id}}" wx:if="{{group.store.id>0}}">
+                            <van-icon color="#969799" name="shop-o" size="22px"></van-icon>
+                            {{group.store.name}}
+                            <view class="block-nav-icon">
+                                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+                            </view>
+                        </navigator>
+                        <view class="item acea-row row-between-wrapper" wx:for="{{group.goods}}">
+                            <view class="invalid">失效</view>
+                            <view class="pictrue">
+                                <image src="{{item.productInfo.attrInfo.image}}" wx:if="{{item.productInfo.attrInfo}}"></image>
+                                <image src="{{item.productInfo.image}}" wx:else></image>
+                            </view>
+                            <view class="text acea-row row-column-between">
+                                <view class="line1" style="width: 100%">{{item.productInfo.store_name}}</view>
+                                <view class="infor line1" wx:if="{{item.productInfo.attrInfo}}">
+                                        属性：{{item.productInfo.attrInfo.suk}}
+                                    </view>
+                                <view class="acea-row row-between-wrapper">
+                                    <view>￥{{item.truePrice}}</view>
+                                    <view class="end">该商品已失效</view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{!cartList.enable_plugin_merch}}">
+        <view wx:if="{{cartList.valid.length>0||cartList.invalid.length>0}}">
+            <view class="list">
+                <checkbox-group bindchange="checkboxChange">
+                    <view class="item acea-row row-between-wrapper" wx:for="{{cartList.valid}}">
+                        <checkbox checked="{{item.checked}}" value="{{item.id}}"></checkbox>
+                        <navigator class="picTxt acea-row row-between-wrapper" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.product_id}}">
+                            <view class="pictrue">
+                                <image src="{{item.productInfo.attrInfo.image}}" wx:if="{{item.productInfo.attrInfo}}"></image>
+                                <image src="{{item.productInfo.image}}" wx:else></image>
+                            </view>
+                            <view class="text">
+                                <view class="line1">{{item.productInfo.store_name}}</view>
+                                <view class="infor line1" wx:if="{{item.productInfo.attrInfo}}">
+                                        属性：{{item.productInfo.attrInfo.suk}}
+                                    </view>
+                                <view class="money">￥{{item.truePrice}}</view>
+                            </view>
+                            <view class="carnum acea-row row-center-wrapper">
+                                <view catchtap="subCart" class="reduce {{item.numSub?'on':''}}" data-index="{{index}}">-
+                                    </view>
+                                <view class="num">{{item.cart_num}}</view>
+                                <view catchtap="addCart" class="plus {{item.numAdd?'on':''}}" data-index="{{index}}">+
+                                    </view>
+                            </view>
+                        </navigator>
+                    </view>
+                </checkbox-group>
+            </view>
+            <view class="invalidGoods" wx:if="{{cartList.invalid.length>0}}">
+                <view class="goodsNav acea-row row-between-wrapper">
+                    <view bindtap="goodsOpen">
+                        <text class="iconfont {{goodsHidden==true?'icon-xiangxia':'icon-xiangshang'}}"></text>
+                        失效商品
+                    </view>
+                    <view bindtap="unsetCart" class="del">
+                        <text class="iconfont icon-shanchu1"></text>
+                        清空
+                    </view>
+                </view>
+                <view class="goodsList" hidden="{{goodsHidden}}">
+                    <view class="item acea-row row-between-wrapper" wx:for="{{cartList.invalid}}">
+                        <view class="invalid">失效</view>
+                        <view class="pictrue">
+                            <image src="{{item.productInfo.attrInfo.image}}" wx:if="{{item.productInfo.attrInfo}}"></image>
+                            <image src="{{item.productInfo.image}}" wx:else></image>
+                        </view>
+                        <view class="text acea-row row-column-between">
+                            <view class="line1">{{item.productInfo.store_name}}</view>
+                            <view class="infor line1" wx:if="{{item.productInfo.attrInfo}}">
+                                    属性：{{item.productInfo.attrInfo.suk}}
+                                </view>
+                            <view class="acea-row row-between-wrapper">
+                                <view>￥{{item.truePrice}}</view>
+                                <view class="end">该商品已失效</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="noCart" wx:if="{{cartList.valid.length==0&&cartList.invalid.length==0}}">
+        <view class="nosearch">
+            购物车空空如也~
+        </view>
+    </view>
+    <recommend id="recommend"></recommend>
+    <view style="height:96rpx;"></view>
+    <view style="height:55px;"></view>
+    <view class="footer acea-row row-between-wrapper {{deviceType}}" wx:if="{{cartList.valid.length>0}}">
+        <view>
+            <checkbox-group bindchange="checkboxAllChange">
+                <checkbox checked="{{isAllSelect}}" value="all"></checkbox>
+                <text class="checkAll">全选 ({{selectCartCount}})</text>
+            </checkbox-group>
+        </view>
+        <view class="money acea-row row-middle" wx:if="{{footerswitch==true}}">
+            <text class="font-color">￥{{selectCountPrice}}</text>
+            <button bindtap="subOrder" class="placeOrder bg-color">结算</button>
+        </view>
+        <view class="button acea-row row-middle" wx:else>
+            <button bindtap="subCollect" class="bnt">移至收藏</button>
+            <button bindtap="subDel" class="bnt del-cart-color">删除</button>
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

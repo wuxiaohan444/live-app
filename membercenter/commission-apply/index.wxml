@@ -1,0 +1,53 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="page register" wx:if="{{show}}">
+    <view class="fui-content">
+        <image src="{{spreadInfo['banner']}}"></image>
+    </view>
+    <block wx:if="{{!spreadInfo['agent']&&spreadInfo['config']['become']==2}}">
+        <view class="fui-cell-group">
+            <view class="fui-cell-title">欢迎加入<text class="text-danger">{{spreadInfo['shopname']}}</text>，请填写申请信息</view>
+            <view class="fui-cell">
+                <view class="fui-cell-label">邀请人</view>
+                <view class="fui-cell-info">
+                    <text class="text-danger">{{spreadInfo['parent']?spreadInfo['parent']:'总店'}}</text>（请核对）</view>
+            </view>
+            <view class="fui-cell" wx:if="{{hideicode==0}}">
+                <view class="fui-cell-label">{{set.texts.icode}}</view>
+                <view class="fui-cell-info">
+                    <input bindinput="inputChange" class="fui-input" id="icode" placeholder="请填写{{set['texts']['icode']}}" type="text" value="{{mid>0?mid:''}}"></input>
+                </view>
+            </view>
+        </view>
+        <view bindtap="submit" class="btn btn-danger block btn-submit">申请成为分销商</view>
+    </block>
+    <view class="wait" wx:elif="{{!spreadInfo['agent']&&spreadInfo['config']['become']==3}}">
+        <image src="/images/wait-128.png"></image>
+        <view>消费次数达到{{spreadInfo['config']['become_ordercount']}}次才能申请哦，当前消费次数{{spreadInfo['already']}}次</view>
+        <navigator class="btn btn-danger" url="/common/pages/index/index">去商城逛逛</navigator>
+    </view>
+    <view class="wait" wx:elif="{{!spreadInfo['agent']&&spreadInfo['config']['become']==4}}">
+        <image src="/images/wait-128.png"></image>
+        <view>消费金额达到{{spreadInfo['config']['become_moneycount']}}元才能申请哦，当前消费金额{{spreadInfo['already']}}元</view>
+        <navigator class="btn btn-danger" url="/common/pages/index/index">去商城逛逛</navigator>
+    </view>
+    <block wx:else>
+        <view class="wait" wx:if="{{spreadInfo['agent']['status']==1}}">
+            <image src="/images/wait-128.png"></image>
+            <view>谢谢您的支持，您已经审核通过！</view>
+            <navigator class="btn btn-danger" url="/common/pages/index/index">去商城逛逛</navigator>
+        </view>
+        <view class="wait" wx:else>
+            <block wx:if="{{spreadInfo['config']['become_reg']==1&&( !spreadInfo['userInfo']['mobile']||!spreadInfo['userInfo']['realname'] )}}">
+                <image src="/images/wait-128.png"></image>
+                <view>谢谢您的支持，请在个人中心完善资料然后等待审核！</view>
+                <navigator class="btn btn-danger" url="/common/pages/user_info/index">完善资料</navigator>
+            </block>
+            <block wx:else>
+                <image src="/images/wait-128.png"></image>
+                <view>谢谢您的支持，请等待审核！</view>
+                <navigator class="btn btn-danger" url="/common/pages/index/index">去商城逛逛</navigator>
+            </block>
+        </view>
+    </block>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

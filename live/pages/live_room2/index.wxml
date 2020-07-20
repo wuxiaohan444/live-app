@@ -1,0 +1,10 @@
+<view class="video_container" wx:if="{{videoList.length>0&&examineKeywords.switch==0}}">
+    <scroll-video bind:sharePoster="sharePoster" fitType="{{fitType}}" id="scrollvideo" liveLimit="{{liveLimit}}"
+                  playerType="{{playerType}}" videoList="{{videoList}}"></scroll-video>
+    <canvas canvasId="myCanvas" class="canvas" wx:if="{{canvasStatus}}"></canvas>
+</view>
+<view id="examine-content" wx:else>
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

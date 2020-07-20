@@ -1,0 +1,27 @@
+{
+    "usingComponents": {
+        "bottom-tabbar": "/components/bottom-tabbar/index",
+        "notice": "/utils/components/diypage/notice/index",
+        "newindex_goods_category": "/utils/components/diypage/newindex_goods_category/index",
+        "newindex_search_bar": "/utils/components/diypage/newindex_search_bar/index",
+        "newindex_water_flow": "/utils/components/diypage/newindex_water_flow/index",
+        "newindex_goods_list1": "/utils/components/diypage/newindex_goods_list1/index",
+        "newindex_goods_list2": "/utils/components/diypage/newindex_goods_list2/index",
+        "newindex_goods_list3": "/utils/components/diypage/newindex_goods_list3/index",
+        "newindex_goods_list4": "/utils/components/diypage/newindex_goods_list4/index",
+        "newindex_banner": "/utils/components/diypage/newindex_banner/index",
+        "one_image": "/utils/components/diypage/one_image/index",
+        "search_bar": "/utils/components/diypage/search_bar/index",
+        "nav_btn": "/utils/components/diypage/nav_btn/index",
+        "nav_list": "/utils/components/diypage/nav_list/index",
+        "rich_text": "/utils/components/diypage/rich_text/index",
+        "image_banner": "/utils/components/diypage/image_banner/index",
+        "magic_cube": "/utils/components/diypage/magic_cube/index",
+        "help_blank": "/utils/components/diypage/help_blank/index",
+        "help_line": "/utils/components/diypage/help_line/index",
+        "title_bar": "/utils/components/diypage/title_bar/index",
+        "index_audio": "/utils/components/diypage/audio/index",
+        "index_video": "/utils/components/diypage/video/index",
+        "shop_list": "/utils/components/diypage/shop_list/index"
+    }
+}

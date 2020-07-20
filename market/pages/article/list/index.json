@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "navbar": "/components/navbar/index",
+        "bottom-tabbar": "/components/bottom-tabbar/index"
+    },
+    "navigationBarTitleText": "精选文章"
+}

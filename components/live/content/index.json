@@ -1,0 +1,10 @@
+{
+    "component": true,
+    "usingComponents": {
+        "authorize": "/components/authorize/authorize",
+        "bubble": "/components/bubble/index",
+        "product-window": "/components/product-window/index",
+        "player-icons": "/components/player-icons/index"
+    },
+    "navigationBarTextStyle": "white"
+}

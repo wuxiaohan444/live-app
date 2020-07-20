@@ -1,0 +1,198 @@
+@import "../../app.wxss";
+
+.goodList .item {
+    position: relative;
+    padding-left: 30rpx;
+    margin-top: 30rpx;
+}
+
+.goodList .item .pictrue {
+    width: 270rpx;
+    height: 270rpx;
+    position: relative;
+}
+
+.goodList .item .pictrue image {
+    width: 100%;
+    height: 100%;
+    border-radius: 6rpx;
+}
+
+.goodList .item .pictrue .numPic {
+    position: absolute;
+    left: 7rpx;
+    top: 7rpx;
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+}
+
+.goodList .item .underline {
+    margin-left: 15rpx;
+}
+
+.goodList .item:nth-last-child(1) .underline {
+    border-bottom: 0;
+}
+
+.goodList .item .text {
+    font-size: 28rpx;
+    color: #222;
+    width: 420rpx;
+}
+
+.goodList .item .text .money {
+    font-size: 26rpx;
+    font-weight: bold;
+    margin-top: 10rpx;
+    color: #ff4466;
+    font-size: 32rpx;
+    overflow: hidden;
+}
+
+.goodList .item .text .money .num {
+    font-size: 34rpx;
+}
+
+.goodList .item .text .vip-money {
+    font-size: 24rpx;
+    color: #282828;
+    font-weight: bold;
+}
+
+.goodList .item .text .vip-money image {
+    width: 46rpx;
+    height: 21rpx;
+    margin-left: 5rpx;
+}
+
+.goodList .item .text .vip-money .num {
+    font-size: 22rpx;
+    color: #aaa;
+    font-weight: normal;
+}
+
+.goodList .item .iconfont {
+    position: absolute;
+    right: 30rpx;
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    font-size: 30rpx;
+    bottom: 38rpx;
+}
+
+.productprice {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.sale-process {
+    position: relative;
+    width: 218rpx;
+    height: 30rpx;
+    margin-top: 8rpx;
+    background: #FFB2CA;
+    border-radius: 15rpx;
+}
+
+.inner-proc {
+    width: 50%;
+    height: 30rpx;
+    background: linear-gradient(90deg,#FF4466 0%,#FF6EA7 100%);
+    border-radius: 15rpx;
+}
+
+.inner-text {
+    position: absolute;
+    top: 0;
+    left: 20rpx;
+    color: #fff;
+    font-size: 24rpx;
+    line-height: 30rpx;
+}
+
+.acea-row.row-between-wrapper {
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.info-box-top-stand {
+    width: inherit;
+    height: 176rpx;
+}
+
+.buy-box {
+    display: flex;
+    width: inherit;
+    height: 60rpx;
+    margin-top: 18rpx;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.left-box {
+    width: 240rpx;
+    height: 54rpx;
+}
+
+.left-box .sale-price {
+    width: inherit;
+    height: 30rpx;
+    line-height: 30rpx;
+    color: #ff4466;
+    font-size: 32rpx;
+    overflow: hidden;
+}
+
+.left-box .org-price {
+    width: inherit;
+    height: 24rpx;
+    line-height: 24rpx;
+    padding-left: 4rpx;
+    color: #999;
+    font-size: 22rpx;
+    text-decoration: line-through;
+    overflow: hidden;
+}
+
+.right-box {
+    width: 130rpx;
+    height: 54rpx;
+    line-height: 50rpx;
+    border-radius: 30rpx;
+    border: 2rpx solid #ff4466;
+    color: #ff4466;
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.pictrue {
+    position: relative;
+}
+
+.day-org-price {
+    width: inherit;
+    height: 24rpx;
+    line-height: 24rpx;
+    padding-left: 4rpx;
+    color: #999;
+    font-size: 22rpx;
+    text-decoration: line-through;
+    overflow: hidden;
+}
+
+.day-zigoushengqian {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #ff3c2b;
+    padding: 10rpx 20rpx;
+    color: #fff;
+    font-size: 20rpx;
+    border-radius: 0 30rpx 0 0;
+    line-height: 1;
+    text-align: center;
+}

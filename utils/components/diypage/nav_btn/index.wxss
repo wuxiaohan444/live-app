@@ -1,0 +1,34 @@
+.nav_btn-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 30rpx 0;
+}
+
+.nav_btn-box .item-box {
+    text-align: center;
+    font-size: 24rpx;
+}
+
+.col3 {
+    flex: 0 0 33.333333%;
+}
+
+.col4 {
+    flex: 0 0 25%;
+}
+
+.col5 {
+    flex: 0 0 20%;
+}
+
+.nav_btn-box .item-box .item {
+    margin-bottom: 20rpx;
+}
+
+.nav_btn-box .item-box image {
+    width: 100rpx;
+    height: 100rpx;
+    display: block;
+    margin: auto auto 10rpx auto;
+}

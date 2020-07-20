@@ -1,0 +1,18 @@
+<view catchtap="{{maskClose?'closeModal':''}}" catchtouchmove="preventTouchMove" class="modal-box {{modalInfo.rootClass}}" wx:if="{{modalInfo.showModal}}">
+    <view catchtap="prevent" class="modal-bg" style="{{rootStyle}}">
+        <view class="modal-title" style="{{titleStyle}}">{{modalInfo.modalTitle}}</view>
+        <view class="modal-txt" style="{{contentStyle}}">{{modalInfo.modalTxt}}</view>
+        <slot></slot>
+        <view class="btn" wx:if="{{modalInfo.share||modalInfo.showConfirm||modalInfo.showCancel}}">
+            <button class="confirm-btn" hoverClass="none" openType="share" style="{{confirmBtnStyle}}" wx:if="{{modalInfo.share}}">
+                {{modalInfo.confirmTxt}}
+            </button>
+            <view catchtap="confirm" class="confirm-btn" style="{{confirmBtnStyle}}" wx:elif="{{modalInfo.showConfirm}}">
+                {{modalInfo.confirmTxt}}
+            </view>
+            <view catchtap="cancel" class="cancel-btn" wx:if="{{modalInfo.showCancel}}">
+                {{modalInfo.cancelTxt}}
+            </view>
+        </view>
+    </view>
+</view>

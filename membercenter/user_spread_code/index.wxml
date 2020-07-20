@@ -1,0 +1,10 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="distribution-posters">
+    <swiper autoplay="{{autoplay}}" bindchange="bindchange" circular="{{circular}}" duration="{{duration}}" interval="{{interval}}">
+        <swiper-item wx:for="{{spreadList}}">
+            <image class="slide-image {{swiperIndex==index?'active':'active'}}" mode="aspectFill" src="{{item.poster}}"></image>
+        </swiper-item>
+    </swiper>
+    <view bindtap="savePosterPath" class="keep bg-color">保存海报</view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

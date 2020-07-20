@@ -1,0 +1,103 @@
+page {
+    background: #fff!important;
+}
+
+.address-management.fff {
+    background-color: #fff;
+    height: 1300rpx;
+}
+
+.address-management .line {
+    width: 100%;
+    height: 6rpx;
+}
+
+.address-management .line image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.address-management .item {
+    background-color: #fff;
+    padding: 0 30rpx;
+    margin-bottom: 12rpx;
+    border: 1px solid #d1d1d1;
+    box-shadow: 1px 3px 7px #d1d1d1;
+}
+
+.address-management .item .address {
+    padding: 30rpx 0;
+    border-bottom: 1rpx solid #eee;
+    font-size: 28rpx;
+    color: #282828;
+}
+
+.address-management .item .address .consignee {
+    font-size: 28rpx;
+    font-weight: bold;
+    margin-bottom: 8rpx;
+}
+
+.address-management .item .address .consignee .phone {
+    margin-left: 25rpx;
+}
+
+.address-management .item .operation {
+    height: 83rpx;
+    font-size: 28rpx;
+    color: #282828;
+}
+
+.address-management .item .operation .radio text {
+    margin-left: 13rpx;
+}
+
+.address-management .item .operation .iconfont {
+    color: #ff4466;
+    font-size: 35rpx;
+    vertical-align: -2rpx;
+    margin-right: 10rpx;
+}
+
+.address-management .item .operation .iconfont.icon-shanchu {
+    margin-left: 40rpx;
+    font-size: 38rpx;
+}
+
+.address-management .footer {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.address-management .footer .addressBnt {
+    width: 50%;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.address-management .footer .addressBnt .iconfont {
+    font-size: 35rpx;
+    margin-right: 8rpx;
+    vertical-align: -1rpx;
+}
+
+.address-management .footer .addressBnt.wxbnt {
+    background-color: #fceeee;
+    color: #e7574f;
+}
+
+.address-management .footer .addressBnt.addbnt {
+    background-color: #fe4564;
+    color: #fff;
+}
+
+.radio-group {
+    padding: 20rpx;
+}

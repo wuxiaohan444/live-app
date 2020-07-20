@@ -1,0 +1,45 @@
+<navbar parameter="{{parameter}}"></navbar>
+<form bindsubmit="formSubmit" reportSubmit="true">
+    <view class="evaluate-con">
+        <view class="goodsStyle acea-row row-between">
+            <view class="pictrue">
+                <image src="{{productInfo.image}}"></image>
+            </view>
+            <view class="text acea-row row-between">
+                <view class="name line2">{{productInfo.store_name}}</view>
+                <view class="money">
+                    <view style="color: #ff4466">￥{{productInfo.price}}</view>
+                    <view class="num">x{{cart_num}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="score">
+            <view class="item acea-row row-middle" wx:for="{{scoreList}}">
+                <view>{{item.name}}</view>
+                <view class="starsList">
+                    <text bindtap="stars" class="iconfont {{item.stars>=1?'icon-shitixing font-color':'icon-kongxinxing'}}" data-index="1" data-indexw="{{index}}"></text>
+                    <text bindtap="stars" class="iconfont {{item.stars>=2?'icon-shitixing font-color':'icon-kongxinxing'}}" data-index="2" data-indexw="{{index}}"></text>
+                    <text bindtap="stars" class="iconfont {{item.stars>=3?'icon-shitixing font-color':'icon-kongxinxing'}}" data-index="3" data-indexw="{{index}}"></text>
+                    <text bindtap="stars" class="iconfont {{item.stars>=4?'icon-shitixing font-color':'icon-kongxinxing'}}" data-index="4" data-indexw="{{index}}"></text>
+                    <text bindtap="stars" class="iconfont {{item.stars>=5?'icon-shitixing font-color':'icon-kongxinxing'}}" data-index="5" data-indexw="{{index}}"></text>
+                </view>
+                <text class="evaluate" wx:if="{{item.stars}}">{{startTexts[item.stars]}}</text>
+            </view>
+            <view class="textarea">
+                <textarea name="comment" placeholder="分享体验心得，给万千想买的人一个参考~" placeholderClass="placeholder"></textarea>
+                <view class="list acea-row row-middle">
+                    <view class="pictrue" wx:for="{{pics}}">
+                        <image src="{{item}}"></image>
+                        <text bindtap="DelPic" class="iconfont icon-guanbi1 font-color" data-index="{{index}}"></text>
+                    </view>
+                    <view bindtap="uploadpic" class="pictrue acea-row row-center-wrapper row-column" wx:if="{{pics.length<8}}">
+                        <text class="iconfont icon-icon25201"></text>
+                        <view>上传图片</view>
+                    </view>
+                </view>
+            </view>
+            <button class="evaluateBnt bg-color" formType="submit">立即评价</button>
+        </view>
+    </view>
+</form>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

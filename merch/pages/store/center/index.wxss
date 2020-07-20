@@ -1,0 +1,511 @@
+page {
+    background: #f4f4f4;
+    font-size: 24rpx!important;
+}
+
+image {
+    display: block;
+}
+
+.head {
+    background: #fe4564;
+    height: 160rpx;
+    border-bottom-left-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 30rpx;
+    margin: 0 30rpx;
+    background: #fff;
+    border-radius: 12rpx;
+    margin-top: -100rpx;
+    position: relative;
+}
+
+.user-info>.img {
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 100%;
+}
+
+.user-info>.user {
+    flex: 1;
+    color: #333;
+    padding: 0 20rpx;
+    line-height: 1;
+}
+
+.user-info>.user>.name {
+    font-size: 30rpx;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10rpx;
+}
+
+.user-info>.user>.name>.img {
+    width: 24rpx;
+    height: 28rpx;
+}
+
+.user-info>.user>.tip {
+    font-size: 22rpx;
+    font-weight: 500;
+    line-height: 1;
+    padding: 8rpx 0;
+}
+
+.user-info>.user>.tip>text {
+    margin-left: 10rpx;
+}
+
+.user-info>.user>.goggao {
+    color: #999;
+    font-size: 20rpx;
+    margin-top: 10rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.user-info>.user>.goggao>text {
+    background: #fe4564;
+    color: #fff;
+    padding: 2rpx 10rpx;
+    border-radius: 6rpx;
+    font-size: 20rpx;
+    margin-right: 10rpx;
+}
+
+.user-info>.msg {
+    position: absolute;
+    top: 26rpx;
+    right: -10rpx;
+    width: 200rpx;
+    height: 90rpx;
+    background: linear-gradient(141deg,#d9b998 0%,#b68b6b 75%);
+    border-top-left-radius: 40rpx;
+    border-bottom-left-radius: 40rpx;
+    color: #fff;
+    font-size: 20rpx;
+    z-index: 9;
+}
+
+.user-info>.sanjiao {
+    background: #b68b6b;
+    position: absolute;
+    right: -10rpx;
+    top: 116rpx;
+    width: 10rpx;
+    height: 10rpx;
+    border-bottom-right-radius: 100%;
+}
+
+.user-info>.msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info>.msg>.box>.text {
+    font-weight: 600;
+    line-height: 1;
+}
+
+.user-info>.msg>.box>.btn {
+    display: inline-block;
+    background: #fff;
+    color: #b68b6b;
+    border-radius: 6rpx;
+    margin-top: 10rpx;
+    padding: 8rpx 10rpx;
+    line-height: 1;
+}
+
+.certification>.title {
+    display: flex;
+    align-items: center;
+    height: 70rpx;
+    margin: 30rpx;
+    background: #fff;
+    border-bottom: solid 1rpx #f1f1f1;
+    padding: 0 30rpx;
+    border-radius: 12rpx;
+}
+
+.certification>.title>.text {
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.certification>.title>.more {
+    margin-left: auto;
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.certification>.title>.img {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.certification>.title>.ling {
+    width: 38rpx;
+    height: 38rpx;
+    border-radius: 100%;
+    margin-right: 10rpx;
+}
+
+.shop-card {
+    background: #fff;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    border-radius: 12rpx;
+}
+
+.shop-card>.title {
+    display: flex;
+    align-items: center;
+    height: 70rpx;
+    padding: 0 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.shop-card>.title>.text {
+    font-size: 28rpx;
+    font-weight: 700;
+}
+
+.shop-card>.title>.more {
+    margin-left: auto;
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.shop-card>.title>.img {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.shop-card>.content {
+    display: flex;
+    align-items: center;
+    height: 180rpx;
+}
+
+.shop-card>.content>.list {
+    flex: 1;
+    text-align: center;
+}
+
+.shop-card>.content>.list>.img {
+    width: 70rpx;
+    height: 70rpx;
+    margin: auto auto 10rpx auto;
+    border-radius: 100%;
+}
+
+.ad {
+    margin: 30rpx;
+}
+
+.ad>.img {
+    width: 100%;
+    height: 230rpx;
+}
+
+.shop-service {
+    background: #fff;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    border-radius: 12rpx;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+}
+
+.shop-service>.title {
+    display: flex;
+    align-items: center;
+    height: 70rpx;
+    padding: 0 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.shop-service>.title>.text {
+    font-size: 28rpx;
+    font-weight: 700;
+}
+
+.shop-service>.title>.more {
+    margin-left: auto;
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.shop-service>.title>.img {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.shop-service>.content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30rpx 0;
+}
+
+.shop-service>.content>.list {
+    flex: 0 0 25%;
+    text-align: center;
+    padding: 15rpx 0;
+    position: relative;
+}
+
+.shop-service>.content>.list>.img {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 100%;
+    margin: auto auto 8rpx auto;
+}
+
+.shuju-service {
+    background: #fff;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    border-radius: 12rpx;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+}
+
+.shuju-service>.title {
+    display: flex;
+    align-items: center;
+    height: 70rpx;
+    padding: 0 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.shuju-service>.title>.text {
+    font-size: 28rpx;
+    font-weight: 700;
+}
+
+.shuju-service>.title>.more {
+    margin-left: auto;
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.shuju-service>.title>.img {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.shuju-service>.content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30rpx 0;
+    justify-content: center;
+}
+
+.shuju-service>.content>.list {
+    flex: 1;
+    font-size: 24rpx;
+    color: #666;
+    text-align: center;
+}
+
+.shuju-service>.content>.list>.num {
+    font-size: 36rpx;
+    font-weight: 700;
+    color: #333;
+}
+
+.school-service {
+    background: #fff;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    border-radius: 12rpx;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+}
+
+.school-service>.title {
+    display: flex;
+    align-items: center;
+    height: 70rpx;
+    padding: 0 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.school-service>.title>.text {
+    font-size: 28rpx;
+    font-weight: 700;
+}
+
+.school-service>.title>.more {
+    margin-left: auto;
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.school-service>.title>.img {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.school-service>.content {
+    padding: 0 30rpx;
+}
+
+.school-service>.content>.big-list {
+    padding: 30rpx 0;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.school-service>.content>.big-list>.img {
+    width: 100%;
+    height: 334rpx;
+    border-radius: 12rpx;
+}
+
+.school-service>.content>.big-list>.title {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-size: 26rpx;
+    color: #333;
+    font-weight: 600;
+    padding-top: 20rpx;
+}
+
+.school-service>.content>.big-list>.renshu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.school-service>.content>.big-list>.renshu>.item {
+    flex: 0 0 25%;
+    font-size: 22rpx;
+    color: #666;
+    padding-top: 10rpx;
+}
+
+.school-service>.content>.item-list {
+    display: flex;
+    align-items: unset;
+    padding: 30rpx 0;
+    border-bottom: solid 1rpx #f1f1f1;
+}
+
+.school-service>.content>.item-list:last-child {
+    border-bottom: none;
+}
+
+.school-service>.content>.item-list>.text {
+    flex: 1;
+    padding-right: 20rpx;
+}
+
+.school-service>.content>.item-list>.text>.title {
+    font-size: 26rpx;
+    font-weight: 600;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 80rpx;
+}
+
+.school-service>.content>.item-list>.text-img>.img {
+    width: 240rpx;
+    height: 140rpx;
+    border-radius: 12rpx;
+}
+
+.school-service>.content>.item-list>.text>.form {
+    display: flex;
+    align-items: center;
+    font-size: 22rpx;
+    color: #666;
+    height: 40rpx;
+    margin-top: 20rpx;
+}
+
+.school-service>.content>.item-list>.text>.form>.look {
+    margin-left: auto;
+}
+
+.school-service>.content>.item-list>.text>.form>.look>image {
+    width: 27rpx;
+    height: 19rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.school-service>.content>.item-list>.text>.form>.msg {
+    margin-left: 30rpx;
+}
+
+.school-service>.content>.item-list>.text>.form>.msg>image {
+    width: 25rpx;
+    height: 18rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.block-nav-icon {
+    margin-left: auto;
+}
+
+.ad-box {
+    margin: 30rpx;
+    height: 230rpx;
+    border-radius: 12rpx;
+    overflow: hidden;
+}
+
+.ad-box .ad-block swiper-item {
+}
+
+.ad-box image {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+.tool-tip {
+    background: #fc3f3f;
+    color: #fff;
+    border-radius: 40%;
+    position: absolute;
+    right: 10rpx;
+    top: -20rpx;
+    font-size: 23rpx;
+    padding: 0 6rpx;
+    border: none;
+    height: 25rpx;
+    line-height: 25rpx;
+    padding: 10rpx;
+}
+
+.block-nav-icon .more {
+    display: inline;
+}

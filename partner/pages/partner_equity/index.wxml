@@ -1,0 +1,9 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view id="apply-content" wx:if="{{hasequity}}">
+    <template is="wxParse" data="{{wxParseData:equity.nodes}}"></template>
+</view>
+<view id="apply-content" wx:else>
+    <view class="has-empty">暂无权益</view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>
+<import src="/lib/wxParse/wxParse.wxml"></import>

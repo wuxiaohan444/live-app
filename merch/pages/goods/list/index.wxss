@@ -1,0 +1,145 @@
+page {
+    background: #f4f4f4;
+}
+
+.top-tab {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: #666;
+    font-weight: 600;
+    height: 90rpx;
+    background: #fff;
+    top: 0;
+    z-index: 99;
+}
+
+.top-tab>.item {
+    flex: 1;
+    text-align: center;
+    line-height: 90rpx;
+}
+
+.top-tab>.active {
+    color: #fe4564;
+    font-weight: 600;
+    position: relative;
+}
+
+.top-tab>.active::after {
+    content: '';
+    position: absolute;
+    width: 40rpx;
+    height: 4rpx;
+    background: #fe4564;
+    border-radius: 12rpx;
+    bottom: 10rpx;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.swiper {
+    margin: 0 30rpx;
+}
+
+.content {
+    width: 100%;
+}
+
+.content>.list {
+    background: #fff;
+    padding: 30rpx 30rpx 0 30rpx;
+    margin-bottom: 30rpx;
+}
+
+.content>.list:first-child {
+    margin-top: 30rpx;
+}
+
+.content>.list>.shop-info {
+    display: flex;
+    border-bottom: solid 1rpx #f1f1f1;
+    padding-bottom: 20rpx;
+}
+
+.content>.list>.shop-info>.img {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 6rpx;
+}
+
+.content>.list>.shop-info>.main {
+    flex: 1;
+    padding-left: 20rpx;
+}
+
+.content>.list>.shop-info>.main>.title {
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+.content>.list>.shop-info>.main>.xiao {
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+}
+
+.content>.list>.shop-info>.main>.xiao>.item {
+    flex: 1;
+    color: #666;
+    font-size: 24rpx;
+}
+
+.content>.list>.shop-info>.main>.time {
+    color: #666;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+}
+
+.content>.list>.shop-info>.main>.money {
+    font-size: 34rpx;
+    color: #fe4564;
+    font-weight: 700;
+    margin-top: 10rpx;
+}
+
+.content>.list>.btn {
+    display: flex;
+    align-items: center;
+}
+
+.content>.list>.btn>.item {
+    flex: 1;
+    text-align: center;
+    font-size: 28rpx;
+    color: #666;
+    line-height: 80rpx;
+}
+
+.content>.no-shop {
+    text-align: center;
+    color: #666;
+    font-size: 24rpx;
+    margin-top: 30%;
+}
+
+.content>.no-shop-btn {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin-top: 50rpx;
+}
+
+.content>.no-shop-btn>.item {
+    display: inline-block;
+    line-height: 70rpx;
+    width: 200rpx;
+    background: #fe4564;
+    color: #fff;
+    font-size: 24rpx;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 20rpx;
+    border-radius: 6rpx;
+}

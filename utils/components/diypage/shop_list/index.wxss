@@ -1,0 +1,443 @@
+.goods {
+    background: #fff;
+}
+
+.goods .day-title {
+    padding: 20rpx 0;
+}
+
+.goods .day-title .huo {
+    height: 46rpx;
+    width: 46rpx;
+    display: block;
+}
+
+.goods .day-title .text {
+    font-size: 30rpx;
+    font-weight: 700;
+}
+
+.goods .day-title .tip {
+    font-size: 24rpx;
+    color: #9999;
+    margin-top: 5rpx;
+}
+
+.day-swiper {
+    padding-top: 20rpx;
+}
+
+.day-swiper .day-swiper-item {
+    position: relative;
+    margin: 0 30rpx;
+    border-bottom: solid 1rpx #f1f1f1;
+    padding-bottom: 40rpx;
+}
+
+.day-swiper:last-child .day-swiper-item {
+    border-bottom: none;
+}
+
+.day-swiper-item .image {
+    position: relative;
+}
+
+.day-swiper-item .image .mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    font-size: 26rpx;
+    padding: 10rpx 40rpx 10rpx 30rpx;
+    color: #fff;
+    line-height: 1;
+    border-top-left-radius: 12rpx;
+    border-bottom-right-radius: 40rpx;
+}
+
+.day-swiper-item .image .num {
+    position: absolute;
+    bottom: 14rpx;
+    right: 20rpx;
+    background-color: #ff4466;
+    font-size: 20rpx;
+    padding: 10rpx 20rpx;
+    border-radius: 20rpx;
+    color: #fff;
+    line-height: 1;
+}
+
+.day-swiper-item .image image {
+    width: 100%;
+    height: 340rpx;
+    display: block;
+}
+
+.swiper-text-content-name {
+    font-size: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.swiper-text-content-name text {
+    margin-left: auto;
+    text-align: center;
+    padding: 6rpx 20rpx;
+    background-color: #ff4466;
+    border-radius: 6rpx;
+    color: #fff;
+    font-size: 24rpx;
+    margin-right: 10rpx;
+}
+
+.swiper-text-content-money {
+    display: flex;
+    align-items: center;
+}
+
+.swiper-text-content-money .price .marketprice {
+    font-size: 40rpx;
+    font-weight: 700;
+    color: #ff4466;
+}
+
+.swiper-text-content-money .price .productprice {
+    font-size: 26rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.swiper-text-content-money .price text {
+    font-size: 20rpx;
+}
+
+.swiper-text-content-money .original {
+    font-size: 24rpx;
+    color: #B6B6B6;
+    margin-left: 24rpx;
+}
+
+.swiper-text-content-money .btn .bottom {
+    margin-left: auto;
+    text-align: center;
+    padding: 12rpx 30rpx;
+    background-color: #ff4466;
+    border-radius: 12rpx;
+    color: #fff;
+    font-size: 26rpx;
+}
+
+.swiper-text-content-money .btn {
+    margin-left: auto;
+}
+
+.swiper-text-content-money .btn .buynum {
+    font-size: 24rpx;
+    color: #999;
+    margin-top: 10rpx;
+    text-align: right;
+}
+
+.style3 .list {
+    display: flex;
+    align-items: center;
+    padding: 30rpx;
+}
+
+.style3 .list .imgbox {
+    flex: 0 0 200rpx;
+    height: 200rpx;
+    position: relative;
+}
+
+.style3 .list .imgbox image {
+    width: 100%;
+    height: 200rpx;
+    border-radius: 6rpx;
+}
+
+.style3 .list .imgbox .tuijian .goods_tag {
+    position: absolute;
+    top: -6rpx;
+    left: 0;
+    width: 60rpx;
+    height: 60rpx;
+    z-index: 9;
+}
+
+.style3 .list .imgbox .tuijian .text {
+    font-size: 20rpx;
+    color: #fff;
+    position: absolute;
+    top: 8rpx;
+    left: 6rpx;
+    z-index: 10;
+}
+
+.style3 .list .info {
+    flex: 1;
+    padding-left: 30rpx;
+}
+
+.style3 .list .info .name {
+    font-size: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-weight: 500;
+}
+
+.style3 .list .info .money {
+    display: flex;
+    align-items: center;
+    margin-top: 100rpx;
+}
+
+.style3 .list .info .money .price {
+    display: flex;
+    align-items: center;
+}
+
+.style3 .list .info .money .price .marketprice {
+    font-size: 40rpx;
+    font-weight: 700;
+    color: #ff4466;
+}
+
+.style3 .list .info .money .price .productprice {
+    font-size: 26rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.style3 .list .info .money .price text {
+    font-size: 20rpx;
+}
+
+.style3 .list .info .money .original {
+    font-size: 24rpx;
+    color: #B6B6B6;
+    margin-left: 24rpx;
+}
+
+.style3 .list .info .money .btn .bottom {
+    margin-left: auto;
+    text-align: center;
+    padding: 10rpx 20rpx;
+    background-color: #ff4466;
+    border-radius: 12rpx;
+    color: #fff;
+    font-size: 26rpx;
+}
+
+.style3 .list .info .money .btn {
+    margin-left: auto;
+}
+
+.style3 .list .info .money .btn .buynum {
+    font-size: 24rpx;
+    color: #999;
+    margin-top: 10rpx;
+    text-align: right;
+}
+
+.recommend-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 20rpx;
+}
+
+.recommend-content-list {
+    flex: 0 0 50%;
+    margin-bottom: 30rpx;
+    overflow: hidden;
+}
+
+.recommend-content-list .list-images {
+    padding: 6rpx 10rpx 0 10rpx;
+    position: relative;
+}
+
+.recommend-content-list .list-images .tuijian .goods_tag {
+    position: absolute;
+    top: 0rpx;
+    left: 0;
+    width: 60rpx;
+    height: 60rpx;
+    z-index: 9;
+}
+
+.recommend-content-list .list-images .tuijian .text {
+    font-size: 20rpx;
+    color: #fff;
+    position: absolute;
+    top: 8rpx;
+    left: 6rpx;
+    z-index: 10;
+}
+
+.recommend-content-list .list-images .mark {
+    position: absolute;
+    top: 0;
+    left: 10rpx;
+    background-color: rgba(238,59,14,0.6);
+    font-size: 24rpx;
+    padding: 4rpx 20rpx;
+    color: #fff;
+}
+
+.recommend-content-list .list-information {
+    padding: 20rpx 10rpx 0 20rpx;
+}
+
+.recommend-content-list .list-images image {
+    width: 100%;
+    height: 400rpx;
+    border-radius: 12rpx;
+}
+
+.list-information .information-title {
+    font-size: 26rpx;
+    font-weight: 700;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.list-information .information-titles {
+    font-size: 28rpx;
+    font-weight: 500;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: #666;
+}
+
+.information-tip {
+    font-size: 24rpx;
+    color: #999999;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 10rpx 0;
+}
+
+.information-money {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: #e53530;
+    padding: 10rpx 0;
+}
+
+.yishou {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.yishou .yuan {
+    text-decoration: line-through;
+}
+
+.scroll-view {
+    white-space: nowrap;
+    display: flex;
+    padding-bottom: 20rpx;
+}
+
+.scroll-view .item {
+    display: inline-block;
+    margin-left: 30rpx;
+}
+
+.scroll-view .item:last-child {
+    margin-right: 30rpx;
+}
+
+.scroll-view .item .imgbox {
+    position: relative;
+    padding-top: 6rpx;
+}
+
+.scroll-view .item .imgbox .tuijian .goods_tag {
+    position: absolute;
+    top: 0rpx;
+    left: 0;
+    width: 60rpx;
+    height: 60rpx;
+    z-index: 9;
+}
+
+.scroll-view .item .imgbox .tuijian .text {
+    font-size: 20rpx;
+    color: #fff;
+    position: absolute;
+    top: 8rpx;
+    left: 6rpx;
+    z-index: 10;
+}
+
+.scroll-view .item .imgbox .img {
+    width: 260rpx;
+    height: 260rpx;
+}
+
+.scroll-view .item .name {
+    font-size: 28rpx;
+    color: #333;
+    font-weight: 700;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal!important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 260rpx;
+    line-height: 1.2;
+    margin: 20rpx 0 8rpx 0;
+}
+
+.scroll-view .item .money {
+    font-size: 28rpx;
+    color: #e53530;
+    font-weight: 700;
+}
+
+.scroll-view .item .money text {
+    font-size: 24rpx;
+    color: #999;
+    margin-left: 10rpx;
+}
+
+.big-img {
+    padding: 0 30rpx;
+}
+
+.big-img image {
+    margin-bottom: 30rpx;
+    width: 100%;
+    height: 380rpx;
+}

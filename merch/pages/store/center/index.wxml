@@ -1,0 +1,99 @@
+<navbar parameter="{{parameter}}"></navbar>
+<van-dialog id="van-dialog"></van-dialog>
+<view class="merchantCenter">
+    <view class="head"></view>
+    <view class="user-info">
+        <image class="img" src="{{store.logo||sitepath+'/addons/shimmer_liveshop/static/wxapp/plugin/merch/store/center/nologo.png'}}"></image>
+        <view class="user">
+            <view class="name">
+                <view>{{store.name||'暂未完善'}}</view>
+                <image class="img" src="{{sitepath}}addons/shimmer_liveshop/static/wxapp/plugin/merch/store/center/dui.png" wx:if="{{store.is_integrity==1}}"></image>
+            </view>
+            <view class="tip">ID：{{store.id||0}}</view>
+            <view class="goggao">
+                <text>公告</text>
+                {{store.notice||'暂无公告'}}
+            </view>
+        </view>
+    </view>
+    <!--<view class="certification" wx:if="{{store.is_integrity!=1}}">-->
+        <!--<navigator class="title" hoverClass="none" url="/merch/pages/store/integrity_approve/index">-->
+            <!--<image class="ling" src="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/plugin/merch/store/center/ling.png"></image>-->
+            <!--<view class="text">1分钟完成{{integrity_text}}认证</view>-->
+            <!--<view class="block-nav-icon">-->
+                <!--<view class="more">立即认证</view>-->
+                <!--<van-icon color="#969799" name="arrow" size="12px"></van-icon>-->
+            <!--</view>-->
+        <!--</navigator>-->
+    <!--</view>-->
+    <view class="shop-card">
+        <view class="title">
+            <view class="text">工作区</view>
+        </view>
+        <view class="content">
+            <navigator class="list" hoverClass="none" url="/merch/pages/goods/list/index">
+                <image class="img" src="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/plugin/merch/store/center/s11.png"></image>
+                商品管理
+            </navigator>
+            <navigator class="list" hoverClass="none" url="/merch/pages/order/list/index">
+                <image class="img" src="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/plugin/merch/store/center/s22.png"></image>
+                订单管理
+            </navigator>
+            <navigator class="list" hoverClass="none" url="/merch/pages/order/refund_list/index">
+                <image class="img" src="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/plugin/merch/store/center/s33.png"></image>
+                退货/款
+            </navigator>
+            <navigator class="list" hoverClass="none" url="/merch/pages/account/index">
+                <image class="img" src="{{sitepath}}/addons/shimmer_liveshop/static/wxapp/plugin/merch/store/center/s44.png"></image>
+                我的账户
+            </navigator>
+        </view>
+    </view>
+    <swiper autoplay="{{true}}" circular="{{true}}" class="ad-box" indicatorActiveColor="#fff" indicatorColor="#a0a0a0" indicatorDots="{{true}}" interval="3000" wx:if="{{ad.length>0}}">
+        <navigator class="ad-block" url="{{item.wxappurl}}" wx:for="{{ad}}">
+            <swiper-item>
+                <image mode="widthFix" src="{{item.pic}}"></image>
+            </swiper-item>
+        </navigator>
+    </swiper>
+    <view class="shop-service" wx:for="{{menu}}" wx:for-index="groupname" wx:for-item="menugroup">
+        <view class="title">
+            <view class="text">{{groupname}}</view>
+            <view class="block-nav-icon">
+                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+            </view>
+        </view>
+        <view class="content">
+            <navigator bindtap="onMerchantCenter" class="list" hoverClass="none" url="{{menu_item.wxapp_url}}" wx:for="{{menugroup}}" wx:for-item="menu_item">
+                <image class="img" src="{{menu_item.icon}}"></image>
+                {{menu_item.name}}
+                <text class="tool-tip" wx:if="{{menu_item.type=='link_integrity'}}">未认证
+                </text>
+            </navigator>
+        </view>
+    </view>
+    <view class="shuju-service">
+        <view class="title">
+            <view class="text">数据统计</view>
+            <navigator class="more" hoverClass="none" url="/merch/pages/analysis/index">经营分析</navigator>
+            <view class="block-nav-icon" style="margin-left: 4rpx">
+                <van-icon color="#969799" name="arrow" size="12px"></van-icon>
+            </view>
+        </view>
+        <view class="content">
+            <view class="list">
+                <view class="num">¥{{stat.order_money||0}}</view>
+                <view>今日成交额</view>
+            </view>
+            <view class="list">
+                <view class="num">{{stat.order_num||0}}</view>
+                <view>今日订单数</view>
+            </view>
+            <view class="list">
+                <view class="num">{{stat.visit_num||0}}</view>
+                <view>今日店铺访客</view>
+            </view>
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

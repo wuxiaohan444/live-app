@@ -1,0 +1,127 @@
+<view class="goods">
+    <view class="day-swiper" wx:if="{{page.style==1}}">
+        <navigator hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{page.items}}" wx:key="index">
+            <view bindtap="onShopDetails" class="day-swiper-item">
+                <view class="image">
+                    <image lazyLoad="true" mode="aspectFill" src="{{item.thumb}}"></image>
+                </view>
+                <view class="day-swiper-text-content">
+                    <view class="swiper-text-content-name">
+                        <text wx:if="{{page.show_tag==1}}">{{page.tag_text}}</text>{{item.title}}</view>
+                    <view class="swiper-text-content-money">
+                        <view class="price">
+                            <view class="marketprice">
+                                <text>￥</text>{{item.marketprice}}</view>
+                            <view class="productprice" wx:if="{{page.show_productprice==1}}">
+                                <text>￥</text>{{item.productprice}}</view>
+                        </view>
+                        <view class="btn">
+                            <view class="bottom" wx:if="{{page.show_buy_btn==1}}">{{page.buy_btn_text}}</view>
+                            <view class="buynum" wx:if="{{page.show_sale_num==1}}">{{item.sale_num}}人购买</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view class="day-swiper" wx:if="{{page.style==2}}">
+        <navigator hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{page.items}}" wx:key="index">
+            <view bindtap="onShopDetails" class="day-swiper-item">
+                <view class="day-title" wx:if="{{page.style==2}}">
+                    <view class="text">{{page.active_subtitle}}</view>
+                    <view class="tip">{{page.active_title}}</view>
+                </view>
+                <view class="image">
+                    <image lazyLoad="true" mode="aspectFill" src="{{item.thumb}}"></image>
+                </view>
+                <view class="day-swiper-text-content">
+                    <view class="swiper-text-content-name">
+                        <text wx:if="{{page.show_tag==1}}">{{page.tag_text}}</text>{{item.title}}</view>
+                    <view class="swiper-text-content-money">
+                        <view class="price">
+                            <view class="marketprice">
+                                <text>￥</text>{{item.marketprice}}</view>
+                            <view class="productprice" wx:if="{{page.show_productprice==1}}">
+                                <text>￥</text>{{item.productprice}}</view>
+                        </view>
+                        <view class="btn">
+                            <view class="bottom" wx:if="{{page.show_buy_btn==1}}">{{page.buy_btn_text}}</view>
+                            <view class="buynum" wx:if="{{page.show_sale_num==1}}">{{item.sale_num}}人购买</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view class="style3" wx:if="{{page.style==3}}">
+        <navigator class="list" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{page.items}}" wx:key="index">
+            <view class="imgbox">
+                <view class="tuijian">
+                    <image class="goods_tag" src="/images/goods_tag.png" wx:if="{{page.show_tag==1}}"></image>
+                    <text class="text" wx:if="{{page.show_tag==1}}">{{page.tag_text}}</text>
+                </view>
+                <image lazyLoad="true" mode="aspectFill" src="{{item.thumb}}"></image>
+            </view>
+            <view class="info">
+                <view class="name">{{item.title}}</view>
+                <view class="money">
+                    <view class="price">
+                        <view class="marketprice">
+                            <text>￥</text>{{item.marketprice}}</view>
+                        <view class="productprice" wx:if="{{page.show_productprice==1}}">
+                            <text>￥</text>{{item.productprice}}</view>
+                    </view>
+                    <view class="btn">
+                        <view class="bottom" wx:if="{{page.show_buy_btn==1}}">{{page.buy_btn_text}}</view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view class="style4" wx:if="{{page.style==4}}">
+        <view class="recommend-content">
+            <view class="recommend-content-list" wx:for="{{page.items}}" wx:key="index">
+                <navigator hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}">
+                    <view class="list-images">
+                        <view class="tuijian">
+                            <image class="goods_tag" src="/images/goods_tag.png" wx:if="{{page.show_tag==1}}"></image>
+                            <text class="text" wx:if="{{page.show_tag==1}}">{{page.tag_text}}</text>
+                        </view>
+                        <image class="img" lazyLoad="true" mode="aspectFill" src="{{item.thumb}}"></image>
+                    </view>
+                    <view class="list-information">
+                        <view class="information-title">{{item.title}}</view>
+                        <view class="information-money">
+                            <view class="price">￥{{item.marketprice}}</view>
+                        </view>
+                        <view class="yishou">
+                            <view class="yuan" wx:if="{{page.show_productprice==1}}">￥{{item.productprice}}</view>
+                            <view class="num" wx:if="{{page.show_sale_num==1}}">已售{{item.sale_num}}</view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="scroll" wx:if="{{page.style==5}}">
+        <scroll-view class="scroll-view" scrollX="true">
+            <view class="item" wx:for="{{page.items}}" wx:key="index">
+                <navigator hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}">
+                    <view class="imgbox">
+                        <view class="tuijian">
+                            <image class="goods_tag" src="/images/goods_tag.png" wx:if="{{page.show_tag==1}}"></image>
+                            <text class="text" wx:if="{{page.show_tag==1}}">{{page.tag_text}}</text>
+                        </view>
+                        <image class="img" src="{{item.thumb}}"></image>
+                    </view>
+                    <view class="name">{{item.title}}</view>
+                    <view class="money">￥{{item.marketprice}}</view>
+                    <view class="yishou">
+                        <view class="yuan" wx:if="{{page.show_productprice==1}}">￥{{item.productprice}}</view>
+                        <view class="num" wx:if="{{page.show_sale_num==1}}">已售{{item.sale_num}}</view>
+                    </view>
+                </navigator>
+            </view>
+        </scroll-view>
+    </view>
+</view>

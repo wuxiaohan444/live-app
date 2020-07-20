@@ -1,0 +1,36 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="bill-details">
+    <view class="nav acea-row">
+        <view bindtap="changeIncome" class="item {{income==0?'on':''}}" data-income="0">全部</view>
+        <view bindtap="changeIncome" class="item {{income==1?'on':''}}" data-income="1">收入</view>
+        <view bindtap="changeIncome" class="item {{income==2?'on':''}}" data-income="2">支出</view>
+        <view bindtap="changeIncome" class="item {{income==3?'on':''}}" data-income="3">流转</view>
+    </view>
+    <view class="sign-record">
+        <view class="list">
+            <view class="item">
+                <view class="listn">
+                    <view class="itemn acea-row row-between-wrapper" wx:for="{{list}}" wx:for-item="vo">
+                        <view>
+                            <view class="name line1">{{vo.title}}
+                                <text class="font-color" wx:if="{{vo.platform_deduct>0}}">(平台-{{vo.platform_deduct}})</text>
+                                <text class="font-color" wx:if="{{vo.commission_deduct>0}}">(分销-{{vo.commission_deduct}})</text>
+                            </view>
+                            <view>{{vo.created}}</view>
+                        </view>
+                        <view class="num font-color" wx:if="{{vo.income==1}}">
+                            +{{vo.money}}
+                        </view>
+                        <view class="num" wx:elif="{{vo.income==2}}">-{{vo.money}}</view>
+                        <view class="num font-warning" wx:elif="{{vo.income==3}}">{{vo.money}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="loadingicon acea-row row-center-wrapper">
+            <text class="loading iconfont icon-jiazai" hidden="{{loading==false}}"></text>
+            {{loadTitle}}
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

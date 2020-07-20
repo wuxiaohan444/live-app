@@ -1,0 +1,36 @@
+<navbar parameter="{{parameter}}" wx:if="{{examineKeywords.switch==0}}"></navbar>
+<view class="balance" wx:if="{{examineKeywords.switch==0}}">
+    <view class="title">
+        账户{{balance_text}}(元)
+    </view>
+    <view class="num">
+        {{userinfo.total_balance||0}}
+    </view>
+</view>
+<view class="payment" wx:if="{{balance_market&&examineKeywords.switch==0}}">
+    <view class="title">
+        充值金额
+    </view>
+    <view class="send-box">
+        <view bindtap="selectBalanceMarket" class="item {{(index+1)%3==1?'itemfirst':''}} {{balance_market_index==index+1?'active':''}}" data-balance_market_index="{{index+1}}" wx:for="{{balance_market}}" wx:key="index">
+            <view class="money">{{item.enough}}</view>
+            <view class="send">送{{item.give}}</view>
+        </view>
+    </view>
+    <input bindinput="bindKeyInput" name="number" placeholder="{{placeholder}}" type="digit" value="{{number}}"></input>
+    <button bindtap="submitSub" class="but bg-color">立即充值</button>
+    <view class="rule-block">
+        <view class="title">
+            充值金额
+        </view>
+        <view class="rule">1、充值只可选择固定金额或输入金额
+2、选择手动输入金额不享受优惠
+3、充值金额不退款
+        </view>
+    </view>
+</view>
+<view id="examine-content" wx:if="{{examineKeywords.switch==1}}">
+    <template is="wxParse" data="{{wxParseData:page_content.nodes}}"></template>
+</view>
+<import src="/lib/wxParse/wxParse.wxml"></import>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

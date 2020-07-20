@@ -1,0 +1,148 @@
+page {
+    background: #f4f4f4;
+}
+
+.content {
+    margin-bottom: 160rpx;
+}
+
+.content>.list {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-bottom: solid 1rpx #f1f1f1;
+    padding: 20rpx 30rpx;
+}
+
+.content>.mt20 {
+    margin-top: 20rpx;
+}
+
+.content>.list>.name {
+    margin-left: auto;
+    color: #666;
+    font-size: 24rpx;
+}
+
+.content>.list>.right {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.content>.list>.auto {
+    margin-left: auto;
+}
+
+.content>.list>.title {
+    flex: 0 0 200rpx;
+    font-size: 24rpx;
+}
+
+.content>.list>.title>.num {
+    font-size: 20rpx;
+    color: #666;
+    margin-left: 20rpx;
+}
+
+.content>.list>.input {
+    flex: 1;
+    text-align: right;
+    line-height: 80rpx;
+    font-size: 24rpx;
+    padding-left: 30rpx;
+}
+
+.content>.list>.up-image {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    margin-top: 20rpx;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.content>.list>.up-image>.list {
+    flex: 0 0 33.3333%;
+    margin-bottom: 20rpx;
+    position: relative;
+}
+
+.content>.list>.up-image>.list>image {
+    width: 150rpx;
+    height: 150rpx;
+    margin: auto;
+    border-radius: 6rpx;
+    box-shadow: 0rpx 8rpx 8rpx #ccc;
+}
+
+.content>.list>.up-image>.list>.delete {
+    position: absolute;
+    top: -10rpx;
+    right: 0;
+    background-color: #fc3901;
+    color: #fff;
+    width: 34rpx;
+    height: 34rpx;
+    border-radius: 100%;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 34rpx;
+}
+
+.content>.list>.up-tip {
+    font-size: 24rpx;
+    color: #999;
+    background-color: #fff;
+    padding: 0 30rpx 30rpx 30rpx;
+}
+
+.content>.list>.up-tip>text {
+    color: #fc3901;
+}
+
+.content>.list>.switch {
+    margin-left: auto;
+}
+
+.bottom-btn {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    background: #fff;
+    left: 0;
+    padding: 30rpx 0;
+    z-index: 999;
+}
+
+.bottom-btn>.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30rpx;
+}
+
+.bottom-btn>.box>.item {
+    background: #fe4564;
+    color: #fff;
+    flex: 1;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.bottom-btn>.box>.l {
+    border-right: solid 1rpx #fff;
+    border-top-left-radius: 40rpx;
+    border-bottom-left-radius: 40rpx;
+}
+
+.bottom-btn>.box>.r {
+    border-top-right-radius: 40rpx;
+    border-bottom-right-radius: 40rpx;
+}
+
+.block-nav-icon {
+    margin-left: auto;
+}
+
+@import "../../../../Wxss/2.wxss";

@@ -1,0 +1,19 @@
+<view class="suoyuan-live">
+    <view class="title">
+        <view class="name">{{page.title}}
+            <text>{{page.subtitle}}</text>
+        </view>
+        <navigator class="more" hoverClass="none" url="{{page.more_link}}">
+            <text>{{page.moretitle}}</text>
+            <view class="iconfont icon-xiangyou"></view>
+        </navigator>
+    </view>
+    <view class="scroll">
+        <scroll-view class="scroll-view" scrollX="true">
+            <navigator class="item" hoverClass="none" url="{{item.link}}" wx:for="{{page.items}}" wx:key="index">
+                <image class="img" src="{{item.image}}"></image>
+            </navigator>
+        </scroll-view>
+    </view>
+    <view class="all-line"></view>
+</view>

@@ -1,0 +1,37 @@
+<navbar parameter="{{parameter}}"></navbar>
+<block wx:if="{{has_parent}}">
+    <view class="promoter-text">
+        <text style="color:rgb(140, 140, 140)">我的上级</text>
+    </view>
+    <view class="commission-header">
+        <view class="commission-header-image">
+            <image src="{{parent.avatar}}" style="width: 100rpx;height: 100rpx;"></image>
+        </view>
+        <view class="commission-header-content">
+            <view class="commission-parent-nickname">昵称：{{parent.nickname}}</view>
+            <view class="commission-parent-uid">会员ID：{{parent.id}}</view>
+        </view>
+    </view>
+</block>
+<view class="content" wx:else>
+    <view class="title">绑定推荐人</view>
+    <view class="input-box">
+        <input bindinput="getCode" class="input" placeholder="输入推荐人ID" type="text" value="{{codeData}}"></input>
+    </view>
+    <view bindtap="onBang" class="btn">绑定推荐人</view>
+    <view class="dialog-box" wx:if="{{shopDialog}}">
+        <view class="dialog">
+            <view class="title">提示</view>
+            <view class="msg">
+                    您将要绑定的上级
+                    <view class="bang">昵称为{{userinfo.nickname}} ,手机号{{userinfo.mobile}},真实姓名{{userinfo.realname}}</view>
+                    是否确认绑定，绑定后将无法修改。
+                </view>
+            <view class="btn">
+                <view bindtap="formSubmit" class="qd">确定</view>
+                <view bindtap="quxiao" class="qx">取消</view>
+            </view>
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun="onLoadFun"></authorize>

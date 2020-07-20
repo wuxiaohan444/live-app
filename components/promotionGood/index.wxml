@@ -1,0 +1,27 @@
+<view class="promotionGood">
+    <navigator class="item acea-row row-between-wrapper" hoverClass="none" url="/goods/pages/goods_details/index?id={{item.id}}" wx:for="{{benefit}}" wx:key="index">
+        <view class="pictrue">
+            <view class="day-zigoushengqian" wx:if="{{item.commission.partner_commission}}">自购省钱:{{item.commission.partner_commission}}</view>
+            <image src="{{item.thumb}}"></image>
+            <view class="day-yongjin" wx:if="{{item.commission.agent_commission}}">佣金:{{item.commission.agent_commission}}</view>
+        </view>
+        <view class="text">
+            <view class="info-box-top-stand">
+                <view class="name line1">{{item.title}}</view>
+                <view class="sale-process">
+                    <view class="moneyCon">促销价: ￥
+                            <text class="num">{{item.marketprice}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="buy-box">
+                <view class="left-box">
+                    <view class="org-price">日常价: ￥{{item.productprice}}</view>
+                </view>
+                <view class="right-box">
+                        仅剩：{{item.stock}}{{item.unit}}
+                    </view>
+            </view>
+        </view>
+    </navigator>
+</view>

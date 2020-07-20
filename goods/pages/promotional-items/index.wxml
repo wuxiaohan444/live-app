@@ -1,0 +1,11 @@
+<navbar parameter="{{parameter}}"></navbar>
+<view class="quality-recommend">
+    <swiper autoplay="true" class="exhi-header-box" style="height: {{statusBarHeight+369}}rpx;">
+        <navigator hoverClass="none" url="{{item.wxappurl}}" wx:for="{{banners}}">
+            <swiper-item>
+                <image class="banner" src="{{item.pic}}"></image>
+            </swiper-item>
+        </navigator>
+    </swiper>
+    <promotionGood benefit="{{bastList}}"></promotionGood>
+</view>

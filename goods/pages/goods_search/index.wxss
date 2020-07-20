@@ -1,0 +1,75 @@
+page {
+    background-color: #fff!important;
+}
+
+.searchGood .search {
+    padding-left: 30rpx;
+}
+
+.searchGood .search {
+    margin-top: 20rpx;
+}
+
+.searchGood .search .input {
+    width: 598rpx;
+    background-color: #f7f7f7;
+    border-radius: 33rpx;
+    padding: 0 35rpx;
+    box-sizing: border-box;
+    height: 66rpx;
+}
+
+.searchGood .search .input input {
+    width: 472rpx;
+    font-size: 28rpx;
+}
+
+.searchGood .search .input .placeholder {
+    color: #bbb;
+}
+
+.searchGood .search .input .iconfont {
+    color: #000;
+    font-size: 35rpx;
+}
+
+.searchGood .search .bnt {
+    width: 120rpx;
+    text-align: center;
+    height: 66rpx;
+    line-height: 66rpx;
+    font-size: 30rpx;
+    color: #282828;
+}
+
+.searchGood .title {
+    font-size: 26rpx;
+    color: #999;
+    margin: 10rpx 30rpx 25rpx 30rpx;
+}
+
+.searchGood .list {
+    padding-left: 10rpx;
+}
+
+.searchGood .list .item {
+    font-size: 26rpx;
+    color: #7d7e80;
+    padding: 0 30rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    background: #f3f3f3;
+    margin: 0 0 15rpx 15rpx;
+    border-radius: 40rpx;
+}
+
+.searchGood .line {
+    border-bottom: 1rpx solid #eee;
+    margin: 20rpx 30rpx 0 30rpx;
+}
+
+.history-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 10rpx 30rpx 25rpx 30rpx;
+}
